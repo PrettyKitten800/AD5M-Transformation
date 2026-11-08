@@ -1,0 +1,37 @@
+{
+  "valid_solid": true,
+  "solid_count": 1,
+  "closed_mesh": true,
+  "volume_mm3": 6923.581792232027,
+  "print_envelope_mm": [
+    59.99999999999999,
+    35.498000000000005,
+    17.848500000217825
+  ],
+  "housing_overlap_mm3": 0.0,
+  "board_bracket_clashes": [],
+  "board_housing_clashes": [],
+  "board_bounds": [
+    -20.03600276458509,
+    -22.96672756866242,
+    80.87567942376133,
+    20.002999528637698,
+    13.935800397000559,
+    115.69077389182307
+  ],
+  "board_extra_height_over_old_cover_mm": 19.473023891823075,
+  "rear_extension_from_housing_reference_mm": 11.84972756866242,
+  "angle_from_vertical_deg": 45.0,
+  "physical_fit": "unverified; original feeder/motor, stock bearing carriage and frame are absent from supplied housing CAD",
+  "strain_relief": "removed; no clip geometry or holes",
+  "final_mesh_validation": "mesh_validation.json; four sub-0.22 mm tessellation gaps closed",
+  "corner_radii_mm": {
+    "main_outline": 1.2,
+    "edge_blends": [
+      0.5,
+      0.3,
+      0.15,
+      0.075
+    ]
+  }
+}

@@ -1,0 +1,141 @@
+,Component,Standard,Qty,Size,Recommended,,Alternative Source,,Alternative Source 2,,Notes
+Filament,Primary Color,,2,All,,,,,,,
+Filament,Secondary Color,,1,All,,,,,,,
+Printed Parts,Printed Parts,,1,All,Print Yourself,,Print It Forward,,,,
+Fasteners,M5x40 BHCS,ISO 7380-1,4,All,Bolt Depot,,McMaster-Carr  (10 pack),,,,
+Fasteners,M5x30 BHCS,ISO 7380-1,4,All,Bolt Depot,,McMaster-Carr (100 pack),,,,
+Fasteners,M5x16 BHCS,ISO 7380-1,58,All,Bolt Depot,,McMaster-Carr (100 pack),,,,
+Fasteners,M5x10 BHCS,ISO 7380-1,45,All,Bolt Depot,,McMaster-Carr (100 pack),,,,
+Fasteners,M5 Heat Set Inserts (M5xD7xL6),,15,All,,,CNC Kitchen,,,,
+Fasteners,M5 1.0mm Thick Shim/Washer,DIN 988,24,All,Aliexpress,[Affiliate Link],McMaster-Carr (50 pack),,,,
+Fasteners,M5 T-Nut,,69,All,ZFhong,[Affiliate Link],Link CNC,[Affiliate Link],Misumi,,
+Fasteners,M4x6 BHCS,ISO 7380-1,7,All,Bolt Depot,,McMaster-Carr (100 pack),,,,
+Fasteners,M4 Thumb Nuts,,3,All,,Aliexpress,Amazon,,,,
+Fasteners,M3x40 SHCS,ISO 4762 / DIN 912,9,All,Bolt Depot,,McMaster-Carr (25 pack),,,,Bolt depot only carries these in stainless.  Try another source if you want black.
+Fasteners,M3x30 SHCS,ISO 4762 / DIN 912,13,All,Bolt Depot,,McMaster-Carr (10 pack),,,,
+Fasteners,M3x20 SHCS,ISO 4762 / DIN 912,3,All,Bolt Depot,,McMaster-Carr (100 pack),,,,
+Fasteners,M3x16 SHCS,ISO 4762 / DIN 912,27,All,Bolt Depot,,McMaster-Carr (100 pack),,,,
+Fasteners,M3x12 SHCS,ISO 4762 / DIN 912,73,All,Bolt Depot,,McMaster-Carr (100 pack),,,,
+Fasteners,M3x8 SHCS,ISO 4762 / DIN 912,140,plus 12 per size up,Bolt Depot,,McMaster-Carr (100 pack),,,,
+Fasteners,M3x6 BHCS,ISO 7380-1,59,All,Bolt Depot,,McMaster-Carr (100 pack),,,,
+Fasteners,M3x6 FHCS,ISO 10642 / DIN 7991,17,,Bolt Depot,,McMaster-Carr (100 pack),,,,
+Fasteners,M3 Washer,ISO 7089 / DIN 125,4,All,Bolt Depot,,McMaster-Carr (100 pack),,,,Bolt depot only carries these in stainless.  Try another source if you want black.
+Fasteners,M3 Lock Nut,DIN 985,6,All,Bolt Depot,,McMaster-Carr (100 pack),,Amazon,,Bolt depot and Mcmaster only carry these in stainless.  Try another source if you want black.
+Fasteners,M3 Roll-in T-Nut,,86,All,ZFhong,[Affiliate Link],Link CNC,[Affiliate Link],Misumi,,
+Fasteners,M3 Hammerhead T-Nut,,55,,Aliexpress,[Affiliate Link],Amazon,,,,
+Fasteners,M3 Heat Set Inserts (M3x5x4),,109,All,Aliexpress,[Affiliate Link],,CNC Kitchen,,,
+Fasteners,M2x10 Self Tapping Screw for Plastics,,17,All,Aliexpress,,Aliexpress,[Affiliate Link],Amazon,,
+Motion,GT2 Open Belt LL-2GT-6 (6mm wide),,6 meters,All,Trianglelab,[Affiliate Link],SDP-SI (Genuine US Made Gates),,POWGE,[Affiliate Link],GATES belts are required for every open loop belt on the machine. SDP-SI is a US gates reseller (and tested)
+Motion,GT2 20T (6mm wide) Pulley (5mm bore),,3,All,POWGE,[Affiliate Link],,,,,
+Motion,GT2 20T (6mm wide) Toothed Idler (5mm bore),,2,All,POWGE,[Affiliate Link],,,,,"RD pulleys are incorrect size and are inconsistent in profile, use POWGE"
+Motion,F695 Bearing (add two for stepper double shear),,24,All,RainDew,[Affiliate Link],Fushi,[Affiliate Link],,,
+Motion,5x30mm Shaft,,1,All,linkcnc,[Affiliate Link],,,,,
+Motion,GE5C Spherical Bearing,,3,All,Aliexpress,[Affiliate Link],Igus,,,,
+Motion,Linear Rail MGN12H for X Axis,,1,250x250 -> 300mm rails,CNA,,RobotDigg,Zyltech,,LDO,"If ordering CNA, specify ""medium preload"" in order notes. 
+
+RobotDigg PN: GS_MGN9-1H-B300"
+,,,,300x300 -> 350mm rails,,,,,,,
+,,,,350x350 -> 400mm rails,,,,,,,
+Motion,Linear Rail MGN9H  for Y Axis,,2,250x250 -> 300mm rails,CNA,,,Zyltech,,,
+,,,,300x300 -> 350mm rails,,,,,,,
+,,,,350x350 -> 400mm rails,,,,,,,
+Motion,Linear Rail MGN9H for Z Axis,,3,All builds -> 300mm rails,,,,,,,
+Motion,"Integrated Lead Screw/Stepper Motors - 300mm, 2/4/8mm pitch",,3,All,Aliexpress (LinkCNC),[Affiliate Link],LDO (PrintedSolid),,,,4mm pitch recommended for most applications
+Extruder,BMG Extruder Kit (used for gears),,1,All,Aliexpress (TriangleLabs),[Affiliate Link],Amazon (TriangleLabs),,Filastruder,Printed Solid,if you buy the entire extruder you will have to disassemble it for the parts as the housing is not needed
+Vibration Management,Rubber Foot,,4,All,Amazon,,AliExpress,,AliExpress,,"Commonly referred to as Amplifier Cabinet Feet.  Any rubber foot with a maximum diameter of 1.5"" (38mm) and around .75"" (19mm) height will work.  The original spec compressor feet will work as well."
+Electronics,Omron Mouse Button - Micro Switch,,3,All,Digikey,,,,,,
+Electronics,"Omron TL-Q5MC2 - NPN, NC, 5mm Sense",,1,All,Aliexpress,[Affiliate Link],,,,,The common PL08 probe may not fit with the MGN12 configuration due to space constraints.  Omron or Panasonic probes are recommended.
+Electronics,BAT85 Diode,,1,All,DigiKey,,,,,,"You do not want to get this part from an Ali vendor as quality can be suspect. If these sources are not available in your area, please ask in a regional channel on Discord or search a local electronics store."
+Electronics,Omron G3NA-210B-DC5 (10A) or Crydom D2425 (25A) or Crydom 84134000 (10A) SSR,,1,All,Digikey (Omron),,Digikey (Crydom 25A),,Digikey (Crydom 10A),,"Crydom (2nd Link, also valid alternative), UTU PN just adds TUV support as a certification to the relay (Omron Only)"
+Electronics,SSR DIN Mount,,1,All,Aliexpress,[Affiliate Link],,,,,
+Electronics,NEMA17 Motor 17HS19-2004S (min 35mm shaft for double shear),,2,All,Stepper Online,,Stepper Online,[Affiliate Link],Amazon,LDO,
+Electronics,NEMA17 Motor 17HS08-1004S,,1,All,Aliexpress,[Affiliate Link],,,,LDO,
+Electronics,Mean Well LRS-200-24 PSU,,1,All,Digikey,,Digikey (Europe),,,,Do not cheap out on this. Get a legitimate MeanWell PSU. Higher wattage is not necessary since the bed is mains powered. Higher wattage also comes with a fan which adds to the noise. For regions that mandate PFC use the MeanWell RSP-200-24 instead of the LRS-200-24.
+Electronics,"TBC-09 Terminal Cover (optional, for LRS-200-24)",,1,All,,Digikey,,,,,
+Electronics,Meanwell RS-25-5 PSU,,1,All,Digikey,,,,,,Do not cheap out on this. Get a legitimate MeanWell PSU.
+Electronics,"TBC-05 Terminal Cover (optional, for RS-25-5)",,,,,Digikey,,,,,
+Electronics,ZF - Rocker Switches DPST 16A ON-OFF,,1,All,Digikey (no Light),,Mouser (Red Light),,,,Note the Mouser (Red Light) only has a 125v indicator in it. For 220/240 countries use the no light model
+Electronics,Fuse Medium Time Delay Acting 8A 250V Holder Cartridge 5 X 20mm Glass,,2,All,Digikey,,,,,,For areas with 120V mains systems.
+Electronics,Fuse Medium Time Delay Acting 4A 250V Holder Cartridge 5 X 20mm Glass,,2,All,Digikey,,,,,,"For areas with 220V mains systems. Digikey can be expensive for EU customers, and this part can often be found cheaper at a local hardware or automotive store."
+Electronics,TycoElectronics - 10EGG1-2 (Normal) or 10EHG1-2 (Medical): Filtered Power Inlet,,1,All,Digikey,,Mouser,,,,For European dual-fuse builds
+Electronics,TycoElectronics - 10EGG1-1 (Normal) or 10EHG1-1 (Medical): Filtered Power Inlet,,1,All,Digikey,,Mouser,,,,For North American & UK single-fuse builds
+Electronics,C13 Power Cord,,1,All,Amazon,,,,,,
+Electronics,E3D V6 Bowden Hotend Kit (24V),,1,All,Trianglelab,[Affiliate Link],Printed Solid,Filastruder,,,"Trianglelab sells inexpensive clones of the E3D v6 assembly that is as good, if not better, than the original part. There is no reason to buy the ""legit"" part here unless you don't like money. Purchase the all metal option. PTFE lined will break down at ABS temps."
+Electronics,40x40x10 Axial Fan (24V),,1,All,Aliexpress,[Affiliate Link],Amazon,,,,Pretty much any fan here will work--airflow is less restricted through toolhead
+Electronics,50x50x15 Centrifugal Fan (24V),,1,All,,,,,,,
+Electronics,60x60x20 Axial Fan (24V),,2,All,DigiKey,,GDSTIME,[Affiliate Link],Amazon,,
+Electronics,Thermal Fuse,,1,All,AliExpress,[Affiliate Link],,,,,"Buy a 150C thermal cutoff, you want the fuse to blow before the heater falls off the bed"
+Controller,Raspberry Pi 4 2GB,,1,All,Arrow,,Amazon,,,,"Quirks with the Raspberry Pi 4 have largely been figured out, and the Pi 3 B+ is no longer readily available. 2GB RAM version is plenty!"
+Controller,MicroSD Card,,1,All,Amazon (32gb),,,,,,"This SD card is a bit faster than the previously sourced one, but the difference should be minimal"
+Controller,6 Stepper Controller (or multiple to equal 6+ steppers),,1,All,Aliexpress (FYSETC),[Affiliate Link],Aliexpress (BTT),[Affiliate Link],,,At the moment there is no official preference on controller choice.  Mount options are provided for all the common combinations.
+Controller,TMC 2209 Drivers,,6,All,,,,,,,Generally purchasing BTT 2209s is the safest option
+Controller,FYSETC mini12864 Display (Type B),,1,All,Aliexpress (FYSETC),[Affiliate Link],,,,,mini12864 display is more compact and updates the display look a bit! Type B is what I have
+Frame,Misumi HFSB5-2020 (Size depends - use configurator),,,250³,Misumi,,,,LDO,,
+Frame,,,,300³,,,,,,,
+,,,,350³,,,,,,,
+Frame,HFSB5-2020-500-LCP-RCP-AV360,B,4,250x250x250,Misumi,,,,,,Vertical extrusions with blind joint access holes pre-drilled. Can DIY holes for cost savings.  Use 6mm drill
+Frame,HFSB5-2020-370-TPW,A,9,250x250x250,Misumi,,,,,,Horizontal extrusions for outer frame and Gantry
+Frame,HFSB5-2020-370-AH185-TPW,C,1,250x250x250,Misumi,,,,,,Lower rear horizontal extrusion
+Frame,HFSB5-2020-330-LTP,H,1,250x250x250,Misumi,,,,,,Vertical rear center extrusion
+Frame,HFSB5-2020-370-AH185,F,1,250x250x250,Misumi,,,,,,Front bed extrusion
+Frame,HFSB5-2020-232-LTP,G,1,250x250x250,Misumi,,,,,,Rear bed extrusion
+Frame,HFSB5-2020-240,D,1,250x250x250,Misumi,,,,,,Rear Cross Bar for Gantry: X Spec Dimension - 10mm
+Frame,HFSB5-2020-330,E,1,250x250x250,Misumi,,,,,,X Axis Extrusion: X Spec Dimension + 80mm
+Frame,HFSB5-2020-500-LCP-RCP-AV360,B,4,300x300x250,Misumi,,,,,,
+Frame,HFSB5-2020-420-TPW,A,9,300x300x250,Misumi,,,,,,"Note: Currently (Summer 2021), Misumi has a long leadtime on Black extrusions.  Remove the B from the part number for the silver variant"
+Frame,HFSB5-2020-420-AH210-TPW,C,1,300x300x250,Misumi,,,,,,
+Frame,HFSB5-2020-330-LTP,H,1,300x300x250,Misumi,,,,,,
+Frame,HFSB5-2020-420-AH210,F,1,300x300x250,Misumi,,,,,,
+Frame,HFSB5-2020-282-LTP,G,1,300x300x250,Misumi,,,,,,
+Frame,HFSB5-2020-290,D,1,300x300x250,Misumi,,,,,,
+Frame,HFSB5-2020-380,E,1,300x300x250,Misumi,,,,,,
+Frame,HFSB5-2020-500-LCP-RCP-AV360,B,4,350x350x250,Misumi,,,,,,
+Frame,HFSB5-2020-470-TPW,A,9,350x350x250,Misumi,,,,,,
+Frame,HFSB5-2020-470-AH235-TPW,C,1,350x350x250,Misumi,,,,,,
+Frame,HFSB5-2020-330-LTP,H,1,350x350x250,Misumi,,,,,,
+Frame,HFSB5-2020-470-AH235,F,1,350x350x250,Misumi,,,,,,
+Frame,HFSB5-2020-332-LTP,G,1,350x350x250,Misumi,,,,,,
+Frame,HFSB5-2020-340,D,1,350x350x250,Misumi,,,,,,
+Frame,HFSB5-2020-430,E,1,350x350x250,Misumi,,,,,,
+Misc,Bowden Tube,,,All,Aliexpress,[Affiliate Link],Trianglelab,[Affiliate Link],,,"Trident uses a ""reverse bowden""--so it's not under load and not critical, and is no longer a wear item. Purchase whatever suits your fancy"
+Misc,6mm x 3mm Round Neodymium Magnets,,8,All,Aliexpress,,Aliexpress,,,,Magnets for the front door
+Misc,"DIN Rail - Electronics Enclosure - Steel - 35mm wide, 7.5mm tall, Steel",,2,250 build - 369mm,Aliexpress,[Affiliate Link],,,,,
+Misc,,,2,300 build - 419mm,,,,,,,
+Misc,,,2,350 build - 469mm,,,,,,,
+Misc,Foam Panel Tape (5mm wide/3mm thick),,7m,All,Aliexpress,[Affiliate Link],,,,,
+Cable Chain,"10x11mm - 1 meter with 3 end sets (3 fixed end, 3 free end), R18 (18mm radius)",,1,All,,Amazon,Aliexpress,[Affiliate Link],,,"Requires a total of 3 end sets, X,Y,Z all need a piece of chain with end links, total length of all the chain is 1 meter"
+Cables,Fork Spade Terminal,,,All,Digikey,,,,,,for power supply and SSR
+Cables,Insulated Crimp Receptical,,,All,Digikey,,,,,,for Power Inlet (6.35mm)
+Cables,"Nylon Cable Ties 4""",,,All,Amazon,,,,,,
+Cables,MicroFit3 Male Pin (43031-0007),,,All,Digikey,,DigiKey,,,,This is a good starter kit that has plenty of pins and all of the required connectors. The kit comes with individual part numbers to source individual pieces later if required.
+Cables,MicroFit3 Female Pin (43030-0007),,,All,Digikey,,,,,,
+Cables,MicroFit Connector Receptacle 4 Position (43645-0400),,,All,Digikey,,,,,,
+Cables,MicroFit Connector Receptacle 3 Position (43645-0300),,,All,Digikey,,,,,,
+Cables,MicroFit Connector Receptacle 2 Position (43645-0200),,,All,Digikey,,,,,,
+Cables,MicroFit Connector Plug 4 Position (43640-0401),,,All,Digikey,,,,,,
+Cables,MicroFit Connector Plug 3 Position (43640-0301),,,All,Digikey,,,,,,
+Cables,MicroFit Connector Plug 2 Position (43640-0201),,,All,Digikey,,,,,,
+Cables,MLX Power Receptacle 3 Position (50-84-2030),,1,All,Digikey,,,,,,"For Bed (Line, Neutral and Ground)"
+Cables,MLX Power Plug 3 Position (50-84-1030),,1,All,Digikey,,,,,,
+Cables,MLX Male Pin (02-08-2004),,3,All,Digikey,,,,,,
+Cables,MLX Female Pin (02-08-1002),,3,All,Digikey,,,,,,
+Cables,JST-XH Female Pin,,40,All,Aliexpress,[Affiliate Link],Amazon,,,,"Most modern boards use JST XH connectors for fan, stepper, thermistor, and endstop connections, but be sure to check the documentation for your board."
+Cables,JST-XH Connector Plug 4 Position,,5,All,,,,,,,
+Cables,JST-XH Connector Plug 3 Position,,4,All,,,,,,,
+Cables,JST-XH Connector Plug 2 Position,,4,All,,,,,,,
+Cables,Dupont Female Pin,,2,All,,,,,,,
+Cables,Dupont 2 Pin Connector,,1,All,,,,,,,For feeding power into the Pi
+Cables,22AWG PTFE wire (100ft total),,1,All,AliExpress,,,,,,"24AWG is sufficent, however make sure it is high strand count:  7 strand wire will break in the cable chains"
+Cables,20AWG PTFE wire (10ft total),,1,All,Aliexpress,,,,,,
+Cables,18AWG PTFE wire wire (10ft total),,1,All,Aliexpress,,,,,,
+Panels,"Deck, Bottom and Back Panels",,,All,Michaels Craft Store (Coroplast),,MN Laser Cutting ,,Printed Solid,,ABS and ACM Sheets are a common replacement that are also easy to cut and offer a more rigid surface for the deck plate that can have components mounted directly to it
+Panels,Side/Front/Top Polycarbonate Panels,,,All,TAP Plastics (Polycarbonate),,,,Printed Solid,,See BOM for sizes
+Buildplate,Aluminum Build Plate (MIC6/ATP-5/Jig Plate/etc) (5/16in or 8mm depending on whats available in your country),,"10x10""",250³,Mandala Rose Works,,,,Clever3D.de,,"Thicker material is fine too, just keep in mind your heat up times will greatly increase"
+,,,"12x12""",300³,,,,,,,
+,,,"14x14""",350³,,,,,,,
+Buildplate,Silicone AC Heater 200x200mm,,,250³,Keenovo (120v),,Keenovo (220v),,,,"The heater size and power rating are not critical to have exactly at spec. The mat needs to be smaller than the bed so you have room for mounting hardware and an external thermal fuse. If the mat is underpowered, it will take longer to heat your bed. If it is overpowered, you can use firmware control to have it use less power. Using an overpowered heater at max power will heat your bed faster but make it more prone to warping. Choose an AC voltage suitable for your region."
+,Silicone AC Heater 240x240mm,,,300³,Keenovo (120v),,Keenovo (220v),,,,
+,Silicone AC Heater 300x300mm,,,350³,Keenovo (120v),,Keenovo (220v),,,,
+Buildplate,PEI + 3M 468P (200MP),,,250³,CSHyde (Trim),,"Mueller (Trim, includes adhesive)",,Mueller 5pack (Trim),,
+,,,,300³,CSHyde,,Mueller (includes adhesive),,,,
+,,,,350³,,,,,,,

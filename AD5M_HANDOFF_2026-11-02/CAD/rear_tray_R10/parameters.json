@@ -1,0 +1,127 @@
+{
+  "width": 167.0,
+  "bottom": -30.0,
+  "top": 142.0,
+  "plate_thickness": 2.0,
+  "standoff_height": 3.0,
+  "chassis_holes": [
+    [
+      128,
+      6
+    ],
+    [
+      16,
+      6
+    ],
+    [
+      153.5,
+      15
+    ],
+    [
+      128,
+      138
+    ],
+    [
+      16,
+      138
+    ],
+    [
+      153.5,
+      93
+    ]
+  ],
+  "chassis_hole_diameter": 3.3,
+  "octopus_origin": [
+    2,
+    -24
+  ],
+  "octopus_size": [
+    100,
+    160
+  ],
+  "octopus_holes": [
+    [
+      7,
+      -19
+    ],
+    [
+      97,
+      -19
+    ],
+    [
+      7,
+      131
+    ],
+    [
+      97,
+      131
+    ]
+  ],
+  "octopus_pilot": 2.5,
+  "pi_origin": [
+    107,
+    47
+  ],
+  "pi_size": [
+    56,
+    85
+  ],
+  "pi_holes": [
+    [
+      110.5,
+      50.5
+    ],
+    [
+      159.5,
+      50.5
+    ],
+    [
+      110.5,
+      108.5
+    ],
+    [
+      159.5,
+      108.5
+    ]
+  ],
+  "pi_pilot": 2.0,
+  "mosfet_origin": [
+    105,
+    -21
+  ],
+  "mosfet_size_assumed": [
+    60,
+    50
+  ],
+  "mosfet_holes": [
+    [
+      108.75,
+      -17.25
+    ],
+    [
+      161.25,
+      -17.25
+    ],
+    [
+      108.75,
+      25.25
+    ],
+    [
+      161.25,
+      25.25
+    ]
+  ],
+  "mosfet_pilot": 2.5,
+  "depth_ESTIMATED": 35.0,
+  "preferred_total_installed_height": 30.0,
+  "mosfet_mounting_pitch": [
+    52.5,
+    42.5
+  ],
+  "mosfet_pitch_basis": "User final dimensions: 52.5 mm X by 42.5 mm Y",
+  "root_fillet_radius": 1.5,
+  "frame_rail_width": 4.0,
+  "brace_width": 3.5,
+  "mounting_holes_through": true,
+  "tie_pad_corner_radius": 2.0
+}

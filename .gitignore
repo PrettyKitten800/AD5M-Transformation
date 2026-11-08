@@ -1,0 +1,30 @@
+# Local caches and duplicate archives
+.git/
+**/.git/
+__pycache__/
+**/__pycache__/
+*.pyc
+*.FCBak
+*.bak
+*.zip
+*.7z
+*.tar
+*.tar.gz
+.qdrant*
+storage/
+snapshots/
+.env
+.env.*
+!.env.example
+# Machine-specific firmware readback backups
+**/*readback.bin
+**/original-flash-*.bin
+# Downloaded upstream checkouts; source metadata remains tracked
+reference/Awesome-Extruders/
+reference/Voron_Trident/source_archives/
+reference/Voron_Trident/Voron-Trident/
+reference/Voron_Trident/Voron-Stealthburner/
+reference/Voron_Trident/Voron-Documentation/
+reference/BootyCallJones_K1_Gantry/source/
+# Large derived preview caches (original CAD remains available)
+**/*_preview_mesh.json

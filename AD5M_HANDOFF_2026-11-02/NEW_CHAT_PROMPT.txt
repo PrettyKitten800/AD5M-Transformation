@@ -1,0 +1,7 @@
+Continue my Flashforge AD5M electronics replacement in this same project. First read:
+C:\Users\PK800\Documents\ChatGPT\AD5M Build\AD5M_HANDOFF_2026-11-02\START_HERE.txt
+Then read AD5M_REBUILD_HANDOFF.txt, CURRENT_BUILD_STATE.json and DECISIONS_AND_CORRECTIONS.txt in that folder. The package contains the current diagrams, CAD and original photos.
+
+We are preparing firmware flashing. EBB36V1.2.1 (noMAX31865) and Octopus ProV1.1H723 are the relevant boards; do not assume either flash succeeded. My latest questions were locating Octopus BOOT0 and VBUS. Establish the current USB/power/jumper state and actual lsusb result before choosing the next flashing step.
+
+Keep our current HE0/PA0-controlled external bed MOSFET wiring; BED-POWER and BED-OUT are unused. EBB Hall X/Y usePB6/PB7. Respect the other confirmed decisions and identify untested items from the documents. Help me one concrete step at a time, and show the current annotated pictures inline when useful. Do not repeat questions about hardware and materials already documented.

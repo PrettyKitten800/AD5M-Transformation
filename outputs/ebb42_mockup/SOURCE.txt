@@ -1,0 +1,2 @@
+https://raw.githubusercontent.com/bigtreetech/EBB/master/EBB%20CAN%20V1.1%20and%20V1.2%20%28STM32G0B1%29/EBB42%20CAN%20V1.1%20and%20V1.2/3D/BIGTREETECH%20EBB42%20CAN%20V1.1.step
+Official V1.1 CAD used as a dimensional reference. User board revision not confirmed.

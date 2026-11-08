@@ -1,0 +1,19 @@
+{
+  "retrieved_date": "2026-11-03",
+  "publisher": "Flashforge",
+  "source_page": "https://www.flashforge.com/a/docs/knowledge-corner/printer-mod-and-diy",
+  "download_url": "https://wiki.flashforge.com/resource/models/printer-mod-and-diy/adventurer_5m_enclosure/ad5m-printer_source_model.zip",
+  "sha256": "c31079b9e5401d5a6e8f38f68d40439a52d5a30f53b03a7259e00354a8b5ef87",
+  "zip_crc_verified": true,
+  "files": [
+    "AD5M_Enclosure.SLDASM",
+    "AD5M_Enclosure.STEP",
+    "AD5M_Enclosure_Preview.pdf",
+    "AD5M_Enclosure_Preview.png",
+    "AD5M_Frame.STEP",
+    "AD5M_Frame_Preview.pdf",
+    "AD5M_Frame_Preview.png",
+    "AD5M_Frame_Render.SLDASM"
+  ],
+  "geometry_verified_against_printer": false
+}

@@ -1,0 +1,20 @@
+{
+  "valid_solid": true,
+  "solid_count": 1,
+  "closed_mesh": true,
+  "volume_mm3": 7355.819082449948,
+  "print_envelope_mm": [
+    58.0,
+    28.770150045003156,
+    37.34218141924175
+  ],
+  "housing_intersection_mm3": 0.0,
+  "board_to_housing_Y_envelope_gap_mm": "tilted assembly; visual and sampled checks separately",
+  "reference_old_cap_top_z_mm": 96.21775,
+  "bracket_top_z_mm": 93.34493141924173,
+  "board_top_z_mm": 93.69077389182307,
+  "clip_top_z_mm": 95,
+  "physical_validation": "not performed",
+  "mesh_export_note": "MeshPart export; merged coincident vertices at 1e-5 mm precision, removed degenerate faces; verified watertight",
+  "mesh_components": 1
+}

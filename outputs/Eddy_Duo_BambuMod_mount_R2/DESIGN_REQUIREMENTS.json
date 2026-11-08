@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-08",
+  "status": "awaiting actual carriage interface geometry before mounting holes are modeled",
+  "goal": "Bring Eddy sensing coil as close as practical to the nozzle XY position; minimize fore-aft offset",
+  "attachment": "User specifically means the LEFT MOUNTING HOLE ON THE EDDY DUO itself should attach to the carriage; prefer direct carriage attachment",
+  "retain": [
+    "existing BambuMod housing",
+    "vertical sensor adjustment where compatible with direct anchor",
+    "rigid anti-rotation support at second sensor hole"
+  ],
+  "missing": [
+    "actual stock carriage mounting face and accessible hole geometry",
+    "nozzle axis relative to carriage attachment",
+    "interpretation of left in installed view to be established with photo"
+  ],
+  "supersedes": "R1 sidewall drilling layout is not the intended installation; do not drill from R1 locator for R2"
+}

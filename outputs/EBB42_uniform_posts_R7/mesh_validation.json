@@ -1,0 +1,11 @@
+{
+  "watertight": true,
+  "winding_consistent": true,
+  "connected_bodies": 1,
+  "extents_mm": [
+    60.0,
+    35.49451132118702,
+    17.848499298095703
+  ],
+  "sub_mm_tessellation_gap_repairs": []
+}

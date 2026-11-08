@@ -1,0 +1,72 @@
+{
+  "checked": "2026-11-03",
+  "board": "EBB36 CAN V1.2.1 without MAX31865",
+  "sources": {
+    "B1": {
+      "title": "BTT EBB36 hardware wiki",
+      "url": "https://neo.bttwiki.com/en/docs/board-docs/ebb-series/ebb-36/ebb-36-hardware"
+    },
+    "B2": {
+      "title": "BTT EBB36 V1.2 schematic",
+      "url": "https://github.com/bigtreetech/EBB/blob/master/EBB%20CAN%20V1.1%20and%20V1.2%20(STM32G0B1)/EBB36%20CAN%20V1.1%20and%20V1.2/Hardware/BIGTREETECH%20EBB36%20CAN%20V1.2-SCH.pdf"
+    },
+    "B3": {
+      "title": "BTT V1.2 sample configuration",
+      "url": "https://github.com/bigtreetech/EBB/blob/master/EBB%20CAN%20V1.1%20and%20V1.2%20(STM32G0B1)/sample-bigtreetech-ebb-canbus-v1.2.cfg"
+    },
+    "B4": {
+      "title": "BTT V1.1/V1.2 pinout",
+      "url": "https://github.com/bigtreetech/EBB/blob/master/EBB%20CAN%20V1.1%20and%20V1.2%20(STM32G0B1)/EBB36%20CAN%20V1.1%20and%20V1.2/Hardware/EBB36%20CAN%20V1.1%26V1.2-PIN.png"
+    },
+    "K1": {
+      "title": "Klipper CAN bus",
+      "url": "https://www.klipper3d.org/CANBUS.html"
+    },
+    "K2": {
+      "title": "Klipper multiple-MCU homing",
+      "url": "https://www.klipper3d.org/Multi_MCU_Homing.html"
+    },
+    "A1": {
+      "title": "Allegro A3141-A3144 datasheet",
+      "url": "https://www.allegromicro.com/~/media/Files/Datasheets/A3141-2-3-4-Datasheet.ashx"
+    },
+    "S1": {
+      "title": "Sedmenti conversion - secondary build-specific context",
+      "url": "https://github.com/sedmenti/FlashForge_A5M_raspberry"
+    }
+  },
+  "reference_files": [
+    {
+      "path": "reference\\ebb36_btt\\BTT_EBB36_V11_V12_manual.pdf",
+      "sha256": "d716d519f38da0cdc9526c5ab8b2e9fdaa243a52f487227cde97179daae48098"
+    },
+    {
+      "path": "reference\\ebb36_btt\\BTT_EBB36_V11_V12_manual.txt",
+      "sha256": "7b7fdaa72533a3910ee5dc66a53b81b467a481fa8e5702bcdd5558e744717aeb"
+    },
+    {
+      "path": "reference\\ebb36_btt\\BTT_EBB36_V11_V12_pinout.png",
+      "sha256": "93eaa3256b1c26f8ad89c2de17cb442b54ffb0618222981e75151615cefcdfe2"
+    },
+    {
+      "path": "reference\\ebb36_btt\\BTT_EBB36_V12_schematic.pdf",
+      "sha256": "ecc1c179c271552f77bb8730708b30908c933d7d143800807e0cdcf8c824e46a"
+    },
+    {
+      "path": "reference\\ebb36_btt\\BTT_EBB36_V12_schematic.txt",
+      "sha256": "147a941803542aa4b593769d64c5df98c2000ddbbc58f1e384424e02e46ebff9"
+    },
+    {
+      "path": "reference\\ebb36_btt\\BTT_PT1000_jumper.png",
+      "sha256": "26736e4e3215b0000b25ca7c60bc8a1d504b158da67aae27c8978ba68370e99b"
+    },
+    {
+      "path": "reference\\ebb36_btt\\BTT_sample_v12.cfg",
+      "sha256": "35c545cbdf8c27f4c1a7f8e2647bbc6a6f3e11b1a72ef665eddd18e87ba8a187"
+    },
+    {
+      "path": "reference\\ebb36_btt\\BTT_USB_power.png",
+      "sha256": "a3a1d7658f64419e84fc7f469ab0daeecf2898d66c876603c5c9e098f0ab0c5c"
+    }
+  ]
+}

@@ -1,0 +1,299 @@
+CONSOLIDATED EDITION 2 — RESTART PACKAGE
+This full handoff is accompanied by START_HERE.txt, CURRENT_BUILD_STATE.json, and portable copies of the selected diagrams, CAD and photos in AD5M_HANDOFF_2026-11-02/.
+Local paths in the original detailed sections remain useful for provenance. Prefer the package's relative Diagrams/, CAD/, Photos/ and Official_pinouts/ copies when transferring to another computer or agent.
+The latest user request is to preserve this conversation and continue in a new chat because of context length. No new wiring or flashing outcome was reported while consolidating.
+
+FLASHFORGE AD5M ELECTRONICS REBUILD — AGENT HANDOFF
+Updated: November 2, 2026 (America/New_York)
+Workspace: C:\Users\PK800\Documents\ChatGPT\AD5M Build
+
+PURPOSE AND CURRENT STATE
+Replace the stock mainboard and toolhead electronics while retaining the AD5M's mechanics, stock bed, stock sensors where practical, and stock rear-cover position. A printable rear carrier has been designed and printed; user photos show the Octopus, Pi and external bed MOSFET mounted on it.
+
+The user has been physically wiring the machine. They most recently said the EBB36 was the only remaining board to connect, then chose to flash boards first. EBB was connected to the Pi by USB but initially had no power. USB power-jumper instructions were provided. User then asked for Octopus BOOT0 and VBUS locations for flashing. NO successful flash, DFU listing, CAN discovery, firmware configuration, homing, sensor test, heater test or final commissioning result has been reported. Do not assume any of those are complete.
+
+User initially did not have a multimeter. Continuity/polarity checks were explicitly deferred, not completed. Subsequent acquisition of a meter is not confirmed. Continue helping with preparation, but do not call the assembly tested or ready for powered heaters.
+
+WHAT IS CONFIRMED VS PLANNED
+- Board versions, PSU label, fan labels and physical assembly were observed in user photos.
+- Pin assignments below were checked against BTT's V1.1 Octopus and V1.1/V1.2 EBB diagrams and relevant Klipper examples.
+- Electrical behavior, wire continuity, polarity at assembled harness ends, current draw, sensor signal levels, firmware inversion and actual heating performance have NOT been measured.
+- Optional chamber-fan and LED assignments were proposed to adapt the Manta example. Their presence/ratings are not confirmed by the user.
+- MOSFET CONTROL positive is a user-specified premise, described below; do not claim independent verification.
+
+HARDWARE
+Printer: Flashforge Adventurer 5M (AD5M), not confirmed as Pro.
+Host: Raspberry Pi 5, 8 GB, from Vemico kit. Active cooler installed; user says it does not project above the metal I/O cages. Kit: https://www.amazon.com/dp/B0DFMNHL62
+Main MCU: BIGTREETECH Octopus Pro V1.1, STM32H723.
+Plug-in drivers: four BIGTREETECH TMC2209 V1.3 purchased/visible. Three required for two CoreXY motors and Z. Fourth is spare because EBB has the extruder driver onboard.
+Toolhead: BIGTREETECH EBB36 CAN V1.2.1, WITHOUT MAX31865. Photo confirms version. Earlier user typo "ebb35" does not identify a different board. Product: https://www.amazon.com/dp/B0B1MHHNDX
+Endstops: two loose three-leg A3144 Hall sensors for X/Y; not sensor modules. Product: https://www.amazon.com/dp/B0DQ4GV916
+External bed MOSFET: ReliaBot, PCB marked V1.3, advertised 25 A at 12/24 V. White two-pin connector marked ControlIn/CONTROL. https://www.amazon.com/dp/B078S6221G
+Actual stock PSU: A-350GF-24-CX, label 24 V DC, 14.6 A (about 350 W). NOT a verified Mean Well LRS-350. Earlier carrier depth estimate used a Mean Well comparison; do not carry that over as PSU identity.
+Hotend: standard Bambu X1 Carbon hotend/heater/thermistor, retained. Only JST connector was changed to fit the original AD5M head board. Exact Klipper thermistor curve and heater resistance/power have not been independently established; do not assume BTT sample EPCOS curve is correct.
+Hotend fan: Peerless DF3010B24H, 24 V, 0.09 A, two wires, red/black.
+Part-cooling blower: HXH HBB0524VD, label 24 V, 0.25 A, four wires (red, black, blue, yellow). Retain stock blower. Electrical PWM-interface adaptation remains unresolved.
+Bed: retained stock AD5M DC bed. ChaoticWeaponry identifies it as 250 W; this specific bed has not been measured. At 24 V, 250 W implies about 10.4 A. BTT rates Octopus Pro H723 bed output at 10 A continuous / 12 A peak; therefore retain the external MOSFET rather than routing heater current through the Octopus.
+Bed ribbon adapter: existing 30-pin FPC breakout, populated connector side marked 1.0 mm. Reverse side marked 0.5 mm; that reverse marking alone does not make the populated 1.0 mm connector wrong. User wired breakout following ChaoticWeaponry. All its pigtails are 22 AWG solid wire; pins 29 and 30 explicitly have separate wires.
+
+WIRE AND CONNECTORS AVAILABLE
+- 12 AWG and 16 AWG stranded COPPER, not CCA.
+- Fork lugs that fit under screws, not push-on spades.
+- Four-conductor CAN cable described by user as 18 AWG. Actual power/data conductor construction, color allocation, flexibility and twist arrangement have not been verified. Identify the CAN H/L twisted pair; use correct contacts for conductor sizes.
+- User says all required Molex/JST connectors are available.
+- 22 AWG solid wire at stationary bed breakout. Keep supported and fixed; moving harness sections need flexible stranded wire.
+- Distribution connectors, splice ratings and DC branch fuses have not been fully identified or sized.
+
+CURRENT POWER DECISION — HE0, NOT BED-OUT
+THIS SUPERSEDES EARLIER DRAWINGS AND ADVICE REQUIRING BED-POWER.
+User has actually connected MOSFET CONTROL to Octopus HE0.
+
+Octopus HE0 + (VIN) -> external MOSFET CONTROL +.
+Octopus HE0 - (PA0 switched output) -> external MOSFET CONTROL -.
+HE0 derives power from Octopus main POWER input.
+Octopus BED-POWER and BED-OUT are UNUSED; do not add their earlier PSU feed for this arrangement.
+In the existing Klipper [heater_bed] section, heater_pin must be PA0 for Octopus HE0, not PA1 (the normal BED-OUT pin).
+Bed thermistor remains TB / PF3.
+Do not configure another Octopus section to own PA0.
+EBB36's PA0 is on a separate MCU and is not a conflict when namespaced correctly (head:PA0 or EBBCan:PA0).
+Optional 24 V LEDs were moved from HE0 to HE1 / PA3; their actual electrical ratings remain unconfirmed.
+The physical bed heater does NOT connect to HE0. HE0 only drives the external module's CONTROL input; its 5.5 A continuous rating is not sufficient for the stock bed itself.
+
+MOSFET CONTROL POLARITY PREMISE
+User stated: "the wire by the plus is positive. we're going to continue operating on that information being correct."
+Use that identified wire as CONTROL positive and the other as CONTROL negative. Prior photos' nearby + marks might be LED markings, and square vs round solder pads only identify a pin reference; neither independently established polarity. This uncertainty was explained and the user explicitly supplied the working premise.
+CONTROL negative returns to HE0 negative, NOT directly to PSU negative, because HE0 negative is the switched control return.
+
+PSU TERMINALS AND HARNESS
+As oriented in the user's PSU photo, left to right:
+  1 +V, 2 +V, 3 -V, 4 -V, 5 protective earth, 6 N, 7 L.
+Numbers are added by our drawing, not claimed PSU terminal designations.
+Both +V screws share the positive rail; both -V screws share the DC negative rail. The PSU's 14.6 A rating is TOTAL, not per pair.
+
+Agreed allocation:
+- One PSU +V/-V pair feeds Octopus POWER and MOTOR-POWER through a shared feeder and two branches.
+- Other PSU +V/-V pair feeds ReliaBot DC IN +/-.
+- EBB needs an additional protected 24 V/ground branch, e.g. at the first pair's distribution junction. It is not powered from the two-pin Octopus CAN connector.
+- 12 AWG planned for shared feeders and external bed-heater high-current leads; 16 AWG for individual Octopus input branches; CAN cable power pair for EBB.
+- User clarified the split is in harness connectors near MOTOR-POWER, with one terminated lead per board terminal. They are NOT proposing two separate wire terminations under one board clamp. This is electrically equivalent to a split near the PSU; use junctions rated for conductor combinations and total current.
+
+  PSU +V -> junction -> MOTOR-POWER + and POWER +
+  PSU -V -> junction -> MOTOR-POWER - and POWER -
+
+Preserve original AC switch/fuse harness and protective-earth/chassis bond. L=live, N=neutral, earth=protective earth; do not identify mains roles just from guessed colors. DC -V does not replace protective earth. PSU has a voltage-selector warning; set selector for actual mains while unplugged (typically 115 setting for 120 V supply or 230 for 230 V). Refit terminal cover before use. Do not add an earth-to-DC-negative bond merely because this handoff distinguishes them.
+
+MOSFET HIGH-CURRENT SIDE
+PSU +24 V / -V -> ReliaBot DC IN + / -.
+ReliaBot HOT BED + -> FPC breakout pins 12-22 combined.
+ReliaBot HOT BED - -> FPC breakout pins 1-11 combined.
+Individual HOT BED screw polarities are NOT assigned by our latest photo callouts; they identify the pair. Confirm markings/traces/measurements before assigning each physical output contact.
+The module's orientation changes between photos, so use labels, not remembered top/bottom positions across photos.
+
+BED BREAKOUT PIN MAP (FROM CHAOTICWEAPONRY)
+  1-11 together : heater negative, from MOSFET HOT BED -
+  12-22 together: heater positive, from MOSFET HOT BED +
+  23           : bed-sensor electronics 5 V
+  26           : bed probe signal
+  28           : bed-sensor electronics ground
+  29 and 30    : separate bed thermistor leads, to TB pair; no polarity
+  24,25,27     : unused in this reference conversion, insulated
+
+Each heater pole uses all eleven parallel ribbon conductors. Do not reduce an entire pole to a single 22 AWG outgoing lead. Reference guide joins groups of five and six 22 AWG wires into two 16 AWG leads, then a 12 AWG lead for each pole. The user's photographed joins were exposed/unfinished; completion, insulation, support, splice ratings and continuity are not confirmed.
+
+Planned bed-probe connection: Octopus THREE-PIN PROBE input (PC5, optocoupled).
+  FPC 23 -> PROBE DC supply, SELECTED TO 5 V
+  FPC 28 -> PROBE GND
+  FPC 26 -> PROBE signal / PC5
+Never put PSU 24 V on FPC 23. The three-pin PROBE supply is selectable; do not assume factory voltage. Actual output behavior, optocoupler operation at selected voltage, probe pull-up jumper and Klipper inversion/pull-down configuration still need functional verification. Do not blindly copy guide SKR Pico GPIO settings.
+Octopus also has a separate FIVE-PIN BLTouch-style header, containing GND, 5 V, PB6, GND, PB7. Do not confuse this with the assigned three-pin PC5 probe header or EBB's PB6/PB7 endstops.
+
+OCTOPUS CHOSEN CONNECTIONS
+  MOTOR0 / driver 0 -> CoreXY A (called X in diagram)
+  MOTOR1 / driver 1 -> CoreXY B (called Y in diagram)
+  MOTOR2 / driver 2 -> Z
+  HE0 / PA0        -> external bed MOSFET CONTROL
+  TB / PF3         -> stock bed thermistor, FPC 29 and 30
+  3-pin PROBE/PC5  -> stock bed probe, FPC 23/28/26, supply 5 V
+  STOP2 / PG10     -> stock Z-max endstop
+  STOP3 / PG11     -> filament runout sensor (a chosen assignment)
+  CAN H/L          -> EBB CAN H/L
+  USB-C            -> Pi USB-A for communication
+  HE1 / PA3        -> optional 24 V LEDs, ratings unconfirmed
+  FAN0 / PA8       -> optional chamber fan 1
+  FAN1 / PE5       -> optional chamber fan 2
+  FAN2 / PD12      -> proposed mainboard fan, ratings unconfirmed
+  FAN3 / PD13      -> proposed stepper cooling fans, ratings unconfirmed
+Fan supply selectors must match actual fans. FAN0-FAN5 are controllable; FAN6/FAN7 always-on. A switched fan return is not necessarily permanent ground.
+Driver orientation, UART jumpers, DIAG routing, driver supply selectors, motor coil pairs, directions and current settings are not verified. Driver input remains 24 V for these TMC2209s.
+
+Reference Octopus motion pin resources (not a finished printer.cfg):
+  Driver0 STEP PF13, DIR PF12, EN PF14, UART PC4
+  Driver1 STEP PG0, DIR PG1, EN PF15, UART PD11
+  Driver2 STEP PF11, DIR PG3, EN PG5, UART PC6
+Correct polarity/inversion, motor current, mechanics and CoreXY homing require final configuration/testing. Do not paste the generic cartesian sample as an AD5M config.
+
+Z-ENDSTOP AND FILAMENT SENSOR REPINNING
+Stock Z-endstop sensor PCB photo labels GND, VCC, SIG left-to-right as photographed. Label on harness is Z-max.
+Sedmenti's filament-sensor picture labels S, V, G left-to-right as photographed. These annotations indicate signal, 5 V supply, ground; marker colors are not proof of actual wire colors.
+Both stock references have the supply in the center. Octopus STOP headers have GND in the center, so a stock plug is NOT automatically wired correctly just because it fits.
+
+Required functional mapping:
+  Z sensor VCC -> STOP2 5 V; GND -> STOP2 GND; SIG -> STOP2 PG10.
+  Filament V  -> STOP3 5 V; G -> STOP3 GND; S -> STOP3 PG11.
+
+Official BTT V1.1 diagram lists each STOP header as signal / GND / 5 V in its documented orientation. In OUR annotated board-photo orientation (power screws at top, motor connectors at right), viewing component side from above:
+  STOP2 left-to-right = 5 V, GND, PG10.
+  STOP3 left-to-right = 5 V, GND, PG11.
+This is the BOARD view. The loose cable's mating face and wire-entry face may be mirrored.
+Keep sensor-end connectors unchanged. Repin controller end to the required functions. We said swapping V and G is sufficient ONLY if S already mates with the signal contact; verify the full final mapping rather than blindly swapping positions based on photo orientation. Physical completion of repinning has not been reported.
+Stock sensor signal-voltage behavior has not been measured. Configure and test states before homing.
+
+EBB36 CONNECTIONS AND PHYSICAL PINOUT
+Actual board is EBB36 CAN V1.2.1 without MAX31865. Use first-generation V1.1/V1.2 documentation, not EBB36 Gen2 instructions. No separate U2C is currently included in the plan.
+
+Four-contact power/CAN connector, looking at the board FRONT as in the user's photo (USB-C angled at upper right, angled motor connector upper left):
+       GND       VIN (+24 V)
+       CAN L     CAN H
+This is the board connector/mating view; a cable wire-entry view can be mirrored. Cable color-to-contact assignments are NOT recorded.
+
+  EM / motor connector -> extruder motor, two verified coil pairs required
+  HE0/E0 screw pair    -> X1C heater; no polarity; MCU PB13
+  TH0                 -> X1C thermistor; no polarity; MCU PA3
+  Fan PA0             -> two-wire 24 V hotend fan: red to VIN, black to switched output
+  Fan PA1             -> reserved for part-blower control, electrical interface unresolved
+
+BTT pin diagram calls PA0 FAN1 and PA1 FAN2; other sample/config nomenclature differs. Identify by MCU mapping, not an ambiguous FAN0/FAN1 name. This project intentionally assigns hotend fan to PA0, unlike BTT generic example which uses PA1. Final firmware must match the chosen wiring.
+For the NTC TH0 arrangement, PT1000 jumper remains removed (4.7 kohm pull-up). Exact Bambu thermistor curve still needs establishing. MAX31865 is absent and is not used.
+
+EBB motor pins: STEP PD0, DIR PD1, EN PD2; onboard TMC2209 UART PA15. Rotation distance, inversion/current are not yet confirmed. BTT sample defaults are not validated AD5M extruder parameters.
+Onboard accelerometer: ADXL345 CS PB12; reference SPI resources PB10/PB11/PB2. Wiring no separate accelerometer is required; actual configuration axes orientation must be checked.
+
+EBB HALL ENDSTOPS
+Use EBB Endstop header, NOT its I2C/filament expansion header.
+BTT diagram's Endstop header left-to-right:
+  +5 V | GND | PB6 | PB5 | PB7
+X A3144 output -> PB6. Y A3144 output -> PB7. PB5 unused here.
+Both sensors share +5 V and GND. Open-collector outputs need pull-ups to 3.3 V; sensor supply and signal pull-up are different rails. Identify actual three-leg sensor orientation before soldering; product may be an A3144-compatible part rather than original Allegro production.
+IMPORTANT CORRECTION: earlier assistant claimed a discrepancy between guide PB6/PB7 and BTT PB3/PB4. That was wrong. PB3/PB4 belong to the separate I2C/filament expansion header; BTT confirms PB6/PB7 on Endstop.
+Guide config uses !head:PB6 and !head:PB7 for its switches. Do not assume its inversion/pull-up settings are validated for this build. Octopus and EBB can have identically named GPIOs; always identify MCU.
+CoreXY motors are on Octopus and X/Y endstops on EBB; account for Klipper multi-MCU homing requirements.
+
+FOUR-WIRE BLOWER — STILL UNRESOLVED
+Sedmenti diagram identifies red=24 V, black=GND, blue=PWM input, yellow=speed feedback. This is reference-guide information, not a manufacturer spec independently verified for the exact supplied fan.
+Guide powers blower continuously and uses PA1's switched fan output for PWM, with yellow not shown connected. Reference config has PA1, cycle_time 0.00004 (25 kHz), max_power 0.6, and enable_pin PB4. These are reference observations, NOT a tested configuration for this build.
+Assistant did not establish the blower's logic-input requirements or suitability of the switched fan output as its PWM driver. Resolve that electrical interface instead of treating a four-wire fan as an ordinary two-wire load or applying 24 V to PWM. Preserve real ground for a separately controlled fan. Do not assign PB4 to an unexplained connection just because the guide config includes it.
+
+COMMUNICATIONS AND FLASHING
+Planned topology: Pi USB -> Octopus configured as USB-to-CAN bridge -> two-wire CAN -> EBB36. Four-wire toolhead harness carries separate 24 V, ground, CAN H, CAN L. Match bitrates; exactly two 120-ohm termination resistors at physical bus ends. Normally about 60 ohms across H/L with all power off. Termination installation/measurement has not been confirmed.
+Octopus V1.1 has a two-pin CAN connector and selectable CAN-120R termination per official image; it is not the older RJ11 arrangement.
+Pi initially uses its kit USB-C power adapter. Internal 24 V-to-5 V Pi supply remains a future addition, not a selected installed component.
+
+EBB flashing:
+- To power electronics from USB alone, unplug USB, fit VUSB jumper, reconnect a data-capable Pi USB-A -> EBB USB-C cable. 24 V disconnected during this USB-only setup.
+- Hold BOOT, press/release RESET, release BOOT for STM32 DFU.
+- Run lsusb on Pi; expect 0483:df11 for DFU. No output has been supplied.
+- MCU STM32G0B1; reference crystal 8 MHz. Normal CAN communication uses PB0/PB1. Bootloader choice/offset depends on whether flashing Klipper directly or installing Katapult; this workflow has NOT been finalized. Do not invent an existing bootloader state or blindly flash a prebuilt binary.
+- Remove VUSB for normal 24 V operation after USB flashing.
+
+Octopus flashing:
+- MCU STM32H723. Official Klipper V1.1 sample specifies 25 MHz crystal and 128 KiB bootloader. Verify actual workflow/bootloader before writing; sample is not evidence of completed flashing.
+- BOOT0 is a two-pin header, not the yellow RESET button. In BTT's horizontal pinout (power screws left, motors across top), BOOT0 is below the rightmost driver socket and left of the microSD area; brown callout points to its two pins.
+- For USB-powered electronics, VBUS is a separate two-pin jumper near the square buzzer, immediately left of four DIP switches in BTT's image. Do not confuse it with BOOT0, fan voltage selectors or CAN termination. It is not needed when normal POWER input supplies the board. Change jumpers with supplies disconnected.
+- User was told power off, fit BOOT0, then power for DFU; remove BOOT0 for normal boot after flashing.
+- Keep heaters physically disconnected for initial flashing/bring-up. Do not let an old firmware config drive unexpected outputs.
+- CAN bridge firmware means Octopus is configured as a CAN node, not necessarily a USB serial device. Actual serials, CAN UUIDs, SSH address, Pi OS, Klipper installation/version, installed bootloaders and firmware status are all unknown.
+
+REAR CARRIER / CAD — LATEST DESIGN R10
+User wants stock rear cover, no spacers. Carrier is 167 mm wide, 172 mm tall (CAD Y -30 to 142), overall plastic height 5 mm.
+Base 2 mm; standoffs extend 3 mm above it. Standoffs OD 8 mm with 1.5 mm concave root fillets. Skeleton rails 4 mm, braces 3.5 mm. All mounting holes go through. Three cable-tie pads have two rectangular slots each and 2 mm outer-corner radius.
+Octopus board footprint 160x100 mm, mounting pitch 150x90 mm. CAD has it rotated: board X=2..102, Y=-24..136; holes (7,-19),(97,-19),(7,131),(97,131); pilots 2.5 mm through.
+Pi footprint 85x56 mm, mounting pitch 58x49 mm. CAD rotated: board X=107..163,Y=47..132; holes (110.5,50.5),(159.5,50.5),(110.5,108.5),(159.5,108.5); pilots 2.0 mm through.
+MOSFET pitch FINAL USER DIMENSIONS 52.5 mm X by 42.5 mm Y. Holes (108.75,-17.25),(161.25,-17.25),(108.75,25.25),(161.25,25.25), pilots 2.5 mm through. Overall MOSFET footprint 60x50 mm was an assumption.
+Chassis holes diameter 3.3 mm: (128,6),(16,6),(153.5,15),(128,138),(16,138),(153.5,93). Four main holes make a 112x132 pattern; right auxiliary points require actual printer attachment verification.
+Reference original adapter envelope was 167x142; this tray extends 30 mm below it. Depth estimate was 35 mm, derived before actual PSU identification and not a measured compartment depth. Physical cover/connector fit and thermal performance are not verified by CAD checks. User photos show populated printed carrier; do not describe that as a verified final in-printer cover fit.
+R10 CAD validation: valid single solid, watertight, one connected mesh, bounds 167x172x5 mm, volume 23641.617661 mm3; through bores checked. PETG, flat base down/posts up, no supports was proposed. EBB and Hall mounts are separate from rear carrier.
+
+LATEST ARTIFACTS AND VERSION PRECEDENCE
+Current workspace full path: C:\Users\PK800\Documents\ChatGPT\AD5M Build
+
+LATEST rear/power wiring (HE0 revision, supersedes all BED-OUT-control diagrams):
+  outputs\AD5M_HE0_wiring_R5\Octopus_Pro_V11_AD5M_with_MOSFET.png
+  outputs\AD5M_HE0_wiring_R5\Octopus_Pro_V11_AD5M_with_MOSFET.svg
+  outputs\AD5M_HE0_wiring_R5\AD5M_PSU_annotated.png
+  outputs\AD5M_HE0_wiring_R5\AD5M_PSU_annotated.svg
+  outputs\AD5M_HE0_wiring_R5\HE0_revision.md
+EBB separate picture (same wiring as previous EBB detail):
+  outputs\AD5M_HE0_wiring_R5\EBB36.png
+  outputs\AD5M_board_diagrams_R4\02_EBB36.svg
+  outputs\Octopus_AD5M_labels_R3\EBB36_detail.png
+Official pin diagrams saved locally:
+  reference\octopus_v11\official_pinout.jpg
+  reference\octopus_v11\ebb36_pinout.webp
+Flashing location close-ups:
+  work\BOOT0_reference_zoom.png
+  work\VBUS_reference_zoom.png
+Working notes:
+  BUILD_SEQUENCE.md
+  TOOLHEAD_FIRST.md
+Older material in reference\wiring_R3 and outputs\Octopus_AD5M_labels*, outputs\AD5M_PSU_annotated* may still show BED-OUT control and BED-POWER feed. Treat those as historical and use R5 for current power routing. The older combined three-board picture also predates HE0 revision; its EBB panel alone remains applicable.
+
+Latest CAD is still in PREVIOUS workspace:
+  C:\Users\PK800\Documents\Codex\2026-10-28\i-have-a-flashforge-ad5m-3d-6\outputs\AD5M_rear_tray_DRAFT_R10\
+Includes STL, STEP, rebuild_model.py, parameters.json, validation.json, fit-check and MOSFET-pitch coupons, previews and README.
+Archive:
+  C:\Users\PK800\Documents\Codex\2026-10-28\i-have-a-flashforge-ad5m-3d-6\outputs\AD5M_rear_tray_DRAFT_R10.zip
+Old CAD working dependencies are under that previous workspace's work\pythonlibs (CadQuery/OCP/trimesh etc.).
+
+PHOTO ARCHIVE
+User attachment root:
+  C:\Users\PK800\.codex\codex-remote-attachments\01a184a7-3af8-7512-9fb7-97742eb76ee0\
+Subfolders:
+  0F6E5719-5D1D-408F-A106-B493AD663FBD : populated carrier, Octopus, MOSFET and EBB front/back (photos 1-5)
+  818AA0C1-9474-480C-A624-1012ACB6251C : both toolhead fan labels
+  6B8986EE-BB2B-4EA2-8661-F31C2EA57E64 : bed-breakout front/back wiring
+  DEF546A8-79B3-4113-92CB-FBFFEB679CBA : MOSFET close-up with CONTROL wire installed
+  940EBD6C-E777-4AFA-8C15-3A0A32BCFEF4 : MOSFET rear pads
+  D6CB87E2-E776-48FC-BFEB-025547FBA544 : PSU photo
+  93CC6146-4CA2-46E8-9595-C69775A5A033 : Z-max harness plug
+  3C188180-F639-431D-86A0-FA7CA034E0E4 : Z-endstop sensor PCB with GND/VCC/SIG labels
+Names are 1-Photo-1.jpg etc. according to folder contents. Do not infer wire colors from a dark photo or a guide's marker colors.
+
+SOURCES
+AD5M EBB36 conversion (Sedmenti):
+  https://github.com/sedmenti/FlashForge_A5M_raspberry
+  https://github.com/sedmenti/FlashForge_A5M_raspberry/blob/main/Klipper/printer.cfg
+  https://github.com/sedmenti/FlashForge_A5M_raspberry/blob/main/IMG/fan_part.png
+ChaoticWeaponry conversion (Manta/SB2040, NOT same controller/toolhead):
+  https://github.com/ChaoticWeaponry/AD5M_HardwareReplacement
+  https://github.com/ChaoticWeaponry/AD5M_HardwareReplacement/tree/main/Mainboard
+  https://github.com/ChaoticWeaponry/AD5M_HardwareReplacement/blob/main/Mainboard/Photos/m8p-accessory-pinouts.jpg
+  https://github.com/ChaoticWeaponry/AD5M_HardwareReplacement/tree/main/Toolhead
+Official Octopus:
+  https://github.com/bigtreetech/BIGTREETECH-OCTOPUS-Pro
+  https://raw.githubusercontent.com/bigtreetech/BIGTREETECH-OCTOPUS-Pro/master/Hardware/BIGTREETECH%20Octopus%20Pro%20V1.1-Pin.jpg
+  https://global.bttwiki.com/Octopus%20Pro.html
+  https://neo.bttwiki.com/en/docs/board-docs/octopus-series/octopus-pro/
+  https://github.com/Klipper3d/klipper/blob/master/config/generic-bigtreetech-octopus-pro-v1.1.cfg
+Official EBB:
+  https://github.com/bigtreetech/EBB
+  https://raw.githubusercontent.com/bigtreetech/docs/master/docs/img/EBB36CAN/G0B1/EBB_G0B1_Pin.webp
+  https://neo.bttwiki.com/en/docs/board-docs/ebb-series/ebb-36/ebb-36-hardware
+  https://neo.bttwiki.com/en/docs/board-docs/ebb-series/ebb-firmware-g0b1/
+Klipper CAN:
+  https://www.klipper3d.org/CANBUS.html
+Original A3144 datasheet:
+  https://www.allegromicro.com/~/media/Files/Datasheets/A3141-2-3-4-Datasheet.ashx?la=en
+User also supplied Flashforge motherboard-replacement video:
+  https://www.youtube.com/watch?v=Z5ygysM_5gQ
+It was not successfully viewed in this conversation; do not claim its contents were verified.
+
+COLLABORATION PREFERENCES
+User wants concrete, step-by-step build help and annotated pictures posted directly in chat for easy viewing. They prefer separate pictures for Octopus+MOSFET, EBB, and PSU. Use their actual board photos with precise vector overlays; an earlier AI-generated preview altered board details and was rejected as unsuitable. Native SVG diagrams and PNG exports preserve the real images. Latest rendering scripts are in work/ and use Node + sharp. Do not send the superseded generated preview as a wiring reference.
+Avoid repeated questions about already supplied components, wire material, connectors or the MOSFET CONTROL premise. Verify actual board revisions with official sources, state inference/unknowns clearly, and do not assume a firmware flash or wiring test succeeded without a result.
+
+NEXT AGENT'S IMMEDIATE PRIORITIES
+1. Establish which board is currently attached over USB, which jumpers are fitted, what power sources are connected, and the Pi's actual lsusb/firmware state. User was in Octopus BOOT0/VBUS flashing preparation.
+2. Finalize a consistent firmware/bootloader plan for Octopus H723 bridge and EBB G0B1 CAN, respecting actual installed bootloaders. Obtain real device IDs rather than inventing them.
+3. Maintain HE0/PA0 external bed control in every diagram/config; BED-POWER remains unused.
+4. Resolve the four-wire blower electrical control interface, stock sensor output behavior, X1C thermistor curve, CAN cable contacts/termination and branch protection.
+5. Check actual completed wiring/repinning and perform deferred electrical checks before staged powered commissioning.

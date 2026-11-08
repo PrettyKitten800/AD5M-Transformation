@@ -1,0 +1,148 @@
+{
+  "updated": "2026-11-03",
+  "timezone": "America/New_York",
+  "workspace": "C:\\Users\\PK800\\Documents\\ChatGPT\\AD5M Build",
+  "phase": "Firmware-flashing preparation; successful flash not reported",
+  "hardware": {
+    "printer": "Flashforge AD5M",
+    "host": "Raspberry Pi 5 8GB",
+    "mainboard": "BTT Octopus Pro V1.1 STM32H723",
+    "toolhead": "BTT EBB36 CAN V1.2.1 without MAX31865",
+    "drivers": {
+      "model": "BTT TMC2209 V1.3",
+      "purchased": 4,
+      "usedOnOctopus": 3,
+      "spare": 1
+    },
+    "psu": {
+      "model": "A-350GF-24-CX",
+      "volts": 24,
+      "ampsTotal": 14.6
+    },
+    "bedMosfet": "ReliaBot V1.3 external module",
+    "hotend": "Bambu X1C; changed JST only",
+    "xySensors": "Loose three-leg A3144"
+  },
+  "decisions": {
+    "stockRearCover": true,
+    "bedControl": {
+      "board": "Octopus",
+      "connector": "HE0",
+      "pin": "PA0",
+      "mosfetControlPositive": "Wire identified by user beside + mark",
+      "independentlyMeasured": false
+    },
+    "unusedInputs": [
+      "BED-POWER",
+      "BED-OUT"
+    ],
+    "powerSplit": "Harness junction near MOTOR-POWER; one termination per board terminal",
+    "bedThermistor": {
+      "connector": "TB",
+      "pin": "PF3",
+      "breakout": [
+        29,
+        30
+      ]
+    },
+    "bedProbe": {
+      "connector": "3-pin PROBE",
+      "signal": "PC5",
+      "volts": 5,
+      "breakout": {
+        "supply": 23,
+        "ground": 28,
+        "signal": 26
+      },
+      "electricallyTested": false
+    },
+    "zEndstop": {
+      "connector": "STOP2",
+      "signal": "PG10"
+    },
+    "filament": {
+      "connector": "STOP3",
+      "signal": "PG11"
+    },
+    "stopOrderInPortraitBoardView": [
+      "5V",
+      "GND",
+      "signal"
+    ],
+    "ebb": {
+      "heater": "PB13",
+      "thermistor": "PA3",
+      "hotendFan": "PA0",
+      "blowerReserved": "PA1",
+      "harnessWireAssignments": {
+        "canH": "Yellow; user reports already pinned into a connector",
+        "canL": "White; user reports already pinned into a connector",
+        "vin": "Red proposed; fused branch at the existing PSU-positive split feeding Octopus POWER+ and MOTOR-POWER+",
+        "gnd": "Black proposed; existing PSU-negative split feeding Octopus POWER- and MOTOR-POWER-",
+        "powerTerminationsCompleted": null,
+        "continuityAndPolarityTested": null,
+        "ebbBranchFuseRating": null
+      },
+      "xEndstop": "PB6",
+      "yEndstop": "PB7",
+      "endstopHeaderBttLeftToRight": [
+        "5V",
+        "GND",
+        "PB6",
+        "PB5",
+        "PB7"
+      ],
+      "powerCanBoardFront": [
+        [
+          "GND",
+          "VIN 24V"
+        ],
+        [
+          "CAN L",
+          "CAN H"
+        ]
+      ]
+    },
+    "communications": "Pi USB -> Octopus USB-to-CAN bridge -> EBB CAN",
+    "piPower": "Kit USB-C adapter initially"
+  },
+  "unverified": {
+    "successfulOctopusFlash": null,
+    "successfulEbbFlash": null,
+    "dfuOutput": null,
+    "canDiscovery": null,
+    "canUuids": null,
+    "finalKlipperConfig": null,
+    "continuityTesting": null,
+    "multimeterAcquired": null,
+    "sensorRepinningCompleted": null,
+    "heaterTests": null,
+    "homing": null
+  },
+  "openItems": [
+    "Four-wire blower PWM electrical interface",
+    "X1C thermistor curve",
+    "Signal voltage/inversion and bed-probe optocoupler mode",
+    "CAN conductor mapping, cable twist/flexibility, termination",
+    "Branch fuses and splice ratings",
+    "Driver UART/power jumpers/current/coil mapping",
+    "Actual cover fit, thermal clearance and strain relief"
+  ],
+  "cad": {
+    "revision": "R10",
+    "boundsMm": [
+      167,
+      172,
+      5
+    ],
+    "baseMm": 2,
+    "standoffAboveBaseMm": 3,
+    "mosfetPitchMm": [
+      52.5,
+      42.5
+    ],
+    "throughHoles": true,
+    "geometricallyValidated": true,
+    "printerFitVerified": false
+  }
+}

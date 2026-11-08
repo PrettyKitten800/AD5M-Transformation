@@ -1,0 +1,23 @@
+{
+  "angle_from_vertical": 3,
+  "board_y_base": 2.4,
+  "board_z_base": 81,
+  "board_bounds": [
+    [
+      -20.03600276458509,
+      -10.339752990152427,
+      80.5989531045681
+    ],
+    [
+      20.002999501121188,
+      5.986688854171057,
+      122.29002621569522
+    ]
+  ],
+  "reference_back_plane_y": -11.117,
+  "filament_axis_y": 12.12,
+  "board_min_z_above_main_housing_mm": 0.5974511045680941,
+  "extra_top_height_vs_previous_cover_mm": 26.072276215695226,
+  "status": "placement study, no final bracket; previous R1 wrong-side arrangement superseded",
+  "caution": "not an installed motor/gear assembly clearance check"
+}

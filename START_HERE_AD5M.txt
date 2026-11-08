@@ -1,0 +1,82 @@
+> **Hardware correction — November 6, 2026:** The current toolboard specification is **BTT EBB42**, replacing EBB36. Exact EBB42 revision and MCU are not yet established. Historical EBB36 wiring, connector positions, pin assignments, firmware settings and mounting drawings below are not an approved EBB42 wiring plan; verify against the exact EBB42 documentation before use. The X1C hotend and other established build components remain the current baseline.
+
+AD5M BUILD â€” START HERE
+
+NOVEMBER 3, 2026 â€” REPLACEMENT BOARD FLASHED
+Replacement confirmed Octopus Pro V1.1; user photo confirms STM32H723ZET6.
+Flashed from this Windows PC through Ubuntu WSL ROM DFU (serial 3757325D3432).
+Klipper commit 0cee841e31d701595b3e509a0b502f6e320f52a8; USB-to-CAN bridge, USB PA11/PA12, CAN PD0/PD1, 1 Mbps, 25 MHz crystal, 128 KiB bootloader offset.
+Application read-back matched exactly; original 128 KiB bootloader verified unchanged; full 1 MiB original backup saved.
+Outputs and verification: outputs/flashing_2026-11-03/.
+BOOT0 removed and runtime USB enumeration VERIFIED on Windows: 1d50:606f stm32h723xx, serial 2C0022001351323431323537. Windows code 28 means no matching driver installed. Next: connect to Pi and inspect USB/CAN enumeration.
+Pi connection, CAN communication, host/EBB firmware compatibility, CAN discovery and printer operation are NOT yet verified.
+The replacement-board status above supersedes the older replacement-order/flashing-preparation statements below.
+
+NOVEMBER 3, 2026 UPDATE
+The defective Octopus Pro is being replaced; a replacement has been ordered (exact revision not yet confirmed). Immediate priority is restoring single-tool printing with existing motion hardware. Triple Z is long term; four-head toolchanging is longer term. Voron Trident is the reference architecture for the eventual machine. The official reference collection is in reference/Voron_Trident/; open its START_HERE.md for manuals, CAD, wiring, configuration and parts lists. The older handoff below is historical where superseded by this update and UPGRADE_ROADMAP.md.
+
+Consolidated November 2, 2026. This package is the restart reference for the new chat.
+
+READ IN THIS ORDER
+1. This file (short current-state summary).
+2. AD5M_REBUILD_HANDOFF.txt (full consolidated technical history, sources and details).
+3. CURRENT_BUILD_STATE.json (structured decisions and incomplete tasks).
+4. DECISIONS_AND_CORRECTIONS.txt (prevents repeating superseded advice).
+5. Diagrams/ for current pictures; CAD/rear_tray_R10/ for the print model.
+
+IMMEDIATE RESUME POINT
+The user is preparing firmware flashing, most recently on Octopus Pro V1.1 H723.
+They asked where BOOT0 and VBUS are. See Flashing_reference/ close-ups from BTT.
+EBB36 V1.2.1 was connected to Pi USB but initially had no power; VUSB and DFU entry instructions were given.
+No successful flash, lsusb result, CAN UUID, final printer.cfg, continuity test, homing or heating result has been supplied.
+First determine current board/power/jumper state and obtain actual lsusb output; do not infer success from the conversation.
+
+AUTHORITATIVE HARDWARE
+Flashforge AD5M; Pi 5 8GB; Octopus Pro V1.1 H723; EBB36 CAN V1.2.1 without MAX31865;
+3 used + 1 spare TMC2209 V1.3; ReliaBot external bed MOSFET V1.3; A3144 loose Hall sensors.
+Actual PSU A-350GF-24-CX, 24V 14.6A. It is NOT the earlier assumed Mean Well.
+Hotend is standard Bambu X1C, changed connector only. Stock bed and fans retained.
+
+CRITICAL ACTIVE WIRING
+- External bed MOSFET CONTROL is physically connected to OCTOPUS HE0, NOT BED-OUT.
+- Octopus [heater_bed] heater_pin must therefore be PA0. Thermistor stays TB/PF3.
+- Octopus BED-POWER and BED-OUT are UNUSED. Earlier diagrams showing their power feed are superseded.
+- PSU feeds Octopus POWER + MOTOR-POWER, external MOSFET DC IN, and protected EBB power.
+- Octopus main/motor shared feeder splits in harness connectors near the board; not two separate terminals under one clamp.
+- MOSFET HOT BED + -> breakout 12-22 combined; HOT BED - -> breakout 1-11 combined.
+- MOSFET CONTROL + is user-identified wire beside + mark; other wire -> HE0 switched negative. Independent polarity measurement not done.
+- Breakout 23 -> Octopus PROBE DC selected to 5V; 28 -> GND; 26 -> PC5. Never feed 23 with 24V.
+- Breakout 29 and 30 -> TB as separate thermistor wires.
+- Z-max -> STOP2/PG10. Filament -> STOP3/PG11. Octopus STOP middle contact is GND, not 5V.
+- In annotated portrait board view (power screws top, motors right), STOP left-to-right is 5V / GND / signal.
+- EBB Hall X=PB6, Y=PB7; both share 5V/GND. PB3/PB4 was a mistaken comparison, now corrected.
+- EBB heater PB13; TH0 PA3; hotend fan PA0; blower PA1 reserved but its electrical interface is unresolved.
+- EBB and Octopus GPIO names are on different MCUs: EBB PA0 does not conflict with Octopus PA0 when namespaced correctly.
+
+UNFINISHED DESIGN/TESTING
+Blower PWM electrical interface; X1C thermistor curve; actual sensor signal levels and inversion;
+CAN cable contact/color mapping and termination; driver setup; fuse sizing; completed bed splices and insulation;
+sensor repinning verification; physical fit/thermal commissioning; all firmware/device IDs and powered tests.
+User originally had no multimeter and deferred continuity checks. Acquisition/testing not confirmed.
+Do not confuse this unfinished work with merely a documentation gap.
+
+COMMUNICATION PREFERENCES
+Help one concrete step at a time. Avoid repeating component/material questions already answered.
+Post annotated PNGs directly in chat. Keep Octopus+MOSFET, EBB and PSU as separate pictures.
+Preserve actual board photos; use vector overlays. An AI-generated preview altered hardware and was rejected.
+Do not reopen the user-specified MOSFET CONTROL polarity premise as if it had never been discussed;
+retain the premise while accurately recording that electrical verification is pending.
+
+PACKAGE CONTENTS
+Diagrams/01_Octopus_and_MOSFET_HE0.png and .svg : current HE0 power/control plan.
+Diagrams/02_EBB36.png and .svg : separate EBB diagram; blower remains amber.
+Diagrams/03_PSU_HE0.png and .svg : no BED-POWER feed; bed-adapter paths included.
+Official_pinouts/ : saved BTT Octopus and EBB drawings.
+Flashing_reference/ : BOOT0 and VBUS location close-ups.
+CAD/rear_tray_R10/ : final delivered draft model, STEP/STL, source, parameters, fit coupons, validation.
+Photos/ : selected original board, PSU, fan, adapter and Z-sensor photos.
+Diagram_sources/ : frozen drawing scripts for reference; paths may need rebasing before rerun.
+MANIFEST.json : relative file list, byte sizes and SHA256 hashes.
+
+Project folder: C:\Users\PK800\Documents\ChatGPT\AD5M Build
+This folder's older outputs remain available as history; this package selects the current versions.

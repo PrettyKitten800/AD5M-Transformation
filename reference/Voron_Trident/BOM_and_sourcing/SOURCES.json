@@ -1,0 +1,38 @@
+[
+  {
+    "file": "voron_trident_page.html",
+    "url": "https://vorondesign.com/voron_trident",
+    "bytes": 22349,
+    "sha256": "5f161ec421f829ecb6ea327fcd4712abb197c4415a7e981bf0f9a677534338a2"
+  },
+  {
+    "file": "bom_trident.js",
+    "url": "https://vorondesign.com/js/bom_trident.js",
+    "bytes": 4258,
+    "sha256": "a5a6fa9c01b8bb25c2158d741d2fbb4430b3a6f289b53e70a99755f8514cac77"
+  },
+  {
+    "file": "configurator_trident.js",
+    "url": "https://vorondesign.com/js/configurator_trident.js",
+    "bytes": 8237,
+    "sha256": "8c31d3f4b11739eedcdb56191351069134e66d862f278ff6b04ef05f0dd3df1a"
+  },
+  {
+    "file": "common.js",
+    "url": "https://vorondesign.com/js/common.js",
+    "bytes": 3036,
+    "sha256": "c120c92c3ac3cda3a71e3981ba3e230b4a7876e7f9d92a7a6f45466df552e800"
+  },
+  {
+    "file": "Trident_sourcing_guide.html",
+    "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS_jv9UtoSkgQoYD47VE9wIpTnjsEbzAREPG8895b6UL0v99OIfVEJQ4BHl2w_Rn6V0YUe1ldfPjone/pubhtml?widget=false&headers=false&gid=414191639",
+    "bytes": 1558873,
+    "sha256": "9fff591648598ae95a56c6ddffffb19daf693a1a7f3fd31096db9677ef5d95dc"
+  },
+  {
+    "file": "Trident_sourcing_guide.csv",
+    "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vS_jv9UtoSkgQoYD47VE9wIpTnjsEbzAREPG8895b6UL0v99OIfVEJQ4BHl2w_Rn6V0YUe1ldfPjone/pub?output=csv&gid=414191639",
+    "bytes": 15352,
+    "sha256": "1decd3d2935c40e77c0cee5d56a99995b5ed1dfec8cfd162be01794c15545b66"
+  }
+]

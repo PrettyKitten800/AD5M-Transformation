@@ -1,0 +1,14 @@
+{
+  "repository": "VoronDesign/Voron-Documentation",
+  "source_url": "https://github.com/VoronDesign/Voron-Documentation",
+  "branch": "main",
+  "commit": "b8c014f88948c9fca963dfe726e0e66b1287af90",
+  "commit_date": "2026-09-16T13:52:02Z",
+  "download_url": "https://codeload.github.com/VoronDesign/Voron-Documentation/zip/b8c014f88948c9fca963dfe726e0e66b1287af90",
+  "archive": "source_archives\\Voron-Documentation-b8c014f88948.zip",
+  "archive_sha256": "26c82a4efae02d07a93b2e38ce264a9a7818e274a5e71d1e2f882b3f9ff72140",
+  "archive_bytes": 385105307,
+  "extracted_files": 419,
+  "extracted_bytes": 415565036,
+  "zip_crc_verified": true
+}

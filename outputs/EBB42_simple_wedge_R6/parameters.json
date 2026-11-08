@@ -1,0 +1,39 @@
+{
+  "shape": "one rectangular plate plus one central triangular wedge",
+  "base_mm": [
+    60,
+    21,
+    4
+  ],
+  "wedge_nominal_mm": [
+    40,
+    8,
+    8
+  ],
+  "main_round_radius_mm": 1,
+  "wedge_round_radius_mm": 0.8,
+  "housing_holes_mm": {
+    "x": [
+      -27,
+      -18,
+      18,
+      27
+    ],
+    "y": -7.498,
+    "diameter": 4.3
+  },
+  "board_holes_mm": {
+    "pitch": 31,
+    "diameter": 2.5,
+    "sloped_face_center_y": 3,
+    "sloped_face_center_z": 88.0515
+  },
+  "board_back_clearance": "Use separate 4 mm M3 spacers between the wedge face and PCB; screws thread into the printed wedge. Select length for approximately 5 mm plastic engagement.",
+  "valid_solid": true,
+  "mesh_closed_native": true,
+  "housing_overlap_mm3": 0.0,
+  "print": "flat base down, supports off",
+  "tube_reference_y": 12.12,
+  "base_max_y": 9,
+  "fit": "physical motor/frame/carriage and plugged board not verified"
+}

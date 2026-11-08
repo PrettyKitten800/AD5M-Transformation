@@ -1,0 +1,21 @@
+{
+  "board": "Octopus Pro V1.1 STM32H723ZET6",
+  "dfu_serial": "3757325D3432",
+  "source_commit": "0cee841e31d701595b3e509a0b502f6e320f52a8",
+  "application_address": "0x08020000",
+  "firmware_bytes": 48800,
+  "firmware_sha256": "a52af0c96d00b93569c1b091879f81147705351168b17a76b1a1e6763909931d",
+  "original_flash_sha256": "136cfeee9a003940dbe10b9726acf05d8ee71f05b881a0b096489badc190ae4d",
+  "firmware_readback_matches": true,
+  "bootloader_128k_unchanged": true,
+  "runtime_enumeration_verified": true,
+  "can_bitrate": 1000000,
+  "host_klipper_version_verified": false,
+  "ebb_firmware_version_and_bitrate_verified": false,
+  "runtime_usb_vid_pid": "1d50:606f",
+  "runtime_usb_product": "stm32h723xx",
+  "runtime_usb_serial": "2C0022001351323431323537",
+  "windows_driver_problem_code": 28,
+  "can_communication_verified": false,
+  "pi_connection_verified": false
+}

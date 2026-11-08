@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        VORON Trident
+    </title>
+
+    <script>
+        let model_name = "VT";
+    </script> 
+
+    
+<meta name="docsearch:version" content="4.4">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Get started with VORON 3D printer, the best little CoreXY 'space shuttle' you can build in your garden shed, or your kitchen.">
+<meta name="author" content="Maks Zolin, Tin Pecirep and VORON Design contributors">
+<meta name="generator" content="Turn v1.0.0">
+<meta name="docsearch:language" content="en">
+<meta http-equiv="CACHE-CONTROL" content="NO-CACHE">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> 
+<link rel="stylesheet" href="css/voron_design.css">
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="js/common.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-63092293-2"></script>
+   
+    <script src="js/bom_trident.js?1l3p2on"></script>
+    <script src="js/configurator_trident.js?1l3p2on"></script>
+    <script type="text/javascript">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-63092293-2');
+        
+        $(document).on("click",".dnl-btn", function(){
+            if($(this).hasClass("disabled")){
+                return false;
+            }
+            window.location = $(this).attr("src");
+        });
+
+        $(document).on("click","#show-bom-btn", function(){
+            $("#page-final").hide();
+            $("#page-bom").show();
+            $("#show-bom-btn").hide();
+        });
+
+        $(document).on("click","#next-btn",function(){
+            var curr_page = $("#configurator-main").attr("curr-page");
+            var next_page = $("#configurator-main").attr("next-page");
+            if(next_page == "page2"){
+                var build_type = $('input[name=upgrade-options]:checked').val();
+                if(build_type == "upgrade"){
+                    $(".upgrade-size-alert").show();
+                }else{
+                    $(".upgrade-size-alert").hide();
+                }
+            }
+            if(next_page == "page-final"){
+                update_final_stats();
+                $("#next-btn").hide();
+                $("#bom-btn").show();
+                $("#source-guide").show();
+                $("#show-bom-btn").show();
+            }
+            if(next_page == "page5"){
+                $("#next-btn").removeClass("disabled");
+                $("#configurator-main").attr("next-page",next_page);
+            }
+            $("#" + curr_page).hide();
+            $("#" + next_page).show();
+            $("#next-btn").addClass("disabled");
+            if(next_page == "page5"){
+                $("#next-btn").removeClass("disabled");
+                $("#configurator-main").attr("next-page","page-final");
+            }
+            $("#configurator-main").attr("curr-page",next_page);
+        });
+
+        $(document).on("change",".config-option",function(){
+            var next_page = $(this).attr("next-page");
+            $("#configurator-main").attr("next-page",next_page);
+            $("#next-btn").removeClass("disabled");
+        });
+
+        $(document).on("change", ".geometry-update", function(){
+            update_printer_geometry($(this).attr("dimension-type"));
+        });
+
+        $(document).on("click","#close-btn",function(){
+            window.location.reload();
+        })
+    </script>
+    <style>
+        body { 
+            background: url(images/voron_trident_bg.jpg) no-repeat center fixed; 
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        .navbar {
+                z-index: 1001;
+        }
+    </style>
+</head>
+<body>
+    <div id="configurator-modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">VORON Trident Configurator</h5>
+            </div>
+            <div class="modal-body">
+                <section class="content" curr-page="page0" next-page="page1" id="configurator-main" style="margin-left: 1rem;">
+                    <div id="page0">
+                        <p>This configurator is designed to provide a customized bill of materials for your VORON Trident build.</p>
+                    </div>
+
+                    <div id="page1" style="display: none;">
+                        <h4>Filament Feed Setup</h4>
+                        <p>Select the type of extruder setup you'll be using:</p>
+                        <form class="ml-3">
+                            <div class="form-check">
+                                <input class="form-check-input size-select config-option" next-page="page2" type="radio" name="feed-options" id="option-direct" value="direct">
+                                <label class="form-check-label" for="option-direct">
+                                    Direct Feed (best option)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input size-select config-option" next-page="page2" type="radio" name="feed-options" id="option-bowden" value="bowden">
+                                <label class="form-check-label" for="option-bowden">
+                                    Bowden Feed
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="page2" style="display: none;">
+                        <h4>Upgrading?</h4>
+                        <p></p>
+                        <form class="ml-3">
+                            <div class="form-check">
+                                <input class="form-check-input size-select config-option" next-page="page3" type="radio" name="upgrade-options" id="option-fresh-build" value="fresh">
+                                <label class="form-check-label" for="option-fresh-build">
+                                    New build. Give me the full BOM.
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input size-select config-option" next-page="page3" type="radio" name="upgrade-options" id="option-upgrade-build-trident" value="upgrade_trident">
+                                <label class="form-check-label" for="option-upgrade-build-trident">
+                                    I have a VORON Trident r1 already. Only give me the new parts I need to source.
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="page3" style="display: none;">
+                        <h4>Frame Joints</h4>
+                        <p>Select the type of top frame joint you'll be using:</p>
+                        <form class="ml-3">
+                            <div class="form-check">
+                                <input class="form-check-input size-select config-option" next-page="page4" type="radio" name="joint-options" id="option-blind" value="blind">
+                                <label class="form-check-label" for="option-blind">
+                                    Blind Joints (best option)
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input size-select config-option" next-page="page4" type="radio" name="joint-options" id="option-misumi" value="misumi">
+                                <label class="form-check-label" for="option-misumi">
+                                    Misumi Corner Cubes
+                                </label>
+                                </div>
+                            <div class="form-check">
+                                <input class="form-check-input size-select config-option" next-page="page4" type="radio" name="joint-options" id="option-openbuilds" value="openbuilds">
+                                <label class="form-check-label" for="option-openbuilds">
+                                    OpenBuilds Corner Cubes
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="page4" style="display: none;">
+                        <h4>Printer size</h4>
+                        <p></p>
+                        <form class="ml-3">
+                            <div class="form-check">
+                                <input class="form-check-input size-select config-option" next-page="page-final" type="radio" name="size-options" id="option-250spec" value="250">
+                                <label class="form-check-label" for="option-250spec">
+                                    250mm Spec
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input size-select config-option" next-page="page-final" type="radio" name="size-options" id="option-300spec" value="300">
+                                <label class="form-check-label" for="option-300spec">
+                                    300mm Spec
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input size-select config-option" next-page="page-final" type="radio" name="size-options" id="option-350spec" value="350">
+                                <label class="form-check-label" for="option-350spec">
+                                    350mm Spec
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input size-select config-option" next-page="page5" type="radio" name="size-options" id="option-custom" value="custom">
+                                <label class="form-check-label" for="option-custom">
+                                    Custom size
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+    
+                    <div id="page-final" style="display: none;">
+                        <h4>Done</h4>
+                        <p>Printer stats as configured:</p>
+                        <div class="stats-box clearfix">
+                            <div class="text-right float-left">
+                                <b>Build Volume</b><br>
+                                X:<br>
+                                Y:<br>
+                                Z:<br>
+                                <b>Frame Dimensions</b><br>
+                                W:<br>
+                                D:<br>
+                                H:<br>
+                            </div>
+                            <div class="text-left float-left ml-3" id="printer-stats">
+                                <br>
+                                230 mm<br>
+                                230 mm<br>
+                                240 mm<br>
+                                <br>
+                                410 mm<br>
+                                410 mm<br>
+                                430 mm<br>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="page-bom" style="display: none;">
+                            
+                    </div>
+
+                    <div id="page5" style="display: none;">
+                        <h4>Custom Printer Configuration</h4>
+                        <p>Build Volume:</p>
+                        <form class="form-horizontal ml-3">
+                            <div class="form-group row">
+                            <label for="build-x" class="col-sm-1 control-label">X:</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control geometry-update" dimension-type="build" id="build-x" value="250">
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="build-y" class="col-sm-1 control-label">Y:</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control geometry-update" dimension-type="build" id="build-y" value="250">
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="build-z" class="col-sm-1 control-label">Z:</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control geometry-update" dimension-type="build" id="build-z" value="250">
+                            </div>
+                            </div>
+                        </form>
+                        <p>Frame Size (outer dimensions):</p>
+                        <form class="form-horizontal ml-3">
+                            <div class="form-group row">
+                            <label for="frame-x" class="col-sm-1 control-label">Width:</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control geometry-update" dimension-type="frame" id="frame-x" value="410">
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="frame-y" class="col-sm-1 control-label">Depth:</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control geometry-update" dimension-type="frame" id="frame-y" value="410">
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="frame-z" class="col-sm-1 control-label">Height:</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control geometry-update" dimension-type="frame" id="frame-z" value="500">
+                            </div>
+                            </div>
+                        </form>
+                    </div>
+    
+                </section>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="close-btn" class="btn btn-secondary">Close</button>
+                <button type="button" id="next-btn" class="btn btn-success">Next</button>
+                <button type="button" id="show-bom-btn" class="btn btn-primary" style="display: none;">Show</button>
+                <a href="sourcing_guide?model=VT" id="source-guide" class="btn btn-success" style="display: none;" target="_blank">Sourcing Guide</a>
+                <a id="bom-btn" class="btn btn-success" style="display: none;" href="" download="generated_bom.csv" target="_blank">Download</a>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#voron_navbar" aria-controls="voron_navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="navbar-brand" href="/"><img src="images/voron_design_logo.png" style="height: 3rem;"></a>
+
+    <div class="collapse navbar-collapse" id="voron_navbar">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link text-dark text-large" href="#" id="printersDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Printers
+                </a>
+                <div class="dropdown-menu" aria-labelledby="printersDropdown">
+                    <a class="nav-link text-dark text-large" href="/voron0.2"> VORON<span style="color:crimson;">0</span></a>
+                    <a class="nav-link text-dark text-large" href="/voron_trident"> VORON <span style="color:crimson;">Trident</span></a>
+                    <a class="nav-link text-dark text-large" href="/voron2.4"> VORON<span style="color:crimson;">2</span></a>
+                    <a class="nav-link text-dark text-large" href="/voron_switchwire"> VORON <span style="color:crimson;">Switchwire</span></a>
+                    <a class="nav-link text-dark text-large" href="/voron_legacy"> VORON <span style="color:crimson;">Legacy</span></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="nav-link text-dark" href="/sourcing_guide" target="new"> Sourcing Guide</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link text-dark" href="#" id="extrudersDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Toolheads and Extruders
+                </a>
+                <div class="dropdown-menu" aria-labelledby="extrudersDropdown">
+                    <a class="nav-link text-dark" href="/voron_m4"> VORON <span style="color:crimson;">M4</span></a>
+                    <a class="nav-link text-dark" href="/voron_stealthburner"> VORON&nbsp;<span style="color:crimson;">Stealthburner</span></a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link text-dark" href="#" id="cncDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    CNC
+                </a>
+                <div class="dropdown-menu" aria-labelledby="cncDropdown">
+                    <a class="nav-link text-dark" href="/voron_cascade"> VORON <span style="color:crimson;">Cascade</span></a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link text-dark" href="#" id="communityDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Community
+                </a>
+                <div class="dropdown-menu" aria-labelledby="communityDropdown">
+                    <a class="nav-link text-dark" href="https://github.com/VoronDesign" target="new"> GitHub</a>
+                    <a class="nav-link text-dark" href="https://www.reddit.com/r/vorondesign/" target="new"> Reddit</a>
+                    <a class="nav-link text-dark" href="https://discord.gg/voron" target="new"> Discord</a>
+                    <a class="nav-link text-dark" href="https://forum.vorondesign.com/" target="new"> Forum</a>
+                    <a class="nav-link text-dark" href="https://www.instagram.com/vorondesign.official/" target="new"> Instagram</a>
+                    <a class="nav-link text-dark" href="https://twitter.com/Voron_Design" target="new"> Twitter</a>
+                </div>
+            </li>
+            <a class="nav-link text-dark" href="https://docs.vorondesign.com" target="new"> Documentation</a>
+            <a class="nav-link text-dark" href="https://teespring.com/stores/voron-design-store" target="new"> Merch</a>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+            <input type="hidden" name="cmd" value="_s-xclick">
+            <input type="hidden" name="hosted_button_id" value="YRWZZKFNBQRKS">
+            <button class="btn btn-danger my-2 my-sm-0" type="submit">Donate</button>
+            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+    </div>
+</nav>
+
+
+    <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <div class="hover-card">
+            <button type="button" class="btn btn btn-light btn-block"><img src="images/voron_trident_logo.png" style="width: 9rem;"></button>
+            <button type="button" class="btn btn btn-light btn-block" data-toggle="modal" data-target="#configurator-modal" src="voron_trident_configurator">Configurator</button>
+            <a class="btn btn-light btn-block" href="https://github.com/VoronDesign/Voron-Trident/tree/main/CAD" target="_blank">CAD</a>
+            <a class="btn btn-light btn-block" href="https://voron.zip/done/VT.zip" target="_blank">STLs</a>
+            <a class="btn btn-light btn-block" href="https://github.com/VoronDesign/Voron-Trident/tree/main/Manual" target="_blank">Manual</a>
+            <a class="btn btn-light btn-block" href="https://github.com/VoronDesign/Voron-Trident" target="_blank">GitHub</a>
+            <a class="btn btn-light btn-block" href="https://www.icloud.com/sharedalbum/#B105idkMw2DlMi" target="_blank">Gallery</a>
+            <a class="btn btn-light btn-block" href="/voron1.8">VORON<span style="color:crimson;">1.8</span> <i>(Previous release)</i></a>
+        </div>
+    </div>
+</body>

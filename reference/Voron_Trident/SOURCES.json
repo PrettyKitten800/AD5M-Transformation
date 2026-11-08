@@ -1,0 +1,48 @@
+{
+  "retrieved_utc": "2026-11-03T05:22:14.636682+00:00",
+  "project_date": "2026-11-03",
+  "repositories": [
+    {
+      "repository": "VoronDesign/Voron-Trident",
+      "source_url": "https://github.com/VoronDesign/Voron-Trident",
+      "branch": "main",
+      "commit": "7fcb3257a3063225934d9608f82037aa6587d844",
+      "commit_date": "2026-10-22T01:38:53Z",
+      "download_url": "https://codeload.github.com/VoronDesign/Voron-Trident/zip/7fcb3257a3063225934d9608f82037aa6587d844",
+      "archive": "source_archives\\Voron-Trident-7fcb3257a306.zip",
+      "archive_sha256": "3127c4f0ae2a49631ef3629087d4e64625f8f67bac3fd71df4c0ffe555f5a341",
+      "archive_bytes": 258491547,
+      "extracted_files": 210,
+      "extracted_bytes": 334099960,
+      "zip_crc_verified": true
+    },
+    {
+      "repository": "VoronDesign/Voron-Stealthburner",
+      "source_url": "https://github.com/VoronDesign/Voron-Stealthburner",
+      "branch": "main",
+      "commit": "8bcb9c246fac19d8ac03931ef97fa07c5e5f0f2b",
+      "commit_date": "2025-10-02T02:45:34Z",
+      "download_url": "https://codeload.github.com/VoronDesign/Voron-Stealthburner/zip/8bcb9c246fac19d8ac03931ef97fa07c5e5f0f2b",
+      "archive": "source_archives\\Voron-Stealthburner-8bcb9c246fac.zip",
+      "archive_sha256": "b8e7c24b4370d83700328362ff42498bd9943dfddf72cda60a97a5d7a5297bba",
+      "archive_bytes": 103126105,
+      "extracted_files": 83,
+      "extracted_bytes": 259053012,
+      "zip_crc_verified": true
+    },
+    {
+      "repository": "VoronDesign/Voron-Documentation",
+      "source_url": "https://github.com/VoronDesign/Voron-Documentation",
+      "branch": "main",
+      "commit": "b8c014f88948c9fca963dfe726e0e66b1287af90",
+      "commit_date": "2026-09-16T13:52:02Z",
+      "download_url": "https://codeload.github.com/VoronDesign/Voron-Documentation/zip/b8c014f88948c9fca963dfe726e0e66b1287af90",
+      "archive": "source_archives\\Voron-Documentation-b8c014f88948.zip",
+      "archive_sha256": "26c82a4efae02d07a93b2e38ce264a9a7818e274a5e71d1e2f882b3f9ff72140",
+      "archive_bytes": 385105307,
+      "extracted_files": 419,
+      "extracted_bytes": 415565036,
+      "zip_crc_verified": true
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "watertight": true,
+  "connected_bodies": 1,
+  "winding_consistent": true,
+  "extents_mm": [
+    60.0,
+    21.0,
+    10.768387794494629
+  ]
+}

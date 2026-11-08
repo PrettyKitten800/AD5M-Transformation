@@ -1,0 +1,28 @@
+{
+  "board_angle_from_vertical_deg": 45,
+  "lean_direction": "upper edge away from filament inlet, toward negative source Y",
+  "housing_pair_pitch_mm": 48,
+  "housing_clearance_diameter_mm": 4.4,
+  "housing_anchor_xyz_mm": [
+    [
+      -24,
+      -11.117,
+      61.00274999999999
+    ],
+    [
+      24,
+      -11.117,
+      61.00274999999999
+    ]
+  ],
+  "EBB42_pair_pitch_mm": 31,
+  "board_hole_diameter_mm": 3.3,
+  "board_back_post_height_mm": 3.85,
+  "board_mount_selection": "two lower-row holes at local (4.5,4.5) and (35.5,4.5)",
+  "clip_pitch_mm": 14.5,
+  "clip_hole_diameter_mm": 3.3,
+  "clip_source": "cable-clip.stl in user-supplied BambuMod folder; two measured hole centers 14.501 mm apart, slight 0.061 mm fore-aft difference rounded to common centerline",
+  "stock_clip_fit": "verify actual stock clip matches supplied model",
+  "hardware_note": "M4 class carriage attachment; M3 board and clip clearance holes; match actual original housing fasteners",
+  "board_model": "official EBB42 V1.1 CAD reference for original V1.2.1 board; exact physical connector envelope must be checked"
+}

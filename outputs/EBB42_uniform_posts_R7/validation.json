@@ -1,0 +1,39 @@
+{
+  "valid_solid": true,
+  "solid_count": 1,
+  "closed_mesh": true,
+  "volume_mm3": 7029.66979022327,
+  "print_envelope_mm": [
+    60.0,
+    35.494509751876905,
+    17.848500000000044
+  ],
+  "housing_overlap_mm3": 0.0,
+  "board_bracket_clashes": [
+    [
+      1668,
+      0.003
+    ],
+    [
+      1672,
+      0.003
+    ]
+  ],
+  "board_housing_clashes": [],
+  "board_bounds": [
+    -20.03600276458509,
+    -22.96672756866242,
+    80.87567942376133,
+    20.002999528637698,
+    13.935800397000559,
+    115.69077389182307
+  ],
+  "board_extra_height_over_old_cover_mm": 19.473023891823075,
+  "rear_extension_from_housing_reference_mm": 11.84972756866242,
+  "angle_from_vertical_deg": 45.0,
+  "physical_fit": "unverified; original feeder/motor, stock bearing carriage and frame are absent from supplied housing CAD",
+  "strain_relief": "removed; no clip geometry or holes",
+  "post_width_mm": 6.6,
+  "board_pilot_mm": 2.5,
+  "revision_note": "Uniform side profile matching previous contact width. Reference cylindrical objects concentric with M3 holes intersect pilot clearance by 0.003 mm3 each; actual threading fit unverified."
+}

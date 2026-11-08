@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta charset="UTF-8"><meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1, maximum-scale=5"><meta name="theme-color" content="#1976d2"><meta name="msapplication-TileColor" content="#1976d2"><meta name="msapplication-TileImage" content="/_assets/favicons/mstile-150x150.png"><title>Adventurer 5M Series: Adjust &amp; Replace the XY-axis Synchronous Belt | Flashforge Wiki</title><meta name="description" content=""><meta property="og:title" content="Adventurer 5M Series: Adjust &amp; Replace the XY-axis Synchronous Belt"><meta property="og:type" content="website"><meta property="og:description" content=""><meta property="og:image"><meta property="og:url" content="https://wiki.flashforge.com/en/adventurer-series/maintenance/ad5mseries-adjust-and-replace-the-xy-axis-synchronous-belt"><meta property="og:site_name" content="Flashforge Wiki"><link rel="apple-touch-icon" sizes="180x180" href="/_assets/favicons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="192x192" href="/_assets/favicons/android-chrome-192x192.png"><link rel="icon" type="image/png" sizes="32x32" href="/_assets/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/_assets/favicons/favicon-16x16.png"><link rel="mask-icon" href="/_assets/favicons/safari-pinned-tab.svg" color="#1976d2"><link rel="manifest" href="/_assets/manifest.json"><script>var siteConfig = {"title":"Flashforge Wiki","theme":"default","darkMode":false,"tocPosition":"left","lang":"en","rtl":false,"company":"Flashforge","contentLicense":"alr","footerOverride":"","logoUrl":"/resource/logo.png"}
+var siteLangs = [{"code":"en","name":"English"},{"code":"zh","name":"中文 (Zhōngwén)"}]
+</script><link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"><link type="text/css" rel="stylesheet" href="/_assets/css/app.30b158ce5fc8a4ebded5.css"><script type="text/javascript" src="/_assets/js/runtime.js?1772173923"></script><script type="text/javascript" src="/_assets/js/app.js?1772173923"></script><!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XZDZDRGYYJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XZDZDRGYYJ');
+</script>
+<style type="text/css">.responsive-embed{position:relative;padding-bottom:56.2%;height:0;margin:10px 0;overflow:hidden}.responsive-embed iframe{position:absolute;top:0;left:0;width:720px;height:480px;border-radius:15px}</style><script type="text/javascript" defer>
+  // 修复后的正则表达式 - 优化以正确处理 youtu.be 短链接和查询参数
+  const rxYoutube = /^(?:https?:\/\/)?(?:www\.|m\.)?(?:youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/)|youtu\.be\/)([\w\-]+)(?:[?&#].*)?$/
+  
+  const rxScreencast = /^(?:https?:\/\/)?(?:www\.)?(screencast\.com)(\/users)\/([a-z0-9_-]+)\/folders\/([a-z0-9%_-]+)\/media\/([a-z0-9_-]+)(?:\/)?$/im
+  
+  const rxFlashforge = /^(?:https?:\/\/)?(?:www\.|m\.)?(flashforge\.com)/
+
+  window.boot.register('vue', () => {
+    const processedElements = new WeakSet()
+    
+    // 提取视频 ID 和 si 参数
+    const extractVideoInfo = (url) => {
+      const ytMatch = url.match(rxYoutube)
+      if (!ytMatch || !ytMatch[1]) return null
+      
+      const cleanVideoId = ytMatch[1].split('?')[0].split('&')[0].split('#')[0]
+      const siMatch = url.match(/[?&]si=([^&]+)/)
+      const siParam = siMatch && siMatch[1] ? `?si=${siMatch[1]}` : ''
+      
+      return {
+        videoId: cleanVideoId,
+        siParam: siParam,
+        embedUrl: `https://www.youtube.com/embed/${cleanVideoId}${siParam}`,
+        embedUrlNocookie: `https://www.youtube-nocookie.com/embed/${cleanVideoId}${siParam}`,
+        watchUrl: `https://www.youtube.com/watch?v=${cleanVideoId}`
+      }
+    }
+    
+    // 创建 YouTube 视频嵌入
+    const createYouTubeEmbed = (info) => {
+      const container = document.createElement('div')
+      container.classList.add('responsive-embed')
+      container.style.cssText = 'position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%; margin: 20px 0;'
+      
+      // 创建 iframe
+      const iframe = document.createElement('iframe')
+      iframe.setAttribute('width', '560')
+      iframe.setAttribute('height', '315')
+      iframe.setAttribute('src', info.embedUrl)
+      iframe.setAttribute('title', 'YouTube video player')
+      iframe.setAttribute('frameborder', '0')
+      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share')
+      iframe.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin')
+      iframe.setAttribute('allowfullscreen', '')
+      iframe.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;'
+      
+      // 创建备用按钮
+      const fallback = document.createElement('a')
+      fallback.href = info.watchUrl
+      fallback.target = '_blank'
+      fallback.rel = 'noopener noreferrer'
+      fallback.className = 'youtube-fallback'
+      fallback.style.cssText = 'display: none; flex-direction: column; align-items: center; justify-content: center; position: absolute; top: 0; left: 0; width: 100%; height: 100%; text-decoration: none; color: white; cursor: pointer; background: #000;'
+      
+      const playIcon = document.createElement('div')
+      playIcon.style.cssText = 'width: 80px; height: 80px; background: rgba(255, 0, 0, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; transition: all 0.3s ease;'
+      playIcon.innerHTML = '<svg width="40" height="40" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>'
+      
+      const text = document.createElement('div')
+      text.style.cssText = 'font-size: 18px; font-weight: bold; text-align: center;'
+      text.textContent = '在 YouTube 上观看此视频'
+      
+      fallback.addEventListener('mouseenter', () => {
+        playIcon.style.transform = 'scale(1.1)'
+        playIcon.style.background = 'rgba(255, 0, 0, 1)'
+      })
+      fallback.addEventListener('mouseleave', () => {
+        playIcon.style.transform = 'scale(1)'
+        playIcon.style.background = 'rgba(255, 0, 0, 0.9)'
+      })
+      
+      fallback.appendChild(playIcon)
+      fallback.appendChild(text)
+      
+      // 错误处理
+      const checkAndFallback = () => {
+        setTimeout(() => {
+          if (iframe.getBoundingClientRect().height < 100) {
+            iframe.src = info.embedUrlNocookie
+            setTimeout(() => {
+              if (iframe.getBoundingClientRect().height < 100) {
+                iframe.style.display = 'none'
+                fallback.style.display = 'flex'
+              }
+            }, 3000)
+          }
+        }, 3000)
+      }
+      
+      iframe.addEventListener('error', () => { iframe.src = info.embedUrlNocookie })
+      checkAndFallback()
+      
+      container.appendChild(iframe)
+      container.appendChild(fallback)
+      return container
+    }
+    
+    // 处理单个元素
+    const processElement = (elm) => {
+      if (processedElements.has(elm) || elm.closest('.responsive-embed')) return
+      
+      const url = elm.getAttribute('url') || elm.getAttribute('href')
+      if (!url) return
+      
+      const videoInfo = extractVideoInfo(url)
+      if (videoInfo) {
+        const newElm = createYouTubeEmbed(videoInfo)
+        processedElements.add(elm)
+        try {
+          elm.replaceWith(newElm)
+        } catch (e) {
+          if (elm.parentNode) elm.parentNode.replaceChild(newElm, elm)
+        }
+        return
+      }
+      
+      // 处理其他类型的视频
+      const scMatch = url.match(rxScreencast)
+      const flashforgeMatch = url.match(rxFlashforge)
+      
+      if (scMatch) {
+        const newElm = document.createElement('div')
+        newElm.classList.add('responsive-embed')
+        newElm.style.cssText = 'position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; width: 100%; margin: 20px 0;'
+        newElm.innerHTML = `<iframe width="100%" height="100%" src="${url}/embed" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0;"></iframe>`
+        processedElements.add(elm)
+        try {
+          elm.replaceWith(newElm)
+        } catch (e) {
+          if (elm.parentNode) elm.parentNode.replaceChild(newElm, elm)
+        }
+      } else if (url.endsWith('.mp4')) {
+        const newElm = document.createElement('div')
+        newElm.innerHTML = `<video controls width="640" height="360"><source src="${url}" type="video/mp4"></video>`
+        processedElements.add(elm)
+        try {
+          elm.replaceWith(newElm)
+        } catch (e) {
+          if (elm.parentNode) elm.parentNode.replaceChild(newElm, elm)
+        }
+      } else if (flashforgeMatch) {
+        // 跳过 flashforge.com（CSP 限制）
+        processedElements.add(elm)
+      }
+    }
+    
+    // 主处理函数
+    const processVideoEmbeds = () => {
+      document.querySelectorAll('a[href], oembed[url]').forEach(processElement)
+    }
+    
+    // 执行和监听
+    processVideoEmbeds()
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', processVideoEmbeds)
+    }
+    window.onload = processVideoEmbeds
+    
+    const observer = new MutationObserver(processVideoEmbeds)
+    observer.observe(document.body || document.documentElement, {
+      childList: true,
+      subtree: true
+    })
+    
+    setTimeout(processVideoEmbeds, 1000)
+    setTimeout(processVideoEmbeds, 2000)
+  })
+</script>
+
+</head><body><div id="root"><page locale="en" path="adventurer-series/maintenance/ad5mseries-adjust-and-replace-the-xy-axis-synchronous-belt" title="Adventurer 5M Series: Adjust &amp; Replace the XY-axis Synchronous Belt" description="" :tags="[]" created-at="2023-11-22T11:57:08.326Z" updated-at="2026-01-22T02:43:24.713Z" author-name="tom_wang" :author-id="24" editor="ckeditor" :is-published="true" toc="W10=" :page-id="69" sidebar="W3siaSI6InNkaS0xIiwiayI6ImxpbmsiLCJsIjoiaG9tZSIsImMiOiJtZGktaG9tZS1jaXJjbGUiLCJ5IjoicGFnZSIsInQiOiIvZW4vaG9tZSJ9LHsiaSI6InNkaS0yIiwiayI6ImhlYWRlciIsImwiOiJGRE0gUHJvZHVjdCBDb250ZW50cyIsImMiOm51bGwsInkiOm51bGwsInQiOm51bGx9LHsiaSI6InNkaS0zIiwiayI6ImxpbmsiLCJsIjoiQ3JlYXRvciBTZXJpZXMiLCJjIjoibWRpLWFscGhhLWMtYm94IiwieSI6InBhZ2UiLCJ0IjoiL2VuL2NyZWF0b3Itc2VyaWVzIn0seyJpIjoic2RpLTQiLCJrIjoibGluayIsImwiOiJBZHZlbnR1cmUgNU0gU2VyaWVzIiwiYyI6Im1kaS1hbHBoYS1hLWJveCIsInkiOiJwYWdlIiwidCI6Ii9lbi9hZHZlbnR1cmVyLXNlcmllcyJ9LHsiaSI6InNkaS01IiwiayI6ImxpbmsiLCJsIjoiQUQ1WCIsImMiOiJtZGktYWxwaGEteC1ib3giLCJ5IjoicGFnZSIsInQiOiIvZW4vYWQ1eCJ9LHsiaSI6InNkaS02IiwiayI6ImxpbmsiLCJsIjoiR3VpZGVyIFNlcmllcyIsImMiOiJtZGktYWxwaGEtZy1ib3giLCJ5IjoicGFnZSIsInQiOiIvZW4vZ3VpZGVyX3NlcmllcyJ9LHsiaSI6InNkaS03IiwiayI6ImxpbmsiLCJsIjoiU29mdHdhcmUgJiBBcHAiLCJjIjoibWRpLWFscGhhLXMtYm94IiwieSI6InBhZ2UiLCJ0IjoiL2VuL0ZsYXNoLVN0dWRpbyJ9LHsiaSI6InNkaS04IiwiayI6ImxpbmsiLCJsIjoiVmVudGlsYXRlZCBEcnlpbmcgU3lzdGVtIiwiYyI6Im1kaS1hbHBoYS12LWJveCIsInkiOiJwYWdlIiwidCI6Ii9lbi9WRFMifSx7ImkiOiJzZGktOSIsImsiOiJsaW5rIiwibCI6IkZpbGFtZW50cyAmIEFjY2Vzc29yaWVzIiwiYyI6Im1kaS1wYWxldHRlIiwieSI6InBhZ2UiLCJ0IjoiL2VuL2ZpbGFtZW50c19hbmRfQWNjZXNzb3JpZXMifSx7ImkiOiJzZGktMTAiLCJrIjoibGluayIsImwiOiJDSjI3MCIsImMiOiJtZGktYWxwaGEtai1ib3giLCJ5IjoicGFnZSIsInQiOiIvZW4vbWpwX2NqMjcwIn0seyJpIjoic2RpLTExIiwiayI6ImhlYWRlciIsImwiOiJHZW5lcmFsIiwiYyI6bnVsbCwieSI6bnVsbCwidCI6bnVsbH0seyJpIjoic2RpLTEyIiwiayI6ImxpbmsiLCJsIjoiRXJyb3IgQ29kZSBMaXN0cyIsImMiOiJtZGktY2xvc2UtYm94IiwieSI6InBhZ2UiLCJ0IjoiL2VuL0ZsYXNoZm9yZ2VfZXJyb3Jjb2RlX2xpc3QifSx7ImkiOiJzZGktMTMiLCJrIjoibGluayIsImwiOiJLbm93bGVkZ2UgQ29ybmVyIiwiYyI6Im1kaS1ib29rLWVkdWNhdGlvbiIsInkiOiJwYWdlIiwidCI6Ii9lbi9rbm93bGVkZ2VfY29ybmVyIn0seyJpIjoic2RpLTE0IiwiayI6ImxpbmsiLCJsIjoiR2xvc3NhcnkiLCJjIjoibWRpLXNvcnQtYWxwaGFiZXRpY2FsLWFzY2VuZGluZyIsInkiOiJwYWdlIiwidCI6Ii9lbi9nbG9zc2FyeSJ9LHsiaSI6InNkaS0xNSIsImsiOiJsaW5rIiwibCI6IkZBUSIsImMiOiJtZGktaGVscC1ib3giLCJ5IjoicGFnZSIsInQiOiIvZW4vRkFRIn0seyJpIjoic2RpLTE2IiwiayI6ImxpbmsiLCJsIjoiRmxhc2hmb3JnZSBQcm9kdWN0cyBHZW5lcmFsIiwiYyI6Im1kaS1jb2ctb3V0bGluZSIsInkiOiJwYWdlIiwidCI6Ii9lbi9wcm9kdWN0c19nZW5lcmFsIn0seyJpIjoic2RpLTE3IiwiayI6ImxpbmsiLCJsIjoiQWJvdXQgVXMiLCJjIjoibWRpLWFjY291bnQtZ3JvdXAiLCJ5IjoicGFnZSIsInQiOiIvZW4vYWJvdXRfdXMifV0=" nav-mode="STATIC" effective-permissions="eyJjb21tZW50cyI6eyJyZWFkIjpmYWxzZSwid3JpdGUiOmZhbHNlLCJtYW5hZ2UiOmZhbHNlfSwiaGlzdG9yeSI6eyJyZWFkIjpmYWxzZX0sInNvdXJjZSI6eyJyZWFkIjpmYWxzZX0sInBhZ2VzIjp7InJlYWQiOnRydWUsIndyaXRlIjpmYWxzZSwibWFuYWdlIjpmYWxzZSwiZGVsZXRlIjpmYWxzZSwic2NyaXB0IjpmYWxzZSwic3R5bGUiOmZhbHNlfSwic3lzdGVtIjp7Im1hbmFnZSI6ZmFsc2V9fQ==" edit-shortcuts="eyJlZGl0RmFiIjp0cnVlLCJlZGl0TWVudUJhciI6dHJ1ZSwiZWRpdE1lbnVCdG4iOnRydWUsImVkaXRNZW51RXh0ZXJuYWxCdG4iOmZhbHNlLCJlZGl0TWVudUV4dGVybmFsTmFtZSI6IkdpdEh1YiIsImVkaXRNZW51RXh0ZXJuYWxJY29uIjoibWRpLWdpdGh1YiIsImVkaXRNZW51RXh0ZXJuYWxVcmwiOiJodHRwczovL2dpdGh1Yi5jb20vb3JnL3JlcG8vYmxvYi9tYWluL3tmaWxlbmFtZX0ifQ==" filename="en/adventurer-series/maintenance/ad5mseries-adjust-and-replace-the-xy-axis-synchronous-belt.html"><template slot="contents"><div><p><a class="is-external-link" href="https://youtu.be/lhk1nPznHhI">https://youtu.be/_mpRY145f-Y</a></p>
+</div></template><template slot="comments"><div><comments></comments></div></template></page></div><style type="text/css"> .v-application .primary{ background-color: #0045f4!important; border-color: #333739!important } </style>
+<link rel="icon" type="image/png" href="/resource/flashforge_wiki_tab_logo.svg">
+</body></html>

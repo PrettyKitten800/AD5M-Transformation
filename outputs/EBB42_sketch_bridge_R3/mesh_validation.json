@@ -1,0 +1,12 @@
+{
+  "watertight": true,
+  "winding_consistent": true,
+  "mesh_bodies": 1,
+  "extents_mm": [
+    60.0,
+    29.0,
+    17.848499298095703
+  ],
+  "minimum_z": 0.0,
+  "volume_mm3": 4997.784798680846
+}

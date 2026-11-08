@@ -1,0 +1,270 @@
+{
+  "created": "2026-11-02",
+  "files": [
+    {
+      "file": "AD5M_REBUILD_HANDOFF.txt",
+      "bytes": 27985,
+      "sha256": "fcfe2e873c7d1f5f602ab1874f553380ed7948750ecfafe6d8bce2f42298031b"
+    },
+    {
+      "file": "CAD/rear_tray_R10/expanded_footprint_fit_check.step",
+      "bytes": 197886,
+      "sha256": "29bd88c8889a58449ca57f949f130f7dba9501883be2a7233161a0caf6496f30"
+    },
+    {
+      "file": "CAD/rear_tray_R10/expanded_footprint_fit_check.stl",
+      "bytes": 205484,
+      "sha256": "73bf8190291afcee17aa98b7d1fdc93a69d2e597980b7aaceb1ab1b3306e6fe7"
+    },
+    {
+      "file": "CAD/rear_tray_R10/layout_data.json",
+      "bytes": 3828,
+      "sha256": "690f71eb01d89b4ecf1f4574379a2b64be5cef430423cf7807fd323b6bfd53e2"
+    },
+    {
+      "file": "CAD/rear_tray_R10/layout_preview.png",
+      "bytes": 451970,
+      "sha256": "3270e417f883838e9b18eccbb1b09f2e9ba07271170804db5586cdff42ccc0f5"
+    },
+    {
+      "file": "CAD/rear_tray_R10/MOSFET_52p5x42p5_pattern_check.step",
+      "bytes": 66395,
+      "sha256": "d390d9b0a323d3f9184a727dbfa4641fa043260e14425b52a7f02467695c43ea"
+    },
+    {
+      "file": "CAD/rear_tray_R10/MOSFET_52p5x42p5_pattern_check.stl",
+      "bytes": 108084,
+      "sha256": "c94cd77d5fc0e6ab40d8f8aaee76b97668af7123282ec2cacb07de00ea971b63"
+    },
+    {
+      "file": "CAD/rear_tray_R10/parameters.json",
+      "bytes": 1651,
+      "sha256": "f31b8c25dd3ab7e268dd65e56e506ffb05afcc4157178f67c7b5203f90a36cf9"
+    },
+    {
+      "file": "CAD/rear_tray_R10/README.md",
+      "bytes": 8176,
+      "sha256": "ef043addb6df1c5635e18a09ae9433d0b9536b1bf1d3f95187f5afc8b9dab7f2"
+    },
+    {
+      "file": "CAD/rear_tray_R10/rear_tray_DRAFT_R10.step",
+      "bytes": 1186386,
+      "sha256": "5640f4fed723d8e7c2afae8a47e4ba0c72635f5e24b9047aa62456063c89be22"
+    },
+    {
+      "file": "CAD/rear_tray_R10/rear_tray_DRAFT_R10.stl",
+      "bytes": 4297484,
+      "sha256": "85667a25b4483b36774d97a40c80dedb693610de60f1734ea54ff85a2e483b9f"
+    },
+    {
+      "file": "CAD/rear_tray_R10/rebuild_model.py",
+      "bytes": 9386,
+      "sha256": "e23417a6c948ec881d40106326498403b03a3575ce466af65536d1260b3985d3"
+    },
+    {
+      "file": "CAD/rear_tray_R10/standoff_detail.png",
+      "bytes": 88041,
+      "sha256": "4d651439a7e08bd0dcec75ae5e9dd0e0918ca705a544a0a9f7ef3894fa881448"
+    },
+    {
+      "file": "CAD/rear_tray_R10/validation.json",
+      "bytes": 1596,
+      "sha256": "62d0a0dc2b1a80c995c08b0ac8362dddd63b0c8d7cd31ab817a3399edcbc7385"
+    },
+    {
+      "file": "CURRENT_BUILD_STATE.json",
+      "bytes": 3339,
+      "sha256": "ba6261d5fb6a3175d9e3ba4a03f19cf04519d6c9a3eff9fe1beb848dbabf004e"
+    },
+    {
+      "file": "DECISIONS_AND_CORRECTIONS.txt",
+      "bytes": 2939,
+      "sha256": "19c857ac40de197711d83d9e44a70e29970d13488850796674872aa11433534a"
+    },
+    {
+      "file": "Diagrams/01_Octopus_and_MOSFET_HE0.png",
+      "bytes": 6185631,
+      "sha256": "b2e1ad7d62aa0c1d35bf231a1453a5f2683dd8a553f85f1e29ec532145ff7e06"
+    },
+    {
+      "file": "Diagrams/01_Octopus_and_MOSFET_HE0.svg",
+      "bytes": 5080894,
+      "sha256": "ac567d397036421d257ce5359259aa984b191721548fec27049da885745cca74"
+    },
+    {
+      "file": "Diagrams/02_EBB36.png",
+      "bytes": 2313087,
+      "sha256": "73f02c27b86a8ec2abaeed580c048e0c059bad93992d46fcb3c318519f21f72f"
+    },
+    {
+      "file": "Diagrams/02_EBB36.svg",
+      "bytes": 6621852,
+      "sha256": "6bea703106a2368b3ef76a115a9b45b998b12fc79fe593c956b77124b6c96261"
+    },
+    {
+      "file": "Diagrams/03_PSU_HE0.png",
+      "bytes": 2293798,
+      "sha256": "5e5b050573ecdc4e54a82db0a84c0d2de001934321417d58f5b19046610579ee"
+    },
+    {
+      "file": "Diagrams/03_PSU_HE0.svg",
+      "bytes": 270422,
+      "sha256": "f4952d11ed42e4c0e1287dd10649d2dccacc729a7e78ff22db013cd31372b304"
+    },
+    {
+      "file": "Diagrams/HE0_revision.md",
+      "bytes": 1567,
+      "sha256": "eb304cb677ae8065b46d70c3514459d353769904a50de4d553d9f69003c40f9e"
+    },
+    {
+      "file": "Diagram_sources/add_ebb36.cjs",
+      "bytes": 5979,
+      "sha256": "bf9d92729e68ef482b5fde071780d0e0f64c519ada5247c3102ed89d6bc599e2"
+    },
+    {
+      "file": "Diagram_sources/add_mosfet_HE0.cjs",
+      "bytes": 4220,
+      "sha256": "78d2de75184d504830293b816d67cfae21d89fff02e3e80eb8295b2d5c447303"
+    },
+    {
+      "file": "Diagram_sources/annotate_octopus_HE0.cjs",
+      "bytes": 5931,
+      "sha256": "5018002947b37732904d5b01eb37dad5abf6e887507f8474022b44f7c02d3952"
+    },
+    {
+      "file": "Diagram_sources/annotate_psu_HE0.cjs",
+      "bytes": 5303,
+      "sha256": "852b63ae8a9d04868ed67bf59add2a6343a5969f3875c8b107fd84f3baeb62ee"
+    },
+    {
+      "file": "Diagram_sources/README.txt",
+      "bytes": 405,
+      "sha256": "7aae4a5c6b1923f1c43f9b9e895d831a5cd61410dd68038a085ab309b7a2aa22"
+    },
+    {
+      "file": "Diagram_sources/revise_HE0.cjs",
+      "bytes": 5280,
+      "sha256": "3126d03d22fe3d7bba98466df0a13ef2813f62c8939c4cd1bd635a0a0f496a29"
+    },
+    {
+      "file": "Flashing_reference/Octopus_BOOT0.png",
+      "bytes": 2586487,
+      "sha256": "fc0b8b1dee057d032479813cbb819779301aa5705c4e400b223d536b17d4494b"
+    },
+    {
+      "file": "Flashing_reference/Octopus_VBUS.png",
+      "bytes": 2817945,
+      "sha256": "4e6a91fc4407bfcd65a0c1a17cf3d135822a270208493a87143f9db0eb87b7a3"
+    },
+    {
+      "file": "NEW_CHAT_PROMPT.txt",
+      "bytes": 1044,
+      "sha256": "e8ce65a0117dcacfc61eb666fca9cc65ad29bd12269bb90104fe1e218583130b"
+    },
+    {
+      "file": "Official_pinouts/ebb36_pinout.webp",
+      "bytes": 119002,
+      "sha256": "0b2f0a55a934dd4e14bc5ac79588d1f00c30a19404da70d71f5ead7ed070f776"
+    },
+    {
+      "file": "Official_pinouts/official_pinout.jpg",
+      "bytes": 1325852,
+      "sha256": "d360491ad8e1f738b1e784bfd62cc2c0f2b4c396d6cd069b9743d62aab0ee285"
+    },
+    {
+      "file": "Photos/bed_breakout/1-Photo-1.jpg",
+      "bytes": 219756,
+      "sha256": "25fc682606863e0876e05bdba020b1911fabcdb3fdd3efb3df41fb399f1e3b37"
+    },
+    {
+      "file": "Photos/bed_breakout/2-Photo-2.jpg",
+      "bytes": 254016,
+      "sha256": "5c9ccc4492af7ac98a5c6d887c7cf2f0a464344dfc9a8c32c428b57c5dcf71e0"
+    },
+    {
+      "file": "Photos/boards_and_carrier/1-Photo-1.jpg",
+      "bytes": 1635531,
+      "sha256": "248b99390de790d04d85561abd4e8726643af8fa3fd4bf2519d651b5e33790bc"
+    },
+    {
+      "file": "Photos/boards_and_carrier/2-Photo-2.jpg",
+      "bytes": 1573236,
+      "sha256": "687075b1d383ac42a9952b046fd9bb20937e877e0af80e3ff0beef1477e0e078"
+    },
+    {
+      "file": "Photos/boards_and_carrier/3-Photo-3.jpg",
+      "bytes": 2196914,
+      "sha256": "22f81a4d760a6ad057fd9b8a691117d2bbd815386199414c388bc25596fab9c2"
+    },
+    {
+      "file": "Photos/boards_and_carrier/4-Photo-4.jpg",
+      "bytes": 1205347,
+      "sha256": "eada12897bd446e296a3d5c7446b10b5ec481eb3bae611d270d5a679cb715486"
+    },
+    {
+      "file": "Photos/boards_and_carrier/5-Photo-5.jpg",
+      "bytes": 1148345,
+      "sha256": "55b972f5a5a1e7cd625b36724d6c946ee39b5d258eda527af92a7225f15906e9"
+    },
+    {
+      "file": "Photos/filament_sensor_guide_S_V_G.png",
+      "bytes": 4658422,
+      "sha256": "b234838e8e96592594edae1c93b4806f39fd0a47afcf85aa4dded922b068c861"
+    },
+    {
+      "file": "Photos/mosfet_control/1-Photo-1.jpg",
+      "bytes": 1596424,
+      "sha256": "c2103cd5df23ed6d43e70731859ebe15001a07872e558587f3bde547636969d1"
+    },
+    {
+      "file": "Photos/mosfet_rear/1-Photo-1.jpg",
+      "bytes": 1438446,
+      "sha256": "aab388d1128a3e7b41d4be8963a117c55cf3638025335dfd64fc756226489d68"
+    },
+    {
+      "file": "Photos/psu/1-Photo-1.jpg",
+      "bytes": 194458,
+      "sha256": "6e5c13296157d6f31de9d413cee108e5dc3ffdd282ce49c0950a38a114aa5ff9"
+    },
+    {
+      "file": "Photos/reference_bed_and_sensor_pinout.jpg",
+      "bytes": 16359909,
+      "sha256": "17aba33e0f3839da7b9b094b770a4a67076b3977fb7474e872db188c73d89a6c"
+    },
+    {
+      "file": "Photos/reference_four_wire_blower.png",
+      "bytes": 116914,
+      "sha256": "48c4ec5587ab03b5a8cbbbf8c7108db391dd290b36535a0527c270ec1da548d9"
+    },
+    {
+      "file": "Photos/reference_Hall_endstops.png",
+      "bytes": 9281,
+      "sha256": "e87d2f0a23b45c61f8c7aa3685b6cbf5a6b9a068c3729d5f5a8332b7b6a99221"
+    },
+    {
+      "file": "Photos/toolhead_fans/1-Photo-1.jpg",
+      "bytes": 1405171,
+      "sha256": "555a53c143cfcd8436f871bb97540c5f4430ba80798ad8e0a463bc1e5a89c1a7"
+    },
+    {
+      "file": "Photos/toolhead_fans/2-Photo-2.jpg",
+      "bytes": 1440502,
+      "sha256": "c14f03b62d95cb7417ba125ba11a3c6aa43cdde97c5eef3e25ecc442945b40fa"
+    },
+    {
+      "file": "Photos/z_endstop_sensor/1-Photo-1.jpg",
+      "bytes": 138501,
+      "sha256": "e01f0a7531348d4a1dd041b8f250c1b4eb0088a432328177709eb55196f9c5af"
+    },
+    {
+      "file": "Photos/z_max_plug/1-Photo-1.jpg",
+      "bytes": 171781,
+      "sha256": "7c11250ce5b79eebc91d94a114f2ec6657577443cd1a0611791cb69664043020"
+    },
+    {
+      "file": "START_HERE.txt",
+      "bytes": 4703,
+      "sha256": "c44b5a49d67ef38adb36ced1d40c9b528ee63b5c2bd40d17d9ce672d092fefcc"
+    }
+  ]
+}

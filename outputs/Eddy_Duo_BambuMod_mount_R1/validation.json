@@ -1,0 +1,45 @@
+{
+  "Eddy_Duo_side_bracket_R1": {
+    "valid_solid": true,
+    "solid_count": 1,
+    "volume_mm3": 2526.3522240096236,
+    "print_bounds_mm": [
+      35.000000000000014,
+      27.25,
+      4.0
+    ],
+    "mesh_closed": true,
+    "facets": 3804
+  },
+  "Drill_locator_1p6mm_R1": {
+    "valid_solid": true,
+    "solid_count": 1,
+    "volume_mm3": 1846.4044144602146,
+    "print_bounds_mm": [
+      35.21775000000001,
+      13.117,
+      8.100000000000001
+    ],
+    "mesh_closed": true,
+    "facets": 1864
+  },
+  "Hole_pitch_coupon_R1": {
+    "valid_solid": true,
+    "solid_count": 1,
+    "volume_mm3": 848.6820840036105,
+    "print_bounds_mm": [
+      10.0,
+      30.0,
+      3.0
+    ],
+    "mesh_closed": true,
+    "facets": 1852
+  },
+  "bracket_housing_intersection_mm3": 0.0,
+  "probe_bracket_check": "reference sensor minimum X equals bracket maximum X (face contact); no penetrating bounding-box overlap",
+  "probe_housing_x_clearance_mm": 4.1019956700947695,
+  "insert_material_fraction": {
+    "64": 1.0,
+    "84": 1.0
+  }
+}

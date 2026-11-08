@@ -1,0 +1,62 @@
+{
+  "rear_tray_DRAFT_R10": {
+    "valid_solid": true,
+    "watertight": true,
+    "single_connected_mesh": true,
+    "bounds_mm": [
+      167.0,
+      172.0,
+      5.0
+    ],
+    "volume_mm3": 23641.6176613354
+  },
+  "expanded_footprint_fit_check": {
+    "valid_solid": true,
+    "watertight": true,
+    "single_connected_mesh": true,
+    "bounds_mm": [
+      167.0,
+      172.0,
+      1.2000000476837158
+    ],
+    "volume_mm3": 7688.606226760511
+  },
+  "MOSFET_52p5x42p5_pattern_check": {
+    "valid_solid": true,
+    "watertight": true,
+    "single_connected_mesh": true,
+    "bounds_mm": [
+      60.0,
+      50.0,
+      1.2000000476837158
+    ],
+    "volume_mm3": 2114.841389334822
+  },
+  "layout": {
+    "width_mm": 167.0,
+    "height_mm": 172.0,
+    "plate_thickness_mm": 2.0,
+    "standoff_height_above_plate_mm": 3.0,
+    "overall_plastic_height_mm": 5.0,
+    "board_mount_through_hole_length_mm": 5.0,
+    "pi_to_octopus_PCB_gap_mm": 5,
+    "mosfet_to_octopus_PCB_gap_mm": 3,
+    "cable_and_connector_clearances": "unverified"
+  },
+  "rounded_standoff_roots": {
+    "count": 12,
+    "fillet_radius_mm": 1.5
+  },
+  "all_board_holes_open_through": true,
+  "tie_pads": {
+    "count": 3,
+    "outer_corner_radius_mm": 2.0
+  },
+  "status": "DRAFT: printer envelope, MOSFET footprint/height, cables, cooling and fastener fit not physically validated",
+  "mosfet_pattern_check": {
+    "pitch_x_mm": 52.5,
+    "pitch_y_mm": 42.5,
+    "basis": "User final dimensions; physical fit pending",
+    "exported_STEP_axes_checked": true
+  }
+}

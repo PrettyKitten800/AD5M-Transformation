@@ -1,0 +1,25 @@
+{
+  "housing_side_x": 29.998,
+  "bracket_inner_x": 30.1,
+  "mount_holes_original_CAD_xyz": [
+    [
+      30,
+      -6,
+      64
+    ],
+    [
+      30,
+      -6,
+      84
+    ]
+  ],
+  "mount_pitch_mm": 20,
+  "insert_envelope_checked_diameter_mm": 4.2,
+  "insert_envelope_checked_depth_mm": 4,
+  "sensor_hole_pitch_mm": 10.5,
+  "slot_travel_mm": 12,
+  "nominal_sensor_hole_z_original": 82,
+  "sensor_bottom_z_original_approx": 104.892,
+  "actual_nozzle_tip_position": "unmeasured; set probe using physical nozzle",
+  "sensor_case": "official EDDY shared-family CAD; confirm against Duo case"
+}

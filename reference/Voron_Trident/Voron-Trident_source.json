@@ -1,0 +1,14 @@
+{
+  "repository": "VoronDesign/Voron-Trident",
+  "source_url": "https://github.com/VoronDesign/Voron-Trident",
+  "branch": "main",
+  "commit": "7fcb3257a3063225934d9608f82037aa6587d844",
+  "commit_date": "2026-10-22T01:38:53Z",
+  "download_url": "https://codeload.github.com/VoronDesign/Voron-Trident/zip/7fcb3257a3063225934d9608f82037aa6587d844",
+  "archive": "source_archives\\Voron-Trident-7fcb3257a306.zip",
+  "archive_sha256": "3127c4f0ae2a49631ef3629087d4e64625f8f67bac3fd71df4c0ffe555f5a341",
+  "archive_bytes": 258491547,
+  "extracted_files": 210,
+  "extracted_bytes": 334099960,
+  "zip_crc_verified": true
+}

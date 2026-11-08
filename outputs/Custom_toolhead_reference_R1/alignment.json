@@ -1,0 +1,15 @@
+{
+  "nozzle_tip_nominal_xyz_mm": [
+    0,
+    0,
+    0
+  ],
+  "nozzle_tip_derivation": "0.4 mm nozzle orifice at end of creator model; original Y=-4",
+  "eddy_case_sensing_bottom_z_mm": 2.5000097379739445,
+  "nominal_target_height_mm": 2.5,
+  "eddy_width_midline_y_mm": -0.00015653191961906288,
+  "hotend_to_sensor_X_envelope_gap_mm": 6.19841772252949,
+  "hotend_valid": true,
+  "hotend_solids": 3,
+  "status": "component alignment reference only, no carriage or fan included; coil-center XYZ to confirm from official drawing"
+}

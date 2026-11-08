@@ -1,0 +1,48 @@
+{
+  "outline_radius_mm": 0.5,
+  "valid_solid": true,
+  "closed_mesh_native": true,
+  "housing_overlap_mm3": 0.0,
+  "housing_anchors_original_CAD_mm": [
+    [
+      30,
+      -6,
+      64
+    ],
+    [
+      30,
+      -6,
+      84
+    ]
+  ],
+  "anchor_pitch_mm": 20,
+  "anchor_hole_diameter_mm": 3.3,
+  "sensor_slot_pitch_mm": 10.5,
+  "slot_travel_mm": 10,
+  "slot_width_mm": 3.3,
+  "plate_thickness_mm": 4,
+  "sensor_nut_channels_mm": [
+    5.8,
+    16.6,
+    2.5
+  ],
+  "nut_channel_side_wall_mm": 1.6,
+  "nut_channel_end_wall_mm": 1.7,
+  "nut_channel_front_skin_mm": 1.5,
+  "print_orientation": "sensor-contact face down, recessed nut channels up",
+  "sensor_nominal_mount_z_source_mm": 82,
+  "actual_nozzle_tip": "not established by supplied housing CAD; set physically",
+  "drilling": "two new holes in the housing solid edge; do not use the vent honeycomb",
+  "reference": "official Eddy shared-family case mesh; physical Duo should be checked",
+  "diameter_4p2_by_4mm_insert_envelope_solid_fraction": [
+    1.0,
+    1.0
+  ],
+  "mesh_watertight": true,
+  "mesh_connected_bodies": 1,
+  "print_extents_mm": [
+    34.00000000000001,
+    31.1200008392334,
+    4.000000000000007
+  ]
+}

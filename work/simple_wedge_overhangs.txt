@@ -1,0 +1,33 @@
+{
+  "watertight": true,
+  "connected_bodies": 1,
+  "extents_mm": [
+    60.0,
+    21.0,
+    10.768387794494629
+  ],
+  "layer_height_mm": 0.2,
+  "overhang_test": "each section compared with previous section expanded by 0.205 mm (about 45 degrees)",
+  "unsupported_sections": [
+    {
+      "z_mm": 0.3,
+      "area_mm2": 11.478,
+      "bounds": [
+        0.28678,
+        0.28678,
+        59.71322,
+        20.71322
+      ]
+    },
+    {
+      "z_mm": 5.7,
+      "area_mm2": 0.078,
+      "bounds": [
+        14.115088756866852,
+        11.0,
+        45.88656549704405,
+        11.119415750886171
+      ]
+    }
+  ]
+}

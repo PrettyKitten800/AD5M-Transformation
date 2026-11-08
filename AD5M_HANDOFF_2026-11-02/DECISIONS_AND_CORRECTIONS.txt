@@ -1,0 +1,15 @@
+DECISION HISTORY AND PRECEDENCE
+
+1. Rear carrier evolved through R10. Final base is 2mm + 3mm posts = 5mm, not the earlier 1.5mm base/4.5mm total. Final width167mm, height172mm. All holes through. Three tie pads have 2mm corner radius; standoff roots fillet1.5mm. Final MOSFET pitch52.5x42.5mm; discard earlier41x51 or53x43 values.
+2. Stock cover position is required. No spacer/extension authorization. Reference designs using rear extensions are not proof of this build's fit.
+3. Actual PSU photo superseded assumed Mean Well identity: A-350GF-24-CX24V14.6A.
+4. Original power drawings assumed MOSFET controlled from BED-OUT, hence included BED-POWER feed. User actually wired CONTROL to HE0. R5 supersedes all that: HE0/PA0 controls bed, BED-POWER and BED-OUT unused. LED reservation moved toHE1/PA3. External module still supplies bed current directly from PSU.
+5. User explicitly said CONTROL wire beside + is positive and instructed continued work on that basis. Treat as user premise, not a measurement. Square pad vs round pad and nearby LED anode markings did not independently prove polarity.
+6. EBB X/Y endstops ARE PB6/PB7. Earlier concern about PB3/PB4 was an assistant comparison error involving another expansion header. BTT diagram verifies correct Endstop header:5V,GND,PB6,PB5,PB7.
+7. Stock sensor center is5V; Octopus STOP center isGND. Swap only at controller end as needed to obtain correct final functions. Saying "swap two wires" assumes signal already aligns; orientation of opposite cable faces can reverse apparent order. No completed repinning test was reported.
+8. Final power split is inside harness connectors near MOTOR-POWER, not multiple separately terminated wires in one board clamp. It can feed both Octopus inputs from one PSU pair; EBB adds its own protected branch. Other PSU pair feeds MOSFET.
+9. Blower is four-wire24V0.25A, not an ordinary two-wire output load. Keep electrical PWM adaptation unresolved until properly established. The guide's PA1 switched-output scheme is an observation, not this build's validated interface.
+10. Hotend is standard BambuX1C with connector changed, not stock AD5M thermal hardware. Exact sensor curve still needs establishing. Generic BTT PID/current/temperature defaults do not become build specs by being in an example.
+11. Firmware flashing is NOW the immediate task. EBB and Octopus jumper instructions were given; no command output or flash completion was reported.
+12. Keep board flash records separate: targetMCU,clock,bootloader arrangement/offset,transport,pins,bitrate,buildfile,deviceID,result. Do not confuse a generic STM32 DFU USB ID with proof of which attached board is targeted. Do not erase or flash hardware without identifying current device and intended build.
+13. Older diagrams/notes are history. Preferred images are the selected files in this package's Diagrams directory, not the older combined three-board SVG that still used BED-OUT.
