@@ -1,3 +1,5 @@
+> **Historical comparison notice — November 2026:** The replacement mainboard is confirmed as **BTT Octopus Pro V1.1 (STM32H723ZET6)** and flashed (`outputs/flashing_2026-11-03/`), and the toolboard is confirmed as **BTT EBB42 V1.2.1** (replacing EBB36). This November 2 comparison is retained as reference history. Read `AGENTS.md` and `CURRENT_TOOLHEAD_SPEC.md` first.
+
 # BTT controller options for the AD5M
 
 Research date: November 2, 2026, America/New_York.

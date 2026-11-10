@@ -1,4 +1,4 @@
-> **Hardware correction — November 6, 2026:** The current toolboard specification is **BTT EBB42**, replacing EBB36. Exact EBB42 revision and MCU are not yet established. Historical EBB36 wiring, connector positions, pin assignments, firmware settings and mounting drawings below are not an approved EBB42 wiring plan; verify against the exact EBB42 documentation before use. The X1C hotend and other established build components remain the current baseline.
+> **Hardware & status update — November 2026:** The confirmed toolboard is **BTT EBB42 V1.2.1** (original EBB42 family, not Gen2), replacing EBB36. The replacement mainboard is confirmed as **BTT Octopus Pro V1.1 (STM32H723ZET6)** and has been flashed with the Klipper USB-to-CAN bridge (`outputs/flashing_2026-11-03/`). Eddy Duo uses direct USB to the Pi 5 for now. Historical EBB36 wiring, connector positions, pin assignments, firmware settings and mounting drawings below are retained as history and are not an approved EBB42 wiring plan; verify against exact EBB42 V1.2.1 documentation before use. Read `AGENTS.md` and `CURRENT_TOOLHEAD_SPEC.md` first.
 
 # EBB36 toolhead first
 

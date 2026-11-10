@@ -25,6 +25,7 @@ Read each part's PRINT_AND_FIT.md or PRINT_AND_INSTALL.md. Older output revision
 
 ## CAD and references
 
+- [Outputs index (active vs. historical revisions)](outputs/INDEX.md)
 - [Portable current CAD builders/renderers](scripts/cad/)
 - [Original user-supplied BambuMod housing](reference/BambuMod/)
 - [X1 hotend reference](reference/Bambu_X1_hotend_CAD/)
