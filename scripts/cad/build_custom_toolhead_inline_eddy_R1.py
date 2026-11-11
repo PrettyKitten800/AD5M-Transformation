@@ -213,14 +213,31 @@ def main():
     bracket_stl = OUT / "Eddy_Duo_Inline_Mount_R1.stl"
     tm_bracket, b_repairs = export_part_stl(bracket_print, bracket_stl, lin_def=0.04)
 
+    # Load EBB42 R7 top bracket and Eddy Duo official STEP in upright housing coordinates for full assembly FCStd
+    r7_step = Part.read(str(ROOT / "outputs" / "EBB42_uniform_posts_R7" / "EBB42_short_bridge_R7.step"))
+    eddy_raw = Part.read(str(ROOT / "outputs" / "Eddy_Duo_BambuMod_mount_R1" / "EDDY_official.step"))
+    # Align Eddy Duo using Custom_toolhead_reference_R1 matrix, then map to front of bracket (Y = 34.12 mm)
+    eddy_shape = eddy_raw.copy()
+    m_ed = A.Matrix()
+    m_ed.A11 = 0; m_ed.A12 = 0; m_ed.A13 = 1; m_ed.A14 = 18.0
+    m_ed.A21 = 1; m_ed.A22 = 0; m_ed.A23 = 0; m_ed.A24 = 74.3294
+    m_ed.A31 = 0; m_ed.A32 = 1; m_ed.A33 = 0; m_ed.A34 = 33.4856
+    eddy_shape.transformShape(m_ed)
+    eddy_shape.rotate(A.Vector(0, 0, 0), A.Vector(0, 0, 1), 90)
+    eddy_shape.translate(A.Vector(0.0, 34.12 - 16.95, -13.58))
+
     # Save FreeCAD assembly document
     doc = A.newDocument("AD5M_Custom_Toolhead_R1")
     o_h = doc.addObject("Part::Feature", "AD5M_Custom_Housing_R1")
     o_h.Shape = housing
     o_b = doc.addObject("Part::Feature", "Eddy_Duo_Inline_Mount_R1")
     o_b.Shape = bracket
+    o_r7 = doc.addObject("Part::Feature", "EBB42_Uniform_Posts_R7")
+    o_r7.Shape = r7_step
     o_he = doc.addObject("Part::Feature", "Bambu_X1C_Hotend_Ref")
     o_he.Shape = he_comp
+    o_ed = doc.addObject("Part::Feature", "BTT_Eddy_Duo_Ref")
+    o_ed.Shape = eddy_shape
     doc.recompute()
     fcstd_path = OUT / "AD5M_Custom_Toolhead_Assembly_R1.FCStd"
     doc.saveAs(str(fcstd_path))
