@@ -8,9 +8,10 @@ This repository is the shared file workspace for the AD5M Build project: build n
 
 | Part | Files | Status |
 | --- | --- | --- |
+| Custom toolhead housing + inline front Eddy Duo mount (`x_offset = 0`) | [R1](outputs/AD5M_custom_toolhead_inline_eddy_R1/) | New custom housing (`AD5M_Custom_Housing_R1`) + inline front Eddy bracket (`Eddy_Duo_Inline_Mount_R1`); CAD & watertight mesh verified; untested physically |
 | EBB42 bracket with uniform angled posts | [R7](outputs/EBB42_uniform_posts_R7/) | Revised after R5 printed successfully enough for a fit check; R7 untested physically |
 | Simple central wedge EBB42 mount | [R6](outputs/EBB42_simple_wedge_R6/) | User reported printing; requires PCB-back spacers |
-| Reinforced adjustable Eddy Duo mount | [R4](outputs/Eddy_Duo_adjustable_side_mount_R4/) | Proposal with thicker nut-channel walls; 10 mm vertical travel; two new housing holes |
+| Reinforced adjustable Eddy Duo mount | [R4](outputs/Eddy_Duo_adjustable_side_mount_R4/) | Side-mount proposal (`x_offset ≈ 44 mm`); live rapid-scan commissioning showed right-edge magnetic drop-off beyond `X = 196 mm`, motivating inline `R1` above |
 
 Read each part's PRINT_AND_FIT.md or PRINT_AND_INSTALL.md. Older output revisions are retained as history, including superseded placements. CAD checks do not establish installed frame, motor, nozzle or cable clearance.
 

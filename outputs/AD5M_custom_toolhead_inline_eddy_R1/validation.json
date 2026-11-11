@@ -1,0 +1,82 @@
+{
+  "revision": "AD5M_custom_toolhead_inline_eddy_R1",
+  "housing": {
+    "valid_solid": true,
+    "solids": 1,
+    "volume_mm3": 39884.39,
+    "mesh_watertight": true,
+    "mesh_winding_consistent": true,
+    "mesh_connected_bodies": 1,
+    "print_orientation": "rear carriage backplate (Y = -11.12 mm) flat on build plate, supports OFF",
+    "print_extents_mm": [
+      59.998,
+      80.002,
+      43.236
+    ],
+    "sub_mm_tessellation_gap_repairs": [],
+    "anchor_4p2_by_6mm_ring_solid_fraction": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ]
+  },
+  "eddy_inline_bracket": {
+    "valid_solid": true,
+    "solids": 1,
+    "volume_mm3": 2529.63,
+    "mesh_watertight": true,
+    "mesh_winding_consistent": true,
+    "mesh_connected_bodies": 1,
+    "print_orientation": "front sensor-contact face (Y = +34.12 mm) flat on build plate, recessed nut channels up, supports OFF",
+    "print_extents_mm": [
+      33.0,
+      28.5,
+      4.0
+    ],
+    "plate_thickness_mm": 4.0,
+    "anchor_pattern_mm": {
+      "x_pitch": 24.0,
+      "z_pitch": 8.0,
+      "hole_diameter": 3.3,
+      "housing_pilot_diameter": 2.5
+    },
+    "sensor_slot_pitch_mm": 10.5,
+    "slot_travel_mm": 10.0,
+    "slot_width_mm": 3.3,
+    "sensor_nut_channels_mm": [
+      5.8,
+      16.6,
+      2.5
+    ],
+    "nut_channel_center_wall_mm": 4.7,
+    "nut_channel_outer_side_wall_mm": 1.85,
+    "nut_channel_front_skin_mm": 1.5
+  },
+  "alignment_and_clearances": {
+    "nozzle_tip_housing_coords_mm": [
+      0.0,
+      12.08,
+      -13.58
+    ],
+    "eddy_coil_center_nominal_housing_coords_mm": [
+      0.0,
+      43.27,
+      -11.08
+    ],
+    "klipper_probe_offsets_mm": {
+      "x_offset": 0.0,
+      "y_offset": -31.19,
+      "nominal_z_above_nozzle_tip_mm": 2.5,
+      "vertical_adjustment_range_above_nozzle_mm": [
+        -2.21,
+        7.79
+      ]
+    },
+    "housing_bracket_overlap_mm3": 0.0,
+    "housing_hotend_overlap_mm3": 0.0,
+    "bracket_hotend_overlap_mm3": 0.0,
+    "heatsink_fins_to_front_bulkhead_clearance_mm": 1.29,
+    "physical_fit_status": "CAD and mesh checks verified; physical print and fit on printer required."
+  }
+}
