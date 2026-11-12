@@ -1,0 +1,130 @@
+{
+  "upstream_repo": "https://github.com/chirpy2605/voron",
+  "upstream_path": "V0/Dragon_Burner/STLs/v0.2",
+  "upstream_commit": "cc2e749d09d7f24418f9f8c73c90bcefb1e29584",
+  "license": "GPL-3.0 (see LICENSE in this directory)",
+  "downloaded": "2026-11-12",
+  "notes": "Exact unmodified Dragon Burner v8 STLs for AD5M + Bambu X1C + Orbiter 2.5 build.",
+  "files": [
+    {
+      "file": "Cowl_NoProbe.stl",
+      "bytes": 562884,
+      "triangles": 11256,
+      "bbox_mm": [
+        [
+          120.42,
+          175.42
+        ],
+        [
+          -169.64,
+          -102.22
+        ],
+        [
+          -0.0,
+          40.0
+        ]
+      ],
+      "sha256": "df71cbdb0e900a94443ad46e297778171e63cc0afb68ec620345f5994f9c13b8"
+    },
+    {
+      "file": "Bambu_Mount.stl",
+      "bytes": 314984,
+      "triangles": 6298,
+      "bbox_mm": [
+        [
+          302.62,
+          357.62
+        ],
+        [
+          -165.07,
+          -143.79
+        ],
+        [
+          -0.0,
+          21.0
+        ]
+      ],
+      "sha256": "11c2240f17eb0da8903fab5b661539cec87507a370524d2040d564c0b67a54f4"
+    },
+    {
+      "file": "Orbiter2_Mount.stl",
+      "bytes": 130584,
+      "triangles": 2610,
+      "bbox_mm": [
+        [
+          122.56,
+          173.28
+        ],
+        [
+          -140.4,
+          -116.37
+        ],
+        [
+          110.76,
+          117.66
+        ]
+      ],
+      "sha256": "67a66cc2b11dbb863c5b6a021e5131a7003944f4c6fb12b3cb90f6c2855ee6a0"
+    },
+    {
+      "file": "Brace_Straight.stl",
+      "bytes": 47684,
+      "triangles": 952,
+      "bbox_mm": [
+        [
+          130.0,
+          165.22
+        ],
+        [
+          -119.43,
+          -114.43
+        ],
+        [
+          0.0,
+          5.0
+        ]
+      ],
+      "sha256": "f6184cae54173f04dd740ce466e1f312b964a88c9228dce288a8d398bdf9b621"
+    },
+    {
+      "file": "Brace_Loop.stl",
+      "bytes": 74284,
+      "triangles": 1484,
+      "bbox_mm": [
+        [
+          130.0,
+          165.22
+        ],
+        [
+          -126.44,
+          -107.42
+        ],
+        [
+          -0.0,
+          5.0
+        ]
+      ],
+      "sha256": "c7bd0316cc579604026755cd130754d1b36d3eace91e4af4e3fd409d178b3508"
+    },
+    {
+      "file": "[a]_Carrier_Dummy.stl",
+      "bytes": 22284,
+      "triangles": 444,
+      "bbox_mm": [
+        [
+          140.76,
+          153.31
+        ],
+        [
+          -154.43,
+          -141.43
+        ],
+        [
+          -0.0,
+          15.3
+        ]
+      ],
+      "sha256": "a2b741adf0c8bd30a5bb5b4662106c609ac10c14ad99a00f8eb04986adbcbf6f"
+    }
+  ]
+}
