@@ -1,0 +1,151 @@
+{
+  "model": "Printables #1406257 (v11) AD5M Dragon Burner Adapter \u2014 Mode A Rear Eddy Duo Remix (R1)",
+  "units": "mm",
+  "freecad_valid_brep": true,
+  "freecad_solid_count": 1,
+  "freecad_mesh_is_solid": true,
+  "mesh_facets": 5298,
+  "mesh_points": 2629,
+  "volume_mm3": 84506.786,
+  "base_volume_mm3": 80814.774,
+  "bbox_mm": {
+    "x": [
+      4.902,
+      64.899
+    ],
+    "y": [
+      -136.0,
+      -33.3
+    ],
+    "z": [
+      0.0,
+      33.4
+    ]
+  },
+  "datums_in_adapter_frame_mm": {
+    "nozzle_tip": [
+      34.924,
+      -138.401,
+      44.697
+    ],
+    "coil_center_nominal": [
+      34.924,
+      -135.901,
+      9.697000000000003
+    ],
+    "stock_steel_carriage_bottom": [
+      34.924,
+      -124.80100000000002,
+      0.0
+    ]
+  },
+  "printer_cfg_offsets_mm": {
+    "x_offset": 0.0,
+    "y_offset": 35.0,
+    "z_above_nozzle_nominal": 2.5,
+    "z_travel_range_above_nozzle": [
+      1.5,
+      3.5
+    ],
+    "below_steel_carriage_bottom_mm": 11.1
+  },
+  "ear_geometry_mm": {
+    "center_to_center_pitch_x": 26.61,
+    "ear_x_centers": [
+      21.619,
+      48.229
+    ],
+    "ear_y_center": -128.5,
+    "vertical_travel_mm": [
+      -1.0,
+      1.0
+    ],
+    "slot_diameter_mm": 3.4,
+    "captive_hex_nut_channel": {
+      "height_mm": 7.8,
+      "z_span_mm": [
+        16.6,
+        19.4
+      ]
+    }
+  },
+  "collisions_and_clearances": {
+    "hall_magnet_pockets_open_overlap_mm3": [
+      0.0,
+      0.0
+    ],
+    "hall_magnet_min_dist_to_addition_mm": 36.035,
+    "carriage_bolts_and_slot": {
+      "upper_left": {
+        "shank_in_remixed_mm3": 12.867963,
+        "addition_overlap_head_corridor_mm3": 0.0,
+        "min_dist_addition_to_shank_mm": 47.037
+      },
+      "upper_right": {
+        "shank_in_remixed_mm3": 12.867963,
+        "addition_overlap_head_corridor_mm3": 0.0,
+        "min_dist_addition_to_shank_mm": 47.03
+      },
+      "lower_left": {
+        "shank_in_remixed_mm3": 0.0,
+        "addition_overlap_head_corridor_mm3": 0.0,
+        "min_dist_addition_to_shank_mm": 10.772
+      },
+      "lower_right": {
+        "shank_in_remixed_mm3": 0.0,
+        "addition_overlap_head_corridor_mm3": 0.0,
+        "min_dist_addition_to_shank_mm": 10.928
+      },
+      "fifth_bolt_plus14": {
+        "shank_in_remixed_mm3": 4.852146,
+        "addition_overlap_head_corridor_mm3": 0.0,
+        "min_dist_addition_to_shank_mm": 2.507
+      },
+      "fifth_bolt_minus14": {
+        "shank_in_remixed_mm3": 4.852146,
+        "addition_overlap_head_corridor_mm3": 0.0,
+        "min_dist_addition_to_shank_mm": 2.507
+      },
+      "slot_42x9_head_corridor_Z3p45_to_11p5_overlap_mm3": 0.0
+    },
+    "steel_carriage_overlap_mm3": 0.0,
+    "db_bambu_mount_overlap_mm3": 0.0,
+    "db_main_body_overlap_mm3": 0.0,
+    "bambu_hotend_overlap_mm3": 0.0,
+    "min_air_gap_baffle_to_db_main_mm": 11.568,
+    "min_air_gap_baffle_to_hotend_mm": 13.547,
+    "eddy_envelope_fit": {
+      "z_travel_-1.0mm": {
+        "bare_18x11_coil_overlap_mm3": 0.0,
+        "lower_housing_18p1_overlap_mm3": 0.0,
+        "usb_plug_and_wires_overlap_mm3": 0.0,
+        "eddy_step_coil90_dist_mm": 2.203,
+        "eddy_step_usb4p_dist_mm": 1.68,
+        "eddy_step_switch_dist_mm": 4.029,
+        "coil_bottom_above_nozzle_mm": 1.5
+      },
+      "z_travel_+0.0mm": {
+        "bare_18x11_coil_overlap_mm3": 0.0,
+        "lower_housing_18p1_overlap_mm3": 0.0,
+        "usb_plug_and_wires_overlap_mm3": 0.0,
+        "eddy_step_coil90_dist_mm": 2.203,
+        "eddy_step_usb4p_dist_mm": 1.68,
+        "eddy_step_switch_dist_mm": 3.029,
+        "coil_bottom_above_nozzle_mm": 2.5
+      },
+      "z_travel_+1.0mm": {
+        "bare_18x11_coil_overlap_mm3": 0.0,
+        "lower_housing_18p1_overlap_mm3": 0.0,
+        "usb_plug_and_wires_overlap_mm3": 0.0,
+        "eddy_step_coil90_dist_mm": 2.203,
+        "eddy_step_usb4p_dist_mm": 1.68,
+        "eddy_step_switch_dist_mm": 2.029,
+        "coil_bottom_above_nozzle_mm": 3.5
+      }
+    },
+    "baffle_main_thickness_mm": 4.3,
+    "baffle_over_usb_channel_mm": 2.7,
+    "baffle_over_nut_channel_mm": 3.9,
+    "min_front_baffle_thickness_mm": 2.7
+  }
+}

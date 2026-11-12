@@ -8,6 +8,7 @@ This repository is the shared file workspace for the AD5M Build project: build n
 
 | Part | Files | Status |
 | --- | --- | --- |
+| Dragon Burner (`#1406257` v11) AD5M Mode-A Rear Eddy Duo adapter | [R1](outputs/Dragon_Burner_AD5M_Eddy_Adapter_R1/) | Centered (`x_offset = 0.0`, `y_offset = 35.0 mm` behind nozzle, `+2.5 mm` above nozzle) rear Mode-A pocket for de-shelled Eddy Duo, `26.61 mm` M3 slots (`±1.0 mm` travel), `2.7 mm` min front thermal baffle, upward USB relief channel; watertight STL verified; untested physically |
 | Custom toolhead housing + inline front Eddy Duo mount (`x_offset = 0`) | [R1](outputs/AD5M_custom_toolhead_inline_eddy_R1/) | New custom housing (`AD5M_Custom_Housing_R1`) + inline front Eddy bracket (`Eddy_Duo_Inline_Mount_R1`); CAD & watertight mesh verified; untested physically |
 | EBB42 bracket with uniform angled posts | [R7](outputs/EBB42_uniform_posts_R7/) | Revised after R5 printed successfully enough for a fit check; R7 untested physically |
 | Simple central wedge EBB42 mount | [R6](outputs/EBB42_simple_wedge_R6/) | User reported printing; requires PCB-back spacers |

@@ -1,0 +1,20 @@
+{
+  "name": "Adventurer 5M Dragon Burner Adapter (v11)",
+  "printables_id": "1406257",
+  "url": "https://www.printables.com/model/1406257",
+  "author": "John Gibson",
+  "file": "adventurer-5m-dragon-burner-adapter-v11.stl",
+  "original_source_path": "C:\\Users\\PK800\\Desktop\\adventurer-5m-dragon-burner-adapter-v11.stl",
+  "bytes": 179784,
+  "sha256": "8a0386062ce5949a386cc64710b409adf811ef5d279ea86a9b31287de27ceae9",
+  "mesh_bbox_mm": {
+    "x": [4.902, 64.899],
+    "y": [-124.300, -33.300],
+    "z": [0.000, 33.400]
+  },
+  "coordinate_convention": {
+    "+X": "right/toolhead width (centerline X = 34.924 mm from Bambu_Mount filament bore)",
+    "+Y": "up (+Z_printer; top = -33.300, carriage drop flange bottom = -124.300)",
+    "+Z": "forward toward Dragon Burner & nozzle (Z = 0.000 mates flush against stock AD5M steel carriage front face)"
+  }
+}
