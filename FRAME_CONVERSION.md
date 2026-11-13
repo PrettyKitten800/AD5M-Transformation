@@ -1,79 +1,98 @@
-> **Status — November 2026:** Planning reference for the future structural frame conversion (post-toolhead / post-gantry-measurement phase). Immediate priority remains reliable single-tool printing with the Octopus Pro V1.1 H723, EBB42 V1.2.1, and Eddy Duo on the existing AD5M chassis. Do not order extrusion cut lengths until the physical bed/Z measurements and tool-dock Y-depth envelope below are locked in. Read [AGENTS.md](AGENTS.md) and [UPGRADE_ROADMAP.md](UPGRADE_ROADMAP.md) first.
+> **Status — November 2026:** Planning reference for the future structural frame conversion (post-toolhead / post-gantry-measurement phase). Immediate priority remains reliable single-tool printing with the Octopus Pro V1.1 H723, EBB42 V1.2.1, and Eddy Duo on the existing AD5M chassis. Do not order extrusion cut lengths until the CAD assembly locks exact AWD motor/rail/tool-dock clearances. Read [AGENTS.md](AGENTS.md) and [UPGRADE_ROADMAP.md](UPGRADE_ROADMAP.md) first.
 
-# Frame Conversion Plan (Aluminum Extrusion & Structural Materials)
+# Frame Conversion Plan (300×300×315 mm Euro 4040 Architecture)
 
-This document defines the material selection, aluminum extrusion profile tradeoffs, fastener ecosystem rules, and pre-order measurements for rebuilding the FlashForge AD5M into a rigid, Trident-like AWD CoreXY printer with independent triple-Z and eventual 4-head toolchanging.
-
----
-
-## 1. Structural Medium: Why T-Slot Aluminum Extrusion
-
-For a one-off custom CoreXY / AWD conversion, **anodized T-slot aluminum extrusion (`6063-T5` / `6063-T6`)** is the only practical structural candidate:
-- **Welded steel square tube:** High stiffness, but requires weld fixtures and post-weld machining, adds major weight, and lacks continuous T-slots for adjustable rail/panel/dock mounting.
-- **Custom bent sheet metal / CNC plates (like stock AD5M):** Requires new laser/brake runs for any dimensional revision and complicates custom linear-rail, AWD motor, and triple-Z alignments.
-- **Carbon fiber square tube:** Poor local bolt-clamping and crush resistance without bonded metal inserts; poor dimensional repeatability for rail seating.
-
-**Rule on profile style:** Buy **T-slot** (flat outer shoulders and square slot lips for full-width linear-rail contact and rigid T-nut clamping), **not V-slot** (chamfered V-grooves reduce rail seating area and T-nut contact).
+This document defines the target envelope, Euro `4040` T-slot profile rules, linear-rail slot compatibility, preliminary Trident-derived sizing math, and power/heating implications for rebuilding the FlashForge AD5M into a `300 × 300 × 315 mm` Trident-like AWD CoreXY printer with independent triple-Z and eventual 4-head toolchanging.
 
 ---
 
-## 2. Extrusion Size Comparison (`4040` vs `3030` vs `2040` vs `2020`)
+## 1. Confirmed Target Envelope
 
-The target machine combines **AWD (4 XY motors)**, **triple-Z**, and **4 parked toolheads**, which places much higher belt tension and corner-motor reaction torque on the upper frame than a standard stock Voron Trident. However, using oversized extrusion everywhere creates rail-mounting and moving-mass problems.
+- **Build plate:** `315 × 315 mm` (cast MIC6 / ATP-5 tooling plate + magnetic PEI spring steel)
+- **Target printable XY area:** `300 × 300 mm` (`7.5 mm` plate margin per side)
+- **Target Z travel:** `315 mm` (`+65 mm` taller than a standard `250 mm` Voron Trident)
+- **Primary frame profile:** **Euro-standard `4040` T-slot aluminum extrusion** (single centered T-slot per face)
 
-| Architecture Option | Outer Posts / Frame | Moving X-Axis Beam | Linear Rail Seating (`MGN9`/`MGN12`) | Mass & Stiffness | Key Pros & Tradeoffs |
+---
+
+## 2. Structural Medium & Euro `4040` Profile Standards
+
+For a one-off custom CoreXY / AWD conversion, **anodized T-slot aluminum extrusion (`6063-T5` / `6063-T6`)** is the only practical structural candidate (welded steel tube lacks T-slot adjustability; custom sheet metal locks geometry per revision; carbon tube crushes under bolt preload). Buy **T-slot** (flat bearing shoulders), **not V-slot**.
+
+### Critical Distinction: Euro `4040` vs. 20-Series `4040`
+Not all `4040` extrusions have the same face geometry:
+
+| Standard | Slot Layout per 40 mm Face | Typical Slot Width | Core / End-Tap | Notes |
+|---|---|---|---|---|
+| **Euro `4040` Type-I** *(Item-style)* | **1 centered T-slot** | **8 mm** | M8 (or Ø6.8–7.3 mm smooth bore) | Centered rail mounting; smaller slot gap (`8 mm`) gives better rail shoulder width than Slot 10. |
+| **Euro `4040` Type-B** *(Bosch-style)* | **1 centered T-slot** | **10 mm** | M8 / M10 (usually Ø8.5 / Ø10 mm) | Centered rail mounting, heavy-duty industrial hardware; wide `10 mm` slot requires care with narrow linear rails (see §3). |
+| **20-Series `4040`** *(e.g. Misumi `HFS5-4040`)* | **2 parallel slots** (`20 mm` apart) | **5 mm or 6 mm** | Dual/quad M5/M6 | Shares `2020` T-nuts, but has **no center slot** on the 40 mm face. |
+
+**Since you are targeting Euro `4040` with a single centered slot:** check your supplier's exact CAD cross-section to confirm whether it is **Slot 8 (Type-I)** or **Slot 10 (Type-B)** before buying any T-nuts, corner gussets, or linear rails.
+
+---
+
+## 3. Linear-Rail & Moving-Beam Compatibility on Euro `4040`
+
+Having a centered slot solves the `20 mm`-offset problem, **but Euro `4040`'s wide slot (`8 mm` or `10 mm`) creates a rail-width and fastener mismatch with standard small Voron rails**:
+
+| Rail Size | Rail Base Width | Rail Bolt | Direct Fit on Euro `4040` **Slot 8 (8 mm)** | Direct Fit on Euro `4040` **Slot 10 (10 mm)** | Recommendation |
 |---|---|---|---|---|---|
-| **A. Hybrid `4040` (20-series) + `2020`** *(Strong candidate if choosing 4040)* | **20-series `4040`** (Slot 5 or 6, 20 mm slot pitch) | **`2020`** (or light CNC alloy) | Center on `2020` X; offset on one `4040` sub-slot or via adapter plate for Y | Frame ~1.5–1.9 kg/m ($I \approx 8.5\text{–}10.5\text{ cm}^4$); X ~0.55 kg/m | Maximum corner stiffness and wide mounting faces for AWD motor blocks + gussets while keeping low moving X-axis mass and shared `M3`/`M5` 20-series hardware. Adds `+40 mm` outer X/Y footprint vs `2020` and requires custom/remixed motor & rail mounts. |
-| **B. `3030` Frame + `2020` X-Gantry** *(Balanced AWD sweet spot)* | **`3030`** (Slot 8, single centered slot) | **`2020`** (or CNC alloy) | **Centered directly** on every 30 mm face (`MGN9`/`MGN12` bolt straight down the middle) | Frame ~0.95–1.1 kg/m ($I \approx 2.8\text{–}3.5\text{ cm}^4$) | ~4× stiffer in bending than `2020`, **single centered slot** avoids `4040`'s dual-slot rail offset issue, and only adds `+20 mm` outer width vs `2020`. Uses M6/M8 blind joints or Slot-8 brackets; requires custom motor/Z mounts (non-stock-Trident). |
-| **C. `2040` Perimeter + `2020` X-Gantry** | **`2040`** (20-series Slot 5/6) | **`2020`** | **Centered directly** on the 20 mm narrow face | Frame ~0.95–1.1 kg/m (anisotropic stiffness) | Double-slot stiffness along the primary bending axis while keeping a native 20 mm rail face and 100% `M3`/`M5` 20-series T-nut compatibility. Requires care with corner joint orientation. |
-| **D. Standard `2020` (Voron Trident Baseline)** | **`2020`** (e.g. Misumi `HFSB5-2020`) | **`2020`** | **Centered directly** on all faces | Frame ~0.5–0.6 kg/m ($I \approx 0.7\text{ cm}^4$) | 100% compatible with archived [`reference/Voron_Trident/`](reference/Voron_Trident/) STLs, AWD Trident mods, and BOMs ([250 mm](reference/Voron_Trident/BOM_and_sourcing/REFERENCE_BOM_250.md)). Relies on blind joints + metal corner gussets + 3–4 mm stressed-skin panels to resist AWD racking. |
+| **`MGN9`** | `9.0 mm` | M3 | **Unsafe** (`0.5 mm`/side lip before chamfer) | **Impossible** (narrower than `10 mm` slot!) | Do **not** bolt `MGN9` directly onto Euro `4040` without a solid backing plate or `2020` sub-rail. |
+| **`MGN12`** | `12.0 mm` | M3 | **Marginal–workable** (`2.0 mm`/side before lip chamfer; needs Slot-8 **M3** T-nuts + lip check) | **Very tight** (`1.0 mm`/side before chamfer — often overlaps slot radius) | Verify exact extrusion lip chamfer; or use a thin aluminum backing strip / `2020` rail bar. |
+| **`MGN15`** | `15.0 mm` | **M4** | **Good** (`3.5 mm`/side shoulder; native M4 Slot-8 T-nuts) | **Good** (`2.5 mm`/side shoulder; native M4 Slot-10 T-nuts) | Strongest direct-bolt option for **Y and Z rails** on Euro `4040`. |
 
-### Critical Engineering Notes on `4040`
-1. **Never use `4040` as the moving X-axis beam:** At ~1.5–1.9 kg/m (~3× the mass of `2020`), a `4040` X-beam adds ~400–500 g of moving mass to the Y-axis, hurting acceleration and lowering Y-axis input-shaper resonance (`zv`/`mzv`). Always keep the moving X beam to `2020` (or a dedicated lightweight CNC aluminum/CF beam).
-2. **`4040` has TWO parallel T-slots, not a center slot:** Each 40 mm face has two slots at `±10 mm` from centerline (`20 mm` pitch). An `MGN9` (9 mm) or `MGN12` (12 mm) rail cannot bolt down the centerline of a `4040` face using a single row of T-nuts—you must either mount the rail over one of the two offset slots (shifting gantry/belt geometry by 10 mm), use a wider rail/adapter plate, or step down to `3030` / `2040` / `2020` on rail-bearing faces.
-3. **Avoid mixing slot systems (`20-series 4040` vs `40-series 4040`):**
-   - **20-series `4040` (Slot 5 or Slot 6, e.g., Misumi `HFS5-4040`):** Four `20×20` quadrants on a `20 mm` pitch; accepts the same `M3`/`M5` T-nuts and mates cleanly to `2020` / `2040` sub-members.
-   - **40-series `4040` (Slot 8 or Slot 10, heavy industrial):** Uses bulky M8/M10 hardware and does **not** share T-nuts or slot geometry with `2020`. If going with `4040` in a hybrid frame, strongly prefer **20-series `4040`** (or keep `3030` Slot 8 + `2020` X beam separate via printed/CNC XY joint blocks).
+### Keep the Moving X-Axis Beam Light (`2020` or CNC Alloy, Not `4040`)
+Even with a `4040` outer cube, **do not use `4040` for the moving X-axis gantry beam**:
+- Euro `4040` is ~`1.5–1.9 kg/m` vs ~`0.5–0.6 kg/m` for `2020` (~`400–500 g` extra dead moving mass on a ~`420 mm` span).
+- Use **`2020` (5/6 mm slot) + `MGN12H`** (or a lightweight CNC aluminum / carbon-backed X beam) so Y-axis acceleration and input-shaper resonance (`zv`/`mzv`) stay high. Printed/CNC XY joints bridge the `4040` Y-rail carriages to the `2020` X beam cleanly.
 
 ---
 
-## 3. Sourcing & Material Specs to Check Before Buying
+## 4. Preliminary Envelope & Extrusion Sizing Math
 
-- **Alloy & Wall Thickness:** Specify `6063-T5` (standard industrial/Misumi) or `6063-T6`. Avoid thin-wall "lite" extrusions (`< 1.5 mm` wall); look for standard/heavy wall (`≥ 1.8–2.0 mm` on 20-series, `≥ 2.2–2.5 mm` on `3030`/`4040`) so tapped ends and T-slots resist thread stripping under AWD belt preload.
-- **Slot Width Standard (lock one before ordering T-nuts):**
-  - *Misumi 5-series (`HFS5`/`HFSB5`):* **5 mm slot** — requires 5-series T-nuts (many generic 6 mm Amazon M5 T-nuts will not drop into Misumi 5 mm slots).
-  - *Generic / Open-style 20-series:* **6 mm slot** — wider T-nut availability, slightly looser fit with Misumi-spec parts.
-  - *`3030`:* Usually **8 mm slot** (some profiles 6 mm — verify drawing before ordering fasteners).
-  - *`4040` (20-series vs 40-series):* Confirm whether the vendor sells **Slot 5/6 (20-series)** or **Slot 8/10 (40-series)**.
-- **Cut Accuracy & Squareness:** Order **precision-cut, paired/matched lengths** (`±0.2 mm` tolerance or better, square end faces) so all 4 verticals, all X horizontals, and all Y horizontals match identically without racking the linear rails.
-- **Corner Joinery Strategy:**
-  - **Blind joints** (center-tapped extrusion ends + access bore in mating beam): Cleanest flush interior/exterior faces for enclosure panels and rail clearance; requires accurate drilling/tapping or vendor machining (`LCP`/`RCP`/`TPW` style).
-  - **External/Internal Gussets & Corner Plates** (CNC aluminum 90° plates or cast corners): Zero end-drilling required, high racking stiffness for AWD frames, especially straightforward on `4040` or `3030` outer faces.
-- **Finish:** Clear/silver anodized is typically cheaper and ships faster than black anodized (`REFERENCE_BOM_250` sourcing notes flag black Misumi lead-time spikes).
+Derived from the archived Voron Trident configurator formulas ([`configurator_trident.js`](reference/Voron_Trident/BOM_and_sourcing/configurator_trident.js) and [`REFERENCE_BOM_300.md`](reference/Voron_Trident/BOM_and_sourcing/REFERENCE_BOM_300.md)) and adjusted for:
+1. **`315 × 315 mm` plate** (`+10 mm` wider than stock Trident `304.8 mm` 12" plate → `+10 mm` internal X/Y clearance recommended).
+2. **`315 mm` Z travel** (`+65 mm` over Trident `250 mm` Z).
+3. **`4040` outer frame members** (`40 mm` thickness vs `20 mm` in Trident → `+40 mm` outer X/Y for the same internal cavity, and `+20 mm` per `4040` horizontal beam height in Z).
 
----
+> **Important:** These are **starting envelope estimates**, not final cut lengths. Exact lengths depend on your chosen corner joinery (blind joints vs corner gussets/cubes), AWD front-motor overhang, and whether 4 toolhead docks sit inside a stretched Y bay.
 
-## 4. Architecture & Envelope Sizing Decisions (Lock Before Ordering Cuts)
-
-Before calculating exact extrusion lengths, resolve these four design choices from [UPGRADE_ROADMAP.md](UPGRADE_ROADMAP.md):
-
-1. **Toolchanger Dock Envelope (`Y` Depth & Bed Size):**
-   - Stock AD5M build area is `220 × 220 mm`.
-   - Parking 4 toolheads inside a tight `220 × 220` enclosure steals ~`60–90 mm` of Y travel unless the frame is stretched in **Y** (or tool docks are mounted in a deeper front/rear bay). Decide whether to target **`220 × 220 mm` printable + ~80–120 mm dock bay** or expand to a **`250 × 250 mm` Trident bed** (`REFERENCE_BOM_250.md`).
-2. **AWD Corner Motor Layout:**
-   - 4 XY motors (2 rear + 2 front corners) need clear corner geometry and double-shear pulley/idler support (`F695` bearings, `5 mm` shafts, 6 mm or 9 mm GT2 belts). `4040` or `3030` corner posts handle front AWD bracket overhang well, provided motor plates don't block front toolchanger docks.
-3. **Z-Axis Architecture (Stock Single-Z vs Independent Triple-Z):**
-   - Decide whether the frame conversion transitions directly to **Trident-style independent triple-Z** (`3× NEMA17 TR8x4` integrated leadscrew motors or belted triple-Z + `GE5C` spherical joints + `MGN9H`/`MGN12H` Z rails) or temporarily adapts the AD5M bed/leadscrews.
-4. **AD5M Carryover vs Replacement Hardware:**
-   - **Carry over:** `Pi 5`, `Octopus Pro V1.1 H723`, `BTT HDMI5`, `EBB42 V1.2.1` (plus 3 more for 4 heads), `Eddy Duo`, `Dragon Burner` + `Orbiter 2.5` + `Bambu X1C` hotend; optionally AD5M `220×220` bed + external ReliaBot MOSFET + `24 V 14.6 A` PSU (re-evaluate `350.4 W` PSU budget before powering 4 concurrent hotends).
-   - **Replace:** Stock stamped/bent sheet-metal frame, plastic top/side skins, smooth XY guide rods/bushings (`MGN12`/`MGN9` rails replace them), and synchronized single-motor Z.
+| Parameter | Stock `300×300×250` Trident (`2020`) | Baseline `4040` Euro (`315` plate, `315` Z, no dock stretch) | Dock-Ready `4040` Euro (`300×300` + 4 tool docks in `+Y`) | Notes |
+|---|---|---|---|---|
+| **Build plate** | `304.8 × 304.8 mm` (12") | `315 × 315 mm` | `315 × 315 mm` | `300 × 300 mm` printable area |
+| **Internal X cavity** | `420 mm` | `~430 mm` | `~430 mm` | Keeps Trident's `~120 mm` X clearance + `10 mm` plate oversize |
+| **Internal Y cavity** | `420 mm` | `~430 mm` | `~510–550 mm` | Add `+80–120 mm` Y if parking 4 heads without losing `300 mm` printable Y |
+| **Outer Frame X** | `460 mm` | **`~510 mm`** | **`~510 mm`** | `inner_X + 2 × 40 mm` |
+| **Outer Frame Y** | `460 mm` | **`~510 mm`** | **`~590–630 mm`** | `inner_Y + 2 × 40 mm` |
+| **Outer Frame Z** | `500 mm` (`250` Z) | **`~605–625 mm`** | **`~605–625 mm`** | `315` Z + `~250` Trident overhead + `+40 to +60 mm` for `4040` top/deck/bottom beams |
+| **Linear Rail Lengths (nominal)** | X: `350`, Y: `350`, Z: `300` | X: `~360–400`, Y: `~360–400`, Z: `~370–400` | X: `~360–400`, Y: `~450–490`, Z: `~370–400` | Verify carriage + bumper + endstop stroke before picking standard `350`/`400`/`450`/`500 mm` rails |
+| **Z Leadscrews (`TR8×4`)** | `300 mm` | `~370–400 mm` | `~370–400 mm` | `400 mm` integrated NEMA17 `TR8×4` is a common off-the-shelf length |
 
 ---
 
-## 5. Physical Measurements Required From the AD5M First
+## 5. Joinery, Materials & Hardware Checklist
 
-Use [STOCK_GANTRY_AND_BELTS.md](reference/AD5M_gantry_research/STOCK_GANTRY_AND_BELTS.md) together with these frame/bed measurements before drafting final cut lengths:
-1. Measure actual AD5M build-plate outer width/depth, bed-carriage mounting hole spacing, and minimum nozzle overhang outside the bed (needed to size dock reach).
-2. Measure stock Z leadscrew pitch/diameter, guide-rod spacing, and usable Z stroke if reusing any stock bed/Z components.
-3. Measure the electronics deck footprint (`Octopus Pro V1.1`, `Pi 5`, `ReliaBot MOSFET`, `24 V` PSU, and future 2nd PSU or DIN rail clearances) to determine lower electronics skirt height (`Z_bottom`).
-4. Cross-check against [`AD5M_Frame.STEP`](reference/AD5M_gantry_research/official_frame_model/AD5M_Frame.STEP) only after spot-checking physical dimensions on the printer (official STEP files omit moving gantry/belt hardware and are not yet verified against the physical machine).
+- **Precision cuts:** Request `±0.2 mm` cut tolerance and **paired matched lengths** (all 4 verticals cut identically, all X horizontals identically, all Y horizontals identically).
+- **Corner joinery on Euro `4040`:**
+  - **Blind joints (`M8` end-tap + access hole):** Very clean flush surfaces for enclosure panels; requires an `M8` tap (often self-tapping or standard cut tap depending on bore size) and accurate access holes in mating beams.
+  - **Heavy `4040` cast corner brackets / CNC gusset plates:** Zero end-drilling required, high shear/racking stiffness for AWD frames; ensure bracket ribs don't interfere with Y/Z linear rail faces or enclosure panels.
+- **Wall thickness:** Choose standard/heavy-wall Euro `4040` (`≥ 2.2–2.5 mm` minimum wall, ~`1.5–1.9 kg/m`), not ultra-light `~1.2 kg/m` economy profiles.
+- **Finish:** Clear/silver anodized is cheaper and typically faster to source than black anodized.
+
+---
+
+## 6. Power, Bed Heating & AD5M Carryover Reality Check
+
+Scaling from the stock AD5M `220 × 220 mm` bed to a **`315 × 315 mm` plate** changes the electrical/thermal architecture:
+- **Bed heater:** Voron's sizing formula (`0.0055 × 300 × 300 ≈ 495 W`, stock `300` Trident uses a `250 × 250 mm` `450 W` **AC silicone heater + SSR + 150 °C thermal fuse**). Heating a `315 × 315 mm` thick cast plate (`~250×250` or `280×280 mm` silicone pad, `500–600 W`) via mains **AC + SSR** (Voron Trident style) is far cleaner than trying to pull `500+ W` (`>20 A` continuous) at `24 V DC`.
+- **PSU budget:** The stock AD5M **`24 V 14.6 A` (`350.4 W`) PSU** cannot power a `500 W` bed + 4 concurrent hotends + 7–8 steppers. Keep the existing `24 V` PSU + ReliaBot MOSFET for the active AD5M phase, and plan an AC bed + SSR (plus `≥ 200–350 W` dedicated `24 V` logic/stepper/toolhead PSU, or `48 V` XY motor rail if going high-speed AWD) for the `4040` frame conversion.
+- **Carryover from current AD5M build:** `Pi 5`, `Octopus Pro V1.1 H723`, `BTT HDMI5`, `EBB42 V1.2.1` (CAN), `Eddy Duo`, `Dragon Burner` + `Orbiter 2.5` + `Bambu X1C` hotend, and existing `TMC2209` drivers (add extra drivers for triple-Z + AWD).
+
+---
+
+## 7. Next Steps Before Ordering Extrusions
+
+1. **Confirm Euro `4040` vendor profile** (`Slot 8` Type-I vs `Slot 10` Type-B) and check exact rail lip width (`MGN12` vs `MGN15`).
+2. **Decide toolchanger Y strategy:** Stretch Y (`~590–630 mm` outer Y) to preserve full `300 × 300 mm` print area with 4 parked toolheads, or build compact (`~510 × 510 mm`) and lose ~`70–90 mm` of Y when docks are installed.
+3. **Select AWD motor placement** (front corners inside vs outside frame profile) and **triple-Z leadscrew/rail layout** in CAD so exact cut lengths (`X`, `Y`, `Z`, and `2020` X-beam + bed-frame members) can be exported cleanly.
