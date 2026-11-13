@@ -22,6 +22,7 @@ Read each part's PRINT_AND_FIT.md or PRINT_AND_INSTALL.md. Older output revision
 - [Build sequence](BUILD_SEQUENCE.md)
 - [Toolhead-first plan](TOOLHEAD_FIRST.md)
 - [Upgrade roadmap](UPGRADE_ROADMAP.md)
+- [Frame conversion plan (aluminum extrusion & materials)](FRAME_CONVERSION.md)
 - [Working instructions and physical test status](AGENTS.md)
 - [Cloud setup and remaining connection steps](CLOUD_SETUP.md)
 

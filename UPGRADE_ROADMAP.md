@@ -57,6 +57,8 @@ Keep the existing USB-to-CAN bridge plan as a starting point. For four heads, de
 
 ## Mechanical architecture
 
+See [FRAME_CONVERSION.md](FRAME_CONVERSION.md) for the aluminum extrusion comparison (`4040` vs `3030` vs `2040` vs `2020`/hybrid), slot-ecosystem rules, and pre-order measurement checklist for the full structural rebuild.
+
 The AD5M has a fixed-height XY gantry and a moving bed. Toolchangers that depend on vertical gantry movement require a separate source of relative vertical motion, such as a lifting dock assembly. Triple Z bed motors do not supply that motion between the gantry and frame-mounted docks.
 
 MadMax is a candidate to investigate because it uses XY-only toolchanges and supports front-facing MGN9H/MGN12H rails. This is not a confirmed AD5M conversion or a verified four-tool layout. StealthChanger/TapChanger-style arrangements require explicit evaluation of pickup motion and dock adaptation.
