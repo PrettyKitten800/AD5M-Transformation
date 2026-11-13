@@ -57,7 +57,7 @@ Keep the existing USB-to-CAN bridge plan as a starting point. For four heads, de
 
 ## Mechanical architecture
 
-See [FRAME_CONVERSION.md](FRAME_CONVERSION.md) for the Euro `4040` (`315 × 315 mm` plate / `300 × 300 × 315 mm` build volume) extrusion plan, rail/slot compatibility rules, and pre-order checklist.
+See [FRAME_CONVERSION.md](FRAME_CONVERSION.md) for the standard Voron Trident `300 × 300 × 300 mm` (`HFSB5-2020`) extrusion cut list, rail/leadscrew BOM, and AWD/panel notes.
 
 The AD5M has a fixed-height XY gantry and a moving bed. Toolchangers that depend on vertical gantry movement require a separate source of relative vertical motion, such as a lifting dock assembly. Triple Z bed motors do not supply that motion between the gantry and frame-mounted docks.
 
