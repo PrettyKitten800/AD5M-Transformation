@@ -38,6 +38,10 @@ Native FreeCAD Python bindings are required for builders. NumPy, Pillow, trimesh
 
 Large downloaded upstream archives/checkouts and machine-specific flash backups are excluded from Git. Source metadata and download links remain under reference/. No local files were deleted. This is a curated source workspace, not an automatic backup of the entire Windows Desktop.
 
+## Useful bookmarks
+
+- [ScanRuler by CNC Kitchen](https://scanruler.com) — browser-local 3D scan & CAD/mesh analysis (STL, PLY, OBJ, 3MF, STEP: 3D measure, surface deviation, wall thickness, feature fitting, reverse engineering).
+
 ## Attribution
 
 This repository contains mixed original and third-party content. Preserve each source's license and attribution. BambuMod-derived brackets retain the stated CC BY-NC-SA 4.0 attribution in their installation notes. The Jorge hotend is an unchanged reference with its own source/license. Do not apply a blanket license to upstream material.
