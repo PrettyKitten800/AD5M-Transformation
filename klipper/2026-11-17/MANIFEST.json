@@ -1,0 +1,870 @@
+{
+  "snapshot_date": "2026-11-17",
+  "klipper_commit": "0cee841e31d701595b3e509a0b502f6e320f52a8",
+  "active_config_files": [
+    "config/printer.cfg",
+    "config/mainsail.cfg",
+    "config/bed-heater-check.cfg",
+    "config/motion-check.cfg",
+    "config/extruder.cfg",
+    "config/calibration.cfg",
+    "config/eddy-duo.cfg",
+    "config/eddy-macros.cfg",
+    "config/forge-x-macros.cfg",
+    "config/printer-behavior.cfg"
+  ],
+  "files": {
+    "config/bed-heater-check.cfg": {
+      "source": "/home/curby/printer_data/config/bed-heater-check.cfg",
+      "resolved_source": "/home/curby/printer_data/config/bed-heater-check.cfg",
+      "sha256": "ba5d0165265827438b32189b9a330e8c04c58f9507e3dcf92ae706eae7c0eb2c",
+      "bytes": 326
+    },
+    "config/bed-heater-check.cfg.pre-duty-93-20261104-003820": {
+      "source": "/home/curby/printer_data/config/bed-heater-check.cfg.pre-duty-93-20261104-003820",
+      "resolved_source": "/home/curby/printer_data/config/bed-heater-check.cfg.pre-duty-93-20261104-003820",
+      "sha256": "88c583c5ee50d7869ce238d07d88b96787cf6114fbfec3e0fe355c08ef17962d",
+      "bytes": 299
+    },
+    "config/bed-heater-check.cfg.pre-duty-95-20261104-003656": {
+      "source": "/home/curby/printer_data/config/bed-heater-check.cfg.pre-duty-95-20261104-003656",
+      "resolved_source": "/home/curby/printer_data/config/bed-heater-check.cfg.pre-duty-95-20261104-003656",
+      "sha256": "577e45e8920588968a5e046cb6f79181f41340e23ad992b0d4c6eaa43ea31dc0",
+      "bytes": 299
+    },
+    "config/bed-heater-check.cfg.pre-pid-320-110-20261113-141944": {
+      "source": "/home/curby/printer_data/config/bed-heater-check.cfg.pre-pid-320-110-20261113-141944",
+      "resolved_source": "/home/curby/printer_data/config/bed-heater-check.cfg.pre-pid-320-110-20261113-141944",
+      "sha256": "0b2959903c4b0a11b75237201daa4078ec2fbce34b8c45dc77223b433d46e28b",
+      "bytes": 326
+    },
+    "config/bed-temperature-check.cfg": {
+      "source": "/home/curby/printer_data/config/bed-temperature-check.cfg",
+      "resolved_source": "/home/curby/printer_data/config/bed-temperature-check.cfg",
+      "sha256": "248a23818e373644bbce1ab05c26beabda7ce553cb0bd3954088e310ebc122a3",
+      "bytes": 277
+    },
+    "config/calibration.cfg": {
+      "source": "/home/curby/printer_data/config/calibration.cfg",
+      "resolved_source": "/home/curby/printer_data/config/calibration.cfg",
+      "sha256": "a34b243e02716b0706616945a16f8e07b70c5a2e7196c6cb8db219dd0ba8674c",
+      "bytes": 1610
+    },
+    "config/calibration.cfg.pre-loadcell-fallback-20261115-221800": {
+      "source": "/home/curby/printer_data/config/calibration.cfg.pre-loadcell-fallback-20261115-221800",
+      "resolved_source": "/home/curby/printer_data/config/calibration.cfg.pre-loadcell-fallback-20261115-221800",
+      "sha256": "a34b243e02716b0706616945a16f8e07b70c5a2e7196c6cb8db219dd0ba8674c",
+      "bytes": 1610
+    },
+    "config/calibration.cfg.pre-mesh-max-195-20261111-001540": {
+      "source": "/home/curby/printer_data/config/calibration.cfg.pre-mesh-max-195-20261111-001540",
+      "resolved_source": "/home/curby/printer_data/config/calibration.cfg.pre-mesh-max-195-20261111-001540",
+      "sha256": "5932f6198d2198c42cdf9e3244a0a9166404f256c5a9f40a8bbeb7db60a7ba6d",
+      "bytes": 881
+    },
+    "config/calibration.cfg.pre-mesh-max-210-20261111-133835": {
+      "source": "/home/curby/printer_data/config/calibration.cfg.pre-mesh-max-210-20261111-133835",
+      "resolved_source": "/home/curby/printer_data/config/calibration.cfg.pre-mesh-max-210-20261111-133835",
+      "sha256": "64b72bb557fe820461489d164b1ae7d9838910239d683c1f0e2a506195a941af",
+      "bytes": 1110
+    },
+    "config/calibration.cfg.pre-mesh-max-220-20261111-132633": {
+      "source": "/home/curby/printer_data/config/calibration.cfg.pre-mesh-max-220-20261111-132633",
+      "resolved_source": "/home/curby/printer_data/config/calibration.cfg.pre-mesh-max-220-20261111-132633",
+      "sha256": "bfff7c9bb52be7f4d22f02d82acb8ee56bea105ef756acc7bc345246aace5ede",
+      "bytes": 1060
+    },
+    "config/calibration.cfg.pre-offset35-20261111-123613": {
+      "source": "/home/curby/printer_data/config/calibration.cfg.pre-offset35-20261111-123613",
+      "resolved_source": "/home/curby/printer_data/config/calibration.cfg.pre-offset35-20261111-123613",
+      "sha256": "7ff96785691fbfc980a4f8d8700152bb3dca13d8f760aa0a4aab0e4b9b2d2760",
+      "bytes": 1026
+    },
+    "config/calibration.cfg.pre-probecount-13-20261111-134758": {
+      "source": "/home/curby/printer_data/config/calibration.cfg.pre-probecount-13-20261111-134758",
+      "resolved_source": "/home/curby/printer_data/config/calibration.cfg.pre-probecount-13-20261111-134758",
+      "sha256": "2b111afc60bdf30fcc3da80ad07ce3e581d4de923b304ede9c111c7d55f58b47",
+      "bytes": 1116
+    },
+    "config/calibration.cfg.pre-probecount-9-20261111-134006": {
+      "source": "/home/curby/printer_data/config/calibration.cfg.pre-probecount-9-20261111-134006",
+      "resolved_source": "/home/curby/printer_data/config/calibration.cfg.pre-probecount-9-20261111-134006",
+      "sha256": "c427e003d6b78b2896ae9f0dee941a067b7d4acaf93d8b1477789272faa6d619",
+      "bytes": 1116
+    },
+    "config/calibration.cfg.pre-rapid-scan-20261110-172128": {
+      "source": "/home/curby/printer_data/config/calibration.cfg.pre-rapid-scan-20261110-172128",
+      "resolved_source": "/home/curby/printer_data/config/calibration.cfg.pre-rapid-scan-20261110-172128",
+      "sha256": "9e539d19bcac0b7e7552000a990e681b330d793f5dc6c0a316a525ca1a2c15f2",
+      "bytes": 533
+    },
+    "config/calibration.cfg.pre-screws-tilt-20261111-142911": {
+      "source": "/home/curby/printer_data/config/calibration.cfg.pre-screws-tilt-20261111-142911",
+      "resolved_source": "/home/curby/printer_data/config/calibration.cfg.pre-screws-tilt-20261111-142911",
+      "sha256": "0db5dcb2242617ca9fd2dfd456b5650d669dd0b0b898fe0756339f4712025be6",
+      "bytes": 1118
+    },
+    "config/eddy-duo.cfg": {
+      "source": "/home/curby/printer_data/config/eddy-duo.cfg",
+      "resolved_source": "/home/curby/printer_data/config/eddy-duo.cfg",
+      "sha256": "55bcab7ebe392874ce6138b85e24b81d794ae8ec69c02fb7bcf3d082f46a9288",
+      "bytes": 916
+    },
+    "config/eddy-duo.cfg.draft": {
+      "source": "/home/curby/printer_data/config/eddy-duo.cfg.draft",
+      "resolved_source": "/home/curby/printer_data/config/eddy-duo.cfg.draft",
+      "sha256": "86a31d087260bf022525e3079128204cdace097abc116268e161b3110ca76935",
+      "bytes": 706
+    },
+    "config/eddy-duo.cfg.pre-can-20261115-225700": {
+      "source": "/home/curby/printer_data/config/eddy-duo.cfg.pre-can-20261115-225700",
+      "resolved_source": "/home/curby/printer_data/config/eddy-duo.cfg.pre-can-20261115-225700",
+      "sha256": "ba1297ac940f3a577a9813607b2b13cc96c8239ae3bebf0be5497f401a0a7123",
+      "bytes": 958
+    },
+    "config/eddy-duo.cfg.pre-offset35-20261111-123613": {
+      "source": "/home/curby/printer_data/config/eddy-duo.cfg.pre-offset35-20261111-123613",
+      "resolved_source": "/home/curby/printer_data/config/eddy-duo.cfg.pre-offset35-20261111-123613",
+      "sha256": "4a2df8cd01bba1c8f9bb945e853dffe99a33f8390f08c283e6e54d56c5adc7f5",
+      "bytes": 916
+    },
+    "config/eddy-macros.cfg": {
+      "source": "/home/curby/printer_data/config/eddy-macros.cfg",
+      "resolved_source": "/home/curby/printer_data/config/eddy-macros.cfg",
+      "sha256": "1c6fba2642b58d5757895ad2154c18dcd6a0a03dc533272e15665a0df1fb8743",
+      "bytes": 5912
+    },
+    "config/eddy-macros.cfg.pre-offset35-20261111-123613": {
+      "source": "/home/curby/printer_data/config/eddy-macros.cfg.pre-offset35-20261111-123613",
+      "resolved_source": "/home/curby/printer_data/config/eddy-macros.cfg.pre-offset35-20261111-123613",
+      "sha256": "69f65b9a2296585b3086cbb271146526834db32c0e3d1cc7a941a5ca9a4a2736",
+      "bytes": 5912
+    },
+    "config/eddy-macros.cfg.pre-rapid-scan-20261110-172128": {
+      "source": "/home/curby/printer_data/config/eddy-macros.cfg.pre-rapid-scan-20261110-172128",
+      "resolved_source": "/home/curby/printer_data/config/eddy-macros.cfg.pre-rapid-scan-20261110-172128",
+      "sha256": "01136f37f8597d450dc7231626080847c31b9b473802c0667122a1bf3765b682",
+      "bytes": 5651
+    },
+    "config/extruder-motor-check.cfg": {
+      "source": "/home/curby/printer_data/config/extruder-motor-check.cfg",
+      "resolved_source": "/home/curby/printer_data/config/extruder-motor-check.cfg",
+      "sha256": "6aef6b66e94e09b78d1fc8d08b83dbf67b80f25330c7cda52017a247072da7ef",
+      "bytes": 369
+    },
+    "config/extruder.cfg": {
+      "source": "/home/curby/printer_data/config/extruder.cfg",
+      "resolved_source": "/home/curby/printer_data/config/extruder.cfg",
+      "sha256": "1137c9c9a37e803a6578f148385c3054d48ff27737558eec428098679d012b06",
+      "bytes": 913
+    },
+    "config/extruder.cfg.pre-pid-320-110-20261113-141944": {
+      "source": "/home/curby/printer_data/config/extruder.cfg.pre-pid-320-110-20261113-141944",
+      "resolved_source": "/home/curby/printer_data/config/extruder.cfg.pre-pid-320-110-20261113-141944",
+      "sha256": "884545ee515a817a5dc3dcb58607dd1385bff4ccff76d04ac2e52151e53e6556",
+      "bytes": 828
+    },
+    "config/extruder.cfg.pre-saveconfig-20261115": {
+      "source": "/home/curby/printer_data/config/extruder.cfg.pre-saveconfig-20261115",
+      "resolved_source": "/home/curby/printer_data/config/extruder.cfg.pre-saveconfig-20261115",
+      "sha256": "62e73b52dec577b0f3643c77b90d7c4764fbdfc9ab943351fcac1505253f16a5",
+      "bytes": 828
+    },
+    "config/forge-x-macros.cfg": {
+      "source": "/home/curby/printer_data/config/forge-x-macros.cfg",
+      "resolved_source": "/home/curby/printer_data/config/forge-x-macros.cfg",
+      "sha256": "e1bd6ca75ee40e9d02e6ee3dc7c7856b31b3c15dda0cf1989d63f5b23ef20400",
+      "bytes": 20315
+    },
+    "config/forge-x-macros.cfg.pre-loadcell-fallback-20261115-221800": {
+      "source": "/home/curby/printer_data/config/forge-x-macros.cfg.pre-loadcell-fallback-20261115-221800",
+      "resolved_source": "/home/curby/printer_data/config/forge-x-macros.cfg.pre-loadcell-fallback-20261115-221800",
+      "sha256": "20dcf4f53eae18ddcf417f96545d4b661bcc9510c8a3a4c7c6f1ba5c17337b67",
+      "bytes": 20164
+    },
+    "config/forge-x-macros.cfg.pre-purge-y8-20261114-195716": {
+      "source": "/home/curby/printer_data/config/forge-x-macros.cfg.pre-purge-y8-20261114-195716",
+      "resolved_source": "/home/curby/printer_data/config/forge-x-macros.cfg.pre-purge-y8-20261114-195716",
+      "sha256": "c4902bb39653de87909d724776b2a2fbd10a19cd13857fca022dae7c8952273d",
+      "bytes": 20164
+    },
+    "config/forge-x-macros.cfg.pre-rapid-scan-20261110-172128": {
+      "source": "/home/curby/printer_data/config/forge-x-macros.cfg.pre-rapid-scan-20261110-172128",
+      "resolved_source": "/home/curby/printer_data/config/forge-x-macros.cfg.pre-rapid-scan-20261110-172128",
+      "sha256": "880db72885f5287ed1e26746fef5864614406eb2c21045f72c4d03017a7027e1",
+      "bytes": 16170
+    },
+    "config/forge-x-macros.cfg.pre-recommission-20261110-171542": {
+      "source": "/home/curby/printer_data/config/forge-x-macros.cfg.pre-recommission-20261110-171542",
+      "resolved_source": "/home/curby/printer_data/config/forge-x-macros.cfg.pre-recommission-20261110-171542",
+      "sha256": "ec037341116db21854296e4bcf27ca87867425415e7f0168b80dbe4ebb7ec6d2",
+      "bytes": 16236
+    },
+    "config/forge-x-macros.cfg.pre-screws-3samples-20261111-144540": {
+      "source": "/home/curby/printer_data/config/forge-x-macros.cfg.pre-screws-3samples-20261111-144540",
+      "resolved_source": "/home/curby/printer_data/config/forge-x-macros.cfg.pre-screws-3samples-20261111-144540",
+      "sha256": "ea8785ed5c3b01ddc881eb21170624b11a7e34b54bd04894ae441ef50995becd",
+      "bytes": 16261
+    },
+    "config/forge-x-macros.cfg.pre-tune2-20261111-145126": {
+      "source": "/home/curby/printer_data/config/forge-x-macros.cfg.pre-tune2-20261111-145126",
+      "resolved_source": "/home/curby/printer_data/config/forge-x-macros.cfg.pre-tune2-20261111-145126",
+      "sha256": "4215ca3247bda8b16a6e4fc09a37bbe6dcea2d4e12435746b6d287fd317a30f7",
+      "bytes": 16355
+    },
+    "config/forge-x-macros.cfg.pre-z-speed-20261111-151000": {
+      "source": "/home/curby/printer_data/config/forge-x-macros.cfg.pre-z-speed-20261111-151000",
+      "resolved_source": "/home/curby/printer_data/config/forge-x-macros.cfg.pre-z-speed-20261111-151000",
+      "sha256": "0304328528358dd3564c50e0acbfc7f315b72f83517a39c357146e3b95f2d509",
+      "bytes": 20162
+    },
+    "config/forge-x-macros.cfg.pre-z40-20261111-152220": {
+      "source": "/home/curby/printer_data/config/forge-x-macros.cfg.pre-z40-20261111-152220",
+      "resolved_source": "/home/curby/printer_data/config/forge-x-macros.cfg.pre-z40-20261111-152220",
+      "sha256": "7242abcb2ad950c075be6bfbb0ea83930ecd282cfc5c3dfcd543c686002e266a",
+      "bytes": 20164
+    },
+    "config/hotend-check.cfg": {
+      "source": "/home/curby/printer_data/config/hotend-check.cfg",
+      "resolved_source": "/home/curby/printer_data/config/hotend-check.cfg",
+      "sha256": "16e5c61e068d45546e3a5344ecfbbf26d7d061e7bbc686c4ae94f0b0e45345a8",
+      "bytes": 550
+    },
+    "config/hotend-check.cfg.pre-ebb42-20261105-122126": {
+      "source": "/home/curby/printer_data/config/hotend-check.cfg.pre-ebb42-20261105-122126",
+      "resolved_source": "/home/curby/printer_data/config/hotend-check.cfg.pre-ebb42-20261105-122126",
+      "sha256": "4755ffa794be29bc02d84a12be818527abd2165f7a53c2adcc54943c4eca4893",
+      "bytes": 550
+    },
+    "config/hotend-check.cfg.pre-fan-role-swap-20261104-020620": {
+      "source": "/home/curby/printer_data/config/hotend-check.cfg.pre-fan-role-swap-20261104-020620",
+      "resolved_source": "/home/curby/printer_data/config/hotend-check.cfg.pre-fan-role-swap-20261104-020620",
+      "sha256": "c9d6be3d4fee5f54b931f5d23b318e7836558e3fd0dea929a56c4ff876add026",
+      "bytes": 581
+    },
+    "config/hotend-check.cfg.pre-fan2-20261103-163958": {
+      "source": "/home/curby/printer_data/config/hotend-check.cfg.pre-fan2-20261103-163958",
+      "resolved_source": "/home/curby/printer_data/config/hotend-check.cfg.pre-fan2-20261103-163958",
+      "sha256": "2b11491a5a82cbcdeb3e59d32de5711a5f3f570a28cca6f5530f58ae617d946a",
+      "bytes": 581
+    },
+    "config/mainsail.cfg": {
+      "source": "/home/curby/printer_data/config/mainsail.cfg",
+      "resolved_source": "/home/curby/mainsail-config/client.cfg",
+      "sha256": "29d4c97b099e481c25c0a875b3f0696850a6aafa67775aee8d05e8682352ffb4",
+      "bytes": 16493
+    },
+    "config/motion-check.cfg": {
+      "source": "/home/curby/printer_data/config/motion-check.cfg",
+      "resolved_source": "/home/curby/printer_data/config/motion-check.cfg",
+      "sha256": "aa7c0dbbe6093963c4e93515daac864025eced559a942c01b37ec25df954cbb1",
+      "bytes": 3885
+    },
+    "config/motion-check.cfg.pre-confirmed-homing-20261105-152815": {
+      "source": "/home/curby/printer_data/config/motion-check.cfg.pre-confirmed-homing-20261105-152815",
+      "resolved_source": "/home/curby/printer_data/config/motion-check.cfg.pre-confirmed-homing-20261105-152815",
+      "sha256": "8e9c0f5c7baa5e62520e9c3440645ff58c4b8d37a3f5e2b28588870d3bd61eac",
+      "bytes": 3107
+    },
+    "config/motion-check.cfg.pre-paper-reference-20261104-005729": {
+      "source": "/home/curby/printer_data/config/motion-check.cfg.pre-paper-reference-20261104-005729",
+      "resolved_source": "/home/curby/printer_data/config/motion-check.cfg.pre-paper-reference-20261104-005729",
+      "sha256": "f8a0b43e3c3889c901314e482925facd8d221af9cac11eca68044f856a7567bc",
+      "bytes": 3138
+    },
+    "config/motion-check.cfg.pre-paper-travel-20261104-004955": {
+      "source": "/home/curby/printer_data/config/motion-check.cfg.pre-paper-travel-20261104-004955",
+      "resolved_source": "/home/curby/printer_data/config/motion-check.cfg.pre-paper-travel-20261104-004955",
+      "sha256": "3503c087a65412cfb696bec8465d3c31a8df7151ef35cfb2e460f7b0d9c7c22f",
+      "bytes": 3065
+    },
+    "config/motion-check.cfg.pre-x-home-right-20261114-155344": {
+      "source": "/home/curby/printer_data/config/motion-check.cfg.pre-x-home-right-20261114-155344",
+      "resolved_source": "/home/curby/printer_data/config/motion-check.cfg.pre-x-home-right-20261114-155344",
+      "sha256": "f07ee33c17b9515ddc92a9dae2fe39b381db59b1dc7776fc4b80b7edbf252cdc",
+      "bytes": 3673
+    },
+    "config/motion-check.cfg.pre-y64-20261105-152529": {
+      "source": "/home/curby/printer_data/config/motion-check.cfg.pre-y64-20261105-152529",
+      "resolved_source": "/home/curby/printer_data/config/motion-check.cfg.pre-y64-20261105-152529",
+      "sha256": "cc088babd5dc6cf2019045ddd54385cdbc83acf9d67777a7d1ca75138e452e2d",
+      "bytes": 3135
+    },
+    "config/motor-check.cfg": {
+      "source": "/home/curby/printer_data/config/motor-check.cfg",
+      "resolved_source": "/home/curby/printer_data/config/motor-check.cfg",
+      "sha256": "ecd3238e0465e8d6a3651cef717349d74ffa62da048b4a26098d1da2018576fe",
+      "bytes": 1197
+    },
+    "config/printer-20261105_160134.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261105_160134.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261105_160134.cfg",
+      "sha256": "efa768d2ecfc538309c5cf7cce89fe6de7a7ef741aa7fa482f9609dbbc932137",
+      "bytes": 1282
+    },
+    "config/printer-20261105_214717.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261105_214717.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261105_214717.cfg",
+      "sha256": "2767348324e9bc194a9ea5c46e8109e560f91aa2f9ac655b1a3f53aa7e68ebdd",
+      "bytes": 2083
+    },
+    "config/printer-20261105_234726.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261105_234726.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261105_234726.cfg",
+      "sha256": "877a4b57d652cb53f064e5890395db05787b87c50abbd9081372b17766ef835f",
+      "bytes": 2083
+    },
+    "config/printer-20261109_003319.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261109_003319.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261109_003319.cfg",
+      "sha256": "9177d8628529f2f01dc3323b7f4cce3d1afdedfc20e0e19113a2db6908c59de9",
+      "bytes": 2637
+    },
+    "config/printer-20261110_154512.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261110_154512.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261110_154512.cfg",
+      "sha256": "404a235588e2b9b701b2138e016d4ea1b37fa28c3ee07a0ad61b9fcd31b12ac9",
+      "bytes": 2692
+    },
+    "config/printer-20261110_160430.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261110_160430.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261110_160430.cfg",
+      "sha256": "dfbe0c0fd561e4346f8f94850f72ef53b72df579678574005ee6da98fc5b3f17",
+      "bytes": 4364
+    },
+    "config/printer-20261110_162845.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261110_162845.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261110_162845.cfg",
+      "sha256": "7f95d0581af0be3254df820956e8e462c162bcc0480c5c86f84d84684bb40c4f",
+      "bytes": 4901
+    },
+    "config/printer-20261110_163822.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261110_163822.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261110_163822.cfg",
+      "sha256": "d5063682995df2fe3f00c48ef1a3ac31b5b459536c5602eba73ba17726fdbc46",
+      "bytes": 5353
+    },
+    "config/printer-20261110_164810.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261110_164810.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261110_164810.cfg",
+      "sha256": "4c5611801a777ab9a48856f22887aea90be59d627a7b4ab44fe519c607e23edf",
+      "bytes": 5284
+    },
+    "config/printer-20261111_131259.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261111_131259.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261111_131259.cfg",
+      "sha256": "aef0dff88603d8b4a7bdeffefe165508f6de2e38128e4a8532174717d0907ec6",
+      "bytes": 5836
+    },
+    "config/printer-20261111_154125.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261111_154125.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261111_154125.cfg",
+      "sha256": "2d2b356a2abd7bf6fd7e432b50ae9ab51bf92ed36b92a877ad7d1d4241a20a8e",
+      "bytes": 6739
+    },
+    "config/printer-20261113_144111.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261113_144111.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261113_144111.cfg",
+      "sha256": "6d1383524dd8d4c9117555cfb00c72d4ac241fcfb42b19f4e5144466afc27196",
+      "bytes": 8761
+    },
+    "config/printer-20261113_144532.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261113_144532.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261113_144532.cfg",
+      "sha256": "89bbb3a52813c0a295e2468db9136c36958e168d66187723fdf0d3f437a2911f",
+      "bytes": 10793
+    },
+    "config/printer-20261113_144822.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261113_144822.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261113_144822.cfg",
+      "sha256": "7ea6b3e788a5d4bee2866022d4f51963e208e38a2d314eea6a930cfff77ca83e",
+      "bytes": 12832
+    },
+    "config/printer-20261113_145029.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261113_145029.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261113_145029.cfg",
+      "sha256": "c0af84da3e90e36a5d8d8fd0ec6bac03d58413d9b9a9380cc08852be12232295",
+      "bytes": 14862
+    },
+    "config/printer-20261113_145302.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261113_145302.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261113_145302.cfg",
+      "sha256": "add51d2cdaa0454a9e2da8f3d1a3383db75ede837dbe4cc81362dbe9aae676d8",
+      "bytes": 16890
+    },
+    "config/printer-20261113_145540.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261113_145540.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261113_145540.cfg",
+      "sha256": "8972e1abc9bafa7297e3a9432a91e14a5954a08f47f2b4ef26a96cfdc3d0baf5",
+      "bytes": 18874
+    },
+    "config/printer-20261113_145747.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261113_145747.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261113_145747.cfg",
+      "sha256": "c41a7b2085438e77d0e7ea0391617d899d9542cc99883b83719b1e57c50b1ef1",
+      "bytes": 20856
+    },
+    "config/printer-20261113_145957.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261113_145957.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261113_145957.cfg",
+      "sha256": "c446ae52d7193371c82f759f36f6228ca2ae1cf5daf93e25a0959c73d8250125",
+      "bytes": 22838
+    },
+    "config/printer-20261113_150249.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261113_150249.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261113_150249.cfg",
+      "sha256": "5bc0372928bee729a6ff7f0d2b382ec9ccfaeb36af7e09058ab57bd108615333",
+      "bytes": 22824
+    },
+    "config/printer-20261113_150549.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261113_150549.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261113_150549.cfg",
+      "sha256": "ae2f79e82ed2ba7d55ac9a6d119951b26968e24ca26d9a1a324d1e51f591d734",
+      "bytes": 24806
+    },
+    "config/printer-20261113_150857.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261113_150857.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261113_150857.cfg",
+      "sha256": "d36dcc10f1ca738ba6438dd47d253d5bb8deec885f4cd66a1922c64d281a8047",
+      "bytes": 26788
+    },
+    "config/printer-20261113_151220.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261113_151220.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261113_151220.cfg",
+      "sha256": "03eb50a1125a83122cbada1bcc7beb10f763aaf540af4411cf21d0df5951a70d",
+      "bytes": 28770
+    },
+    "config/printer-20261113_151632.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261113_151632.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261113_151632.cfg",
+      "sha256": "e0f21932e963b18f2ac753abcf31944d9f7edad47582a8de17fe113f19819b95",
+      "bytes": 30752
+    },
+    "config/printer-20261115_233321.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261115_233321.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261115_233321.cfg",
+      "sha256": "31305f913ab3cc3815bc8b036c319116b0ff85885f0e3d768f46fe9f57d7c4b9",
+      "bytes": 32734
+    },
+    "config/printer-20261116_124730.cfg": {
+      "source": "/home/curby/printer_data/config/printer-20261116_124730.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-20261116_124730.cfg",
+      "sha256": "3abfe235bdc1ed670459119855b45a2d262887dd7a1941b246fbe684b8505a92",
+      "bytes": 32804
+    },
+    "config/printer-before-dimming-20261106-134843.cfg": {
+      "source": "/home/curby/printer_data/config/printer-before-dimming-20261106-134843.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-before-dimming-20261106-134843.cfg",
+      "sha256": "98cbe8c4926b4d987c2ba31bfd8f341f58c3937f09b598b5b053292f2d0a80f2",
+      "bytes": 2741
+    },
+    "config/printer-before-lights-20261106-134019.cfg": {
+      "source": "/home/curby/printer_data/config/printer-before-lights-20261106-134019.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-before-lights-20261106-134019.cfg",
+      "sha256": "3ae3f79edaf75ba4b3e929ac9cb04abbb276f2dc8862dda65653bdff44c85bb3",
+      "bytes": 2616
+    },
+    "config/printer-behavior.cfg": {
+      "source": "/home/curby/printer_data/config/printer-behavior.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer-behavior.cfg",
+      "sha256": "ff17c51c53ccddb4ed8a555fe9c4fc8329c8894e39c2651e4e3324bb5e9b5d42",
+      "bytes": 4056
+    },
+    "config/printer.cfg": {
+      "source": "/home/curby/printer_data/config/printer.cfg",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg",
+      "sha256": "98fa129bb5dca30f0df87f4d9ad5a7ca88981e5d1498695ae45f36554d432bea",
+      "bytes": 32804
+    },
+    "config/printer.cfg.pre-bed-check-20261103-160339": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-bed-check-20261103-160339",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-bed-check-20261103-160339",
+      "sha256": "f2dec80d6935bd57143517f427c488a27606b6ed6a40ec89e7dba69ef1d2e3a6",
+      "bytes": 916
+    },
+    "config/printer.cfg.pre-bed-heater-20261103-234850": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-bed-heater-20261103-234850",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-bed-heater-20261103-234850",
+      "sha256": "858fe073c52a1b8c2f119a08a0f80dc112f7be14d41e68d4de8fecdc2e1eac96",
+      "bytes": 1163
+    },
+    "config/printer.cfg.pre-calibrated-probe-20261104-010009": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-calibrated-probe-20261104-010009",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-calibrated-probe-20261104-010009",
+      "sha256": "59448a3b57f3a9075a9ff2afb6b1038b0241146bb4059edf807738f489ab0ba8",
+      "bytes": 1191
+    },
+    "config/printer.cfg.pre-can-20261103-142034": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-can-20261103-142034",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-can-20261103-142034",
+      "sha256": "61c52f94f55d74817e87d489859ce5908615e5f53f91b031e2eb23ea5085d7ee",
+      "bytes": 524
+    },
+    "config/printer.cfg.pre-corexy-20261103-220327": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-corexy-20261103-220327",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-corexy-20261103-220327",
+      "sha256": "564ab31f27d75c83d8702b124a407ceb2d28818cae2a27d1d943a78be34a7b84",
+      "bytes": 1316
+    },
+    "config/printer.cfg.pre-ebb42-20261105-122126": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-ebb42-20261105-122126",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-ebb42-20261105-122126",
+      "sha256": "7e28cb83d8c09d74db826d8e635fe85079d90ffffef7e2395f5db3f670e76e7c",
+      "bytes": 1259
+    },
+    "config/printer.cfg.pre-eddy-macros-20261110-171144": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-eddy-macros-20261110-171144",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-eddy-macros-20261110-171144",
+      "sha256": "04d7334a8071c8808416cc18649af54c2a52a8833a6ed962d52cc504621bf7b3",
+      "bytes": 5810
+    },
+    "config/printer.cfg.pre-fan-role-swap-20261104-020620": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-fan-role-swap-20261104-020620",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-fan-role-swap-20261104-020620",
+      "sha256": "2206e346d3b092340df73f73380b0eb1a8d738b6cddabdb967974c3b7d9b8396",
+      "bytes": 1259
+    },
+    "config/printer.cfg.pre-hotend-check-20261103-163244": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-hotend-check-20261103-163244",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-hotend-check-20261103-163244",
+      "sha256": "5d5648a822670e4eec4a8c7d8445bf22a6108d624a8dd6242e7c9e801a8990a7",
+      "bytes": 1469
+    },
+    "config/printer.cfg.pre-input-check-20261103-155445": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-input-check-20261103-155445",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-input-check-20261103-155445",
+      "sha256": "d32aca4fe06e3e6a8e3dd642a3dd647601cdbc8aa9d500d8993de04ad61a8cb7",
+      "bytes": 520
+    },
+    "config/printer.cfg.pre-loadcell-fallback-20261115-221800": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-loadcell-fallback-20261115-221800",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-loadcell-fallback-20261115-221800",
+      "sha256": "31305f913ab3cc3815bc8b036c319116b0ff85885f0e3d768f46fe9f57d7c4b9",
+      "bytes": 32734
+    },
+    "config/printer.cfg.pre-mesh-sweep-20261113-144258": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-mesh-sweep-20261113-144258",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-mesh-sweep-20261113-144258",
+      "sha256": "89bbb3a52813c0a295e2468db9136c36958e168d66187723fdf0d3f437a2911f",
+      "bytes": 10793
+    },
+    "config/printer.cfg.pre-motor-check-20261103-162323": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-motor-check-20261103-162323",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-motor-check-20261103-162323",
+      "sha256": "c4cf2b5a665ea1c0fe21db71a5a133e9ba40333f74febef60d26cc731d645fae",
+      "bytes": 1432
+    },
+    "config/printer.cfg.pre-native-probe-20261104-004101": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-native-probe-20261104-004101",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-native-probe-20261104-004101",
+      "sha256": "3bdc5c974b347a5f3b063ea44b37d2dbe5dc56cf18d3ba42bcd093d4680e6bd5",
+      "bytes": 1156
+    },
+    "config/printer.cfg.pre-part-fan-20261104-014242": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-part-fan-20261104-014242",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-part-fan-20261104-014242",
+      "sha256": "01f370e4f03cf54fa0a3053d0911928164f574d6787b41c864936cc0efe74139",
+      "bytes": 1198
+    },
+    "config/printer.cfg.pre-part-fan-25khz-20261104-014658": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-part-fan-25khz-20261104-014658",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-part-fan-25khz-20261104-014658",
+      "sha256": "693212ffcba5a4536b6848db082f7228d565255f4bf77f3f5644aa3992fb7ac7",
+      "bytes": 1252
+    },
+    "config/printer.cfg.pre-part-fan-output-check-20261104-014802": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-part-fan-output-check-20261104-014802",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-part-fan-output-check-20261104-014802",
+      "sha256": "871261602864f96f4fcb397f8175326c52bc65f25813bf9deae9d3afdde80397",
+      "bytes": 1354
+    },
+    "config/printer.cfg.pre-probe-confirmed-20261104-003439": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-probe-confirmed-20261104-003439",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-probe-confirmed-20261104-003439",
+      "sha256": "80c287ab70684991963cce2e2b5ffdf9be597b50a428c4872962017b14d74db8",
+      "bytes": 1387
+    },
+    "config/printer.cfg.pre-probe-dual-20261104-003350": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-probe-dual-20261104-003350",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-probe-dual-20261104-003350",
+      "sha256": "b8868c8b62e0559bc1eb14aec6417374f5ad60bb0557788f0c902b4f4cca5e28",
+      "bytes": 1156
+    },
+    "config/printer.cfg.pre-probe-pb7-20261104-003238": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-probe-pb7-20261104-003238",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-probe-pb7-20261104-003238",
+      "sha256": "2da9228fc9edcab627b87660b97b021ca04bb2bc8fff73f014c9af418f6fd8f3",
+      "bytes": 1156
+    },
+    "config/printer.cfg.pre-probe-stop0-20261103-234130": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-probe-stop0-20261103-234130",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-probe-stop0-20261103-234130",
+      "sha256": "4b33d5bf2f0e51396bfd12f78e864df1cefa6516dd3af6e96989fbc4398ea70f",
+      "bytes": 1163
+    },
+    "config/printer.cfg.pre-probe-stop1-20261103-233446": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-probe-stop1-20261103-233446",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-probe-stop1-20261103-233446",
+      "sha256": "858fe073c52a1b8c2f119a08a0f80dc112f7be14d41e68d4de8fecdc2e1eac96",
+      "bytes": 1163
+    },
+    "config/printer.cfg.pre-probe-stop1-20261103-235935": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-probe-stop1-20261103-235935",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-probe-stop1-20261103-235935",
+      "sha256": "088bcd558c28817a60cb9b4429ebd8e435309839d96ff598f9ca8ea8eb993cfd",
+      "bytes": 1156
+    },
+    "config/printer.cfg.pre-sensor-check-20261103-161942": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-sensor-check-20261103-161942",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-sensor-check-20261103-161942",
+      "sha256": "7f69f742dfcddcec3015ce1406500a4dcde79d67c0b77f2b6ea8c5a8b3dc4122",
+      "bytes": 952
+    },
+    "config/printer.cfg.pre-speedup-20261116": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-speedup-20261116",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-speedup-20261116",
+      "sha256": "52bc7a9123db49debcdb90846f6ff84fb1e72960541cf4012d718d52aec9ff89",
+      "bytes": 32804
+    },
+    "config/printer.cfg.pre-z-speed-20261111-151000": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-z-speed-20261111-151000",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-z-speed-20261111-151000",
+      "sha256": "1da7bbed9f3da4a8839359e7baed834dcc426bf510eb0b94b758b0eeb2f4e613",
+      "bytes": 6643
+    },
+    "config/printer.cfg.pre-z40-20261111-152220": {
+      "source": "/home/curby/printer_data/config/printer.cfg.pre-z40-20261111-152220",
+      "resolved_source": "/home/curby/printer_data/config/printer.cfg.pre-z40-20261111-152220",
+      "sha256": "05341a2f14fd6cb0b1a8f1c717a066672e8fbdf5d0d40a2da08b04858c3da70a",
+      "bytes": 6739
+    },
+    "config/protected-meshes/eddy_100_260.mesh.bak": {
+      "source": "/home/curby/printer_data/config/protected-meshes/eddy_100_260.mesh.bak",
+      "resolved_source": "/home/curby/printer_data/config/protected-meshes/eddy_100_260.mesh.bak",
+      "sha256": "4608eabf3f7385c22c6ab641489a9948eb76bb9427843d4f93fc5a14c887fd03",
+      "bytes": 2052
+    },
+    "config/protected-meshes/eddy_105_260.mesh.bak": {
+      "source": "/home/curby/printer_data/config/protected-meshes/eddy_105_260.mesh.bak",
+      "resolved_source": "/home/curby/printer_data/config/protected-meshes/eddy_105_260.mesh.bak",
+      "sha256": "22d1fca2ed9ed297a0658ccc46e8f9c512a9b2877899445fc95a035fd76aacec",
+      "bytes": 2061
+    },
+    "config/protected-meshes/eddy_110_260.mesh.bak": {
+      "source": "/home/curby/printer_data/config/protected-meshes/eddy_110_260.mesh.bak",
+      "resolved_source": "/home/curby/printer_data/config/protected-meshes/eddy_110_260.mesh.bak",
+      "sha256": "ef3d988874acb52606feed8db75b9b94a47c61148e07d8efc9f8390f8750bbbb",
+      "bytes": 2054
+    },
+    "config/protected-meshes/eddy_50_260.mesh.bak": {
+      "source": "/home/curby/printer_data/config/protected-meshes/eddy_50_260.mesh.bak",
+      "resolved_source": "/home/curby/printer_data/config/protected-meshes/eddy_50_260.mesh.bak",
+      "sha256": "4f8df7158ebbf884b9cd2dffad44f7fd450dcc46190ea2ba9b6e9895e8c093f2",
+      "bytes": 2004
+    },
+    "config/protected-meshes/eddy_55_260.mesh.bak": {
+      "source": "/home/curby/printer_data/config/protected-meshes/eddy_55_260.mesh.bak",
+      "resolved_source": "/home/curby/printer_data/config/protected-meshes/eddy_55_260.mesh.bak",
+      "sha256": "7d95e936542cb5c3e8efa0befb1238232aff70d657d1e1cee60cd1660a1e1b9e",
+      "bytes": 2004
+    },
+    "config/protected-meshes/eddy_60_260.mesh.bak": {
+      "source": "/home/curby/printer_data/config/protected-meshes/eddy_60_260.mesh.bak",
+      "resolved_source": "/home/curby/printer_data/config/protected-meshes/eddy_60_260.mesh.bak",
+      "sha256": "ea0b73cc2e80a57be7e7b2073f6efeea04cdb30b0463b758017fa155c74623bf",
+      "bytes": 2004
+    },
+    "config/protected-meshes/eddy_65_260.mesh.bak": {
+      "source": "/home/curby/printer_data/config/protected-meshes/eddy_65_260.mesh.bak",
+      "resolved_source": "/home/curby/printer_data/config/protected-meshes/eddy_65_260.mesh.bak",
+      "sha256": "7665d036e7b95d1443f1efa711f957d3e98bd8efbad6222babfe08d1d2ad4737",
+      "bytes": 2004
+    },
+    "config/protected-meshes/eddy_70_260.mesh.bak": {
+      "source": "/home/curby/printer_data/config/protected-meshes/eddy_70_260.mesh.bak",
+      "resolved_source": "/home/curby/printer_data/config/protected-meshes/eddy_70_260.mesh.bak",
+      "sha256": "c53213ee9e180347a85fc785caec2b8b3997f57e73ed3aaf2a010ec4d0713e2c",
+      "bytes": 2004
+    },
+    "config/protected-meshes/eddy_75_260.mesh.bak": {
+      "source": "/home/curby/printer_data/config/protected-meshes/eddy_75_260.mesh.bak",
+      "resolved_source": "/home/curby/printer_data/config/protected-meshes/eddy_75_260.mesh.bak",
+      "sha256": "4ef955a5511e14a1b09949c9ce7310e1b91b9176c588e163a7741ccb105e5682",
+      "bytes": 2004
+    },
+    "config/protected-meshes/eddy_80_260.mesh.bak": {
+      "source": "/home/curby/printer_data/config/protected-meshes/eddy_80_260.mesh.bak",
+      "resolved_source": "/home/curby/printer_data/config/protected-meshes/eddy_80_260.mesh.bak",
+      "sha256": "6c35aeb572e88ca4b9cc3e65840121e51a3bc7e3c495c0440f2c37ae94c27096",
+      "bytes": 2004
+    },
+    "config/protected-meshes/eddy_85_260.mesh.bak": {
+      "source": "/home/curby/printer_data/config/protected-meshes/eddy_85_260.mesh.bak",
+      "resolved_source": "/home/curby/printer_data/config/protected-meshes/eddy_85_260.mesh.bak",
+      "sha256": "4c07e508fd745e2fc37845de0988d2161593855efb9f0fea7f11fa7a2541177d",
+      "bytes": 2004
+    },
+    "config/protected-meshes/eddy_90_260.mesh.bak": {
+      "source": "/home/curby/printer_data/config/protected-meshes/eddy_90_260.mesh.bak",
+      "resolved_source": "/home/curby/printer_data/config/protected-meshes/eddy_90_260.mesh.bak",
+      "sha256": "2c73c984a721d52f25d9cf82cdf824984cc62c5aab5844882f9861c3ba0129c7",
+      "bytes": 2006
+    },
+    "config/protected-meshes/eddy_95_260.mesh.bak": {
+      "source": "/home/curby/printer_data/config/protected-meshes/eddy_95_260.mesh.bak",
+      "resolved_source": "/home/curby/printer_data/config/protected-meshes/eddy_95_260.mesh.bak",
+      "sha256": "7be176aeeb7d66ac5efe28411a5976e1d23d767d5883feb191b96f08c4df4793",
+      "bytes": 2050
+    },
+    "config/slicer-presets/AD5M_Filament.json": {
+      "source": "/home/curby/printer_data/config/slicer-presets/AD5M_Filament.json",
+      "resolved_source": "/home/curby/printer_data/config/slicer-presets/AD5M_Filament.json",
+      "sha256": "5d1184f72c16cdb90db71c937e8b40d3353c90208455398798a4f658a3f44cbb",
+      "bytes": 594
+    },
+    "config/slicer-presets/AD5M_Filament_ASA.json": {
+      "source": "/home/curby/printer_data/config/slicer-presets/AD5M_Filament_ASA.json",
+      "resolved_source": "/home/curby/printer_data/config/slicer-presets/AD5M_Filament_ASA.json",
+      "sha256": "c830861c8f1503b2caffc5c36d816a74161c288b7e0f494f47292dd0a871ec28",
+      "bytes": 9117
+    },
+    "config/slicer-presets/AD5M_Klipper.orca_printer": {
+      "source": "/home/curby/printer_data/config/slicer-presets/AD5M_Klipper.orca_printer",
+      "resolved_source": "/home/curby/printer_data/config/slicer-presets/AD5M_Klipper.orca_printer",
+      "sha256": "208bb6f8362a681ece0f47c4a4bcc5e895d0200d7eb36ffd7299d221e8165005",
+      "bytes": 1696
+    },
+    "config/slicer-presets/AD5M_Printer.json": {
+      "source": "/home/curby/printer_data/config/slicer-presets/AD5M_Printer.json",
+      "resolved_source": "/home/curby/printer_data/config/slicer-presets/AD5M_Printer.json",
+      "sha256": "ae3a2f297dfd774d2c273a831c7b72ff419c01459fb568066a2505c49856d720",
+      "bytes": 1635
+    },
+    "config/slicer-presets/AD5M_Printer_04.json": {
+      "source": "/home/curby/printer_data/config/slicer-presets/AD5M_Printer_04.json",
+      "resolved_source": "/home/curby/printer_data/config/slicer-presets/AD5M_Printer_04.json",
+      "sha256": "4288658324d528902c4de0efffe2dd3ed26d00371ee374374ff7ca1b0fd3002b",
+      "bytes": 6887
+    },
+    "config/slicer-presets/AD5M_Process.json": {
+      "source": "/home/curby/printer_data/config/slicer-presets/AD5M_Process.json",
+      "resolved_source": "/home/curby/printer_data/config/slicer-presets/AD5M_Process.json",
+      "sha256": "1f7ac472c5ff1fe5d98ea3826b376f7116d0fb91f170ab1e0e29c49768c62f5b",
+      "bytes": 1081
+    },
+    "config/slicer-presets/AD5M_Process_ASA.json": {
+      "source": "/home/curby/printer_data/config/slicer-presets/AD5M_Process_ASA.json",
+      "resolved_source": "/home/curby/printer_data/config/slicer-presets/AD5M_Process_ASA.json",
+      "sha256": "1ebedcf3c24cda5de6c45a56023aad242379464ed78dc9038709bb402be3fb2a",
+      "bytes": 14412
+    },
+    "config/slicer-presets/AD5M_Process_ASA_016.json": {
+      "source": "/home/curby/printer_data/config/slicer-presets/AD5M_Process_ASA_016.json",
+      "resolved_source": "/home/curby/printer_data/config/slicer-presets/AD5M_Process_ASA_016.json",
+      "sha256": "b65055d2b34208ed4ce61197ce36a4fbc33761812fd9fd82bba4a264f4a0f476",
+      "bytes": 14416
+    },
+    "config/slicer-presets/AD5M_Process_ASA_024.json": {
+      "source": "/home/curby/printer_data/config/slicer-presets/AD5M_Process_ASA_024.json",
+      "resolved_source": "/home/curby/printer_data/config/slicer-presets/AD5M_Process_ASA_024.json",
+      "sha256": "f915695dc540f9df36237dd46714c0e12e967bcea034c8069ae4b3f75e2f84aa",
+      "bytes": 14416
+    },
+    "config/slicer-presets/AD5M_Rebuilt_04_Corrected.orca_printer": {
+      "source": "/home/curby/printer_data/config/slicer-presets/AD5M_Rebuilt_04_Corrected.orca_printer",
+      "resolved_source": "/home/curby/printer_data/config/slicer-presets/AD5M_Rebuilt_04_Corrected.orca_printer",
+      "sha256": "7097bbe89a511738988c8160b81cfe8531aaae2b888c7e4170610b9143a7f664",
+      "bytes": 16326
+    },
+    "klippy/extras/z_speed_control.py": {
+      "source": "/home/curby/klipper/klippy/extras/z_speed_control.py",
+      "resolved_source": "/home/curby/klipper/klippy/extras/z_speed_control.py",
+      "sha256": "c5a6dc99d1f0903be3815f545292db83f7bec87a78c223832b52f95dda8b850e",
+      "bytes": 10698
+    },
+    "klippy/extras/two_stage_probe.py": {
+      "source": "/home/curby/klipper/klippy/extras/two_stage_probe.py",
+      "resolved_source": "/home/curby/klipper/klippy/extras/two_stage_probe.py",
+      "sha256": "dee26446d61f135946984295487c2d3b88584f99c80f59c605ac39079ceb34d9",
+      "bytes": 4178
+    },
+    "klippy/COPYING": {
+      "source": "/home/curby/klipper/COPYING",
+      "resolved_source": "/home/curby/klipper/COPYING",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "bytes": 35149
+    },
+    "firmware-build-configs/eddy-duo-usb/klipper.config": {
+      "source": "/home/curby/printer-rebuild/firmware/eddy-duo-usb/klipper.config",
+      "resolved_source": "/home/curby/printer-rebuild/firmware/eddy-duo-usb/klipper.config",
+      "sha256": "815968cad20ac5ea51e85f2b6729d1b9ea7c4a2a97173d9881088e58c6aef616",
+      "bytes": 2735
+    },
+    "firmware-build-configs/eddy-duo-can/katapult/build.config": {
+      "source": "/home/curby/printer-rebuild/firmware/eddy-duo-can/katapult/build.config",
+      "resolved_source": "/home/curby/printer-rebuild/firmware/eddy-duo-can/katapult/build.config",
+      "sha256": "883e80cde00678deb94fdcd58b889023d170d2263e9f99c60936c6e5d2351d30",
+      "bytes": 1913
+    },
+    "firmware-build-configs/eddy-duo-can/klipper/build.config": {
+      "source": "/home/curby/printer-rebuild/firmware/eddy-duo-can/klipper/build.config",
+      "resolved_source": "/home/curby/printer-rebuild/firmware/eddy-duo-can/klipper/build.config",
+      "sha256": "da3d20790a8153299883c17ee7330b0c7bff06185c0c5287f9134cbd3a563a9c",
+      "bytes": 2568
+    },
+    "firmware-build-configs/ebb42-v1.2.1/katapult/build.config": {
+      "source": "/home/curby/printer-rebuild/firmware/ebb42-v1.2.1/katapult/build.config",
+      "resolved_source": "/home/curby/printer-rebuild/firmware/ebb42-v1.2.1/katapult/build.config",
+      "sha256": "e1c4b06b980f5af83952789f4f4256fb65d9cb678ff78e8d41501dd3f2196c97",
+      "bytes": 3045
+    },
+    "firmware-build-configs/ebb42-v1.2.1/klipper/build.config": {
+      "source": "/home/curby/printer-rebuild/firmware/ebb42-v1.2.1/klipper/build.config",
+      "resolved_source": "/home/curby/printer-rebuild/firmware/ebb42-v1.2.1/klipper/build.config",
+      "sha256": "930cd102278744e50124383a21e369be524d23479f294b0dc0fc5762bf4e3388",
+      "bytes": 3993
+    },
+    "firmware-build-configs/ebb36-v1.2/katapult/build.config": {
+      "source": "/home/curby/printer-rebuild/firmware/ebb36-v1.2/katapult/build.config",
+      "resolved_source": "/home/curby/printer-rebuild/firmware/ebb36-v1.2/katapult/build.config",
+      "sha256": "e1c4b06b980f5af83952789f4f4256fb65d9cb678ff78e8d41501dd3f2196c97",
+      "bytes": 3045
+    },
+    "firmware-build-configs/ebb36-v1.2/klipper/build.config": {
+      "source": "/home/curby/printer-rebuild/firmware/ebb36-v1.2/klipper/build.config",
+      "resolved_source": "/home/curby/printer-rebuild/firmware/ebb36-v1.2/klipper/build.config",
+      "sha256": "930cd102278744e50124383a21e369be524d23479f294b0dc0fc5762bf4e3388",
+      "bytes": 3993
+    },
+    "validation/first-layer/Siraya_ASA_GF_30x30_First_Layer.gcode": {
+      "source": "/home/curby/Documents/Codex/2026-11-16/i-n/outputs/ASA_GF_First_Layer/Siraya_ASA_GF_30x30_First_Layer.gcode",
+      "resolved_source": "/home/curby/Documents/Codex/2026-11-16/i-n/outputs/ASA_GF_First_Layer/Siraya_ASA_GF_30x30_First_Layer.gcode",
+      "sha256": "d13b8899c75f8a8180c4262ac148b25e8b08bb76adfd24da9853f7976364eed7",
+      "bytes": 5830
+    },
+    "validation/first-layer/test-details.json": {
+      "source": "/home/curby/Documents/Codex/2026-11-16/i-n/outputs/ASA_GF_First_Layer/test-details.json",
+      "resolved_source": "/home/curby/Documents/Codex/2026-11-16/i-n/outputs/ASA_GF_First_Layer/test-details.json",
+      "sha256": "726592a45209d76ba140ec2ab0d191845657f32886baac1bb3f94048ee0c0453",
+      "bytes": 619
+    },
+    "validation/first-layer/final-status.json": {
+      "source": "/home/curby/Documents/Codex/2026-11-16/i-n/outputs/ASA_GF_First_Layer/final-status.json",
+      "resolved_source": "/home/curby/Documents/Codex/2026-11-16/i-n/outputs/ASA_GF_First_Layer/final-status.json",
+      "sha256": "71a596241e9c6c3d4d0b37476c4da4585a36e618b28d339809f8cdb1f056274e",
+      "bytes": 2357
+    }
+  },
+  "scope": "Klipper configuration, active include closure, historical Klipper configs, saved meshes/calibration, custom Klipper modules, firmware build configs, slicer presets and first-layer test evidence. Excludes host services, Moonraker, KlipperScreen, broad historical handoff notes, account credentials and runtime databases.",
+  "excluded_non_klipper_files": [
+    "config/.moonraker.conf.bkp",
+    "config/KlipperScreen.conf",
+    "config/moonraker.conf",
+    "host/systemd/klipper.service",
+    "host/systemd/moonraker.service",
+    "host/systemd/can0.service",
+    "host/systemd/ad5m-camera.service",
+    "notes/PRINTER-STATUS-history.md",
+    "validation/first-layer/finished-patch.jpg"
+  ]
+}

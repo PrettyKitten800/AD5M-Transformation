@@ -1,0 +1,29 @@
+# Draft only: measured X offset required before enabling height mapping.
+# Installed Klipper v0.13.0-820 uses Eddy calibration data directly;
+# do not copy the older BTT z_offset field into this version.
+[mcu eddy]
+serial: /dev/serial/by-id/usb-Klipper_rp2040_50443404185EE71C-if00
+restart_method: command
+
+[temperature_sensor Eddy_MCU]
+sensor_type: temperature_mcu
+sensor_mcu: eddy
+min_temp: 0
+max_temp: 100
+
+[probe_eddy_current btt_eddy]
+sensor_type: ldc1612
+i2c_mcu: eddy
+i2c_bus: i2c0f
+# x_offset: MEASURED_MM_TO_RIGHT_OF_NOZZLE
+y_offset: 0
+speed: 2
+lift_speed: 5
+samples: 1
+
+[temperature_probe btt_eddy]
+sensor_type: Generic 3950
+sensor_pin: eddy:gpio26
+min_temp: 0
+max_temp: 100
+horizontal_move_z: 3

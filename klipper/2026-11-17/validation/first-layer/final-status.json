@@ -1,0 +1,113 @@
+{
+  "time": "2026-11-16T13:31:13.023478-05:00",
+  "status": {
+    "webhooks": {
+      "state": "ready",
+      "state_message": "Printer is ready"
+    },
+    "print_stats": {
+      "filename": "Siraya_ASA_GF_30x30_First_Layer.gcode",
+      "total_duration": 708.0915633740369,
+      "print_duration": 129.67681631201413,
+      "filament_used": 88.30671058104032,
+      "state": "complete",
+      "message": "",
+      "info": {
+        "total_layer": 1,
+        "current_layer": 1
+      }
+    },
+    "virtual_sdcard": {
+      "file_path": null,
+      "progress": 1.0,
+      "is_active": false,
+      "file_position": 5830,
+      "file_size": 5830
+    },
+    "toolhead": {
+      "homed_axes": "xyz",
+      "axis_minimum": [
+        -10.0,
+        12.0,
+        -0.4,
+        0
+      ],
+      "axis_maximum": [
+        213.4,
+        220.0,
+        220.929,
+        0
+      ],
+      "print_time": 3696.9904172247147,
+      "stalls": 1,
+      "estimated_print_time": 3716.1932825403846,
+      "extruder": "extruder",
+      "position": [
+        203.4,
+        210.0,
+        30.10283400000001,
+        88.30671058104032
+      ],
+      "max_velocity": 100.0,
+      "max_accel": 1500.0,
+      "minimum_cruise_ratio": 0.5,
+      "square_corner_velocity": 5.0,
+      "extra_axes": {
+        "extruder": 3
+      }
+    },
+    "extruder": {
+      "temperature": 203.91,
+      "target": 0.0,
+      "power": 0.0,
+      "can_extrude": true,
+      "pressure_advance": 0.0,
+      "smooth_time": 0.04,
+      "motion_queue": null
+    },
+    "heater_bed": {
+      "temperature": 101.94,
+      "target": 0.0,
+      "power": 0.0
+    },
+    "gcode_move": {
+      "speed_factor": 1.0,
+      "speed": 1200.0,
+      "extrude_factor": 1.0,
+      "absolute_coordinates": true,
+      "absolute_extrude": false,
+      "homing_origin": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "position": [
+        203.4,
+        210.0,
+        30.10283400000001,
+        88.30671058104032
+      ],
+      "gcode_position": [
+        203.4,
+        210.0,
+        30.10283400000001,
+        73.1400890000001
+      ],
+      "axis_map": {
+        "X": 0,
+        "Y": 1,
+        "Z": 2,
+        "E": 3
+      }
+    },
+    "mcu head": {
+      "bytes_retransmit": 0,
+      "bytes_invalid": 0
+    },
+    "mcu eddy": {
+      "bytes_retransmit": 0,
+      "bytes_invalid": 0
+    }
+  }
+}

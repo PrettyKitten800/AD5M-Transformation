@@ -45,3 +45,7 @@ Large downloaded upstream archives/checkouts and machine-specific flash backups 
 ## Attribution
 
 This repository contains mixed original and third-party content. Preserve each source's license and attribution. BambuMod-derived brackets retain the stated CC BY-NC-SA 4.0 attribution in their installation notes. The Jorge hotend is an unchanged reference with its own source/license. Do not apply a blanket license to upstream material.
+
+## Current Klipper configuration
+
+[Complete 2026-11-17 printer snapshot](klipper/2026-11-17/) includes active configs/calibration, historical config backups, custom modules, host services, presets and the successful Siraya ASA-GF first-layer test.

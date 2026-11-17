@@ -1,0 +1,15 @@
+# Direct Octopus Pro BED-OUT checkout at reduced duty cycle.
+# Each PWM pulse applies full bed supply voltage.
+[heater_bed]
+heater_pin: PA1
+sensor_type: Generic 3950
+sensor_pin: PF3
+pullup_resistor: 4700
+control: pid
+pid_Kp: 66.126
+pid_Ki: 2.563
+pid_Kd: 426.513
+max_power: 0.93
+pwm_cycle_time: 0.100
+min_temp: 0
+max_temp: 115

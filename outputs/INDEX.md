@@ -41,3 +41,7 @@ This index separates **active printable designs** and **active technical records
 - **Superseded EBB36 & earlier diagram iterations:**
   - [`EBB36_wiring_guide_R1/`](EBB36_wiring_guide_R1/) (and `../output/pdf/EBB36_toolhead_wiring_R1.pdf`) — Historical EBB36 wiring guide; **not** an approved EBB42 V1.2.1 wiring plan.
   - [`AD5M_board_diagrams_R4/`](AD5M_board_diagrams_R4/), [`AD5M_PSU_annotated/`](AD5M_PSU_annotated/), [`AD5M_PSU_annotated_R2/`](AD5M_PSU_annotated_R2/), [`Octopus_AD5M_labels/`](Octopus_AD5M_labels/), [`Octopus_AD5M_labels_R2/`](Octopus_AD5M_labels_R2/), [`Octopus_AD5M_labels_R3/`](Octopus_AD5M_labels_R3/).
+
+## Printer configuration and physical print validation
+
+- [Klipper snapshot 2026-11-17](../klipper/2026-11-17/): all configuration files, custom helpers, presets and first-layer validation evidence. This is a printer-state archive, not a new CAD revision.

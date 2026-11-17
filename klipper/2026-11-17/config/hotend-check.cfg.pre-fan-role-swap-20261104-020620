@@ -1,0 +1,20 @@
+# Low-temperature checkout for the Bambu X1 hotend.
+# Before loading, verify the PA1 fan has a supply rated for the installed fan.
+# Replace the live hotend_check temperature_sensor section to avoid duplicate PA3.
+[heater_generic hotend_checkout]
+heater_pin: head:PB13
+sensor_pin: head:PA3
+# Provisional NTC curve. Check against a known temperature before printing.
+sensor_type: Generic 3950
+pullup_resistor: 4700
+control: watermark
+max_delta: 2
+max_power: 0.35
+min_temp: 0
+max_temp: 70
+
+[heater_fan hotend_fan]
+pin: head:PA1
+heater: hotend_checkout
+heater_temp: 40
+fan_speed: 1.0

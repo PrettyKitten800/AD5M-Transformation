@@ -1,0 +1,23 @@
+{
+  "filename": "Siraya_ASA_GF_30x30_First_Layer.gcode",
+  "size_mm": [
+    30,
+    30,
+    0.2
+  ],
+  "center": [
+    106.7,
+    116.0
+  ],
+  "nozzle_temperature": 260,
+  "bed_temperature": 105,
+  "width": 0.45,
+  "speed_mm_s": 20.0,
+  "flow_ratio": 1.0,
+  "filament_mm": 73.1400782960878,
+  "deposition_seconds_lower_bound": 108.63223460797553,
+  "peak_flow_mm3_s": 1.628318037766348,
+  "extrusion_moves": 75,
+  "sha256": "d13b8899c75f8a8180c4262ac148b25e8b08bb76adfd24da9853f7976364eed7",
+  "validation": "All patch moves inside mesh/travel bounds; extrusion limits passed; normal START_PRINT/END_PRINT workflow."
+}

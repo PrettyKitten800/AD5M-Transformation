@@ -1,0 +1,33 @@
+# Eddy mesh within the reachable sensor area.
+[bed_mesh]
+# Eddy rapid_scan: 'speed' is the scan speed and horizontal_move_z the scan
+# height. Eddy height calibration covers 0.05-2.65 mm, so scan at 1.5 mm for
+# plenty of headroom.
+# scan_overshoot is extra X travel past the mesh edge for turnarounds; the
+# probe's X offset puts nozzle X at -3 for mesh X32, so 3 mm keeps >=4 mm
+# clear of the -10 mm left stop.
+speed: 40
+horizontal_move_z: 1.5
+scan_overshoot: 3
+# Probe X offset +35; X32 requires nozzle X-3, 7 mm clear of left stop (3 mm scan overshoot leaves 4 mm).
+# X220 is a test of the right edge with the 35 mm offset (coil was rolling off past
+# X196-198 with the old 44 mm mount); pull back if the last columns drop sharply.
+mesh_min: 32, 25
+mesh_max: 220, 205
+probe_count: 5, 5
+adaptive_margin: 5
+algorithm: bicubic
+
+[resonance_tester]
+accel_chip: adxl345
+probe_points: 110,110,30
+
+[idle_timeout]
+timeout: 1200
+gcode:
+    _PRINTER_IDLE
+
+# Frequencies will be supplied by the measured X/Y resonance calibration.
+[input_shaper]
+
+# Nozzle-contact two-stage helper retired when switching to Eddy Duo.

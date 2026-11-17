@@ -1,0 +1,129 @@
+# CoreXY commissioning with Z-max verified and XY stall thresholds pending.
+
+[stepper_x]
+step_pin: PE6
+dir_pin: PA14
+enable_pin: !PE0
+microsteps: 16
+rotation_distance: 39.9
+endstop_pin: tmc2209_stepper_x:virtual_endstop
+position_endstop: -10
+# X0 is about 7.5 mm inside the 235 mm plate; left hard stop is X-10.
+# Right bolt contact is X214.413; software max leaves 1.013 mm clearance.
+position_max: 213.4
+position_min: -10
+homing_positive_dir: False
+homing_speed: 20
+homing_retract_dist: 0
+
+[tmc2209 stepper_x]
+uart_pin: PD3
+diag_pin: ^PG15
+# Retain the prior threshold; verify one clean touch at the new X-min stop.
+driver_SGTHRS: 64
+# Provisional RMS current; verify stock motor and driver cooling.
+run_current: 0.800
+interpolate: True
+stealthchop_threshold: 0
+
+[stepper_y]
+step_pin: PE2
+dir_pin: PE3
+enable_pin: !PD4
+microsteps: 16
+rotation_distance: 39.9
+endstop_pin: tmc2209_stepper_y:virtual_endstop
+position_endstop: 220
+position_max: 220
+position_min: 0
+homing_positive_dir: True
+homing_speed: 20
+homing_retract_dist: 0
+
+[tmc2209 stepper_y]
+uart_pin: PE1
+diag_pin: ^PG14
+# Working Y sensitivity under supervised commissioning.
+driver_SGTHRS: 64
+run_current: 0.800
+interpolate: True
+stealthchop_threshold: 0
+
+[stepper_z]
+step_pin: PC13
+dir_pin: PF0
+enable_pin: !PF1
+microsteps: 16
+rotation_distance: 7.98
+# Stock lower Z optical endstop verified on STOP2: clear is released, blocked is pressed.
+endstop_pin: ^PG10
+# Cold paper calibration at the center of the installed build plate.
+position_endstop: 220.929
+position_max: 220.929
+# Bound the first automatic probe near the measured paper reference.
+position_min: -0.4
+homing_positive_dir: True
+homing_speed: 10
+homing_retract_dist: 5
+homing_retract_speed: 10
+second_homing_speed: 2
+
+[tmc2209 stepper_z]
+uart_pin: PE4
+run_current: 0.500
+interpolate: True
+stealthchop_threshold: 0
+
+[homing_override]
+axes: xyz
+gcode:
+    {% set home_all = "X" not in params and "Y" not in params and "Z" not in params %}
+    {% set home_x = home_all or "X" in params %}
+    {% set home_y = home_all or "Y" in params %}
+    {% set home_z = home_all or "Z" in params %}
+    {% set tuned = printer["gcode_macro _SENSORLESS_BACKOFF"].tuned %}
+    {% if home_x and home_y and not tuned %}
+        {action_raise_error("Tune X and Y individually before homing both")}
+    {% endif %}
+    {% if (home_x or home_y) and not home_z and "z" not in printer.toolhead.homed_axes %}
+        {action_raise_error("Home Z before testing X or Y")}
+    {% endif %}
+    {% set restore_accel = printer.toolhead.max_accel %}
+    SET_VELOCITY_LIMIT ACCEL=500
+    # Home the lower Z switch without an active mesh transform.
+    BED_MESH_CLEAR
+    {% if home_z %}
+        G28 Z
+    {% endif %}
+    {% if home_x %}
+        G4 P2000
+        G28 X
+        {% if tuned %}
+            _SENSORLESS_BACKOFF AXIS=X
+        {% endif %}
+    {% endif %}
+    {% if home_y %}
+        G4 P2000
+        G28 Y
+        {% if tuned %}
+            _SENSORLESS_BACKOFF AXIS=Y
+        {% endif %}
+    {% endif %}
+    SET_VELOCITY_LIMIT ACCEL={restore_accel}
+
+[gcode_macro _SENSORLESS_BACKOFF]
+# Back off away from each configured stop: X-min positive, Y-max negative.
+# Both contacts and approximately 1 mm clearance at the right limit verified.
+variable_tuned: True
+gcode:
+    {% set axis = params.AXIS | upper %}
+    {% if axis not in ["X", "Y"] %}
+        {action_raise_error("Backoff requires X or Y")}
+    {% endif %}
+    {% set positive = printer.configfile.settings["stepper_" ~ (axis | lower)].homing_positive_dir %}
+    SAVE_GCODE_STATE NAME=sensorless_backoff
+    G91
+    G1 {axis}{(-5 if positive else 5)} F1200
+    M400
+    RESTORE_GCODE_STATE NAME=sensorless_backoff
+

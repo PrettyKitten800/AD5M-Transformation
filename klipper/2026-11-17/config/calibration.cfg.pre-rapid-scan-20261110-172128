@@ -1,0 +1,24 @@
+# Eddy mesh within the reachable sensor area.
+[bed_mesh]
+speed: 40
+horizontal_move_z: 3
+# Probe X offset +44; X40 requires nozzle X-4, 6 mm clear of left stop.
+mesh_min: 40, 25
+mesh_max: 210, 210
+probe_count: 5, 5
+adaptive_margin: 5
+algorithm: bicubic
+
+[resonance_tester]
+accel_chip: adxl345
+probe_points: 110,110,30
+
+[idle_timeout]
+timeout: 1200
+gcode:
+    _PRINTER_IDLE
+
+# Frequencies will be supplied by the measured X/Y resonance calibration.
+[input_shaper]
+
+# Nozzle-contact two-stage helper retired when switching to Eddy Duo.

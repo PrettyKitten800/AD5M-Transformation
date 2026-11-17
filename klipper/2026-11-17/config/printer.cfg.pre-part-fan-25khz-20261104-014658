@@ -1,0 +1,53 @@
+# Flashforge AD5M rebuild - CoreXY motion commissioning
+# Low-temperature hotend and reduced-duty bed heater checkout.
+# Do not replace this with either guide's complete config unchanged.
+# Reference review: /home/curby/printer-rebuild/README.md
+
+[include mainsail.cfg]
+[include bed-heater-check.cfg]
+[include motion-check.cfg]
+[include extruder-motor-check.cfg]
+[include hotend-check.cfg]
+
+[mcu]
+canbus_uuid: c16b9f102b59
+canbus_interface: can0
+
+[mcu head]
+canbus_uuid: 29108b186b2d
+canbus_interface: can0
+
+[printer]
+kinematics: corexy
+max_velocity: 50
+max_accel: 500
+max_z_velocity: 5
+max_z_accel: 50
+
+[temperature_sensor Raspberry_Pi_5]
+sensor_type: temperature_host
+
+[exclude_object]
+
+# The bed load cell senses nozzle contact. The optical stop still homes Z.
+[probe]
+pin: !PB6
+# Mean of three cold contact samples at the center, relative to paper Z=0.
+z_offset: -0.262
+speed: 0.3
+lift_speed: 3
+samples: 1
+
+# Read the EBB36 onboard accelerometer without commanding printer movement.
+[adxl345]
+cs_pin: head:PB12
+spi_bus: spi2_PB2_PB11_PB10
+
+# STOP4 input check. Confirm polarity by inserting and removing filament.
+[filament_switch_sensor runout_sensor]
+switch_pin: !PG12
+pause_on_runout: False
+
+# EBB36 PA0 part-cooling output.
+[fan]
+pin: head:PA0
