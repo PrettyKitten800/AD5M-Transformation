@@ -4,10 +4,11 @@ This is a file-for-file snapshot of the printer configuration on CurberryPi, wit
 
 ## Contents
 
-- `config/`: the entire printer config directory, including `printer.cfg`'s SAVE_CONFIG block (Eddy height/thermal calibration, saved meshes, heater PID and shaping), all included macros/configs, host/UI configs, slicer presets/bundles, historical `.pre-*`/dated backups and protected mesh copies.
+- `config/`: the entire printer config directory, including `printer.cfg`'s SAVE_CONFIG block (Eddy height/thermal calibration, saved meshes, heater PID and shaping), all included macros/configs, Moonraker settings, slicer presets/bundles, historical `.pre-*`/dated backups and protected mesh copies.
 - `klippy/extras/z_speed_control.py`: required by `[z_speed_control]`; includes native safe homing when Z is unknown and the restored stuck-endstop safeguard.
 - `klippy/extras/two_stage_probe.py`: legacy inactive helper, preserved for history; not included by the current printer setup.
 - `firmware-build-configs/`: Klipper/Katapult build options for the main/current and historical controller setups; no flash/readback binaries.
+- `host/`: Moonraker, CAN and camera systemd units, non-secret Moonraker launch settings (`moonraker.env.example`), and both enabled nginx frontend/camera proxy sites. See [host restore notes](host/README.md).
 - `validation/first-layer/`: the actual Siraya Tech ASA-GF 30×30×0.20 mm test, details, final status. It completed on November 16 at 260°C nozzle / 105°C bed, 20 mm/s, with zero toolhead/Eddy retransmitted or invalid bytes. The user reported: **“Sticking, with lines joining together.”** This is a successful small first-layer test, not full-bed or long-print certification.
 - `MANIFEST.json`: SHA-256 and original path for each source file; identifies the active include closure separately from inactive/historical configs.
 
@@ -26,10 +27,10 @@ This is a file-for-file snapshot of the printer configuration on CurberryPi, wit
 1. Inspect `MANIFEST.json` → `active_config_files`; those ten files form the active printer include closure. Historical/checkout configs beside them must not be blindly included.
 2. Back up the destination first. Preserve relative includes when restoring the active files into `printer_data/config/`. `mainsail.cfg` is a materialized copy of the original symlink target so this archive is self-contained.
 3. Install `klippy/extras/z_speed_control.py` into the corresponding Klipper checkout. The recorded installed Klipper commit is `0cee841e31d701595b3e509a0b502f6e320f52a8`; compare APIs before using the custom helper with another version.
-4. Serial/CAN identifiers are specific to this printer. Host-service files, Moonraker authentication/network configuration and KlipperScreen connection settings are excluded from this Klipper-only snapshot.
+4. Serial/CAN identifiers, host paths, camera device path and Moonraker LAN authorization rules are specific to this printer. Review [host restore notes](host/README.md) before installing the included service, launch and proxy files. KlipperScreen settings and account credentials remain excluded.
 5. Restore the matching `printer.cfg` SAVE_CONFIG calibration block together with this hardware configuration. Nozzle, probe mounting or frame changes require physical checks/calibration.
 6. Restart/reload only when idle, inspect warnings, then verify endstops and supervised cold travel before printing. Do not treat a configuration upload as a physical test.
 
 ## Scope and attribution
 
-No printer movement, heating, configuration edits or sharing changes were performed to create this snapshot. Credential fields were checked; no assigned API/password/token/secret fields were found in the config directory. Firmware readbacks, account credentials, host-service files, Moonraker/KlipperScreen settings, runtime logs/databases and unrelated CAD are outside this configuration snapshot. Retain source copyright/license headers; copied Klipper modules are GPL licensed as their headers state. First-layer temperature selection was checked against [Siraya Tech's ASA-GF manual](https://siraya.tech/pages/siraya-tech-asa-gf-filament-user-manual).
+No printer movement, heating, configuration edits or sharing changes were performed to create this snapshot. Credential fields were checked; no assigned API/password/token/secret fields were found in the config directory. Firmware readbacks, account credentials, KlipperScreen settings, runtime logs/databases and unrelated CAD are outside this configuration snapshot. Retain source copyright/license headers; copied Klipper modules are GPL licensed as their headers state. First-layer temperature selection was checked against [Siraya Tech's ASA-GF manual](https://siraya.tech/pages/siraya-tech-asa-gf-filament-user-manual).

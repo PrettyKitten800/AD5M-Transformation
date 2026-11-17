@@ -1,0 +1,14 @@
+[Unit]
+Description=AD5M enclosure USB camera stream
+After=network.target
+
+[Service]
+User=curby
+SupplementaryGroups=video
+ExecStart=/usr/bin/ustreamer --device=/dev/v4l/by-id/usb-XCG-250804-XH_SNAP_U2-video-index0 --host=127.0.0.1 --port=8081 --resolution=1920x1080 --format=MJPEG --encoder=HW --desired-fps=30
+Restart=always
+RestartSec=3
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target

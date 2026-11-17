@@ -31,3 +31,5 @@ This repository is accessed by multiple agent harnesses (including ChatGPT / Cod
 ## Current Klipper source — configuration snapshot 2026-11-17
 
 Use [klipper/2026-11-17/](klipper/2026-11-17/) for the installed configuration/calibration and restore notes. Both EBB42 and Eddy now use CAN. X homing must establish rear Y clearance first; Z→Y→X is the verified order. Front Y minimum is 12; rear Y maximum 220; purge Y15; Y SGTHRS64; nozzle0.4. Keep historical CAD designs and old configuration backups separate from the active include list in MANIFEST.json. A small Siraya ASA-GF first layer was physically completed and the user reported adhering, joined lines; this does not establish full-bed/long-print performance.
+
+Host configuration addendum (2026-11-17): the [same snapshot](klipper/2026-11-17/host/) now also includes Moonraker configuration/service/launch settings, the CAN service, the camera service and both enabled nginx camera proxy sites, with restore paths and hashes. Account credentials and runtime databases remain excluded.

@@ -853,18 +853,78 @@
       "resolved_source": "/home/curby/Documents/Codex/2026-11-16/i-n/outputs/ASA_GF_First_Layer/final-status.json",
       "sha256": "71a596241e9c6c3d4d0b37476c4da4585a36e618b28d339809f8cdb1f056274e",
       "bytes": 2357
+    },
+    "config/moonraker.conf": {
+      "source": "/home/curby/printer_data/config/moonraker.conf",
+      "resolved_source": "/home/curby/printer_data/config/moonraker.conf",
+      "sha256": "e49e14a4c857045a223acd27648f2ea9667ae95f579d253410dbd791416e15d3",
+      "bytes": 1378
+    },
+    "host/systemd/moonraker.service": {
+      "source": "/etc/systemd/system/moonraker.service",
+      "resolved_source": "/etc/systemd/system/moonraker.service",
+      "sha256": "65c15b4985f21341eba820d0144b6e3345d38340da945d85a2385b9b713e4ef9",
+      "bytes": 425
+    },
+    "host/systemd/can0.service": {
+      "source": "/etc/systemd/system/can0.service",
+      "resolved_source": "/etc/systemd/system/can0.service",
+      "sha256": "53b57579dae8fcb6910a350a75ebb95c5e69d753e331046dc5a28bd08ab48814",
+      "bytes": 400
+    },
+    "host/systemd/ad5m-camera.service": {
+      "source": "/etc/systemd/system/ad5m-camera.service",
+      "resolved_source": "/etc/systemd/system/ad5m-camera.service",
+      "sha256": "5181f3d049e4ba96fb04c432f3c9152ff264de8110bd74a20f4162edc096e5a0",
+      "bytes": 397
+    },
+    "host/moonraker.env.example": {
+      "source": "/home/curby/printer_data/systemd/moonraker.env",
+      "resolved_source": "/home/curby/printer_data/systemd/moonraker.env",
+      "sha256": "aba534552114f4342bd2f74b47cd7339f9f57c8a6a82901f5c01621f0f92ce91",
+      "bytes": 113
+    },
+    "host/nginx/mainsail": {
+      "source": "/etc/nginx/sites-available/mainsail",
+      "resolved_source": "/etc/nginx/sites-available/mainsail",
+      "sha256": "1ea89727d2df8c71a5a414431a9b2eb5b996d1bb2adb3bc71c98995e7625702f",
+      "bytes": 2054
+    },
+    "host/nginx/fluidd": {
+      "source": "/etc/nginx/sites-available/fluidd",
+      "resolved_source": "/etc/nginx/sites-available/fluidd",
+      "sha256": "181131324754f9d4cbe903feffe467e6f2d5872b51e407314802e07a3aeb06cb",
+      "bytes": 2024
     }
   },
-  "scope": "Klipper configuration, active include closure, historical Klipper configs, saved meshes/calibration, custom Klipper modules, firmware build configs, slicer presets and first-layer test evidence. Excludes host services, Moonraker, KlipperScreen, broad historical handoff notes, account credentials and runtime databases.",
+  "scope": "Klipper configuration, active include closure, historical Klipper configs, saved meshes/calibration, custom modules, firmware build configs, slicer presets, first-layer evidence, Moonraker configuration and service/launch settings, CAN service, camera service and both active nginx frontend/camera proxy sites. Excludes account credentials, runtime databases, KlipperScreen and broad historical notes.",
   "excluded_non_klipper_files": [
     "config/.moonraker.conf.bkp",
     "config/KlipperScreen.conf",
-    "config/moonraker.conf",
     "host/systemd/klipper.service",
-    "host/systemd/moonraker.service",
-    "host/systemd/can0.service",
-    "host/systemd/ad5m-camera.service",
     "notes/PRINTER-STATUS-history.md",
     "validation/first-layer/finished-patch.jpg"
-  ]
+  ],
+  "host_config_addendum": {
+    "date": "2026-11-17",
+    "files": [
+      "config/moonraker.conf",
+      "host/systemd/moonraker.service",
+      "host/systemd/can0.service",
+      "host/systemd/ad5m-camera.service",
+      "host/moonraker.env.example",
+      "host/nginx/mainsail",
+      "host/nginx/fluidd"
+    ],
+    "service_drop_ins": {
+      "moonraker.service": [],
+      "can0.service": [],
+      "ad5m-camera.service": []
+    },
+    "nginx_enabled_sites": {
+      "mainsail": "/etc/nginx/sites-available/mainsail",
+      "fluidd": "/etc/nginx/sites-available/fluidd"
+    },
+    "note": "moonraker.env.example is a byte-identical copy of the non-secret service environment file; restore to its original manifest source path. Service definitions and settings were read only; no services were restarted."
+  }
 }

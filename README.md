@@ -49,3 +49,5 @@ This repository contains mixed original and third-party content. Preserve each s
 ## Current Klipper configuration
 
 [Complete 2026-11-17 printer snapshot](klipper/2026-11-17/) includes active configs/calibration, historical config backups, custom modules, host services, presets and the successful Siraya ASA-GF first-layer test.
+
+Host configuration addendum (2026-11-17): the [same snapshot](klipper/2026-11-17/host/) now also includes Moonraker configuration/service/launch settings, the CAN service, the camera service and both enabled nginx camera proxy sites, with restore paths and hashes. Account credentials and runtime databases remain excluded.
