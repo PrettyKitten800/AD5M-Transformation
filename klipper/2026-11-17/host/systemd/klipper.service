@@ -1,0 +1,14 @@
+[Unit]
+Description=Klipper 3D Printer Host
+After=network.target
+
+[Service]
+Type=simple
+User=curby
+WorkingDirectory=/home/curby/klipper
+ExecStart=/home/curby/klippy-env/bin/python /home/curby/klipper/klippy/klippy.py /home/curby/printer_data/config/printer.cfg -l /home/curby/printer_data/logs/klippy.log -a /home/curby/printer_data/comms/klippy.sock
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

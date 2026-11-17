@@ -1,0 +1,69 @@
+{
+  "captured_utc": "2026-11-17T19:13:41.241852+00:00",
+  "source_architecture": "aarch64",
+  "source_os_release": "PRETTY_NAME=\"Debian GNU/Linux 13 (trixie)\"\nNAME=\"Debian GNU/Linux\"\nVERSION_ID=\"13\"\nVERSION=\"13 (trixie)\"\nVERSION_CODENAME=trixie\nDEBIAN_VERSION_FULL=13.7\nID=debian\nHOME_URL=\"https://www.debian.org/\"\nSUPPORT_URL=\"https://www.debian.org/support\"\nBUG_REPORT_URL=\"https://bugs.debian.org/\"\n",
+  "software": {
+    "klipper": {
+      "commit": "0cee841e31d701595b3e509a0b502f6e320f52a8",
+      "describe": "v0.13.0-820-g0cee841e3",
+      "local_changes": "?? klippy/extras/two_stage_probe.py\n?? klippy/extras/z_speed_control.py",
+      "source": "/home/curby/klipper"
+    },
+    "moonraker": {
+      "commit": "b559b9a81161f958a43c2f527b6ad96f73310d5d",
+      "describe": "v0.11.0-4-gb559b9a",
+      "local_changes": "",
+      "source": "/home/curby/moonraker"
+    },
+    "katapult": {
+      "commit": "3b973a485388b4ef0f9efef46f78152e302aea8e",
+      "describe": "v0.0.1-115-g3b973a4",
+      "local_changes": "",
+      "source": "/home/curby/katapult"
+    },
+    "mainsail-config": {
+      "commit": "ff3869a621db17ce3ef660adbbd3fa321995ac42",
+      "describe": "v1.2.1-1-gff3869a",
+      "local_changes": "",
+      "source": "/home/curby/mainsail-config"
+    },
+    "KlipperScreen": {
+      "commit": "34610ceae31e12a10cc980e20a1dec9976f97dd4",
+      "describe": "v0.4.7-205-g34610cea",
+      "local_changes": "",
+      "source": "/home/curby/KlipperScreen"
+    },
+    "klippy-python": "Python 3.13.5",
+    "moonraker-python": "Python 3.13.5",
+    "KlipperScreen-python": "Python 3.13.5"
+  },
+  "ustreamer_version": "5.4",
+  "mainsail_version": "v2.19.0",
+  "fluidd_version": "Exact installed assets are preserved in private Drive archive; no local .version marker.",
+  "service_user": "curby",
+  "moonraker_admin_group": "moonraker-admin:x:1002:",
+  "camera_groups": [
+    "video"
+  ],
+  "services": {
+    "klipper.service": "ActiveState=active\nFragmentPath=/etc/systemd/system/klipper.service\nDropInPaths=\nUnitFileState=enabled",
+    "moonraker.service": "ActiveState=active\nFragmentPath=/etc/systemd/system/moonraker.service\nDropInPaths=\nUnitFileState=enabled",
+    "can0.service": "ActiveState=inactive\nFragmentPath=/etc/systemd/system/can0.service\nDropInPaths=\nUnitFileState=enabled",
+    "ad5m-camera.service": "ActiveState=active\nFragmentPath=/etc/systemd/system/ad5m-camera.service\nDropInPaths=\nUnitFileState=enabled",
+    "nginx.service": "ActiveState=active\nFragmentPath=/usr/lib/systemd/system/nginx.service\nDropInPaths=\nUnitFileState=enabled"
+  },
+  "can0_present_at_capture": false,
+  "configuration_paths": "/home/curby/printer_data",
+  "notes": [
+    "Native ARM environments/executables must be rebuilt for x86_64.",
+    "Klipper local changes consist only of the two custom extras already preserved in the snapshot.",
+    "Source archives preserve tracked HEAD content; reapply archived custom extras after checkout.",
+    "The three CAN MCU versions in the last Klippy startup log matched the installed Klipper commit. They were not queried or reflashed for this backup.",
+    "An authoritative installed Octopus Pro firmware build .config was not found on this Pi; do not substitute a build-smoke/test config. Existing board firmware is retained for host migration."
+  ],
+  "last_recorded_mcu_versions": {
+    "eddy": "v0.13.0-820-g0cee841e3 / gcc: (15:14.2.rel1-1) 14.2.1 20241119 binutils: (2.44-3+23+b2) 2.44",
+    "head": "v0.13.0-820-g0cee841e3 / gcc: (15:14.2.rel1-1) 14.2.1 20241119 binutils: (2.44-3+23+b2) 2.44",
+    "mcu": "0cee841 / gcc: (15:13.2.rel1-2) 13.2.1 20231009 binutils: (2.42-1ubuntu1+23) 2.42"
+  }
+}

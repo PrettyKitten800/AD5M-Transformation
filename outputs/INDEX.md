@@ -47,3 +47,5 @@ This index separates **active printable designs** and **active technical records
 - [Klipper snapshot 2026-11-17](../klipper/2026-11-17/): all configuration files, custom helpers, presets and first-layer validation evidence. This is a printer-state archive, not a new CAD revision.
 
 Host configuration addendum (2026-11-17): the [same snapshot](../klipper/2026-11-17/host/) now also includes Moonraker configuration/service/launch settings, the CAN service, the camera service and both enabled nginx camera proxy sites, with restore paths and hashes. Account credentials and runtime databases remain excluded.
+
+[Intel host migration handoff](../klipper/2026-11-17/migration/) (2026-11-17) records exact software/dependency versions, the Klipper service, permissions/frontend setup and staged cutover checks. Sensitive Moonraker state, G-code files and source/frontend/recovery archives are stored separately in private Google Drive. Intel installation and physical cutover have not been performed.

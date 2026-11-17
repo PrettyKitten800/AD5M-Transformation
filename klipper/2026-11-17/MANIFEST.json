@@ -895,13 +895,53 @@
       "resolved_source": "/etc/nginx/sites-available/fluidd",
       "sha256": "181131324754f9d4cbe903feffe467e6f2d5872b51e407314802e07a3aeb06cb",
       "bytes": 2024
+    },
+    "host/systemd/klipper.service": {
+      "source": "/etc/systemd/system/klipper.service",
+      "resolved_source": "/etc/systemd/system/klipper.service",
+      "bytes": 421,
+      "sha256": "3825c44e85972ed90e6aa056806915d9f37147be8b34bc3c4f2fef5fa0f57635"
+    },
+    "host/polkit/moonraker.rules.reference": {
+      "source": "/usr/share/polkit-1/rules.d/moonraker.rules",
+      "resolved_source": "/usr/share/polkit-1/rules.d/moonraker.rules",
+      "bytes": 1108,
+      "sha256": "eaefaa28427bfb8c2fee1dea6c892d8e41dbcf295c348b1bf82680151e7b2bf1"
+    },
+    "host/nginx/nginx.conf.reference": {
+      "source": "/etc/nginx/nginx.conf",
+      "resolved_source": "/etc/nginx/nginx.conf",
+      "bytes": 1545,
+      "sha256": "c66fbe205bf46b5d125502e35605938ed37feef6e2b24325b1c088665caaf477"
+    },
+    "host/moonraker.asvc": {
+      "source": "/home/curby/printer_data/moonraker.asvc",
+      "resolved_source": "/home/curby/printer_data/moonraker.asvc",
+      "bytes": 132,
+      "sha256": "cf6cac46a702b053d58c4f371f7ea00641bd55d1276de8bd9a528430a3e392b9"
+    },
+    "config/KlipperScreen.conf": {
+      "source": "/home/curby/printer_data/config/KlipperScreen.conf",
+      "resolved_source": "/home/curby/printer_data/config/KlipperScreen.conf",
+      "bytes": 374,
+      "sha256": "b5e0206d47480521e1362ba6943a9a872e6a0e8978d0be4b6bd6c55534d371d4"
+    },
+    "host/frontend/mainsail-config.json": {
+      "source": "/var/www/mainsail/config.json",
+      "resolved_source": "/var/www/mainsail/config.json",
+      "bytes": 200,
+      "sha256": "a16473f088046c8fc8576b0b53b3b8e85b8105cb21351259a8ee0fd7f23fab5c"
+    },
+    "host/frontend/fluidd-config.json": {
+      "source": "/var/www/fluidd/config.json",
+      "resolved_source": "/var/www/fluidd/config.json",
+      "bytes": 3877,
+      "sha256": "7078a2aa730a2d55e76fc1dc3648d01f90c6519657cdd172229da755103f1587"
     }
   },
-  "scope": "Klipper configuration, active include closure, historical Klipper configs, saved meshes/calibration, custom modules, firmware build configs, slicer presets, first-layer evidence, Moonraker configuration and service/launch settings, CAN service, camera service and both active nginx frontend/camera proxy sites. Excludes account credentials, runtime databases, KlipperScreen and broad historical notes.",
+  "scope": "Klipper configuration, active include closure, historical Klipper configs, saved meshes/calibration, custom modules, firmware build configs, slicer presets, first-layer evidence, Moonraker configuration and service/launch settings, CAN service, camera service and both active nginx frontend/camera proxy sites. Excludes account credentials, runtime databases, KlipperScreen and broad historical notes. Intel migration addendum includes the Klipper service, optional KlipperScreen config, frontend configuration, reference nginx/PolicyKit settings, exact software/dependency inventories and a migration runbook. Sensitive runtime state is separately archived to private Drive only.",
   "excluded_non_klipper_files": [
     "config/.moonraker.conf.bkp",
-    "config/KlipperScreen.conf",
-    "host/systemd/klipper.service",
     "notes/PRINTER-STATUS-history.md",
     "validation/first-layer/finished-patch.jpg"
   ],
@@ -926,5 +966,6 @@
       "fluidd": "/etc/nginx/sites-available/fluidd"
     },
     "note": "moonraker.env.example is a byte-identical copy of the non-secret service environment file; restore to its original manifest source path. Service definitions and settings were read only; no services were restarted."
-  }
+  },
+  "migration_addendum_utc": "2026-11-17T19:13:41.241852+00:00"
 }
