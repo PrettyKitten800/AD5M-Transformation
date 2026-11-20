@@ -1,0 +1,14 @@
+[Unit]
+Description=Configure the printer CAN interface
+BindsTo=sys-subsystem-net-devices-can0.device
+After=sys-subsystem-net-devices-can0.device
+Before=klipper.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/sbin/ip link set dev can0 down
+ExecStart=/usr/sbin/ip link set dev can0 up txqueuelen 128 type can bitrate 1000000
+
+[Install]
+WantedBy=sys-subsystem-net-devices-can0.device

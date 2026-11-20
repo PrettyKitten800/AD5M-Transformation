@@ -1,5 +1,7 @@
 # The Moron Tridont Project — Klipper & Slicer Snapshot (2026-11-19)
 
+> **Superseded the same evening:** the printer moved from mainline Klipper to Kalico + eddy-ng. The current configuration is [`../2026-11-19-kalico/`](../2026-11-19-kalico/). The OrcaSlicer presets in this folder are still the current ones.
+
 This snapshot captures the live 10-file Klipper active include closure from `http://192.168.4.31` along with pre-edit backups from 2026-11-19 and the tuned OrcaSlicer profile bundle (`Moron_Tridont_04_Corrected.orca_printer`).
 
 ## Contents

@@ -1,0 +1,14 @@
+[Unit]
+Description=Kalico host for AD5M
+Wants=can0.service
+After=network.target can0.service
+
+[Service]
+Type=simple
+User=<user>
+ExecStart=/home/<user>/kalico-env/bin/python /home/<user>/kalico/klippy/klippy.py /home/<user>/printer_data/config/printer.cfg -l /home/<user>/printer_data/logs/klippy.log -a /home/<user>/printer_data/comms/klippy.sock
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
