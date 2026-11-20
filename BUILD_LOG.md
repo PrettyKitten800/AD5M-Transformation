@@ -9,7 +9,7 @@
 | **Owner** | Matt (GitHub: PrettyKitten800) |
 | **Repository** | <https://github.com/PrettyKitten800/AD5M-Transformation> |
 | **Drive folder** | *3D Printing → 1 - The Moron Tridont Project* (layout in [README.md](README.md#github-and-google-drive)) |
-| **Local working copy** | `C:\Users\PK800\Documents\ChatGPT\AD5M Build` (Drive mirror in `_drive_mirror\`) |
+| **Local workstation** | `C:\Users\PK800\Documents\3D Printing\1 - The Moron Tridont Project\` holding `AD5M-Transformation\` (this repo), `Google Drive mirror\` and `Archive\` |
 | **Printer host** | CurbyServer (Intel Linux PC), `http://192.168.4.31` (Mainsail :80, Fluidd :8080) |
 | **Log started** | 2026-11-20 (earlier entries reconstructed from repo history, handoffs, snapshots and the local working copy) |
 | **Last updated** | 2026-11-20 |
@@ -47,7 +47,7 @@
 | **Firmware** | **Kalico** `v2026.11.00-73-gfb4e09bc` + **eddy-ng** `v0.1-188-ga09ec8e` (from mainline Klipper on 2026-11-19) |
 | **Toolhead** | BambuMod × Orbiter v2.5 housing **R8**, fan shroud **R4**, Orbiter v2.5 + LDO 36STH20, TZ 2.0 clone hotend (nozzle 6.335 mm right of centre), Eddy Duo on side mount **R4** |
 | **Materials qualified** | Sunlu ABS (tuned profile), Siraya ASA-GF (first layer only), PETG (test cube) |
-| **Biggest open questions** | Bed on-current unmeasured (BED-OUT at its 10 A rating); which EBB42 bracket is mounted; local-only CAD and fit notes not yet in Git |
+| **Biggest open questions** | Bed on-current unmeasured (BED-OUT at its 10 A rating); which EBB42 bracket is mounted |
 | **Next milestone** | Full-bed and long-print qualification on Kalico, then the XY linear-rail gantry |
 
 ---
@@ -219,7 +219,8 @@ Newest entries at the bottom. "Evidence" points to the repo file, Drive item or 
 - Eddy board rotated 180° on the R4 side mount: coil moved from 44 to 35 mm right of the nozzle.
 - Custom housing + **inline front Eddy mount R1** designed (`x_offset 0`), then **rejected by the user**: it only works without the part-cooling fan. Rule recorded: inline alignment must not displace the blower and duct.
 - Fit feedback on the drilling helper: the Eddy wraparound locator collides with gantry rods/belts that are missing from the housing CAD. Don't reuse it for installation.
-- Evidence: [design journal](docs/history/TOOLHEAD_SPEC_JOURNAL_2026-11.md); the rejection and locator notes are only in the local working copy (`AGENTS.md`, `outputs/AD5M_custom_toolhead_inline_eddy_R1/REJECTED_FAN_INTERFERENCE.md`, `outputs/Eddy_Duo_adjustable_side_mount_R*/DO_NOT_USE_WRAPAROUND_LOCATOR.txt`) — see [8.3](#8-open-issues)
+- Follow-up [inline Eddy toolhead R2](outputs/AD5M_toolhead_R2/) (side housing + front cradle around the cooling module) designed the same day; CAD only. Replacement [marking buttons R5](outputs/Eddy_Duo_nonwrap_marking_guides_R5/) made for drilling without the locator.
+- Evidence: [REJECTED_FAN_INTERFERENCE.md](outputs/AD5M_custom_toolhead_inline_eddy_R1/REJECTED_FAN_INTERFERENCE.md), `outputs/Eddy_Duo_adjustable_side_mount_R4/DO_NOT_USE_WRAPAROUND_LOCATOR.txt` (committed 2026-11-20 from the local working copy)
 
 ### 2026-11-12 → 11-13 — Dragon Burner path explored; frame decision
 - Dragon Burner #1406257 v11 adapter remixed with a rear Mode-A Eddy pocket (R1); Dragon Burner v8 STLs archived. *Path dropped on 2026-11-20.*
@@ -236,6 +237,9 @@ Newest entries at the bottom. "Evidence" points to the repo file, Drive item or 
 ### 2026-11-16 — First-layer qualification on ASA-GF ✅
 - Siraya Tech ASA-GF, 30 × 30 × 0.20 mm, 260 °C / 105 °C, 20 mm/s. Zero CAN retransmits. Result: "Sticking, with lines joining together."
 - Evidence: [klipper/2026-11-17/](klipper/2026-11-17/)
+
+### 2026-11-17 — Nozzle brush and wiper prepared
+- [Rear nozzle brush](outputs/AD5M_nozzle_brush_MK2_plus5/) (Tinkering Poko MK2, seat moved 5 mm toward the bed) and [Stormage nozzle wiper](outputs/AD5M_nozzle_wiper/) sliced in ASA-CF. Print, fit and wipe coordinates not recorded; no wipe macro exists yet.
 
 ### 2026-11-17 — Config archived; host backed up; Intel migration plan
 - Full config snapshot committed (including `z_speed_control.py`), host units backed up, Intel migration handoff written; private archive in Drive.
@@ -262,7 +266,8 @@ Newest entries at the bottom. "Evidence" points to the repo file, Drive item or 
 - Installed hardware confirmed and recorded (PR #2): R8 + R4 shroud, TZ 2.0 clone hotend, Eddy on side mount R4 via CAN, **bed wired directly to BED-OUT** with `max_power 0.93`, Intel host. `rotation_distance 4.69` verified by a 50 mm extrusion test.
 - **Dragon Burner path dropped.**
 - Repo reorganized (history and plans moved to `docs/`); Kalico snapshot committed; Drive split into NotebookLM sources, Current printables, CAD references, Klipper snapshots, Backups (PRIVATE) and Photos.
-- This build log created and mirrored to Drive; local working copy synced with GitHub and Drive.
+- This build log created and mirrored to Drive. Local work that had never been pushed (inline R1 rejection, locator warning, toolhead R2, marking buttons R5, nozzle brush and wiper) committed to GitHub.
+- Workstation reorganized to mirror Drive: `Documents\3D Printing\1 - The Moron Tridont Project\` (repo + Drive mirror + archive) and `2 - Voron Trident & Other Printers\`.
 
 ---
 
@@ -334,7 +339,7 @@ Costs are left blank for you to fill in.
 |---|---|---|---|
 | 8.1 | **Bed on-current not measured.** The bed is on BED-OUT (10 A continuous, 12 A max) with `max_power 0.93`. The cap limits average current; RMS at 93 % duty is about 3.7 % above average. | Board MOSFET, fuse and connector heat with RMS current. | Power off, measure the bed's cold resistance, compute on-current = 24 V ÷ R, and set `max_power ≤ (10 ÷ on-current)²`. Details in [CURRENT_TOOLHEAD_SPEC.md](CURRENT_TOOLHEAD_SPEC.md). |
 | 8.2 | **EBB42 bracket on R8 not recorded.** | Needed to reproduce the toolhead. | Note which bracket and revision is mounted. |
-| 8.3 | **Local-only work not in Git.** The local working copy holds the inline-Eddy-R1 rejection note, the wraparound-locator warnings, and CAD folders `AD5M_nozzle_brush_MK2_plus5`, `AD5M_nozzle_wiper`, `AD5M_toolhead_R2`, `Eddy_Duo_nonwrap_marking_guides_R5`, `reference/AD5M_Tinkering_Poko_nozzle_brush`, `work/shroud_review`. Saved locally in `_local_unpushed_2026-11-20\`. | Other agents can't see them. | Decide which to commit (append-only rules apply). |
+| 8.3 | **`Toolhead_layout_R2.FCStd` only on the workstation.** It embeds a part-cooling duct of unknown origin, so it isn't in the public repo; 23 MB is also over the Drive connector's upload limit. | Lost if the workstation copy goes. | Identify the duct's source/license, then commit it or upload it to Drive `CAD references` by hand. |
 | 8.4 | **No TZ 2.0 clone CAD.** All R1–R8 clearance checks used the original Bambu X1/P1 hotend STEP. | Hotend clearances are nominal. | Model or measure the clone. |
 | 8.5 | **Electrical verification deferred.** Continuity and polarity checks were never recorded; DC branch fuses aren't sized. | Safety. | Meter checks; record results here. |
 | 8.6 | **Blower PWM interface** for the 4-wire blower never formally recorded. | Fan control / tach. | Record the wiring in use. |
@@ -347,7 +352,7 @@ Costs are left blank for you to fill in.
 
 1. **Measure the bed** (8.1) and adjust `max_power` if needed.
 2. **Qualify on Kalico:** full-bed first layer, then a ≥ 4 h ABS print. Watch BED-OUT and connector temperature. Log both in §6.
-3. **Record the EBB42 bracket** (8.2) and decide what local-only work to commit (8.3).
+3. **Record the EBB42 bracket** (8.2).
 4. **Re-run calibrations once hardware settles:** shaper, MPC, PA per filament, `EDDY_TAP`. Log values in §3.
 5. **Close Phase 3:** tag `v0.3-toolhead` in Git.
 6. **Phase 5 prep:** photograph and trace both belt paths; measure pulley centres, heights and clamp heights before touching the gantry.
@@ -394,6 +399,8 @@ Also update §1, §4, §6 and §7 as needed.
 - BambuMod for FF Adventurer 5M — Kirill_Wawe, Printables 1574762 (CC BY-NC-SA 4.0)
 - Orbiter v2.0/2.5 mockup — dr. Lorincz Robert (CC BY-NC-SA 4.0)
 - AD5M lightweight fan duct — Printables 1404902
+- AD5M nozzle brush MK2 — Tinkering Poko, Printables 1168757 (CC BY 4.0)
+- AD5M nozzle wiper — Stormage, Printables 1262881 (CC BY-SA 4.0)
 - Bambu X1/P1 hotend CAD — Jorge (jorge_rui), Printables 533213
 - AD5M Dragon Burner adapter v11 — Printables 1406257 (dropped path)
 - Voron Trident — VoronDesign (GPL-3.0)

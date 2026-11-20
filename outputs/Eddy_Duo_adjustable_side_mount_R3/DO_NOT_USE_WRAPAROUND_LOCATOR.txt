@@ -1,0 +1,1 @@
+The wraparound anchor locator was reported to collide with gantry rods/belts. Do not use it as a fit/positioning guide. Keep the actual plate for dry fitting; see Eddy_Duo_nonwrap_marking_guides_R5 for non-wrapping center-marking buttons. Those buttons do not establish an absolute drilling position.

@@ -1,0 +1,33 @@
+{
+  "source": "Tinkering Poko MK2",
+  "part_axis_reach_delta_mm": 5.0,
+  "mount_and_web_preserved_to_source_y_mm": 20.5,
+  "translated_seat_delta_mm": [
+    0,
+    5.0,
+    0
+  ],
+  "original_size_mm": [
+    39.0,
+    22.8,
+    22.55000142602677
+  ],
+  "edited_size_mm": [
+    39.0,
+    27.8,
+    22.55
+  ],
+  "original_volume_mm3": 2092.6931929093157,
+  "added_volume_mm3": 248.10726549734886,
+  "valid_step_solid_count": 1,
+  "freecad_mesh_is_solid": true,
+  "mesh_facets": 3660,
+  "stl_watertight": true,
+  "stl_winding_consistent": true,
+  "stl_body_count": 1,
+  "stl_size_mm": [
+    39.0,
+    27.799999237060547,
+    22.549999237060547
+  ]
+}

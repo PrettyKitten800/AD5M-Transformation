@@ -1,0 +1,14 @@
+{
+  "valid_solid": true,
+  "closed_mesh": true,
+  "sleeve_OD_mm": 3.1,
+  "nominal_mount_hole_diameter_mm": 3.3,
+  "marking_bore_mm": 1.6,
+  "shaft_length_mm": 3.8,
+  "mount_plate_thickness_mm": 4,
+  "shaft_clearance_from_housing_mm": 0.2,
+  "collar_diameter_mm": 8,
+  "collar_thickness_mm": 2,
+  "quantity": 2,
+  "function": "center marking only; does not locate the plate or validate gantry clearance"
+}

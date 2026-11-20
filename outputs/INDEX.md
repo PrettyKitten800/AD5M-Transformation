@@ -15,7 +15,12 @@ Update this table whenever the user reports a print, fit or install result. A CA
 | EBB42 uniform-posts bracket `R7` | [`EBB42_uniform_posts_R7/`](EBB42_uniform_posts_R7/) | Not confirmed printed. Its predecessor `R5` was printed and judged usable. `R8` CAD was checked against this bracket. | Whether this is the bracket on the printer |
 | EBB42 simple wedge `R6` | [`EBB42_simple_wedge_R6/`](EBB42_simple_wedge_R6/) | User said it was printing; installation not confirmed | Whether it is installed (needs ~4 mm M3 spacers behind the PCB) |
 | Eddy Duo adjustable side mount `R4` | [`Eddy_Duo_adjustable_side_mount_R4/`](Eddy_Duo_adjustable_side_mount_R4/) | **Installed** (user, 2026-11-20). Board rotated 180° on 2026-11-11; coil 28.7 mm right of the current nozzle | Print material/settings |
-| Custom housing + inline Eddy mount `R1` | [`AD5M_custom_toolhead_inline_eddy_R1/`](AD5M_custom_toolhead_inline_eddy_R1/) | Untested; designed around the stock feeder/motor, which the Orbiter has since replaced | — |
+| Custom housing + inline Eddy mount `R1` | [`AD5M_custom_toolhead_inline_eddy_R1/`](AD5M_custom_toolhead_inline_eddy_R1/) | **Rejected** by the user on 2026-11-11: it only works without the part-cooling fan ([REJECTED_FAN_INTERFERENCE.md](AD5M_custom_toolhead_inline_eddy_R1/REJECTED_FAN_INTERFERENCE.md)). Do not print. | — |
+| Inline Eddy toolhead `R2` (housing + front cradle) | [`AD5M_toolhead_R2/`](AD5M_toolhead_R2/) | CAD only, never printed; designed for the replaced stock feeder and USB Eddy | — |
+| Eddy `R3`/`R4` wraparound drilling locator | [`Eddy_Duo_adjustable_side_mount_R4/`](Eddy_Duo_adjustable_side_mount_R4/) | **Do not use:** collides with the gantry rods/belts (user, Nov 2026). The mounting plate itself is fine. | — |
+| Eddy non-wrapping marking buttons `R5` | [`Eddy_Duo_nonwrap_marking_guides_R5/`](Eddy_Duo_nonwrap_marking_guides_R5/) | Not recorded as printed | Whether they were used to drill the installed `R4` holes |
+| Rear nozzle brush, Poko MK2 +5 mm | [`AD5M_nozzle_brush_MK2_plus5/`](AD5M_nozzle_brush_MK2_plus5/) | Sliced (ASA-CF, 2026-11-17); print/fit not recorded | Clearance with the extended seat; wipe coordinates (none programmed) |
+| Stormage nozzle wiper (unmodified) | [`AD5M_nozzle_wiper/`](AD5M_nozzle_wiper/) | Sliced (ASA-CF, 2026-11-17); print/fit not recorded | Right-side placement; wipe coordinates (none programmed) |
 
 ## 1. Installed and Current Printable Designs
 
@@ -25,10 +30,19 @@ Other current designs (not confirmed installed):
 
 | Component | Directory | Builder / Renderer | Physical Status |
 | --- | --- | --- | --- |
-| **Custom toolhead housing + inline front Eddy Duo mount (`x_offset = 0`)** | [`AD5M_custom_toolhead_inline_eddy_R1/`](AD5M_custom_toolhead_inline_eddy_R1/) | [`build_custom_toolhead_inline_eddy_R1.py`](../scripts/cad/build_custom_toolhead_inline_eddy_R1.py) / [`render_custom_toolhead_inline_eddy_R1.py`](../scripts/cad/render_custom_toolhead_inline_eddy_R1.py) | Centers Eddy Duo at `X = 0` (`y_offset = -31.19 mm`) with `10 mm` vertical slot travel, heatsink top-fin relief, reinforced `6 mm` front M3 bosses, and `+X` side window; CAD & watertight STL verified; untested physically |
+| **Custom toolhead housing + inline front Eddy Duo mount (`x_offset = 0`)** | [`AD5M_custom_toolhead_inline_eddy_R1/`](AD5M_custom_toolhead_inline_eddy_R1/) | [`build_custom_toolhead_inline_eddy_R1.py`](../scripts/cad/build_custom_toolhead_inline_eddy_R1.py) / [`render_custom_toolhead_inline_eddy_R1.py`](../scripts/cad/render_custom_toolhead_inline_eddy_R1.py) | Centers Eddy Duo at `X = 0` (`y_offset = -31.19 mm`) with `10 mm` vertical slot travel, heatsink top-fin relief, reinforced `6 mm` front M3 bosses, and `+X` side window; CAD & watertight STL verified. **Rejected 2026-11-11** (blocks the part-cooling fan); history only |
 | **EBB42 two-post bracket (uniform 6.6 mm angled posts)** | [`EBB42_uniform_posts_R7/`](EBB42_uniform_posts_R7/) | [`build_uniform_posts_R7.py`](../scripts/cad/build_uniform_posts_R7.py) / [`render_uniform_posts_R7.py`](../scripts/cad/render_uniform_posts_R7.py) | Revised from R5 (which printed and fit-checked as usable); R7 not yet confirmed printed |
 | **EBB42 simple central wedge mount** | [`EBB42_simple_wedge_R6/`](EBB42_simple_wedge_R6/) | [`build_simple_wedge_R6.py`](../scripts/cad/build_simple_wedge_R6.py) / [`render_simple_wedge.py`](../scripts/cad/render_simple_wedge.py) | User reported printing; requires ~4 mm M3 spacers behind PCB; physical installation unconfirmed |
 | **Eddy Duo reinforced adjustable side mount** | [`Eddy_Duo_adjustable_side_mount_R4/`](Eddy_Duo_adjustable_side_mount_R4/) | [`build_eddy_adjustable_R4.py`](../scripts/cad/build_eddy_adjustable_R4.py) / [`render_eddy_adjustable_R4.py`](../scripts/cad/render_eddy_adjustable_R4.py) | Widened M3 nut-channel walls (1.6 mm side / 1.7 mm end); 10 mm vertical travel; requires two drilled holes in solid housing edge; live side-mount rapid-scan testing showed right-edge steel plate roll-off above `probe_X = 196 mm` |
+
+### Accessories (not part of the toolhead)
+
+| Component | Directory | Source | Physical Status |
+| --- | --- | --- | --- |
+| Rear nozzle brush, MK2 seat moved 5 mm toward the bed (reach 22.8 → 27.8 mm), Bambu A1 silicone brush, existing M4 screws | [`AD5M_nozzle_brush_MK2_plus5/`](AD5M_nozzle_brush_MK2_plus5/) | Tinkering Poko MK2, Printables 1168757, CC BY 4.0 (originals in [`reference/AD5M_Tinkering_Poko_nozzle_brush/`](../reference/AD5M_Tinkering_Poko_nozzle_brush/)) | ASA-CF OrcaSlicer project + G-code; print/fit not recorded. See `FIT_AND_WIPE.md` |
+| Right-side nozzle wiper frame for a Bambu A1 Mini silicone wiper | [`AD5M_nozzle_wiper/`](AD5M_nozzle_wiper/) | Stormage, Printables 1262881, CC BY-SA 4.0, unmodified STL | ASA-CF project + G-code; print/fit not recorded. See `SOURCE.md` |
+
+Both notes predate the 2026-11-18 nozzle shift: their travel limits (X −10..213.4) and Eddy offset (35 mm) are now X −3.7..219.7 and 28.7 mm.
 
 ## 2. Active Reference, Wiring & Commissioning Records
 
@@ -58,6 +72,10 @@ Other current designs (not confirmed installed):
 - **Superseded Eddy Duo mounts:**
   - [`Eddy_Duo_BambuMod_mount_R1/`](Eddy_Duo_BambuMod_mount_R1/) — Early sidewall drill pattern.
   - [`Eddy_Duo_BambuMod_mount_R2/`](Eddy_Duo_BambuMod_mount_R2/) — Direct carriage hole concept over honeycomb region.
+  - [`Eddy_Duo_nonwrap_marking_guides_R5/`](Eddy_Duo_nonwrap_marking_guides_R5/) — Two slip-fit buttons that centre a 1.6 mm marking point in the existing plate's 3.3 mm holes, replacing the wraparound locator that hit the gantry (builder `work/build_eddy_marking_buttons_R5.py`).
+- **Rejected / superseded inline-Eddy toolheads:**
+  - [`AD5M_custom_toolhead_inline_eddy_R1/`](AD5M_custom_toolhead_inline_eddy_R1/) — rejected 2026-11-11, blocks the part-cooling fan.
+  - [`AD5M_toolhead_R2/`](AD5M_toolhead_R2/) — side-interface housing + front Eddy cradle around the cooling module; CAD only. Its `Toolhead_layout_R2.FCStd` stays on the workstation (embeds a duct of unknown license).
   - [`Eddy_Duo_adjustable_side_mount_R3/`](Eddy_Duo_adjustable_side_mount_R3/) — Adjustable side mount prior to nut-channel wall reinforcement (`R4`).
 - **Superseded EBB36 & earlier diagram iterations:**
   - [`EBB36_wiring_guide_R1/`](EBB36_wiring_guide_R1/) (and its printable [`EBB36_toolhead_wiring_R1.pdf`](EBB36_wiring_guide_R1/EBB36_toolhead_wiring_R1.pdf)) — Historical EBB36 wiring guide; **not** an approved EBB42 V1.2.1 wiring plan.

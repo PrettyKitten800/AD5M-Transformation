@@ -14,3 +14,5 @@ Everything in this folder is **history**. It was produced on the Windows worksta
 | EBB36 wiring guide (superseded by EBB42) | `ebb36_wiring_guide_R1/` (writes into `outputs/EBB36_wiring_guide_R1/`) |
 | Probe comparison images | `bed_probe_compare/` |
 | Intermediate geometry and caches | `*.json`, `*.npy`, `rounded_*.step` |
+| Eddy marking buttons R5 builder (Windows path) | `build_eddy_marking_buttons_R5.py` (writes `outputs/Eddy_Duo_nonwrap_marking_guides_R5/`) |
+| Browser STL annotation viewer used to review the recovered 1404902 shroud (2026-11-18) | `shroud_review/` (`python serve.py`, reads `~/Desktop/Fan_Shroud_Recovered.stl`; bundles three.js, MIT, see `three-LICENSE.txt`) |
