@@ -23,6 +23,7 @@ Read each part's PRINT_AND_FIT.md or PRINT_AND_INSTALL.md. Older output revision
 
 ## Build records
 
+- [Build log: status, timeline, BOM, test record, open issues](BUILD_LOG.md)
 - [Current specification: what is on the printer now](CURRENT_TOOLHEAD_SPEC.md)
 - [Toolhead design journal, November 6–19 (history)](docs/history/TOOLHEAD_SPEC_JOURNAL_2026-11.md)
 - Plans: [Upgrade roadmap](docs/plans/UPGRADE_ROADMAP.md) · [Frame conversion plan (Voron Trident 300×300×300 mm)](docs/plans/FRAME_CONVERSION.md)
