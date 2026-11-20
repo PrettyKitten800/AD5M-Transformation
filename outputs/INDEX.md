@@ -47,7 +47,7 @@ Other current designs (not confirmed installed):
   - [`Eddy_Duo_BambuMod_mount_R2/`](Eddy_Duo_BambuMod_mount_R2/) — Direct carriage hole concept over honeycomb region.
   - [`Eddy_Duo_adjustable_side_mount_R3/`](Eddy_Duo_adjustable_side_mount_R3/) — Adjustable side mount prior to nut-channel wall reinforcement (`R4`).
 - **Superseded EBB36 & earlier diagram iterations:**
-  - [`EBB36_wiring_guide_R1/`](EBB36_wiring_guide_R1/) (and `../output/pdf/EBB36_toolhead_wiring_R1.pdf`) — Historical EBB36 wiring guide; **not** an approved EBB42 V1.2.1 wiring plan.
+  - [`EBB36_wiring_guide_R1/`](EBB36_wiring_guide_R1/) (and its printable [`EBB36_toolhead_wiring_R1.pdf`](EBB36_wiring_guide_R1/EBB36_toolhead_wiring_R1.pdf)) — Historical EBB36 wiring guide; **not** an approved EBB42 V1.2.1 wiring plan.
   - [`AD5M_board_diagrams_R4/`](AD5M_board_diagrams_R4/), [`AD5M_PSU_annotated/`](AD5M_PSU_annotated/), [`AD5M_PSU_annotated_R2/`](AD5M_PSU_annotated_R2/), [`Octopus_AD5M_labels/`](Octopus_AD5M_labels/), [`Octopus_AD5M_labels_R2/`](Octopus_AD5M_labels_R2/), [`Octopus_AD5M_labels_R3/`](Octopus_AD5M_labels_R3/).
 - **Preserved BambuMod × Orbiter v2.5 & Recovered 1404902 Shroud Revisions:**
 - `BambuMod_Orbiter25_Remix_R2/` — `Primary_R2` offset-hotend adapter (`X_fil=-6.335`, `X_mot=0`, `Z_mount=32.6`): restored `3010` fan shroud arch + 5-section `Part.makeLoft` enclosed ducting (unused `X=0` floor sealed, all 4 `3010` corner bores open) and all 7 rear-entry blind carriage bores (`hidden_from_front = true`). Valid 1-solid STEP, watertight 1-component STL (`10124` facets, `36014.82 mm³`), `0.000 mm³` interference across all 9 reference checks. See `BambuMod_Orbiter25_Remix_R2/PRINT_AND_FIT.md`.

@@ -48,4 +48,4 @@ These are kept in the repository as history only. Do not design against them or 
 - A CAD or mesh check is not a physical fit test. Record physical results only when the user reports them.
 - After any nozzle, hotend, probe-mount or bed-plate change, re-verify cold nozzle clearance and run `EDDY_TAP` before printing. Do not carry `tap_adjust_z` or `position_endstop` across hardware changes blindly.
 - New geometry goes in a new `outputs/<part>_R<n+1>/` folder (see [`AGENTS.md`](AGENTS.md)); the current design list is [`outputs/INDEX.md`](outputs/INDEX.md).
-- Long-term direction is unchanged: XY linear rails first, four interchangeable toolheads later; frame plan in [`FRAME_CONVERSION.md`](FRAME_CONVERSION.md).
+- Long-term direction is unchanged: XY linear rails first, four interchangeable toolheads later; frame plan in [`docs/plans/FRAME_CONVERSION.md`](docs/plans/FRAME_CONVERSION.md).

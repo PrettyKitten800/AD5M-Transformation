@@ -4,7 +4,7 @@
 
 User's assembly order, November 1, 2026. Board: EBB36 CAN V1.2.1 without MAX31865. Keep USB and 24 V disconnected while assembling. This page assigns circuits, not unreadable physical pin positions.
 
-November 3, 2026: the current BTT-led visual guide and step order are in [EBB36 wiring plan R1](outputs/EBB36_wiring_guide_R1/WIRING_PLAN.md) and the [seven-page printable guide](output/pdf/EBB36_toolhead_wiring_R1.pdf). They retain the selected PA0 hotend-fan allocation. The BTT V1.2 schematic confirms existing 10 kOhm endstop pull-ups to 3.3 V (R35-R37); no extra pull-up is specified by the baseline plan.
+November 3, 2026: the current BTT-led visual guide and step order are in [EBB36 wiring plan R1](../../outputs/EBB36_wiring_guide_R1/WIRING_PLAN.md) and the [seven-page printable guide](../../outputs/EBB36_wiring_guide_R1/EBB36_toolhead_wiring_R1.pdf). They retain the selected PA0 hotend-fan allocation. The BTT V1.2 schematic confirms existing 10 kOhm endstop pull-ups to 3.3 V (R35-R37); no extra pull-up is specified by the baseline plan.
 
 ## Start with these three circuits
 
