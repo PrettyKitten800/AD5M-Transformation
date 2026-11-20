@@ -4,6 +4,19 @@ This index separates **active printable designs** and **active technical records
 
 > **Rule for agents:** Never overwrite an existing revision folder when modifying geometry. Always create a new `outputs/<part>_R<n+1>/` directory and update this index, [README.md](../README.md), [CURRENT_TOOLHEAD_SPEC.md](../CURRENT_TOOLHEAD_SPEC.md), and [AGENTS.md](../AGENTS.md).
 
+## 0. Physical Test Status
+
+Update this table whenever the user reports a print, fit or install result. A CAD check is not a physical test.
+
+| Part | Folder | Physical status (as recorded) | Still to confirm |
+| --- | --- | --- | --- |
+| BambuMod × Orbiter v2.5 adapter `R8` | [`BambuMod_Orbiter25_Remix_R8/`](BambuMod_Orbiter25_Remix_R8/) | **Installed** (user, 2026-11-20) | Print material/settings; which EBB42 and Eddy brackets are mounted on it |
+| Recovered 1404902 fan shroud `R4` | [`BambuMod_Orbiter25_R8_FanDuct_1404902_R4/`](BambuMod_Orbiter25_R8_FanDuct_1404902_R4/) | **Installed** on `R8`, Z height adjusted (user, 2026-11-19) | Print material/settings |
+| EBB42 uniform-posts bracket `R7` | [`EBB42_uniform_posts_R7/`](EBB42_uniform_posts_R7/) | Not confirmed printed. Its predecessor `R5` was printed and judged usable. `R8` CAD was checked against this bracket. | Whether this is the bracket on the printer |
+| EBB42 simple wedge `R6` | [`EBB42_simple_wedge_R6/`](EBB42_simple_wedge_R6/) | User said it was printing; installation not confirmed | Whether it is installed (needs ~4 mm M3 spacers behind the PCB) |
+| Eddy Duo adjustable side mount `R4` | [`Eddy_Duo_adjustable_side_mount_R4/`](Eddy_Duo_adjustable_side_mount_R4/) | Not confirmed printed | Which bracket has held the Eddy since the 2026-11-11 remount (coil 35 mm right of the old nozzle, 28.7 mm of the current one) |
+| Custom housing + inline Eddy mount `R1` | [`AD5M_custom_toolhead_inline_eddy_R1/`](AD5M_custom_toolhead_inline_eddy_R1/) | Untested; designed around the stock feeder/motor, which the Orbiter has since replaced | — |
+
 ## 1. Installed and Current Printable Designs
 
 **Installed on the printer (user-confirmed 2026-11-20):** [`BambuMod_Orbiter25_Remix_R8/`](BambuMod_Orbiter25_Remix_R8/) housing with the [`BambuMod_Orbiter25_R8_FanDuct_1404902_R4/`](BambuMod_Orbiter25_R8_FanDuct_1404902_R4/) shroud (details in section 4). The full installed-hardware table is in [`CURRENT_TOOLHEAD_SPEC.md`](../CURRENT_TOOLHEAD_SPEC.md). Which EBB42 bracket and Eddy Duo mount sit on `R8` is not recorded yet.
