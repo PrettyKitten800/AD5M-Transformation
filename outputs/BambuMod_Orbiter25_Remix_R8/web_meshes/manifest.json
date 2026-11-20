@@ -1,0 +1,143 @@
+{
+  "version": 1795038095.336859,
+  "report": {
+    "params": {
+      "extruder_hotend_z_shift_mm": -14.65,
+      "motor_circle_diameter_mm": 39.0,
+      "orbiter_flank_clearance_mm": 0.4,
+      "oval_cutout_enabled": true,
+      "oval_z_center_mm": 68.5,
+      "oval_height_mm": 10.0,
+      "oval_width_mm": 22.0,
+      "oval_cut_full_depth": true,
+      "carriage_hole_access_cutouts": false,
+      "duct_sleeve_radius_mm": 4.4,
+      "access_bore_radius_mm": 3.1,
+      "hotend_wire_cutout_extra_x_mm": 7.1,
+      "simplify_hotend_fan_duct": true,
+      "carriage_hex_nut_pockets": true,
+      "carriage_hex_nut_af_mm": 5.6,
+      "lower_rear_flush_extension": true,
+      "show_carriage_mockup": true,
+      "show_reference_parts": true,
+      "export_stl": false
+    },
+    "derived": {
+      "coordinate_convention": "Front = -Y, Back = +Y, Up = +Z (matches FreeCAD Front view)",
+      "z_mot_mm": 37.25,
+      "gray_carriage_bore_z_mm": 37.25,
+      "motor_to_carriage_z_offset_mm": 0.0,
+      "z_mount_mm": 17.95,
+      "z_hotend_screw_mm": 12.57,
+      "nozzle_z_mm": -28.23,
+      "motor_portal_z_span_mm": [
+        17.75,
+        56.75
+      ],
+      "oval_z_span_mm": [
+        63.5,
+        73.5
+      ],
+      "adapter_bbox": {
+        "x": [
+          -30.0,
+          30.0
+        ],
+        "y": [
+          -32.039,
+          11.117
+        ],
+        "z": [
+          -9.15,
+          80.002
+        ]
+      },
+      "adapter_volume_mm3": 38737.56,
+      "adapter_valid": true
+    },
+    "interferences": {
+      "orbiter_vs_adapter_mm3": 0.0,
+      "orbiter_vs_gray_carriage_mm3": 43.961,
+      "hotend_vs_adapter_mm3": 0.0,
+      "fan3010_vs_adapter_mm3": 0.0,
+      "knubs_vs_adapter_mm3": 0.0,
+      "belts_vs_adapter_mm3": 0.0,
+      "ebb42_vs_adapter_mm3": 0.0
+    },
+    "build_seconds": 24.627
+  },
+  "parts": [
+    {
+      "id": "R8_Adapter",
+      "label": "R8 Carriage Adapter",
+      "stl": "/meshes/R8_Adapter.stl",
+      "color": "#3d82cd",
+      "opacity": 1.0,
+      "uses_dz": false,
+      "movable": false
+    },
+    {
+      "id": "Ref_Gray_AD5M_Carriage",
+      "label": "Gray AD5M Carriage",
+      "stl": "/meshes/Ref_Gray_AD5M_Carriage.stl",
+      "color": "#949ba3",
+      "opacity": 0.55,
+      "uses_dz": false,
+      "movable": true
+    },
+    {
+      "id": "Ref_Belts_Keepout",
+      "label": "GT2 Belts Keepout",
+      "stl": "/meshes/Ref_Belts_Keepout.stl",
+      "color": "#d13838",
+      "opacity": 0.45,
+      "uses_dz": false,
+      "movable": false
+    },
+    {
+      "id": "Ref_Orbiter_v25",
+      "label": "Orbiter v2.5 Extruder",
+      "stl": "/meshes/Ref_Orbiter_v25.stl",
+      "color": "#383c42",
+      "opacity": 1.0,
+      "uses_dz": true,
+      "movable": true
+    },
+    {
+      "id": "Ref_X1C_Hotend",
+      "label": "Bambu X1C Hotend",
+      "stl": "/meshes/Ref_X1C_Hotend.stl",
+      "color": "#dc732d",
+      "opacity": 1.0,
+      "uses_dz": true,
+      "movable": true
+    },
+    {
+      "id": "Ref_3010_Fan",
+      "label": "3010 Cooling Fan",
+      "stl": "/meshes/Ref_3010_Fan.stl",
+      "color": "#595e66",
+      "opacity": 0.9,
+      "uses_dz": true,
+      "movable": true
+    },
+    {
+      "id": "Ref_EBB42_ShortBridge",
+      "label": "EBB42 Short Bridge",
+      "stl": "/meshes/Ref_EBB42_ShortBridge.stl",
+      "color": "#329b5f",
+      "opacity": 1.0,
+      "uses_dz": false,
+      "movable": true
+    },
+    {
+      "id": "Fan_Shroud_Recovered",
+      "label": "Fan Shroud Recovered (R4 \u2014 Simplified)",
+      "stl": "/meshes/Fan_Shroud_Recovered.stl",
+      "color": "#26a69a",
+      "opacity": 0.95,
+      "uses_dz": false,
+      "movable": true
+    }
+  ]
+}

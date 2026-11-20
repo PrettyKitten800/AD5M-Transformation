@@ -1,0 +1,59 @@
+{
+  "source_model": "Printables 1404902 (adventurer-5m-duct-5x2-magnets-final.stl)",
+  "transform_display_mm": {
+    "rx_deg": -90.0,
+    "dx": 6.335,
+    "dy": -49.54,
+    "dz": 27.2,
+    "top_cut_z": 70.2
+  },
+  "nozzle_target_display_mm": [
+    6.335,
+    -11.78,
+    -28.23
+  ],
+  "magnet_mounts_display_mm": [
+    [
+      -24.5,
+      -30.04,
+      3.35
+    ],
+    [
+      24.5,
+      -30.04,
+      3.35
+    ]
+  ],
+  "bbox": {
+    "x": [
+      -31.75,
+      36.334
+    ],
+    "y": [
+      -49.54,
+      -11.305
+    ],
+    "z": [
+      -26.128,
+      70.2
+    ]
+  },
+  "nozzle_bed_clearance_mm": 2.102,
+  "volume_mm3": 18935.18,
+  "components": 1,
+  "stl_solid": true,
+  "stl_facets": 147036,
+  "stl_non_manifolds": false,
+  "stl_non_uniform_faces": 0,
+  "stl_self_intersections": true,
+  "interferences": {
+    "duct_vs_r8_adapter_mm3": 0.0,
+    "duct_vs_orbiter_mm3": 0.0,
+    "duct_vs_x1c_hotend_mm3": 0.0,
+    "duct_vs_3010_fan_mm3": 0.0,
+    "duct_vs_gray_carriage_mm3": 0.0,
+    "min_dist_to_hotend_mm": 4.421,
+    "min_dist_to_orbiter_mm": 9.311
+  },
+  "build_seconds": 26.811
+}

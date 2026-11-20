@@ -1,4 +1,4 @@
-# AD5M Build cloud setup
+# The Moron Tridont Project — Cloud Setup
 
 Repository: https://github.com/PrettyKitten800/AD5M-Transformation (existing public repository).
 

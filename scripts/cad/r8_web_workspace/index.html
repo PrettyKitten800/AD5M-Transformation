@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AD5M R8 — Shared 3D Workspace</title>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "/vendor/three/build/three.module.js",
+        "three/addons/": "/vendor/three/examples/jsm/"
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --bg: #0f141b;
+      --panel: #161d26;
+      --card: #1d2633;
+      --border: #2c3849;
+      --text: #e6edf5;
+      --muted: #93a4b8;
+      --accent: #3d82cd;
+      --accent-hover: #5397df;
+      --pin: #f59e0b;
+      --ok: #22c55e;
+      --warn: #ef4444;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0; padding: 0; width: 100%; height: 100%;
+      background: var(--bg); color: var(--text);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      font-size: 13px; overflow: hidden;
+    }
+    #app {
+      display: grid;
+      grid-template-columns: 1fr 370px;
+      grid-template-rows: 48px 1fr 28px;
+      height: 100vh; width: 100vw;
+    }
+    header {
+      grid-column: 1 / -1;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 14px; background: var(--panel); border-bottom: 1px solid var(--border);
+      gap: 10px;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 14px; }
+    .pill {
+      padding: 2px 8px; border-radius: 999px; font-size: 11px; font-weight: 600;
+      background: rgba(61,130,205,0.18); color: #7cc0ff; border: 1px solid rgba(61,130,205,0.35);
+    }
+    .toolbar { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+    button {
+      background: var(--card); color: var(--text); border: 1px solid var(--border);
+      padding: 5px 10px; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 500;
+      transition: background 0.12s, border-color 0.12s;
+    }
+    button:hover { background: #263244; border-color: #42556f; }
+    button.active { background: var(--accent); border-color: #65a8f0; color: #fff; }
+    button.primary { background: #1d6f42; border-color: #2e9a5d; color: #fff; font-weight: 600; }
+    button.primary:hover { background: #238850; }
+    button.danger { background: rgba(239,68,68,0.15); border-color: rgba(239,68,68,0.4); color: #fca5a5; }
+    button.tiny { padding: 2px 7px; font-size: 11px; }
+
+    #viewport-wrap {
+      position: relative; width: 100%; height: 100%; overflow: hidden;
+      background: radial-gradient(circle at 50% 40%, #1c2635 0%, #0d1218 100%);
+    }
+    #gl-canvas { display: block; width: 100%; height: 100%; }
+    #pin-overlay {
+      position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+    }
+    .pin-badge {
+      position: absolute; transform: translate(-50%, -100%);
+      pointer-events: auto; cursor: pointer;
+      display: flex; align-items: center; gap: 4px;
+      background: #f59e0b; color: #111; font-weight: 700; font-size: 11px;
+      padding: 2px 7px; border-radius: 999px; border: 2px solid #fff;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.45);
+      user-select: none; max-width: 210px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .pin-badge.selected { background: #38bdf8; border-color: #fff; }
+    .hud-top-left {
+      position: absolute; top: 10px; left: 10px;
+      display: flex; gap: 4px; flex-wrap: wrap; max-width: 460px;
+    }
+    .hud-bottom-left {
+      position: absolute; bottom: 10px; left: 10px;
+      background: rgba(15,20,27,0.82); border: 1px solid var(--border);
+      padding: 6px 10px; border-radius: 8px; font-size: 11.5px; color: var(--muted);
+      backdrop-filter: blur(6px); pointer-events: none;
+    }
+    .hud-bottom-left b { color: var(--text); }
+
+    aside {
+      background: var(--panel); border-left: 1px solid var(--border);
+      display: flex; flex-direction: column; height: 100%; overflow-y: auto;
+      padding: 10px; gap: 10px;
+    }
+    .section {
+      background: var(--card); border: 1px solid var(--border); border-radius: 8px;
+      padding: 10px; display: flex; flex-direction: column; gap: 8px;
+    }
+    .section-title {
+      display: flex; align-items: center; justify-content: space-between;
+      font-weight: 600; font-size: 12.5px; color: #c7d6e8;
+    }
+    .part-row {
+      display: grid; grid-template-columns: 16px 1fr auto 58px;
+      align-items: center; gap: 6px; padding: 3px 4px; border-radius: 5px;
+    }
+    .part-row.selected { background: rgba(61,130,205,0.22); outline: 1px solid rgba(61,130,205,0.5); }
+    .swatch { width: 12px; height: 12px; border-radius: 3px; border: 1px solid rgba(255,255,255,0.25); }
+    .part-name { font-size: 12px; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    input[type="range"] { width: 100%; accent-color: var(--accent); }
+    textarea, input[type="text"], input[type="number"], select {
+      background: #10161f; color: var(--text); border: 1px solid var(--border);
+      border-radius: 5px; padding: 5px 7px; font-size: 12px; font-family: inherit;
+    }
+    textarea { width: 100%; resize: vertical; min-height: 54px; }
+    .note-card {
+      background: #121923; border: 1px solid var(--border); border-radius: 6px;
+      padding: 7px; display: flex; flex-direction: column; gap: 5px;
+    }
+    .note-card.selected { border-color: #38bdf8; }
+    .note-head { display: flex; align-items: center; justify-content: space-between; gap: 6px; font-size: 11px; color: var(--muted); }
+    .note-id {
+      background: var(--pin); color: #111; font-weight: 700; padding: 1px 6px; border-radius: 999px;
+    }
+    .nudge-grid {
+      display: grid; grid-template-columns: 28px 1fr repeat(4, auto); gap: 4px; align-items: center;
+      font-size: 11.5px;
+    }
+    .nudge-val { font-family: ui-monospace, monospace; font-size: 11.5px; color: #93c5fd; }
+    .param-row {
+      display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 12px;
+    }
+    .param-row input[type="number"] { width: 78px; text-align: right; font-family: ui-monospace, monospace; }
+
+    footer {
+      grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 12px; background: #0c1016; border-top: 1px solid var(--border);
+      font-size: 11.5px; color: var(--muted);
+    }
+    .status-ok { color: var(--ok); }
+    .status-warn { color: #fbbf24; }
+    .status-err { color: var(--warn); }
+  </style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <div class="brand">
+      <span>AD5M BambuMod × Orbiter v2.5 — R8</span>
+      <span class="pill" id="sync-pill">Connecting...</span>
+    </div>
+    <div class="toolbar">
+      <button id="mode-orbit" class="active" title="Drag to orbit, right-drag to pan, scroll to zoom">Orbit / Inspect</button>
+      <button id="mode-pin" title="Click anywhere on the 3D model to drop a numbered pin note">Drop 3D Pin Note</button>
+      <button id="mode-measure" title="Click 2 points to measure exact mm distance">Measure 2 Pts</button>
+      <button id="mode-move" title="Select a component and drag 3D arrows to move">Move Part</button>
+      <button id="mode-rotate" title="Select a component and drag 3D rings to rotate">Rotate Part</button>
+    </div>
+    <div class="toolbar">
+      <button id="btn-save" class="primary">Save Notes & Snapshot for AI</button>
+    </div>
+  </header>
+
+  <div id="viewport-wrap">
+    <canvas id="gl-canvas"></canvas>
+    <div id="pin-overlay"></div>
+
+    <div class="hud-top-left">
+      <button class="tiny" data-view="front">Front (-Y)</button>
+      <button class="tiny" data-view="back">Back (+Y)</button>
+      <button class="tiny" data-view="left">Left (-X)</button>
+      <button class="tiny" data-view="right">Right (+X)</button>
+      <button class="tiny" data-view="top">Top (+Z)</button>
+      <button class="tiny" data-view="iso">3D Iso</button>
+    </div>
+
+    <div class="hud-bottom-left" id="hud-hint">
+      <b>Orbit:</b> Left-drag &nbsp;|&nbsp; <b>Pan:</b> Right-drag &nbsp;|&nbsp; <b>Zoom:</b> Scroll &nbsp;|&nbsp; Switch to <b>Drop 3D Pin Note</b> to click and annotate any spot.
+    </div>
+  </div>
+
+  <aside>
+    <!-- 1. General Note -->
+    <div class="section">
+      <div class="section-title">
+        <span>Overall Notes for AI</span>
+        <span id="save-status" class="status-ok" style="font-size:11px;font-weight:500;">Synced</span>
+      </div>
+      <textarea id="general-note" placeholder="Write overall notes here (e.g. 'lower extruder 2mm', 'widen top oval slightly'), or drop numbered pins directly on the 3D parts below..."></textarea>
+    </div>
+
+    <!-- 2. Pinned 3D Annotations -->
+    <div class="section">
+      <div class="section-title">
+        <span>3D Pin Annotations (<span id="pin-count">0</span>)</span>
+        <button class="tiny danger" id="btn-clear-pins">Clear All</button>
+      </div>
+      <div id="pins-list" style="display:flex;flex-direction:column;gap:6px;"></div>
+      <div id="measure-readout" style="font-size:11.5px;color:#fde047;display:none;"></div>
+    </div>
+
+    <!-- 3. Selected Component Nudge / Transform -->
+    <div class="section" id="transform-section">
+      <div class="section-title">
+        <span>Component Position / Rotation</span>
+        <button class="tiny" id="btn-reset-part">Reset Selected</button>
+      </div>
+      <div id="selected-part-label" style="font-size:11.5px;color:var(--muted);">
+        Pick a movable part (Carriage, Orbiter, Hotend, Fan, EBB42) in Parts below or click it in Move/Rotate mode.
+      </div>
+      <div id="nudge-controls" style="display:none;flex-direction:column;gap:5px;"></div>
+    </div>
+
+    <!-- 4. Cross-Section Slicer -->
+    <div class="section">
+      <div class="section-title">
+        <span>Cross-Section Cutaway</span>
+        <button class="tiny" id="btn-clip-flip">Flip Side</button>
+      </div>
+      <div style="display:flex;gap:6px;align-items:center;">
+        <select id="clip-axis" style="width:92px;">
+          <option value="off">Off</option>
+          <option value="x">Slice X</option>
+          <option value="y">Slice Y (Depth)</option>
+          <option value="z">Slice Z (Height)</option>
+        </select>
+        <input id="clip-slider" type="range" min="-40" max="105" step="0.5" value="35" disabled />
+        <span id="clip-val" style="width:48px;text-align:right;font-family:monospace;font-size:11.5px;">Off</span>
+      </div>
+    </div>
+
+    <!-- 5. Parts Visibility & Opacity -->
+    <div class="section">
+      <div class="section-title">
+        <span>Parts (Click Name to Select)</span>
+        <button class="tiny" id="btn-reset-all-transforms">Reset All Moves</button>
+      </div>
+      <div id="parts-list" style="display:flex;flex-direction:column;gap:3px;"></div>
+    </div>
+
+    <!-- 6. Quick CAD Parameters -->
+    <div class="section">
+      <div class="section-title">
+        <span>CAD Parameters (Live Rebuild)</span>
+        <button class="tiny primary" id="btn-rebuild">Rebuild CAD (~8s)</button>
+      </div>
+      <div id="params-list" style="display:flex;flex-direction:column;gap:6px;"></div>
+    </div>
+  </aside>
+
+  <footer>
+    <span id="footer-left">Ready</span>
+    <span id="footer-right">Coords: Right=+X, Back=+Y, Front=-Y, Up=+Z</span>
+  </footer>
+</div>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { TransformControls } from 'three/addons/controls/TransformControls.js';
+import { STLLoader } from 'three/addons/loaders/STLLoader.js';
+
+const canvas = document.getElementById('gl-canvas');
+const wrap = document.getElementById('viewport-wrap');
+const overlay = document.getElementById('pin-overlay');
+
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+renderer.localClippingEnabled = true;
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color('#131922');
+
+// Standard CAD Z-up so orbiting matches an upright printer cleanly
+const camera = new THREE.PerspectiveCamera(38, 1, 0.5, 2000);
+camera.up.set(0, 0, 1);
+camera.position.set(-125, -145, 95);
+
+const orbit = new OrbitControls(camera, renderer.domElement);
+orbit.target.set(0, -8, 32);
+orbit.enableDamping = true;
+orbit.dampingFactor = 0.08;
+orbit.update();
+
+const tcontrols = new TransformControls(camera, renderer.domElement);
+tcontrols.setSize(0.85);
+tcontrols.addEventListener('dragging-changed', (e) => {
+  orbit.enabled = !e.value;
+});
+scene.add(tcontrols.getHelper());
+
+// Lighting
+scene.add(new THREE.HemisphereLight('#dce8f5', '#2a3441', 1.1));
+const keyLight = new THREE.DirectionalLight('#ffffff', 1.35);
+keyLight.position.set(-120, -180, 220);
+scene.add(keyLight);
+const fillLight = new THREE.DirectionalLight('#9ec5ff', 0.65);
+fillLight.position.set(160, 140, 80);
+scene.add(fillLight);
+
+// Reference Z=-35 ground grid (GridHelper sits on XZ by default -> rotate X +90 deg)
+const grid = new THREE.GridHelper(180, 18, '#3b4d63', '#232e3c');
+grid.rotation.x = Math.PI / 2;
+grid.position.set(0, -5, -35);
+scene.add(grid);
+
+const clipPlane = new THREE.Plane(new THREE.Vector3(-1, 0, 0), 999);
+let activeClipPlane = null;
+let clipAxis = 'off';
+let clipFlip = false;
+
+const loader = new STLLoader();
+
+const state = {
+  version: null,
+  manifest: null,
+  params: {},
+  report: {},
+  annotations: [],
+  transforms: {}, // partId -> { dx, dy, dz, rx_deg, ry_deg, rz_deg }
+  mode: 'orbit',
+  selectedPartId: 'Ref_X1C_Hotend',
+  selectedPinId: null,
+  measurePts: [],
+  parts: {}, // partId -> { spec, pivotGroup, mesh, center: Vector3, basePos: Vector3, material }
+};
+
+let measureGroup = new THREE.Group();
+scene.add(measureGroup);
+let pinsGroup = new THREE.Group();
+scene.add(pinsGroup);
+
+const pinGeom = new THREE.SphereGeometry(1.35, 16, 12);
+
+function setMode(mode) {
+  state.mode = mode;
+  for (const id of ['orbit', 'pin', 'measure', 'move', 'rotate']) {
+    document.getElementById(`mode-${id}`).classList.toggle('active', id === mode);
+  }
+  const hints = {
+    orbit: '<b>Orbit:</b> Left-drag &nbsp;|&nbsp; <b>Pan:</b> Right-drag &nbsp;|&nbsp; <b>Zoom:</b> Scroll',
+    pin: '<b>Drop 3D Pin Note:</b> Click anywhere on a 3D part surface to drop a numbered note for AI.',
+    measure: '<b>Measure 2 Points:</b> Click Point 1, then Point 2 on any surfaces to measure exact mm distance.',
+    move: '<b>Move Part:</b> Click a movable component (or choose one in Parts), then drag X/Y/Z arrows or use +/- buttons.',
+    rotate: '<b>Rotate Part:</b> Click a movable component, then drag rotation rings or use ±90° / ±5° buttons.',
+  };
+  document.getElementById('hud-hint').innerHTML = hints[mode] || '';
+  updateTransformAttachment();
+}
+
+for (const id of ['orbit', 'pin', 'measure', 'move', 'rotate']) {
+  document.getElementById(`mode-${id}`).addEventListener('click', () => setMode(id));
+}
+
+function snapView(name) {
+  const tgt = new THREE.Vector3(0, -8, 32);
+  const views = {
+    front: new THREE.Vector3(0, -210, 32),
+    back: new THREE.Vector3(0, 210, 32),
+    left: new THREE.Vector3(-210, -8, 32),
+    right: new THREE.Vector3(210, -8, 32),
+    top: new THREE.Vector3(0, -9, 240),
+    iso: new THREE.Vector3(-125, -145, 95),
+  };
+  const pos = views[name];
+  if (!pos) return;
+  orbit.target.copy(tgt);
+  camera.position.copy(pos);
+  orbit.update();
+}
+document.querySelectorAll('[data-view]').forEach((btn) => {
+  btn.addEventListener('click', () => snapView(btn.dataset.view));
+});
+
+function getPartBaseZOffset(spec) {
+  return spec.uses_dz ? Number(state.params.extruder_hotend_z_shift_mm ?? -14.65) : 0;
+}
+
+function applyPartTransform(partId) {
+  const entry = state.parts[partId];
+  if (!entry) return;
+  const tf = state.transforms[partId] || { dx: 0, dy: 0, dz: 0, rx_deg: 0, ry_deg: 0, rz_deg: 0 };
+  const baseZ = getPartBaseZOffset(entry.spec);
+  entry.pivotGroup.position.set(
+    entry.center.x + (tf.dx || 0),
+    entry.center.y + (tf.dy || 0),
+    entry.center.z + baseZ + (tf.dz || 0),
+  );
+  entry.pivotGroup.rotation.set(
+    THREE.MathUtils.degToRad(tf.rx_deg || 0),
+    THREE.MathUtils.degToRad(tf.ry_deg || 0),
+    THREE.MathUtils.degToRad(tf.rz_deg || 0),
+  );
+}
+
+function recordPartTransformFromPivot(partId) {
+  const entry = state.parts[partId];
+  if (!entry) return;
+  const baseZ = getPartBaseZOffset(entry.spec);
+  const dx = +(entry.pivotGroup.position.x - entry.center.x).toFixed(3);
+  const dy = +(entry.pivotGroup.position.y - entry.center.y).toFixed(3);
+  const dz = +(entry.pivotGroup.position.z - (entry.center.z + baseZ)).toFixed(3);
+  const rx_deg = +THREE.MathUtils.radToDeg(entry.pivotGroup.rotation.x).toFixed(2);
+  const ry_deg = +THREE.MathUtils.radToDeg(entry.pivotGroup.rotation.y).toFixed(2);
+  const rz_deg = +THREE.MathUtils.radToDeg(entry.pivotGroup.rotation.z).toFixed(2);
+  if (Math.abs(dx) < 1e-3 && Math.abs(dy) < 1e-3 && Math.abs(dz) < 1e-3 &&
+      Math.abs(rx_deg) < 1e-2 && Math.abs(ry_deg) < 1e-2 && Math.abs(rz_deg) < 1e-2) {
+    delete state.transforms[partId];
+  } else {
+    state.transforms[partId] = { dx, dy, dz, rx_deg, ry_deg, rz_deg };
+  }
+  renderNudgePanel();
+  scheduleSave();
+}
+
+tcontrols.addEventListener('objectChange', () => {
+  if (tcontrols.object && tcontrols.object.userData.partId) {
+    recordPartTransformFromPivot(tcontrols.object.userData.partId);
+  }
+});
+
+function updateTransformAttachment() {
+  if (state.mode !== 'move' && state.mode !== 'rotate') {
+    tcontrols.detach();
+    return;
+  }
+  const entry = state.parts[state.selectedPartId];
+  if (!entry || !entry.spec.movable || !entry.pivotGroup.visible) {
+    tcontrols.detach();
+    return;
+  }
+  tcontrols.setMode(state.mode === 'move' ? 'translate' : 'rotate');
+  tcontrols.attach(entry.pivotGroup);
+}
+
+function loadMeshSpec(spec) {
+  return new Promise((resolve, reject) => {
+    loader.load(`${spec.stl}?t=${Date.now()}`, (geom) => {
+      geom.computeVertexNormals();
+      geom.computeBoundingBox();
+      const center = new THREE.Vector3();
+      geom.boundingBox.getCenter(center);
+      geom.translate(-center.x, -center.y, -center.z);
+
+      const existing = state.parts[spec.id];
+      if (existing) {
+        existing.mesh.geometry.dispose();
+        existing.mesh.geometry = geom;
+        existing.center.copy(center);
+        applyPartTransform(spec.id);
+        resolve(existing);
+        return;
+      }
+
+      const mat = new THREE.MeshStandardMaterial({
+        color: spec.color,
+        roughness: 0.45,
+        metalness: 0.12,
+        transparent: spec.opacity < 0.99,
+        opacity: spec.opacity,
+        side: THREE.DoubleSide,
+        clippingPlanes: activeClipPlane ? [activeClipPlane] : [],
+      });
+      const mesh = new THREE.Mesh(geom, mat);
+      mesh.userData.partId = spec.id;
+
+      const pivotGroup = new THREE.Group();
+      pivotGroup.userData.partId = spec.id;
+      pivotGroup.add(mesh);
+      scene.add(pivotGroup);
+
+      const entry = { spec, pivotGroup, mesh, center, material: mat };
+      state.parts[spec.id] = entry;
+      applyPartTransform(spec.id);
+      resolve(entry);
+    }, undefined, reject);
+  });
+}
+
+function rebuildPinMeshes() {
+  while (pinsGroup.children.length) pinsGroup.remove(pinsGroup.children[0]);
+  overlay.innerHTML = '';
+  document.getElementById('pin-count').textContent = String(state.annotations.length);
+
+  for (const ann of state.annotations) {
+    const mat = new THREE.MeshBasicMaterial({
+      color: ann.id === state.selectedPinId ? '#38bdf8' : '#f59e0b',
+    });
+    const sphere = new THREE.Mesh(pinGeom, mat);
+    sphere.position.set(ann.point[0], ann.point[1], ann.point[2]);
+    pinsGroup.add(sphere);
+
+    const badge = document.createElement('div');
+    badge.className = 'pin-badge' + (ann.id === state.selectedPinId ? ' selected' : '');
+    badge.dataset.pinId = String(ann.id);
+    badge.textContent = `#${ann.id}${ann.text ? ' ' + ann.text : ''}`;
+    badge.addEventListener('click', (e) => {
+      e.stopPropagation();
+      state.selectedPinId = ann.id;
+      renderPinsUI();
+      rebuildPinMeshes();
+    });
+    overlay.appendChild(badge);
+  }
+  updateOverlayPositions();
+}
+
+function updateOverlayPositions() {
+  const w = canvas.clientWidth;
+  const h = canvas.clientHeight;
+  const v = new THREE.Vector3();
+  for (const badge of overlay.children) {
+    const id = Number(badge.dataset.pinId);
+    const ann = state.annotations.find((a) => a.id === id);
+    if (!ann) continue;
+    v.set(ann.point[0], ann.point[1], ann.point[2]).project(camera);
+    if (v.z > 1 || v.z < -1) {
+      badge.style.display = 'none';
+    } else {
+      badge.style.display = 'flex';
+      badge.style.left = `${(v.x * 0.5 + 0.5) * w}px`;
+      badge.style.top = `${(-v.y * 0.5 + 0.5) * h}px`;
+    }
+  }
+}
+
+function renderPinsUI() {
+  const box = document.getElementById('pins-list');
+  box.innerHTML = '';
+  if (!state.annotations.length) {
+    box.innerHTML = '<div style="font-size:11.5px;color:var(--muted);">No 3D pins yet. Click <b>Drop 3D Pin Note</b> at the top, then click any surface on the model.</div>';
+    return;
+  }
+  for (const ann of state.annotations) {
+    const card = document.createElement('div');
+    card.className = 'note-card' + (ann.id === state.selectedPinId ? ' selected' : '');
+    const head = document.createElement('div');
+    head.className = 'note-head';
+    head.innerHTML = `<span><span class="note-id">#${ann.id}</span> ${ann.part} (${ann.point.map((n) => n.toFixed(1)).join(', ')})</span>`;
+    const del = document.createElement('button');
+    del.className = 'tiny danger';
+    del.textContent = 'Del';
+    del.addEventListener('click', () => {
+      state.annotations = state.annotations.filter((a) => a.id !== ann.id);
+      rebuildPinMeshes();
+      renderPinsUI();
+      scheduleSave();
+    });
+    head.appendChild(del);
+
+    const inp = document.createElement('input');
+    inp.type = 'text';
+    inp.value = ann.text || '';
+    inp.placeholder = 'Type what you want changed here...';
+    inp.addEventListener('input', () => {
+      ann.text = inp.value;
+      const badge = overlay.querySelector(`[data-pin-id="${ann.id}"]`);
+      if (badge) badge.textContent = `#${ann.id}${ann.text ? ' ' + ann.text : ''}`;
+      scheduleSave();
+    });
+
+    card.appendChild(head);
+    card.appendChild(inp);
+    box.appendChild(card);
+    if (ann.id === state.selectedPinId && ann._focus) {
+      delete ann._focus;
+      setTimeout(() => inp.focus(), 20);
+    }
+  }
+}
+
+function renderPartsList() {
+  const list = document.getElementById('parts-list');
+  list.innerHTML = '';
+  if (!state.manifest) return;
+  for (const spec of state.manifest.parts) {
+    const entry = state.parts[spec.id];
+    const row = document.createElement('div');
+    row.className = 'part-row' + (state.selectedPartId === spec.id ? ' selected' : '');
+    const sw = document.createElement('div');
+    sw.className = 'swatch';
+    sw.style.background = spec.color;
+
+    const name = document.createElement('div');
+    name.className = 'part-name';
+    name.textContent = spec.label + (spec.movable ? '' : ' (fixed)');
+    name.addEventListener('click', () => {
+      state.selectedPartId = spec.id;
+      renderPartsList();
+      renderNudgePanel();
+      updateTransformAttachment();
+    });
+
+    const eye = document.createElement('button');
+    eye.className = 'tiny';
+    eye.textContent = !entry || entry.pivotGroup.visible ? 'Hide' : 'Show';
+    eye.addEventListener('click', () => {
+      if (!entry) return;
+      entry.pivotGroup.visible = !entry.pivotGroup.visible;
+      eye.textContent = entry.pivotGroup.visible ? 'Hide' : 'Show';
+      updateTransformAttachment();
+    });
+
+    const op = document.createElement('input');
+    op.type = 'range';
+    op.min = '0.1';
+    op.max = '1';
+    op.step = '0.05';
+    op.value = String(entry ? entry.material.opacity : spec.opacity);
+    op.addEventListener('input', () => {
+      if (!entry) return;
+      const v = Number(op.value);
+      entry.material.opacity = v;
+      entry.material.transparent = v < 0.99;
+      entry.material.needsUpdate = true;
+    });
+
+    row.appendChild(sw);
+    row.appendChild(name);
+    row.appendChild(eye);
+    row.appendChild(op);
+    list.appendChild(row);
+  }
+}
+
+function renderNudgePanel() {
+  const lbl = document.getElementById('selected-part-label');
+  const box = document.getElementById('nudge-controls');
+  const entry = state.parts[state.selectedPartId];
+  if (!entry || !entry.spec.movable) {
+    lbl.textContent = entry
+      ? `${entry.spec.label} is the adapter base (select Carriage, Orbiter, Hotend, Fan, or EBB42 to move/rotate).`
+      : 'Select a movable component below.';
+    box.style.display = 'none';
+    return;
+  }
+  lbl.innerHTML = `Selected: <b style="color:#fff">${entry.spec.label}</b>`;
+  box.style.display = 'flex';
+  box.innerHTML = '';
+  const tf = state.transforms[entry.spec.id] || { dx: 0, dy: 0, dz: 0, rx_deg: 0, ry_deg: 0, rz_deg: 0 };
+
+  const axes = [
+    ['dx', 'ΔX', [-5, -1, 1, 5], 'mm'],
+    ['dy', 'ΔY', [-5, -1, 1, 5], 'mm'],
+    ['dz', 'ΔZ', [-5, -1, 1, 5], 'mm'],
+    ['rx_deg', 'Rx', [-90, -5, 5, 90], '°'],
+    ['ry_deg', 'Ry', [-90, -5, 5, 90], '°'],
+    ['rz_deg', 'Rz', [-90, -5, 5, 90], '°'],
+  ];
+  for (const [key, label, steps, unit] of axes) {
+    const row = document.createElement('div');
+    row.className = 'nudge-grid';
+    const cur = tf[key] || 0;
+    row.innerHTML = `<span>${label}</span><span class="nudge-val">${cur}${unit}</span>`;
+    for (const s of steps) {
+      const b = document.createElement('button');
+      b.className = 'tiny';
+      b.textContent = (s > 0 ? `+${s}` : `${s}`);
+      b.addEventListener('click', () => {
+        const next = { ...(state.transforms[entry.spec.id] || { dx: 0, dy: 0, dz: 0, rx_deg: 0, ry_deg: 0, rz_deg: 0 }) };
+        next[key] = +((next[key] || 0) + s).toFixed(2);
+        state.transforms[entry.spec.id] = next;
+        applyPartTransform(entry.spec.id);
+        renderNudgePanel();
+        scheduleSave();
+      });
+      row.appendChild(b);
+    }
+    box.appendChild(row);
+  }
+}
+
+function renderParamsList() {
+  const box = document.getElementById('params-list');
+  box.innerHTML = '';
+  const editable = [
+    ['extruder_hotend_z_shift_mm', 'Extruder+Hotend Z Shift (mm)', 'number', 0.25],
+    ['motor_circle_diameter_mm', 'Motor Portal Dia (mm)', 'number', 0.5],
+    ['orbiter_flank_clearance_mm', 'Orbiter Flank Clearance (mm)', 'number', 0.1],
+    ['oval_cutout_enabled', 'Top Oval Cutout Enabled', 'bool', null],
+    ['oval_z_center_mm', 'Oval Z Center (mm)', 'number', 0.5],
+    ['oval_height_mm', 'Oval Height (mm)', 'number', 0.5],
+    ['oval_width_mm', 'Oval Width (mm)', 'number', 0.5],
+    ['oval_cut_full_depth', 'Oval Full Depth Thru Plate', 'bool', null],
+    ['carriage_hole_access_cutouts', 'Low Carriage Bolt Tunnels', 'bool', null],
+    ['duct_sleeve_radius_mm', 'Duct Sleeve Radius (mm)', 'number', 0.1],
+    ['access_bore_radius_mm', 'Driver Bore Radius (mm)', 'number', 0.1],
+  ];
+  for (const [key, label, kind, step] of editable) {
+    if (!(key in state.params)) continue;
+    const row = document.createElement('div');
+    row.className = 'param-row';
+    const lbl = document.createElement('label');
+    lbl.textContent = label;
+    row.appendChild(lbl);
+    if (kind === 'bool') {
+      const cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.checked = Boolean(state.params[key]);
+      cb.addEventListener('change', () => { state.params[key] = cb.checked; });
+      row.appendChild(cb);
+    } else {
+      const inp = document.createElement('input');
+      inp.type = 'number';
+      inp.step = String(step);
+      inp.value = String(state.params[key]);
+      inp.addEventListener('input', () => {
+        const val = Number(inp.value);
+        if (!Number.isNaN(val)) {
+          state.params[key] = val;
+          if (key === 'extruder_hotend_z_shift_mm') {
+            for (const id of Object.keys(state.parts)) applyPartTransform(id);
+          }
+        }
+      });
+      row.appendChild(inp);
+    }
+    box.appendChild(row);
+  }
+}
+
+// Clipping logic
+function updateClipping() {
+  const slider = document.getElementById('clip-slider');
+  const valLbl = document.getElementById('clip-val');
+  if (clipAxis === 'off') {
+    slider.disabled = true;
+    valLbl.textContent = 'Off';
+    activeClipPlane = null;
+  } else {
+    slider.disabled = false;
+    const pos = Number(slider.value);
+    valLbl.textContent = `${pos}mm`;
+    const sign = clipFlip ? 1 : -1;
+    const n = new THREE.Vector3(
+      clipAxis === 'x' ? sign : 0,
+      clipAxis === 'y' ? sign : 0,
+      clipAxis === 'z' ? sign : 0,
+    );
+    // Plane equation: n · p + constant >= 0 kept -> if sign == -1, keeps p[axis] <= pos when constant = pos
+    clipPlane.set(n, clipFlip ? -pos : pos);
+    activeClipPlane = clipPlane;
+  }
+  for (const entry of Object.values(state.parts)) {
+    entry.material.clippingPlanes = activeClipPlane ? [activeClipPlane] : [];
+    entry.material.needsUpdate = true;
+  }
+}
+
+document.getElementById('clip-axis').addEventListener('change', (e) => {
+  clipAxis = e.target.value;
+  const slider = document.getElementById('clip-slider');
+  if (clipAxis === 'x') { slider.min = -40; slider.max = 40; slider.value = 0; }
+  if (clipAxis === 'y') { slider.min = -35; slider.max = 35; slider.value = -5; }
+  if (clipAxis === 'z') { slider.min = -30; slider.max = 105; slider.value = 35; }
+  updateClipping();
+});
+document.getElementById('clip-slider').addEventListener('input', updateClipping);
+document.getElementById('btn-clip-flip').addEventListener('click', () => {
+  clipFlip = !clipFlip;
+  updateClipping();
+});
+
+// Raycasting for Click-to-Pin / Measure / Select
+const raycaster = new THREE.Raycaster();
+const pointerDownPos = new THREE.Vector2();
+
+canvas.addEventListener('pointerdown', (e) => {
+  pointerDownPos.set(e.clientX, e.clientY);
+});
+
+canvas.addEventListener('pointerup', (e) => {
+  if (e.button !== 0) return;
+  if (Math.hypot(e.clientX - pointerDownPos.x, e.clientY - pointerDownPos.y) > 5) return;
+  if (tcontrols.dragging) return;
+
+  const rect = canvas.getBoundingClientRect();
+  const ndc = new THREE.Vector2(
+    ((e.clientX - rect.left) / rect.width) * 2 - 1,
+    -((e.clientY - rect.top) / rect.height) * 2 + 1,
+  );
+  raycaster.setFromCamera(ndc, camera);
+  const targets = Object.values(state.parts)
+    .filter((p) => p.pivotGroup.visible)
+    .map((p) => p.mesh);
+  const hits = raycaster.intersectObjects(targets, false);
+  if (!hits.length) return;
+
+  // Respect active clipping plane so clicks don't hit clipped-away triangles
+  const hit = hits.find((h) => !activeClipPlane || activeClipPlane.distanceToPoint(h.point) >= -0.05);
+  if (!hit) return;
+
+  const partId = hit.object.userData.partId;
+
+  if (state.mode === 'pin') {
+    const nextId = state.annotations.reduce((m, a) => Math.max(m, a.id || 0), 0) + 1;
+    const pt = [+hit.point.x.toFixed(2), +hit.point.y.toFixed(2), +hit.point.z.toFixed(2)];
+    state.annotations.push({ id: nextId, part: partId, point: pt, text: '', _focus: true });
+    state.selectedPinId = nextId;
+    rebuildPinMeshes();
+    renderPinsUI();
+    scheduleSave();
+    return;
+  }
+
+  if (state.mode === 'measure') {
+    const p = hit.point.clone();
+    if (state.measurePts.length >= 2) state.measurePts = [];
+    state.measurePts.push(p);
+    while (measureGroup.children.length) measureGroup.remove(measureGroup.children[0]);
+    for (const mp of state.measurePts) {
+      const m = new THREE.Mesh(new THREE.SphereGeometry(0.9, 12, 10), new THREE.MeshBasicMaterial({ color: '#fde047' }));
+      m.position.copy(mp);
+      measureGroup.add(m);
+    }
+    const ro = document.getElementById('measure-readout');
+    if (state.measurePts.length === 2) {
+      const [a, b] = state.measurePts;
+      const lineGeo = new THREE.BufferGeometry().setFromPoints([a, b]);
+      measureGroup.add(new THREE.Line(lineGeo, new THREE.LineBasicMaterial({ color: '#fde047' })));
+      const d = a.distanceTo(b).toFixed(2);
+      const dx = (b.x - a.x).toFixed(2);
+      const dy = (b.y - a.y).toFixed(2);
+      const dz = (b.z - a.z).toFixed(2);
+      ro.style.display = 'block';
+      ro.textContent = `Measured: ${d} mm (ΔX=${dx}, ΔY=${dy}, ΔZ=${dz})`;
+    } else {
+      ro.style.display = 'block';
+      ro.textContent = 'Measured: Click second point...';
+    }
+    return;
+  }
+
+  if (state.mode === 'move' || state.mode === 'rotate') {
+    state.selectedPartId = partId;
+    renderPartsList();
+    renderNudgePanel();
+    updateTransformAttachment();
+  }
+});
+
+// Capture WebGL + Pin labels into one PNG for AI
+function captureSnapshotDataUrl() {
+  renderer.render(scene, camera);
+  const out = document.createElement('canvas');
+  out.width = canvas.width;
+  out.height = canvas.height;
+  const ctx = out.getContext('2d');
+  ctx.drawImage(canvas, 0, 0);
+
+  const dpr = out.width / Math.max(1, canvas.clientWidth);
+  const v = new THREE.Vector3();
+  ctx.font = `bold ${Math.round(12 * dpr)}px system-ui, sans-serif`;
+  for (const ann of state.annotations) {
+    v.set(ann.point[0], ann.point[1], ann.point[2]).project(camera);
+    if (v.z > 1 || v.z < -1) continue;
+    const px = (v.x * 0.5 + 0.5) * out.width;
+    const py = (-v.y * 0.5 + 0.5) * out.height;
+    const label = `#${ann.id}${ann.text ? ' ' + ann.text : ''}`;
+    const pad = 6 * dpr;
+    const tw = ctx.measureText(label).width;
+    const bw = tw + pad * 2;
+    const bh = 20 * dpr;
+    ctx.fillStyle = '#f59e0b';
+    ctx.strokeStyle = '#ffffff';
+    ctx.lineWidth = 2 * dpr;
+    ctx.beginPath();
+    ctx.roundRect(px - bw * 0.5, py - bh - 4 * dpr, bw, bh, 10 * dpr);
+    ctx.fill();
+    ctx.stroke();
+    ctx.fillStyle = '#111111';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(label, px - bw * 0.5 + pad, py - bh * 0.5 - 4 * dpr);
+  }
+  return out.toDataURL('image/png');
+}
+
+let saveTimer = null;
+function scheduleSave(includeSnapshot = false) {
+  document.getElementById('save-status').textContent = 'Saving...';
+  document.getElementById('save-status').className = 'status-warn';
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => saveNow(includeSnapshot), 300);
+}
+
+async function saveNow(includeSnapshot = true) {
+  const payload = {
+    general_note: document.getElementById('general-note').value,
+    annotations: state.annotations.map(({ id, part, point, text }) => ({ id, part, point, text })),
+    transforms: state.transforms,
+    clip: clipAxis === 'off' ? null : { axis: clipAxis, pos: Number(document.getElementById('clip-slider').value), flip: clipFlip },
+    camera: {
+      pos: camera.position.toArray().map((n) => +n.toFixed(2)),
+      target: orbit.target.toArray().map((n) => +n.toFixed(2)),
+    },
+    snapshot_data_url: includeSnapshot ? captureSnapshotDataUrl() : null,
+  };
+  const res = await fetch('/api/save_notes', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  const j = await res.json();
+  if (j.ok) {
+    document.getElementById('save-status').textContent = `Synced ${j.updated_at.slice(11)}`;
+    document.getElementById('save-status').className = 'status-ok';
+    document.getElementById('footer-left').textContent =
+      `Saved ${j.annotation_count} pin(s)${j.saved_snapshot ? ' + snapshot PNG' : ''} for AI.`;
+  }
+}
+
+document.getElementById('general-note').addEventListener('input', () => scheduleSave(false));
+document.getElementById('btn-save').addEventListener('click', () => saveNow(true));
+document.getElementById('btn-clear-pins').addEventListener('click', () => {
+  state.annotations = [];
+  state.selectedPinId = null;
+  rebuildPinMeshes();
+  renderPinsUI();
+  saveNow(true);
+});
+document.getElementById('btn-reset-part').addEventListener('click', () => {
+  delete state.transforms[state.selectedPartId];
+  applyPartTransform(state.selectedPartId);
+  renderNudgePanel();
+  saveNow(true);
+});
+document.getElementById('btn-reset-all-transforms').addEventListener('click', () => {
+  state.transforms = {};
+  for (const id of Object.keys(state.parts)) applyPartTransform(id);
+  renderNudgePanel();
+  saveNow(true);
+});
+
+document.getElementById('btn-rebuild').addEventListener('click', async () => {
+  const pill = document.getElementById('sync-pill');
+  pill.textContent = 'Rebuilding CAD...';
+  await fetch('/api/rebuild', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ params: state.params }),
+  });
+});
+
+async function pollState() {
+  try {
+    const res = await fetch('/api/state', { cache: 'no-store' });
+    const data = await res.json();
+    const pill = document.getElementById('sync-pill');
+
+    if (data.rebuild && data.rebuild.status === 'running') {
+      pill.textContent = 'Rebuilding R8 (~8s)...';
+    } else if (data.rebuild && data.rebuild.status === 'error') {
+      pill.textContent = 'Rebuild Error';
+    } else {
+      const noz = data.report?.derived?.nozzle_z_mm;
+      pill.textContent = noz !== undefined ? `Live | NozzleZ=${noz}mm` : 'Live';
+    }
+
+    if (state.version === null) {
+      // First load: restore persisted notes, transforms, params, and load all 7 STLs
+      state.manifest = data.manifest;
+      state.params = data.params || {};
+      state.report = data.report || {};
+      const notes = data.notes || {};
+      document.getElementById('general-note').value = notes.general_note || '';
+      state.annotations = Array.isArray(notes.annotations) ? notes.annotations : [];
+      state.transforms = notes.transforms && typeof notes.transforms === 'object' ? notes.transforms : {};
+
+      if (state.manifest && Array.isArray(state.manifest.parts)) {
+        await Promise.all(state.manifest.parts.map(loadMeshSpec));
+      }
+      state.version = data.version;
+      rebuildPinMeshes();
+      renderPinsUI();
+      renderPartsList();
+      renderNudgePanel();
+      renderParamsList();
+      updateTransformAttachment();
+    } else if (data.version && data.version !== state.version) {
+      // AI rebuilt R8 or updated parts -> hot-reload manifest parts while keeping user's camera, pins & drags
+      state.version = data.version;
+      state.manifest = data.manifest;
+      state.params = data.params || {};
+      state.report = data.report || {};
+      const nextIds = new Set((state.manifest?.parts || []).map((p) => p.id));
+      for (const oldId of Object.keys(state.parts)) {
+        if (!nextIds.has(oldId)) {
+          const entry = state.parts[oldId];
+          scene.remove(entry.pivotGroup);
+          entry.mesh.geometry.dispose();
+          entry.material.dispose();
+          delete state.parts[oldId];
+          if (state.selectedPartId === oldId) state.selectedPartId = 'R8_Adapter';
+        }
+      }
+      if (state.manifest && Array.isArray(state.manifest.parts)) {
+        await Promise.all(state.manifest.parts.map(loadMeshSpec));
+      }
+      for (const id of Object.keys(state.parts)) applyPartTransform(id);
+      renderPartsList();
+      renderNudgePanel();
+      renderParamsList();
+      updateTransformAttachment();
+      document.getElementById('footer-left').textContent = 'CAD geometry reloaded from AI build!';
+    }
+  } catch (err) {
+    document.getElementById('sync-pill').textContent = 'Server offline';
+  }
+}
+
+function resize() {
+  const w = wrap.clientWidth;
+  const h = wrap.clientHeight;
+  if (w > 0 && h > 0) {
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+  }
+}
+window.addEventListener('resize', resize);
+resize();
+
+function animate() {
+  requestAnimationFrame(animate);
+  orbit.update();
+  renderer.render(scene, camera);
+  updateOverlayPositions();
+}
+animate();
+
+await pollState();
+setInterval(pollState, 1200);
+</script>
+</body>
+</html>

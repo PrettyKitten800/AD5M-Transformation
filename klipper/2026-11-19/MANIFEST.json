@@ -1,0 +1,115 @@
+{
+  "snapshot_date": "2026-11-19",
+  "created_at": "2026-11-19T19:54:53-05:00",
+  "source_host": "http://192.168.4.31",
+  "active_config_files": [
+    "config/printer.cfg",
+    "config/mainsail.cfg",
+    "config/bed-heater-check.cfg",
+    "config/motion-check.cfg",
+    "config/extruder.cfg",
+    "config/calibration.cfg",
+    "config/eddy-duo.cfg",
+    "config/eddy-macros.cfg",
+    "config/forge-x-macros.cfg",
+    "config/printer-behavior.cfg"
+  ],
+  "files": {
+    "config/bed-heater-check.cfg": {
+      "sha256": "ba5d0165265827438b32189b9a330e8c04c58f9507e3dcf92ae706eae7c0eb2c",
+      "bytes": 326
+    },
+    "config/calibration.cfg": {
+      "sha256": "14f2e76d9dc4a20b8fb30e5d79bf8759c3150c4c14ad15f3567cd75a62abcb42",
+      "bytes": 1634
+    },
+    "config/eddy-duo.cfg": {
+      "sha256": "bf4fbdd8d0fd8c7f34f53b0326ec4842f3740f8aacecac06a96de6fa3fccad54",
+      "bytes": 901
+    },
+    "config/eddy-macros.cfg": {
+      "sha256": "1c6fba2642b58d5757895ad2154c18dcd6a0a03dc533272e15665a0df1fb8743",
+      "bytes": 5912
+    },
+    "config/extruder.cfg": {
+      "sha256": "b93c254ba05870fe92a5dffeec0c067a9ba9adb7d18ba2e2f2587037b854ab68",
+      "bytes": 1139
+    },
+    "config/forge-x-macros.cfg": {
+      "sha256": "ed1d5fa1c7e8142fab35f73d25e89e5bc90eb3cb44d83fa6c2895f9cd592820d",
+      "bytes": 20789
+    },
+    "config/forge-x-macros.cfg.pre-preheat-20261119-194252": {
+      "sha256": "68f6b78468af9eb4a2e2bc55ccdfd03d5c4847ddf63e42412995b1d51955a0f0",
+      "bytes": 20752
+    },
+    "config/mainsail.cfg": {
+      "sha256": "29d4c97b099e481c25c0a875b3f0696850a6aafa67775aee8d05e8682352ffb4",
+      "bytes": 16493
+    },
+    "config/motion-check.cfg": {
+      "sha256": "2d992f1dc66a20c01f6339fbc90b00336d008fc18688685f9785071830e8ee0c",
+      "bytes": 3915
+    },
+    "config/printer-behavior.cfg": {
+      "sha256": "4e36a01c6e01c65bc9c8487d1c6e21cc4ac36b0082fb9bd7cfde79eed52b58b0",
+      "bytes": 8815
+    },
+    "config/printer-behavior.cfg.pre-preheat-20261119-194252": {
+      "sha256": "e48e973e225c293c8020e4045dbc3b11a49db7135b3de6a471a3d70826be34da",
+      "bytes": 4056
+    },
+    "config/printer.cfg": {
+      "sha256": "67a191d59856bd103092c96c59807c999080a786060d507bba28790b1a167030",
+      "bytes": 32958
+    },
+    "config/slicer-presets/bundle_structure.json": {
+      "sha256": "4752560210865465301f3516e55f7b6b8da016ded8507f36636c31b8b022aba3",
+      "bytes": 746
+    },
+    "config/slicer-presets/filament/Moron_Tridont_Filament_ABS_Sunlu.json": {
+      "sha256": "ac7e6d9120637ede13432843dcf8e18606e8efe45efebb0003aaa73e767f544e",
+      "bytes": 7281
+    },
+    "config/slicer-presets/filament/Moron_Tridont_Filament_ASA.json": {
+      "sha256": "ec07790ff35ae78974f2310aa4c378a449ab2b27dc2485d73a2e140378148909",
+      "bytes": 7085
+    },
+    "config/slicer-presets/Moron_Tridont_04_Corrected.orca_printer": {
+      "sha256": "f81fb2a7caa4c2e1cfe9db88796be0c862b8ccea963485a3ae93a1dad29adee4",
+      "bytes": 33623
+    },
+    "config/slicer-presets/printer/Moron_Tridont_Printer_04.json": {
+      "sha256": "88c70ab6980609e22e4dca265f99f53f4e1a6337f5fc6d9547f51347322a9b6c",
+      "bytes": 6388
+    },
+    "config/slicer-presets/process/Moron_Tridont_Process_ABS.json": {
+      "sha256": "bb201b4f64513a7655ee76b91158463bc220f10c4ece9465249f96cc7a3d73e9",
+      "bytes": 13974
+    },
+    "config/slicer-presets/process/Moron_Tridont_Process_ABS_016.json": {
+      "sha256": "2802380a2635b72486ef4c17727c02d0f1927bcadcddd433fb1c69fc009d93f1",
+      "bytes": 13981
+    },
+    "config/slicer-presets/process/Moron_Tridont_Process_ABS_024.json": {
+      "sha256": "c00edc69595421b7210a6ca6233b75b5cb6562fe94c0168543d1b4abca804982",
+      "bytes": 13984
+    },
+    "config/slicer-presets/process/Moron_Tridont_Process_ABS_Voron.json": {
+      "sha256": "da09e705b2b4ec89228b23d7b8f3127bdadb9802786ac834332c38d37c426d08",
+      "bytes": 14048
+    },
+    "config/slicer-presets/process/Moron_Tridont_Process_ASA.json": {
+      "sha256": "c6a8b5c629fd7b090a4be8f611f179570767d55cc952d939d90d7eaacad4676e",
+      "bytes": 13824
+    },
+    "config/slicer-presets/process/Moron_Tridont_Process_ASA_016.json": {
+      "sha256": "aa1d4c20e19be6c7e22e7e692feccc9b14fe35ecad1ee29352f33d96bf2743f1",
+      "bytes": 13828
+    },
+    "config/slicer-presets/process/Moron_Tridont_Process_ASA_024.json": {
+      "sha256": "16dd27c69b14e67b8089fb8696e08cca7043488ca2638a120017cfebd0d1aac1",
+      "bytes": 13828
+    }
+  }
+}

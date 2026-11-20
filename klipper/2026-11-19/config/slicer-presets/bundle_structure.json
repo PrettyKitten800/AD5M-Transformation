@@ -1,0 +1,22 @@
+{
+  "version": "2.5.1.0",
+  "bundle_id": "offline_Moron_Tridont_04_Corrected_20261118",
+  "bundle_type": "printer config bundle",
+  "printer_preset_name": "Moron Tridont 0.4",
+  "printer_config": [
+    "printer/Moron_Tridont_Printer_04.json"
+  ],
+  "process_config": [
+    "process/Moron_Tridont_Process_ASA_024.json",
+    "process/Moron_Tridont_Process_ASA.json",
+    "process/Moron_Tridont_Process_ASA_016.json",
+    "process/Moron_Tridont_Process_ABS_024.json",
+    "process/Moron_Tridont_Process_ABS.json",
+    "process/Moron_Tridont_Process_ABS_016.json",
+    "process/Moron_Tridont_Process_ABS_Voron.json"
+  ],
+  "filament_config": [
+    "filament/Moron_Tridont_Filament_ASA.json",
+    "filament/Moron_Tridont_Filament_ABS_Sunlu.json"
+  ]
+}

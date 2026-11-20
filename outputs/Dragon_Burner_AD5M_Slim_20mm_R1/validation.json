@@ -1,0 +1,160 @@
+{
+  "exports": {
+    "slim_adapter": {
+      "stl": "AD5M_Dragon_Burner_Slim_20mm_Adapter_R1.stl",
+      "step": "AD5M_Dragon_Burner_Slim_20mm_Adapter_R1.step",
+      "valid_brep": true,
+      "solids": 1,
+      "mesh_is_solid": true,
+      "has_non_manifolds": false,
+      "repaired_upstream_step_seam": false,
+      "facets": 4152,
+      "volume_mm3": 24576.65,
+      "stl_bbox_mm": {
+        "x": [
+          4.902,
+          64.899
+        ],
+        "y": [
+          -124.3,
+          -33.3
+        ],
+        "z": [
+          0.0,
+          13.4
+        ]
+      }
+    },
+    "bambu_mount_reverse": {
+      "stl": "Dragon_Burner_Bambu_Mount_ReverseOrbiter_R1.stl",
+      "step": "Dragon_Burner_Bambu_Mount_ReverseOrbiter_R1.step",
+      "valid_brep": true,
+      "solids": 1,
+      "mesh_is_solid": true,
+      "has_non_manifolds": false,
+      "repaired_upstream_step_seam": true,
+      "facets": 11562,
+      "volume_mm3": 13902.8,
+      "stl_bbox_mm": {
+        "x": [
+          -27.48,
+          27.52
+        ],
+        "y": [
+          -10.64,
+          10.64
+        ],
+        "z": [
+          0.0,
+          21.0
+        ]
+      }
+    },
+    "orbiter2_mount_reverse": {
+      "stl": "Dragon_Burner_Orbiter2_Mount_ReverseOrbiter_R1.stl",
+      "step": "Dragon_Burner_Orbiter2_Mount_ReverseOrbiter_R1.step",
+      "valid_brep": true,
+      "solids": 1,
+      "mesh_is_solid": true,
+      "has_non_manifolds": false,
+      "repaired_upstream_step_seam": false,
+      "facets": 6042,
+      "volume_mm3": 5869.06,
+      "stl_bbox_mm": {
+        "x": [
+          -25.379,
+          25.338
+        ],
+        "y": [
+          -14.395,
+          9.63
+        ],
+        "z": [
+          0.0,
+          6.9
+        ]
+      }
+    }
+  },
+  "checks": {
+    "trim_depth_mm": 20.0,
+    "mount_z_mm": 13.399999999999999,
+    "nozzle_tip_slim_mm": [
+      34.924,
+      -138.401,
+      24.697000000000003
+    ],
+    "nozzle_shift_vs_stock_1406257_mm": -20.0,
+    "nozzle_vs_custom_housing_r1_mm": 1.5,
+    "restored_shroud_screw_tabs": {
+      "orig_shifted_tabs_volume_mm3": 1466.94,
+      "slim_restored_tabs_volume_mm3": 1466.94,
+      "diff_mm3": 0.0
+    },
+    "anti_warp_corner_chamfers": {
+      "bottom_BL_BR_vertical_leg_mm": 5.0,
+      "top_TL_TR_45deg_tapered_leg_mm": 3.45
+    },
+    "carriage_bolts": {
+      "upper_left": {
+        "boss_thickness_mm": 7.0,
+        "rear_pocket_Z0_to_2p8_overlap_mm3": 0.0,
+        "solid_backing_Z3p1_to_6p9_mm3": 30.561,
+        "solid_backing_expected_mm3": 30.561
+      },
+      "upper_right": {
+        "boss_thickness_mm": 7.0,
+        "rear_pocket_Z0_to_2p8_overlap_mm3": 0.0,
+        "solid_backing_Z3p1_to_6p9_mm3": 30.561,
+        "solid_backing_expected_mm3": 30.561
+      },
+      "lower_left": {
+        "front_tool_corridor_overlap_mm3": 0.0
+      },
+      "lower_right": {
+        "front_tool_corridor_overlap_mm3": 0.0
+      },
+      "fifth_plus14": {
+        "front_tool_corridor_overlap_mm3": 0.0
+      },
+      "fifth_minus14": {
+        "front_tool_corridor_overlap_mm3": 0.0
+      },
+      "slot_42x9_front_corridor_overlap_mm3": 0.0
+    },
+    "bambu_mount_rev_mirrored_heatset_wall_fraction": {
+      "mirr_L": 1.0,
+      "mirr_R": 0.9993
+    },
+    "steel_carriage_overlap_mm3": 0.0,
+    "slim_vs_db_main_overlap_mm3": 0.0,
+    "slim_vs_bm_rev_overlap_mm3": 0.0,
+    "slim_vs_hotend_overlap_mm3": 0.0,
+    "om_rev_vs_db_main_overlap_mm3": 0.0,
+    "om_rev_vs_slim_overlap_mm3": 0.0,
+    "duct_right_rear_clearance_to_carriage_mm": 9.868,
+    "regular_orbiter_motor_envelope": {
+      "motor_z_span_mm": [
+        4.71,
+        24.71
+      ],
+      "motor_overlap_slim_adapter_mm3": 505.6012,
+      "motor_overlap_restored_tabs_mm3": 214.337,
+      "motor_rear_gap_to_steel_carriage_mm": 4.707
+    },
+    "reverse_orbiter_motor_envelope": {
+      "motor_z_span_mm": [
+        24.71,
+        44.71
+      ],
+      "gearbox_rear_z_min_mm": 12.71,
+      "motor_overlap_db_main_mm3": 0.0,
+      "motor_overlap_slim_adapter_mm3": 0.0,
+      "gearbox_overlap_slim_adapter_mm3": 0.0,
+      "motor_gap_to_adapter_mm": 14.173,
+      "gearbox_rear_gap_to_adapter_wall_mm": 1.722,
+      "motor_front_vs_db_main_nose_mm": -5.16,
+      "total_toolhead_front_z_mm": 49.87
+    }
+  }
+}

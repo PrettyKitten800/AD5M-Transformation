@@ -1,0 +1,318 @@
+"""Live FreeCAD GUI watcher for BambuMod x Orbiter v2.5 R8 co-editing.
+
+Synchronizes R8_Live_Workspace.FCStd in real time in both directions:
+1. External builds (agent editing r8_params.json + running r8_live_builder.py ->
+   updating BambuMod_Orbiter25_R8_Live.step) auto-reload R8_Adapter in-place
+   without disturbing your 3D camera.
+2. Direct edits to `Params` (App::VarSet) properties in FreeCAD's Property View
+   immediately preview reference part positions and trigger a debounced async
+   background rebuild via freecadcmd.exe.
+"""
+
+from __future__ import annotations
+
+import json
+import math
+from pathlib import Path
+
+import FreeCAD as App
+import FreeCADGui as Gui
+import Part
+from PySide6 import QtCore
+
+REPO = Path(r"C:\Users\PK800\.gemini\antigravity\scratch\AD5M-Transformation")
+OUT_DIR = REPO / "outputs" / "BambuMod_Orbiter25_Remix_R8"
+CACHE_DIR = OUT_DIR / "cache"
+BUILDER_PY = REPO / "scripts" / "cad" / "r8_live_builder.py"
+FREECADCMD_EXE = Path(r"C:\Program Files\FreeCAD 1.1\bin\freecadcmd.exe")
+
+PARAMS_PATH = OUT_DIR / "r8_params.json"
+LIVE_STEP_PATH = OUT_DIR / "BambuMod_Orbiter25_R8_Live.step"
+FCSTD_PATH = OUT_DIR / "R8_Live_Workspace.FCStd"
+REPORT_PATH = OUT_DIR / "r8_live_report.json"
+WATCHER_LOG = OUT_DIR / "r8_live_watcher.log"
+
+PARAM_KEYS = [
+    "extruder_hotend_z_shift_mm",
+    "motor_circle_diameter_mm",
+    "orbiter_flank_clearance_mm",
+    "oval_cutout_enabled",
+    "oval_z_center_mm",
+    "oval_height_mm",
+    "oval_width_mm",
+    "oval_cut_full_depth",
+    "carriage_hole_access_cutouts",
+    "duct_sleeve_radius_mm",
+    "access_bore_radius_mm",
+    "show_carriage_mockup",
+    "show_reference_parts",
+    "export_stl",
+]
+
+GEO_KEYS = {
+    "extruder_hotend_z_shift_mm",
+    "motor_circle_diameter_mm",
+    "orbiter_flank_clearance_mm",
+    "oval_cutout_enabled",
+    "oval_z_center_mm",
+    "oval_height_mm",
+    "oval_width_mm",
+    "oval_cut_full_depth",
+    "carriage_hole_access_cutouts",
+    "duct_sleeve_radius_mm",
+    "access_bore_radius_mm",
+    "export_stl",
+}
+
+
+class R8LiveWatcher:
+    """Bidirectional live watcher bridging R8_Live_Workspace.FCStd and r8_live_builder.py."""
+
+    def __init__(self) -> None:
+        self.doc = self._ensure_document()
+        self._sync_ref_shapes_if_stale()
+        self._apply_visual_styling()
+        self._last_step_mtime: float = LIVE_STEP_PATH.stat().st_mtime if LIVE_STEP_PATH.exists() else 0.0
+        self._last_params: dict = self._read_params_file()
+        self._suppress_varset = False
+        self._proc: QtCore.QProcess | None = None
+        self._pending_rebuild = False
+
+        self._debounce = QtCore.QTimer()
+        self._debounce.setSingleShot(True)
+        self._debounce.setInterval(650)
+        self._debounce.timeout.connect(self._launch_background_rebuild)
+
+        self._poll = QtCore.QTimer()
+        self._poll.setInterval(400)
+        self._poll.timeout.connect(self._tick)
+        self._poll.start()
+
+        msg = (
+            "[R8 Live] Watcher active! Edit `Params` in the tree or ask in chat; "
+            f"watching {LIVE_STEP_PATH.name}.\n"
+        )
+        App.Console.PrintMessage(msg)
+        try:
+            WATCHER_LOG.write_text(msg, encoding="utf-8")
+        except OSError:
+            pass
+
+    def _ensure_document(self) -> App.Document:
+        doc = App.getDocument("R8_Live_Workspace")
+        if doc is None:
+            doc = App.openDocument(str(FCSTD_PATH))
+        App.setActiveDocument(doc.Name)
+        return doc
+
+    def _apply_visual_styling(self) -> None:
+        styles = {
+            "R8_Adapter": ((0.24, 0.51, 0.80), 0),
+            "Ref_Gray_AD5M_Carriage": ((0.58, 0.61, 0.65), 48),
+            "Ref_Belts_Keepout": ((0.82, 0.22, 0.22), 65),
+            "Ref_Orbiter_v25": ((0.20, 0.22, 0.24), 0),
+            "Ref_X1C_Hotend": ((0.86, 0.45, 0.18), 0),
+            "Ref_3010_Fan": ((0.35, 0.37, 0.40), 0),
+            "Ref_EBB42_ShortBridge": ((0.20, 0.62, 0.38), 0),
+        }
+        gdoc = Gui.getDocument(self.doc.Name)
+        if gdoc is None:
+            return
+        for name, (col, transp) in styles.items():
+            vo = gdoc.getObject(name)
+            if vo is None:
+                continue
+            vo.ShapeColor = col
+            vo.Transparency = transp
+            if hasattr(vo, "DisplayMode"):
+                vo.DisplayMode = "Flat Lines"
+
+    def _read_params_file(self) -> dict:
+        if not PARAMS_PATH.exists():
+            return {}
+        try:
+            return json.loads(PARAMS_PATH.read_text(encoding="utf-8"))
+        except Exception:
+            return {}
+
+    def _read_varset(self) -> dict:
+        vs = self.doc.getObject("Params")
+        if vs is None:
+            return {}
+        return {k: getattr(vs, k) for k in PARAM_KEYS if hasattr(vs, k)}
+
+    def _sync_varset_and_refs(self, params: dict) -> None:
+        self._suppress_varset = True
+        try:
+            vs = self.doc.getObject("Params")
+            if vs is not None:
+                for k, v in params.items():
+                    if hasattr(vs, k):
+                        cur = getattr(vs, k)
+                        if cur != v:
+                            setattr(vs, k, v)
+            dz = float(params.get("extruder_hotend_z_shift_mm", -14.65))
+            for name in ("Ref_Orbiter_v25", "Ref_X1C_Hotend", "Ref_3010_Fan"):
+                obj = self.doc.getObject(name)
+                if obj is not None and abs(obj.Placement.Base.z - dz) > 1e-4:
+                    pl = obj.Placement.copy()
+                    pl.Base.z = dz
+                    obj.Placement = pl
+            show_car = bool(params.get("show_carriage_mockup", True))
+            show_refs = bool(params.get("show_reference_parts", True))
+            gdoc = Gui.getDocument(self.doc.Name)
+            if gdoc is not None:
+                for name in ("Ref_Gray_AD5M_Carriage", "Ref_Belts_Keepout"):
+                    vo = gdoc.getObject(name)
+                    if vo is not None:
+                        vo.Visibility = show_car
+                for name in ("Ref_Orbiter_v25", "Ref_X1C_Hotend", "Ref_3010_Fan", "Ref_EBB42_ShortBridge"):
+                    vo = gdoc.getObject(name)
+                    if vo is not None:
+                        vo.Visibility = show_refs
+        finally:
+            self._suppress_varset = False
+
+    def _sync_ref_shapes_if_stale(self) -> None:
+        """Upgrade older R8_Live_Workspace scenes in-place if hotend or -Y/+Y orientation is stale."""
+        car = self.doc.getObject("Ref_Gray_AD5M_Carriage")
+        he = self.doc.getObject("Ref_X1C_Hotend")
+        needs_upgrade = (
+            (car is not None and car.Shape.BoundBox.Center.y < 0.0)
+            or (he is not None and he.Shape.BoundBox.ZLength < 30.0)
+        )
+        if not needs_upgrade or not CACHE_DIR.exists():
+            return
+        mapping = {
+            "Ref_Gray_AD5M_Carriage": ("ref_gray_carriage.brep", False),
+            "Ref_Belts_Keepout": ("ref_belts_keepout.brep", False),
+            "Ref_Orbiter_v25": ("ref_orbiter.brep", True),
+            "Ref_X1C_Hotend": ("ref_hotend.brep", True),
+            "Ref_3010_Fan": ("ref_fan3010.brep", True),
+            "Ref_EBB42_ShortBridge": ("ref_ebb42.brep", False),
+        }
+        dz = float(self._read_params_file().get("extruder_hotend_z_shift_mm", -14.65))
+        mz = App.Matrix()
+        mz.rotateZ(math.pi)
+        for obj_name, (brep_name, uses_dz) in mapping.items():
+            obj = self.doc.getObject(obj_name)
+            fpath = CACHE_DIR / brep_name
+            if obj is None or not fpath.exists():
+                continue
+            sh = Part.Shape()
+            sh.read(str(fpath))
+            if not sh.Placement.isIdentity():
+                m0 = sh.Placement.toMatrix()
+                sh.Placement = App.Placement()
+                sh.transformShape(m0, True)
+            sh.transformShape(mz, True)
+            obj.Shape = sh
+            obj.Placement = App.Placement(App.Vector(0.0, 0.0, dz if uses_dz else 0.0), App.Rotation())
+        self.doc.recompute()
+
+    def _reload_step_into_scene(self) -> None:
+        adapter = self.doc.getObject("R8_Adapter")
+        if adapter is None or not LIVE_STEP_PATH.exists():
+            return
+        try:
+            new_shape = Part.read(str(LIVE_STEP_PATH))
+            if new_shape.isNull() or new_shape.Volume < 10.0:
+                return
+        except Exception as exc:
+            App.Console.PrintWarning(f"[R8 Live] Waiting on STEP read: {exc}\n")
+            return
+
+        adapter.Shape = new_shape
+        self._sync_ref_shapes_if_stale()
+        params = self._read_params_file()
+        if params:
+            self._last_params = dict(params)
+            self._sync_varset_and_refs(params)
+        self.doc.recompute()
+        self._apply_visual_styling()
+
+        if REPORT_PATH.exists():
+            try:
+                rep = json.loads(REPORT_PATH.read_text(encoding="utf-8"))
+                d = rep.get("derived", {})
+                inter = rep.get("interferences", {})
+                msg = (
+                    f"[R8 Live] Reloaded in {rep.get('build_seconds')}s | "
+                    f"Z_mot={d.get('z_mot_mm')} mm (offset={d.get('motor_to_carriage_z_offset_mm')} mm) | "
+                    f"NozzleZ={d.get('nozzle_z_mm')} mm | Interferences={inter}\n"
+                )
+                App.Console.PrintMessage(msg)
+                try:
+                    WATCHER_LOG.write_text(msg, encoding="utf-8")
+                except OSError:
+                    pass
+            except Exception:
+                pass
+
+    def _launch_background_rebuild(self) -> None:
+        if self._proc is not None and self._proc.state() != QtCore.QProcess.NotRunning:
+            self._pending_rebuild = True
+            return
+        self._pending_rebuild = False
+        PARAMS_PATH.write_text(json.dumps(self._last_params, indent=2), encoding="utf-8")
+
+        env = QtCore.QProcessEnvironment.systemEnvironment()
+        env.insert("R8_SKIP_FCSTD", "1")
+        proc = QtCore.QProcess()
+        proc.setProcessEnvironment(env)
+        proc.finished.connect(self._on_rebuild_finished)
+        App.Console.PrintMessage("[R8 Live] Parameter change detected -> rebuilding R8 in background...\n")
+        proc.start(str(FREECADCMD_EXE), [str(BUILDER_PY)])
+        self._proc = proc
+
+    def _on_rebuild_finished(self, exit_code: int, _exit_status) -> None:
+        if exit_code != 0 and self._proc is not None:
+            err = bytes(self._proc.readAllStandardError()).decode("utf-8", "ignore")
+            App.Console.PrintError(f"[R8 Live] Rebuild exited {exit_code}: {err}\n")
+        self._proc = None
+        if self._pending_rebuild:
+            self._launch_background_rebuild()
+
+    def _tick(self) -> None:
+        if self.doc is None or App.getDocument("R8_Live_Workspace") is None:
+            self.stop()
+            return
+
+        # 1. Check external STEP update (agent or completed background QProcess)
+        if LIVE_STEP_PATH.exists():
+            try:
+                mtime = LIVE_STEP_PATH.stat().st_mtime
+                if mtime > self._last_step_mtime + 1e-4:
+                    self._last_step_mtime = mtime
+                    self._reload_step_into_scene()
+                    return
+            except OSError:
+                pass
+
+        # 2. Check user edits to App::VarSet `Params` in FreeCAD Property View
+        if self._suppress_varset:
+            return
+        cur = self._read_varset()
+        if not cur or not self._last_params:
+            return
+        changed = [k for k, v in cur.items() if k in self._last_params and v != self._last_params[k]]
+        if changed:
+            self._last_params.update(cur)
+            self._sync_varset_and_refs(self._last_params)
+            self.doc.recompute()
+            if any(k in GEO_KEYS for k in changed):
+                self._debounce.start()
+
+    def stop(self) -> None:
+        self._poll.stop()
+        self._debounce.stop()
+        App.Console.PrintMessage("[R8 Live] Watcher stopped.\n")
+
+
+if getattr(Gui, "_R8_WATCHER", None) is not None:
+    try:
+        Gui._R8_WATCHER.stop()
+    except Exception:
+        pass
+
+Gui._R8_WATCHER = R8LiveWatcher()

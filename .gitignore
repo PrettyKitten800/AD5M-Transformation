@@ -28,3 +28,7 @@ reference/Voron_Trident/Voron-Documentation/
 reference/BootyCallJones_K1_Gantry/source/
 # Large derived preview caches (original CAD remains available)
 **/*_preview_mesh.json
+**/node_modules/
+**/preview_*.json
+outputs/**/cache/
+*.log

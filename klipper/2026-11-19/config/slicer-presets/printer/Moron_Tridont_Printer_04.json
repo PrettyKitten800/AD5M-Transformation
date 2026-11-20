@@ -1,0 +1,265 @@
+{
+	"printer_technology": "FFF",
+	"printable_area": [
+		"0x5",
+		"219.7x5",
+		"219.7x220",
+		"0x220"
+	],
+	"extruder_printable_area": [],
+	"support_parallel_printheads": "0",
+	"parallel_printheads_count": "1",
+	"parallel_printheads_bed_exclude_areas": [],
+	"bed_exclude_area": [
+		"0x0"
+	],
+	"bed_custom_texture": "",
+	"bed_custom_model": "",
+	"build_plate_tilt_x": "0",
+	"build_plate_tilt_y": "0",
+	"belt_printer": "0",
+	"belt_printer_infinite_y": "1",
+	"belt_slice_rotation": "x",
+	"belt_slice_rotation_angle": "45",
+	"gcode_remap_x": "pos_x",
+	"gcode_remap_y": "pos_y",
+	"gcode_remap_z": "pos_z",
+	"belt_frame_tilt_decouple": "0",
+	"belt_frame_tilt_angle": "45",
+	"belt_support_floor_offset": "0",
+	"enable_belt_purge_tower": "0",
+	"bed_exclude_volumes": "",
+	"bed_exclude_volume_mode": "shared",
+	"extruder_bed_exclude_volumes": [
+		""
+	],
+	"gcode_flavor": "klipper",
+	"gcode_skip_config_block": "0",
+	"fan_kickstart": "0",
+	"part_cooling_fan_min_pwm": "0",
+	"fan_speedup_time": "0",
+	"fan_speedup_overhangs": "1",
+	"single_extruder_multi_material": "0",
+	"manual_filament_change": "0",
+	"file_start_gcode": "; estimated printing time (normal mode) = {print_time_day}d {print_time_hour}h {print_time_minute}m {print_time_sec}s",
+	"machine_start_gcode": "M104 S0\nM140 S0\nSTART_PRINT EXTRUDER_TEMP=[nozzle_temperature_initial_layer] BED_TEMP=[bed_temperature_initial_layer_single] PURGE=0\nG90\nG21\nM83\nG92 E0",
+	"machine_end_gcode": "END_PRINT",
+	"before_layer_change_gcode": ";BEFORE_LAYER_CHANGE\n;[layer_z]",
+	"printing_by_object_gcode": "",
+	"layer_change_gcode": ";AFTER_LAYER_CHANGE\n;[layer_z]",
+	"time_lapse_gcode": "",
+	"wrapping_detection_gcode": "",
+	"change_filament_gcode": "",
+	"change_extrusion_role_gcode": "",
+	"printer_model": "Flashforge Adventurer 5M",
+	"printer_variant": "0.4",
+	"printer_extruder_id": [
+		"1"
+	],
+	"printer_extruder_variant": [
+		"Direct Drive Standard"
+	],
+	"extruder_variant_list": [
+		"Direct Drive Standard"
+	],
+	"default_nozzle_volume_type": [
+		"Standard"
+	],
+	"printable_height": "205",
+	"extruder_printable_height": [
+		"0"
+	],
+	"extruder_clearance_radius": "76",
+	"extruder_clearance_height_to_lid": "150",
+	"extruder_clearance_height_to_rod": "27",
+	"extruder_clearance_dist_to_rod": "40",
+	"nozzle_height": "2.5",
+	"master_extruder_id": "1",
+	"default_print_profile": "Moron Tridont 0.24mm ASA",
+	"scan_first_layer": "0",
+	"enable_power_loss_recovery": "printer_configuration",
+	"wrapping_detection_layers": "20",
+	"wrapping_exclude_area": [],
+	"machine_load_filament_time": "0",
+	"machine_unload_filament_time": "0",
+	"machine_tool_change_time": "0",
+	"time_cost": "0",
+	"machine_pause_gcode": "PAUSE",
+	"template_custom_gcode": "",
+	"nozzle_type": [
+		"hardened_steel"
+	],
+	"nozzle_hrc": "0",
+	"auxiliary_fan": "0",
+	"fan_direction": "undefine",
+	"nozzle_volume": [
+		"0"
+	],
+	"upward_compatible_machine": [],
+	"z_hop_types": [
+		"Auto Lift"
+	],
+	"travel_slope": [
+		"3"
+	],
+	"retract_lift_enforce": [
+		"All Surfaces"
+	],
+	"support_chamber_temp_control": "1",
+	"support_air_filtration": "1",
+	"support_cooling_filter": "0",
+	"cooling_filter_enabled": "0",
+	"printer_structure": "undefine",
+	"farthest_point_timelapse": "0",
+	"best_object_pos": "0.5,0.5",
+	"head_wrap_detect_zone": [],
+	"host_type": "octoprint",
+	"flashforge_serial_number": "",
+	"bbl_use_printhost": "0",
+	"printer_agent": "",
+	"printhost_authorization_type": "key",
+	"printhost_ssl_ignore_revoke": "0",
+	"thumbnails": "140x110/PNG",
+	"thumbnails_format": "PNG",
+	"use_relative_e_distances": "1",
+	"extruder_type": [
+		"Direct Drive"
+	],
+	"use_firmware_retraction": "0",
+	"printer_notes": "",
+	"grab_length": [
+		"0"
+	],
+	"support_object_skip_flush": "0",
+	"physical_extruder_map": [
+		"0"
+	],
+	"cooling_tube_retraction": "91.5",
+	"cooling_tube_length": "5",
+	"high_current_on_filament_swap": "0",
+	"parking_pos_retraction": "92",
+	"extra_loading_move": "-2",
+	"wipe_tower_type": "type2",
+	"purge_in_prime_tower": "1",
+	"enable_filament_ramming": "1",
+	"tool_change_on_wipe_tower": "0",
+	"wait_for_temp_on_wipe_tower": "0",
+	"z_offset": "0",
+	"disable_m73": "0",
+	"preferred_orientation": "0",
+	"emit_machine_limits_to_gcode": "1",
+	"pellet_modded_printer": "0",
+	"support_multi_bed_types": "1",
+	"use_3mf": "0",
+	"default_bed_type": "",
+	"bed_mesh_min": "-99999,-99999",
+	"bed_mesh_max": "99999,99999",
+	"bed_mesh_probe_distance": "50,50",
+	"adaptive_bed_mesh_margin": "0",
+	"enable_long_retraction_when_cut": "0",
+	"long_retractions_when_cut": [
+		"0"
+	],
+	"retraction_distances_when_cut": [
+		"18"
+	],
+	"bed_temperature_formula": "by_highest_temp",
+	"nozzle_flush_dataset": [
+		"0"
+	],
+	"is_imex": "0",
+	"imex_firmware_managed_zones": "0",
+	"imex_gantry_count": "1",
+	"imex_tools_per_gantry": "2",
+	"imex_tool_layout": "front-left",
+	"imex_nozzle_clearance_x": "30",
+	"imex_nozzle_clearance_y": "30",
+	"imex_carriage_margin": "0",
+	"imex_viz_theme": "standard",
+	"imex_mode_names": [],
+	"imex_mode_active_tools": [],
+	"imex_mode_gcodes": [],
+	"extruder_max_nozzle_count": [
+		"1"
+	],
+	"group_algo_with_time": "0",
+	"enable_pre_heating": "0",
+	"hotend_heating_rate": [
+		"2"
+	],
+	"hotend_cooling_rate": [
+		"2"
+	],
+	"machine_hotend_change_time": "0",
+	"machine_prepare_compensation_time": "260",
+	"support_fast_purge_mode": "0",
+	"deretract_speed_extruder_change": [
+		"0"
+	],
+	"printer_plugin_config_overrides": "",
+	"type": "machine",
+	"name": "Moron Tridont 0.4",
+	"inherits": "",
+	"from": "User",
+	"is_custom_defined": "0",
+	"version": "2.5.1.0",
+	"printer_settings_id": "Moron Tridont 0.4",
+	"nozzle_diameter": [
+		"0.4"
+	],
+	"min_layer_height": [
+		"0.08"
+	],
+	"max_layer_height": [
+		"0.28"
+	],
+	"print_host": "http://192.168.4.31",
+	"print_host_webui": "http://192.168.4.31:8080",
+	"default_filament_profile": [
+		"Moron Tridont DREMC ASA GF 270-105"
+	],
+	"machine_max_speed_x": [
+		"500",
+		"500"
+	],
+	"machine_max_speed_y": [
+		"500",
+		"500"
+	],
+	"machine_max_speed_z": [
+		"20",
+		"20"
+	],
+	"machine_max_speed_e": [
+		"120",
+		"120"
+	],
+	"machine_max_acceleration_x": [
+		"9000",
+		"9000"
+	],
+	"machine_max_acceleration_y": [
+		"9000",
+		"9000"
+	],
+	"machine_max_acceleration_extruding": [
+		"9000",
+		"9000"
+	],
+	"machine_max_acceleration_travel": [
+		"9000",
+		"9000"
+	],
+	"machine_max_acceleration_z": [
+		"300",
+		"300"
+	],
+	"machine_max_acceleration_e": [
+		"3000",
+		"3000"
+	],
+	"machine_max_acceleration_retracting": [
+		"3000",
+		"3000"
+	]
+}

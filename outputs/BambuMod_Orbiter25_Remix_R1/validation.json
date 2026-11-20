@@ -1,0 +1,138 @@
+{
+  "Primary": {
+    "name": "Primary",
+    "is_valid_brep": true,
+    "solid_count": 1,
+    "volume_mm3": 37727.02,
+    "bbox_upright_mm": {
+      "x": [
+        -29.998,
+        30.0
+      ],
+      "y": [
+        -11.117,
+        32.119
+      ],
+      "z": [
+        -0.0,
+        80.002
+      ]
+    },
+    "datums_mm": {
+      "x_fil_nozzle": -6.335,
+      "x_mot_center": 0.0,
+      "z_mount_plate": 32.6,
+      "z_mot_center": 51.9,
+      "x1c_neck_to_plate_clearance": 1.88,
+      "orbiter_latch_zmax": 79.818,
+      "latch_to_ebb42_r7_clearance": 0.334
+    },
+    "collisions_mm3": {
+      "adapter_vs_x1c_hotend": 0.0,
+      "adapter_vs_orbiter_v25": 0.0,
+      "adapter_vs_orbiter_breakdown": {},
+      "adapter_vs_ebb42_r7": 0.0,
+      "adapter_vs_3010_fan": 0.0,
+      "orbiter_vs_3010_fan": 0.0,
+      "adapter_vs_steel_carriage_plane": 0.0,
+      "new_intrusion_lower_belt_channel": 0.0,
+      "new_intrusion_upper_belt_channel": 0.0
+    },
+    "carriage_m3_shaft_obstruction_mm3": {
+      "low_R": 0.0,
+      "low_L": 0.0,
+      "up_R": 0.0,
+      "up_L": 0.0
+    },
+    "stl": {
+      "stl_path": "outputs\\BambuMod_Orbiter25_Remix_R1\\BambuMod_Orbiter25_Primary_R1.stl",
+      "facets": 20504,
+      "is_solid": true,
+      "has_non_manifolds": false,
+      "volume_mm3": 37734.46,
+      "print_bbox_mm": {
+        "x": [
+          -29.998,
+          30.0
+        ],
+        "y": [
+          -80.002,
+          0.0
+        ],
+        "z": [
+          0.0,
+          43.236
+        ]
+      }
+    },
+    "step_path": "outputs\\BambuMod_Orbiter25_Remix_R1\\BambuMod_Orbiter25_Primary_R1.step"
+  },
+  "Alternate": {
+    "name": "Alternate",
+    "is_valid_brep": true,
+    "solid_count": 1,
+    "volume_mm3": 36933.3,
+    "bbox_upright_mm": {
+      "x": [
+        -29.998,
+        33.5
+      ],
+      "y": [
+        -11.117,
+        32.119
+      ],
+      "z": [
+        -0.0,
+        80.002
+      ]
+    },
+    "datums_mm": {
+      "x_fil_nozzle": 0.0,
+      "x_mot_center": 6.335,
+      "z_mount_plate": 32.0,
+      "z_mot_center": 51.3,
+      "x1c_neck_to_plate_clearance": 1.28,
+      "orbiter_latch_zmax": 79.218,
+      "latch_to_ebb42_r7_clearance": 0.934
+    },
+    "collisions_mm3": {
+      "adapter_vs_x1c_hotend": 0.0,
+      "adapter_vs_orbiter_v25": 0.0,
+      "adapter_vs_orbiter_breakdown": {},
+      "adapter_vs_ebb42_r7": 0.0,
+      "adapter_vs_3010_fan": 0.0,
+      "orbiter_vs_3010_fan": 0.0,
+      "adapter_vs_steel_carriage_plane": 0.0,
+      "new_intrusion_lower_belt_channel": 0.0,
+      "new_intrusion_upper_belt_channel": 0.0
+    },
+    "carriage_m3_shaft_obstruction_mm3": {
+      "low_R": 0.0,
+      "low_L": 0.0,
+      "up_R": 0.0,
+      "up_L": 0.0
+    },
+    "stl": {
+      "stl_path": "outputs\\BambuMod_Orbiter25_Remix_R1\\BambuMod_Orbiter25_Alt_ShiftedMotor_R1.stl",
+      "facets": 14852,
+      "is_solid": true,
+      "has_non_manifolds": false,
+      "volume_mm3": 36941.32,
+      "print_bbox_mm": {
+        "x": [
+          -29.998,
+          33.5
+        ],
+        "y": [
+          -80.002,
+          0.0
+        ],
+        "z": [
+          0.0,
+          43.236
+        ]
+      }
+    },
+    "step_path": "outputs\\BambuMod_Orbiter25_Remix_R1\\BambuMod_Orbiter25_Alt_ShiftedMotor_R1.step"
+  }
+}

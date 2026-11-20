@@ -1,0 +1,40 @@
+{
+  "updated_at": "2026-11-18T16:47:40",
+  "general_note": "",
+  "annotations": [
+    {
+      "id": 1,
+      "part": "Fan_Shroud_Recovered",
+      "point": [
+        24.18,
+        -34.65,
+        3.3
+      ],
+      "text": ""
+    },
+    {
+      "id": 2,
+      "part": "Fan_Shroud_Recovered",
+      "point": [
+        -24.81,
+        -34.66,
+        3.33
+      ],
+      "text": ""
+    }
+  ],
+  "transforms": {},
+  "clip": null,
+  "camera": {
+    "pos": [
+      37.58,
+      184.2,
+      35.34
+    ],
+    "target": [
+      0,
+      -8,
+      32
+    ]
+  }
+}

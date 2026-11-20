@@ -1,0 +1,155 @@
+{
+  "variant": "Primary_R2",
+  "step_valid": true,
+  "step_solids": 1,
+  "volume_mm3": 35996.85,
+  "bbox_upright_mm": {
+    "x": [
+      -29.998,
+      30.0
+    ],
+    "y": [
+      -11.117,
+      32.119
+    ],
+    "z": [
+      -0.0,
+      80.002
+    ]
+  },
+  "datums_mm": {
+    "x_fil": -6.335,
+    "x_mot": 0.0,
+    "z_mount_plate": 32.6,
+    "z_mot_center": 51.9,
+    "rear_y": -11.117,
+    "front_y": -3.881
+  },
+  "collisions_mm3": {
+    "adapter_vs_orbiter_and_motor": 0.0,
+    "adapter_vs_orbiter_m3_bolts": 0.0,
+    "adapter_vs_x1c_hotend": 0.0,
+    "adapter_vs_3010_fan": 0.0,
+    "3010_fan_vs_orbiter": 0.0,
+    "adapter_vs_ebb42_bracket": 0.0,
+    "adapter_vs_steel_carriage_plane": 0.0,
+    "adapter_vs_belt_low": 0.0,
+    "adapter_vs_belt_high": 0.0
+  },
+  "fan_3010_mounting_holes_obstruction_mm3": {
+    "fan_yz_-0.63_10.25": 0.0,
+    "fan_yz_23.37_10.25": 0.0,
+    "fan_yz_-0.63_34.25": 0.0,
+    "fan_yz_23.37_34.25": 0.0
+  },
+  "carriage_holes_blind_verification": {
+    "low_R": {
+      "xz_mm": [
+        -19.0,
+        3.5
+      ],
+      "blind_depth_from_rear_mm": 5.54,
+      "front_skin_thickness_mm": 1.7,
+      "rear_bore_obstruction_mm3": 0.0,
+      "front_skin_solid_fraction": 1.0,
+      "hidden_from_front": true
+    },
+    "low_L": {
+      "xz_mm": [
+        19.0,
+        3.5
+      ],
+      "blind_depth_from_rear_mm": 5.54,
+      "front_skin_thickness_mm": 1.7,
+      "rear_bore_obstruction_mm3": 0.0,
+      "front_skin_solid_fraction": 1.0,
+      "hidden_from_front": true
+    },
+    "mid_R": {
+      "xz_mm": [
+        -21.5,
+        51.0
+      ],
+      "blind_depth_from_rear_mm": 5.54,
+      "front_skin_thickness_mm": 1.7,
+      "rear_bore_obstruction_mm3": 0.0,
+      "front_skin_solid_fraction": 1.0,
+      "hidden_from_front": true
+    },
+    "up_R": {
+      "xz_mm": [
+        -24.0,
+        61.0
+      ],
+      "blind_depth_from_rear_mm": 5.54,
+      "front_skin_thickness_mm": 1.13,
+      "rear_bore_obstruction_mm3": 0.0,
+      "front_skin_solid_fraction": 1.0,
+      "hidden_from_front": true
+    },
+    "up_L_lo": {
+      "xz_mm": [
+        24.0,
+        61.0
+      ],
+      "blind_depth_from_rear_mm": 5.54,
+      "front_skin_thickness_mm": 1.7,
+      "rear_bore_obstruction_mm3": 0.0,
+      "front_skin_solid_fraction": 1.0,
+      "hidden_from_front": true
+    },
+    "up_L_hi": {
+      "xz_mm": [
+        23.7,
+        66.5
+      ],
+      "blind_depth_from_rear_mm": 5.54,
+      "front_skin_thickness_mm": 1.7,
+      "rear_bore_obstruction_mm3": 0.0,
+      "front_skin_solid_fraction": 1.0,
+      "hidden_from_front": true
+    },
+    "top_R_5th": {
+      "xz_mm": [
+        -14.0,
+        71.5
+      ],
+      "blind_depth_from_rear_mm": 5.92,
+      "front_skin_thickness_mm": 1.32,
+      "rear_bore_obstruction_mm3": 0.0,
+      "front_skin_solid_fraction": 1.0,
+      "hidden_from_front": true
+    }
+  },
+  "duct_core_solid_fraction_should_be_zero": {
+    "X_18.5": 0.0,
+    "X_14.0": 0.0,
+    "X_8.0": 0.0,
+    "X_2.5": 0.0,
+    "X_-18.0": 0.0,
+    "X_-25.0": 0.0
+  },
+  "stl": {
+    "file": "BambuMod_Orbiter25_Primary_R2.stl",
+    "facets": 10124,
+    "is_solid": true,
+    "has_non_manifolds": false,
+    "volume_mm3": 36014.83,
+    "bbox_print_bed_mm": {
+      "x": [
+        -29.998,
+        30.0
+      ],
+      "y": [
+        -0.0,
+        80.002
+      ],
+      "z": [
+        0.0,
+        43.236
+      ]
+    },
+    "overhang_gt45deg_mm2": 4784.69,
+    "flat_bridge_gt70deg_mm2": 4638.82
+  }
+}

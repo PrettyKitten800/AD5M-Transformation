@@ -1,0 +1,66 @@
+{
+  "params": {
+    "extruder_hotend_z_shift_mm": -14.65,
+    "motor_circle_diameter_mm": 39.0,
+    "orbiter_flank_clearance_mm": 0.4,
+    "oval_cutout_enabled": true,
+    "oval_z_center_mm": 68.5,
+    "oval_height_mm": 10.0,
+    "oval_width_mm": 22.0,
+    "oval_cut_full_depth": true,
+    "carriage_hole_access_cutouts": false,
+    "duct_sleeve_radius_mm": 4.4,
+    "access_bore_radius_mm": 3.1,
+    "hotend_wire_cutout_extra_x_mm": 7.1,
+    "simplify_hotend_fan_duct": true,
+    "carriage_hex_nut_pockets": true,
+    "carriage_hex_nut_af_mm": 5.6,
+    "lower_rear_flush_extension": true,
+    "show_carriage_mockup": true,
+    "show_reference_parts": true,
+    "export_stl": false
+  },
+  "derived": {
+    "coordinate_convention": "Front = -Y, Back = +Y, Up = +Z (matches FreeCAD Front view)",
+    "z_mot_mm": 37.25,
+    "gray_carriage_bore_z_mm": 37.25,
+    "motor_to_carriage_z_offset_mm": 0.0,
+    "z_mount_mm": 17.95,
+    "z_hotend_screw_mm": 12.57,
+    "nozzle_z_mm": -28.23,
+    "motor_portal_z_span_mm": [
+      17.75,
+      56.75
+    ],
+    "oval_z_span_mm": [
+      63.5,
+      73.5
+    ],
+    "adapter_bbox": {
+      "x": [
+        -30.0,
+        30.0
+      ],
+      "y": [
+        -32.039,
+        11.117
+      ],
+      "z": [
+        -9.15,
+        80.002
+      ]
+    },
+    "adapter_volume_mm3": 38737.56,
+    "adapter_valid": true
+  },
+  "interferences": {
+    "orbiter_vs_adapter_mm3": 0.0,
+    "orbiter_vs_gray_carriage_mm3": 43.961,
+    "hotend_vs_adapter_mm3": 0.0,
+    "fan3010_vs_adapter_mm3": 0.0,
+    "knubs_vs_adapter_mm3": 0.0,
+    "belts_vs_adapter_mm3": 0.0,
+    "ebb42_vs_adapter_mm3": 0.0
+  },
+  "build_seconds": 24.627
+}

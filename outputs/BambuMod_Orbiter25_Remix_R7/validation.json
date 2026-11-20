@@ -1,0 +1,143 @@
+{
+  "variant": "Primary_R7",
+  "derived_from": "Primary_R6",
+  "step_valid": true,
+  "step_solids": 1,
+  "volume_mm3": 38375.68,
+  "delta_volume_vs_r6_mm3": -90.19,
+  "bbox_upright_mm": {
+    "x": [
+      -30.0,
+      30.0
+    ],
+    "y": [
+      -11.167,
+      32.119
+    ],
+    "z": [
+      -0.0,
+      80.002
+    ]
+  },
+  "r7_modifications": {
+    "extruder_mount_holes_matched_diameter_mm": 3.6,
+    "right_extruder_x_mm": -23.85,
+    "right_extruder_ring_solid_fraction_at_r195": 1.0,
+    "left_extruder_x_mm": 13.15,
+    "left_extruder_ring_solid_fraction_at_r195": 1.0,
+    "upper_carriage_boss_radius_mm": 3.6,
+    "upper_carriage_bore_diameter_mm": 4.3,
+    "top_carriage_bed_corner_radius_mm": 3.5,
+    "top_carriage_front_corner_radius_mm": 0.85,
+    "rear_vertical_corner_radius_mm": 1.6,
+    "front_shroud_vertical_corner_radius_mm": 1.8,
+    "shelf_and_fan_top_rim_radius_mm": 1.0,
+    "portal_arch_corner_radius_mm": 1.5
+  },
+  "collisions_mm3": {
+    "adapter_vs_orbiter_and_motor": 0.0,
+    "adapter_vs_orbiter_m3_bolts": 0.0,
+    "adapter_vs_x1c_hotend": 0.0,
+    "adapter_vs_3010_fan": 0.0,
+    "3010_fan_vs_orbiter": 0.0,
+    "adapter_vs_ebb42_bracket": 0.0,
+    "adapter_vs_steel_carriage_plane": 0.0,
+    "adapter_vs_belt_low": 0.0,
+    "adapter_vs_belt_high": 0.0
+  },
+  "ebb42_top_mounting_bores_obstruction_mm3": {
+    "ebb_x_-27": 0.0,
+    "ebb_x_-18": 0.0,
+    "ebb_x_+18": 0.0,
+    "ebb_x_+27": 0.0
+  },
+  "ebb42_outer_wall_margins_mm": {
+    "ebb_x_-27_min_radial_wall_mm": 0.82,
+    "ebb_x_-27_z74_belt_wall_unchanged_mm": 0.65,
+    "ebb_x_+27_min_radial_wall_mm": 0.82,
+    "ebb_x_+27_z74_belt_wall_unchanged_mm": 0.65
+  },
+  "carriage_holes_4_verification": {
+    "low_R": {
+      "xz_mm": [
+        -19.0,
+        3.5
+      ],
+      "bore_diameter_mm": 4.3,
+      "blind_depth_from_rear_mm": 5.54,
+      "rear_bore_obstruction_mm3": 0.0
+    },
+    "low_L": {
+      "xz_mm": [
+        19.0,
+        3.5
+      ],
+      "bore_diameter_mm": 4.3,
+      "blind_depth_from_rear_mm": 5.54,
+      "rear_bore_obstruction_mm3": 0.0
+    },
+    "up_R": {
+      "xz_mm": [
+        -24.0,
+        61.0
+      ],
+      "bore_diameter_mm": 4.3,
+      "blind_depth_from_rear_mm": 5.54,
+      "rear_bore_obstruction_mm3": 0.0,
+      "heatset_insert_zone_360deg_min_wall_mm": 1.4,
+      "bore_tip_non_motor_280deg_min_wall_mm": 1.3,
+      "motor_flange_clearance_note": "Full 360-deg R=3.60 mm boss across Y=-11.12..-6.90 (4.22 mm insert zone); non-motor 280-deg arc reinforced to Y=-4.45 while preserving 0.043 mm NEMA flange ear clearance at +22.6 deg"
+    },
+    "up_L": {
+      "xz_mm": [
+        24.0,
+        61.0
+      ],
+      "bore_diameter_mm": 4.3,
+      "blind_depth_from_rear_mm": 5.54,
+      "rear_bore_obstruction_mm3": 0.0,
+      "min_radial_boss_wall_mm": 1.4
+    }
+  },
+  "hotend_hex_bores_verification": {
+    "left_hotend": {
+      "xz_mm": [
+        -9.76,
+        27.22
+      ],
+      "m3_bore_obstruction_mm3": 0.0
+    },
+    "right_hotend": {
+      "xz_mm": [
+        -2.91,
+        27.22
+      ],
+      "m3_bore_obstruction_mm3": 0.0
+    }
+  },
+  "stl": {
+    "file": "BambuMod_Orbiter25_Primary_R7.stl",
+    "facets": 46810,
+    "is_solid": true,
+    "has_non_manifolds": false,
+    "volume_mm3": 38350.37,
+    "stl_vs_step_volume_rel_diff": 0.000659,
+    "bbox_print_bed_mm": {
+      "x": [
+        -29.998,
+        30.0
+      ],
+      "y": [
+        0.0,
+        80.002
+      ],
+      "z": [
+        0.0,
+        43.236
+      ]
+    },
+    "flat_backplate_bed_contact_mm2": 1952.65,
+    "overhang_gt45deg_mm2": 2633.43,
+    "flat_bridge_gt70deg_mm2": 1867.87
+  }
+}

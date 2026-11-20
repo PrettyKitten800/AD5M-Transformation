@@ -1,0 +1,43 @@
+{
+  "source_model": "Fan_Shroud_Recovered_R8_R3.stl",
+  "simplified_planes": {
+    "left_front_bevel_sum_xy": -63.569,
+    "left_wall_x": -23.69,
+    "right_wall_x": 33.39,
+    "rear_wall_y": -31.65,
+    "bottom_plane_z": -2.788,
+    "right_top_shelf_z": 16.36
+  },
+  "bbox": {
+    "x": [
+      -31.8735,
+      33.3942
+    ],
+    "y": [
+      -49.5939,
+      -11.4009
+    ],
+    "z": [
+      -26.2009,
+      27.6083
+    ]
+  },
+  "nozzle_bed_clearance_mm": 2.029,
+  "volume_mm3": 15145.67,
+  "components": 1,
+  "stl_solid": true,
+  "stl_facets": 26966,
+  "stl_non_manifolds": false,
+  "stl_non_uniform_faces": 0,
+  "stl_self_intersections": true,
+  "interferences": {
+    "shroud_vs_r8_adapter_mm3": 0.0,
+    "shroud_vs_orbiter_mm3": 0.0,
+    "shroud_vs_x1c_hotend_mm3": 0.0,
+    "shroud_vs_3010_fan_mm3": 0.0,
+    "shroud_vs_gray_carriage_mm3": 0.0,
+    "min_dist_to_hotend_mm": 4.599,
+    "min_dist_to_orbiter_mm": 8.782
+  },
+  "build_seconds": 12.396
+}

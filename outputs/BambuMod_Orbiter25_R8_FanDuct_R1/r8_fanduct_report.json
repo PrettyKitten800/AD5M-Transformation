@@ -1,0 +1,50 @@
+{
+  "nozzle_target_display_mm": [
+    6.335,
+    -11.78,
+    -28.23
+  ],
+  "magnet_mounts_display_mm": [
+    [
+      -24.5,
+      -32.14,
+      3.35
+    ],
+    [
+      24.5,
+      -32.14,
+      3.35
+    ]
+  ],
+  "bbox": {
+    "x": [
+      -31.75,
+      31.75
+    ],
+    "y": [
+      -44.24,
+      -6.58
+    ],
+    "z": [
+      -26.23,
+      17.2
+    ]
+  },
+  "nozzle_bed_clearance_mm": 2.0,
+  "volume_mm3": 11243.92,
+  "brep_valid": true,
+  "solid_count": 1,
+  "stl_facets": 6836,
+  "stl_non_manifolds": false,
+  "stl_non_uniform_faces": 0,
+  "interferences": {
+    "duct_vs_r8_adapter_mm3": 0.0,
+    "duct_vs_orbiter_mm3": 0.0,
+    "duct_vs_x1c_hotend_mm3": 0.0,
+    "duct_vs_3010_fan_mm3": 0.0,
+    "duct_vs_gray_carriage_mm3": 0.0,
+    "min_dist_to_hotend_mm": 2.349,
+    "min_dist_to_orbiter_mm": 7.502
+  },
+  "build_seconds": 3.97
+}
