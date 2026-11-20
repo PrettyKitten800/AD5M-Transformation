@@ -27,7 +27,7 @@ All `config/` paths above are inside [`klipper/2026-11-19-kalico/`](klipper/2026
 
 ## Not yet recorded
 
-- **Bed current:** not measured. The 93% cap limits average current; heating in the board's bed MOSFET, fuse and connector follows RMS current, which at 93% duty is about 3.7% above the average. Measuring the bed's cold resistance (power off, meter across the bed leads) gives the on-current (24 V ÷ R) and the exact cap for a chosen limit.
+- **Bed current:** not measured. Octopus Pro BED-OUT is rated 10 A continuous, 12 A maximum (user, 2026-11-20). The 93% cap limits *average* current; during each PWM pulse the full on-current flows, and heating in the board's MOSFET, fuse and connector follows RMS current, which at 93% duty is about 3.7% above the average. Example: a bed drawing 10.75 A when on averages 10.0 A at 93% but runs about 10.4 A RMS. To hold RMS at or under 10 A, `max_power` ≤ (10 ÷ on-current)². Get the on-current by measuring the bed's cold resistance (power off, meter across the bed leads): on-current = supply voltage ÷ resistance. Full duty only lasts through heat-up; at a held temperature the PID duty is lower.
 - **EBB42 bracket on `R8`:** the `R8` CAD was checked against the EBB42 `R7` short-bridge reference, but which bracket is physically mounted is not recorded.
 - **Hotend geometry in CAD:** every clearance check from `R1` to `R8` used the original Bambu X1/P1 hotend STEP in [`reference/Bambu_X1_hotend_CAD/`](reference/Bambu_X1_hotend_CAD/). No TZ 2.0 clone model is in the repository, so treat hotend clearances as nominal.
 
