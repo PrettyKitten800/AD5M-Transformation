@@ -12,6 +12,10 @@ Suggested setup request:
 
 > Prepare this AD5M hardware/CAD project for cloud work. Read README.md and AGENTS.md. Install a native FreeCAD runtime with working FreeCAD, Part and MeshPart Python imports; install requirements-cloud.txt into a compatible Python environment. Test the portable scripts/cad/ workflow on copies of outputs, preserving existing CAD and all historical revisions. Existing sketches/requirements call for rounded exterior edges, sharp hole rims allowed, support-free parts and specific mounting datums. Report any missing dependencies or sources. Do not claim physical fit from CAD. Publish only after the setup works.
 
+## Claude Code cloud environment
+
+Claude Code cloud sessions for this repository use the personal environment **AD5M-Transformation** (created 2026-11-20). It keeps the default package-manager access and adds three hosts for license and documentation lookups: `www.printables.com`, `api.printables.com` and `www.orbiterprojects.com`. The Printables website itself still refuses automated requests (HTTP 403), so look up Printables model details through `api.printables.com/graphql/`. The environment has no setup script; FreeCAD is not installed in it.
+
 ## Current workstation prerequisites
 
 Local GitHub sign-in was renewed successfully and a dry-run push passed on November 8, 2026. Cloud publication and successful remote upload are separate milestones. The in-app browser opened for cloud settings required a separate ChatGPT sign-in. Do not paste credentials into repository files or chat.

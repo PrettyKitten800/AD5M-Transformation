@@ -32,4 +32,4 @@ Mounting is by the two magnet pockets (Ø5.2 mm, at X = ±24.5 mm), as in the or
 
 ## License
 
-Based on Printables model 1404902. Its author and license are not recorded in this repository yet; see the reference folder's `SOURCE.md` and check the Printables page before sharing derivatives.
+Derived from "Adventurer 5M(PRO) Lightweight Toolhead Fan Duct" by **jack magnus** (Printables 1404902, https://www.printables.com/model/1404902), licensed **CC BY-NC-SA**. This shroud carries the same license: keep the credit, no commercial use, share alike. Details in [`reference/AD5M_Lightweight_FanDuct_1404902/SOURCE.md`](../../reference/AD5M_Lightweight_FanDuct_1404902/SOURCE.md).
