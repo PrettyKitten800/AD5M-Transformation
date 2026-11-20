@@ -25,7 +25,7 @@ Read each part's PRINT_AND_FIT.md or PRINT_AND_INSTALL.md. Older output revision
 
 - [Current specification: what is on the printer now](CURRENT_TOOLHEAD_SPEC.md)
 - [Toolhead design journal, November 6–19 (history)](docs/history/TOOLHEAD_SPEC_JOURNAL_2026-11.md)
-- Plans: [Upgrade roadmap](docs/plans/UPGRADE_ROADMAP.md) · [Frame conversion plan (Voron Trident 300×300×300 mm)](docs/plans/FRAME_CONVERSION.md)
+- Plans: [Upgrade roadmap](docs/plans/UPGRADE_ROADMAP.md) · [Frame conversion plan (Voron Trident 300×300×300 mm)](docs/plans/FRAME_CONVERSION.md) · [Storage and agent access plan](docs/plans/STORAGE_AND_AGENT_ACCESS_PLAN.md)
 - History (superseded hardware; read the banner at the top of each): [Build sequence](docs/history/BUILD_SEQUENCE.md) · [Toolhead-first plan](docs/history/TOOLHEAD_FIRST.md) · [Start-here handoff](docs/history/START_HERE_AD5M.txt) · [Rebuild handoff](docs/history/AD5M_REBUILD_HANDOFF.txt) · [Controller options, Nov 2](docs/history/BTT_CONTROLLER_OPTIONS_2026-11-02.md) · [Nov 2 handoff package](docs/history/AD5M_HANDOFF_2026-11-02/)
 - [Working instructions and physical test status](AGENTS.md)
 - [Cloud setup and remaining connection steps](CLOUD_SETUP.md)
