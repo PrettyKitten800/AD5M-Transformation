@@ -50,4 +50,4 @@ Every `build_<part>_R<n>.py` script must verify and write `validation.json` (or 
 2. View the generated PNGs to confirm exterior fillets, sharp hole rims, and support-free print orientation.
 3. Add `PRINT_AND_FIT.md` (or `PRINT_AND_INSTALL.md`) in the new output folder including CC BY-NC-SA 4.0 attribution where derived from BambuMod (`Kirill_Wawe`, Printables 1574762).
 4. **Never claim a CAD check proves physical fit:** Explicitly note that stock feeder/motor, bearing carriage, cables, and frame travel are absent from the supplied housing CAD.
-5. Update `CURRENT_TOOLHEAD_SPEC.md`, `README.md`, `outputs/INDEX.md`, and `AGENTS.md`.
+5. Add the revision to `outputs/INDEX.md`. Update `CURRENT_TOOLHEAD_SPEC.md` and the short status lists in `README.md` and `AGENTS.md` only when the installed hardware or physical fit feedback changes (AGENTS.md rule 4).
