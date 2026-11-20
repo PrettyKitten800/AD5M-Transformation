@@ -17,17 +17,17 @@ This page records **what is physically on the printer now**. When hardware chang
 | Toolboard | **BTT EBB42 V1.2.1** (original family, not Gen2), STM32G0B1, CAN 1 Mbps, MCU name `head` | `config/printer.cfg` |
 | Mainboard | **BTT Octopus Pro V1.1** (STM32H723), Kalico USB-to-CAN bridge on `can0` at 1 Mbps | `config/printer.cfg`, `firmware-build-configs/README.md` |
 | Bed probe | **BTT Eddy Duo on CAN** (MCU name `eddy`), eddy-ng `[probe_eddy_ng btt_eddy]`, `x_offset: 28.7`, `y_offset: 0` (coil 28.7 mm right of the nozzle) | `config/eddy-duo.cfg` |
+| Probe mount | **Eddy Duo adjustable side mount `R4`**: [`outputs/Eddy_Duo_adjustable_side_mount_R4/`](outputs/Eddy_Duo_adjustable_side_mount_R4/). Board rotated 180° (long end toward the nozzle) on 2026-11-11, which moved the coil from 44 to 35 mm right of the old nozzle; the 2026-11-18 nozzle shift made it 28.7 mm. | User, 2026-11-20; `eddy-duo.cfg` history |
 | Firmware | **Kalico** `v2026.11.00-73-gfb4e09bc` + **eddy-ng** `v0.1-188-ga09ec8e` on all three MCUs; `limited_corexy` kinematics; replaced mainline Klipper `0cee841e3` on 2026-11-19 | [`klipper/2026-11-19-kalico/`](klipper/2026-11-19-kalico/) |
 | Host | **Intel Linux PC** (`CurbyServer`); the Raspberry Pi 5 is retired | User, 2026-11-20 |
-| Bed heater | **Unconfirmed wiring.** The live config drives the bed from Octopus **BED-OUT (`PA1`)**, commented "Direct Octopus Pro BED-OUT checkout at reduced duty cycle", PID control, `max_power: 0.93` (the BED-OUT path has been in the config since 2026-11-04). The R5 wiring plan instead routes the bed through an external ReliaBot MOSFET controlled from `HE0` (`PA0`). Bed thermistor on `TB` (`PF3`). | `config/bed-heater-check.cfg`; [`outputs/AD5M_HE0_wiring_R5/`](outputs/AD5M_HE0_wiring_R5/) |
+| Bed heater | **Wired directly to the Octopus Pro BED-OUT output (`PA1`)** (user-confirmed 2026-11-20). PID control with `max_power: 0.93`, set so bed current stays under 10 A at full output. The external ReliaBot MOSFET from the R5 wiring plan (`HE0`/`PA0`) is not installed. Bed thermistor on `TB` (`PF3`). | User, 2026-11-20; `config/bed-heater-check.cfg` |
 | Slicer | OrcaSlicer bundle `Moron_Tridont_04_Corrected.orca_printer` (Sunlu ABS 260 °C / 100 °C, 20 mm³/s, PA 0.02) | [`klipper/2026-11-19/config/slicer-presets/`](klipper/2026-11-19/config/slicer-presets/) |
 
 All `config/` paths above are inside [`klipper/2026-11-19-kalico/`](klipper/2026-11-19-kalico/).
 
 ## Not yet recorded
 
-- **Bed heater wiring:** trace the bed leads and record whether they go to BED-OUT or to the ReliaBot MOSFET. Do not change `heater_pin` until this is known. If the bed runs straight off BED-OUT, measure the bed's resistance and compare its current with BTT's BED-OUT rating before raising `max_power`.
-- **Which printed part holds the Eddy Duo:** the mounting itself has not moved since the 2026-11-11 remount (board rotated 180°, long end toward the nozzle, coil 35 mm right of the old nozzle). The current `x_offset: 28.7` is that same position measured from the shifted nozzle: 35 − 6.3 = 28.7. The config does not name the bracket, so it is not tied to a design in `outputs/`.
+- **Bed current:** not measured. The 93% cap limits average current; heating in the board's bed MOSFET, fuse and connector follows RMS current, which at 93% duty is about 3.7% above the average. Measuring the bed's cold resistance (power off, meter across the bed leads) gives the on-current (24 V ÷ R) and the exact cap for a chosen limit.
 - **EBB42 bracket on `R8`:** the `R8` CAD was checked against the EBB42 `R7` short-bridge reference, but which bracket is physically mounted is not recorded.
 - **Hotend geometry in CAD:** every clearance check from `R1` to `R8` used the original Bambu X1/P1 hotend STEP in [`reference/Bambu_X1_hotend_CAD/`](reference/Bambu_X1_hotend_CAD/). No TZ 2.0 clone model is in the repository, so treat hotend clearances as nominal.
 

@@ -10,16 +10,16 @@ Update this table whenever the user reports a print, fit or install result. A CA
 
 | Part | Folder | Physical status (as recorded) | Still to confirm |
 | --- | --- | --- | --- |
-| BambuMod × Orbiter v2.5 adapter `R8` | [`BambuMod_Orbiter25_Remix_R8/`](BambuMod_Orbiter25_Remix_R8/) | **Installed** (user, 2026-11-20) | Print material/settings; which EBB42 and Eddy brackets are mounted on it |
+| BambuMod × Orbiter v2.5 adapter `R8` | [`BambuMod_Orbiter25_Remix_R8/`](BambuMod_Orbiter25_Remix_R8/) | **Installed** (user, 2026-11-20) | Print material/settings; which EBB42 bracket is mounted on it |
 | Recovered 1404902 fan shroud `R4` | [`BambuMod_Orbiter25_R8_FanDuct_1404902_R4/`](BambuMod_Orbiter25_R8_FanDuct_1404902_R4/) | **Installed** on `R8`, Z height adjusted (user, 2026-11-19) | Print material/settings |
 | EBB42 uniform-posts bracket `R7` | [`EBB42_uniform_posts_R7/`](EBB42_uniform_posts_R7/) | Not confirmed printed. Its predecessor `R5` was printed and judged usable. `R8` CAD was checked against this bracket. | Whether this is the bracket on the printer |
 | EBB42 simple wedge `R6` | [`EBB42_simple_wedge_R6/`](EBB42_simple_wedge_R6/) | User said it was printing; installation not confirmed | Whether it is installed (needs ~4 mm M3 spacers behind the PCB) |
-| Eddy Duo adjustable side mount `R4` | [`Eddy_Duo_adjustable_side_mount_R4/`](Eddy_Duo_adjustable_side_mount_R4/) | Not confirmed printed | Which bracket has held the Eddy since the 2026-11-11 remount (coil 35 mm right of the old nozzle, 28.7 mm of the current one) |
+| Eddy Duo adjustable side mount `R4` | [`Eddy_Duo_adjustable_side_mount_R4/`](Eddy_Duo_adjustable_side_mount_R4/) | **Installed** (user, 2026-11-20). Board rotated 180° on 2026-11-11; coil 28.7 mm right of the current nozzle | Print material/settings |
 | Custom housing + inline Eddy mount `R1` | [`AD5M_custom_toolhead_inline_eddy_R1/`](AD5M_custom_toolhead_inline_eddy_R1/) | Untested; designed around the stock feeder/motor, which the Orbiter has since replaced | — |
 
 ## 1. Installed and Current Printable Designs
 
-**Installed on the printer (user-confirmed 2026-11-20):** [`BambuMod_Orbiter25_Remix_R8/`](BambuMod_Orbiter25_Remix_R8/) housing with the [`BambuMod_Orbiter25_R8_FanDuct_1404902_R4/`](BambuMod_Orbiter25_R8_FanDuct_1404902_R4/) shroud (details in section 4). The full installed-hardware table is in [`CURRENT_TOOLHEAD_SPEC.md`](../CURRENT_TOOLHEAD_SPEC.md). Which EBB42 bracket and Eddy Duo mount sit on `R8` is not recorded yet.
+**Installed on the printer (user-confirmed 2026-11-20):** [`BambuMod_Orbiter25_Remix_R8/`](BambuMod_Orbiter25_Remix_R8/) housing with the [`BambuMod_Orbiter25_R8_FanDuct_1404902_R4/`](BambuMod_Orbiter25_R8_FanDuct_1404902_R4/) shroud (details in section 4). The full installed-hardware table is in [`CURRENT_TOOLHEAD_SPEC.md`](../CURRENT_TOOLHEAD_SPEC.md). The Eddy Duo is held by the adjustable side mount [`Eddy_Duo_adjustable_side_mount_R4/`](Eddy_Duo_adjustable_side_mount_R4/). Which EBB42 bracket is mounted is not recorded yet.
 
 Other current designs (not confirmed installed):
 
@@ -35,7 +35,7 @@ Other current designs (not confirmed installed):
 | Directory | Contents |
 | --- | --- |
 | [`flashing_2026-11-03/`](flashing_2026-11-03/) | Confirmed Octopus Pro V1.1 (STM32H723ZET6) DFU flash verification, Klipper USB-to-CAN bridge build record, and Windows USB enumeration |
-| [`AD5M_HE0_wiring_R5/`](AD5M_HE0_wiring_R5/) | Octopus Pro + external ReliaBot MOSFET power/control wiring **plan** using `HE0` (`PA0`). The live config drives the bed from BED-OUT (`PA1`) instead; which is physically wired is unconfirmed (see `CURRENT_TOOLHEAD_SPEC.md`). |
+| [`AD5M_HE0_wiring_R5/`](AD5M_HE0_wiring_R5/) | Octopus Pro + external ReliaBot MOSFET power/control wiring **plan** using `HE0` (`PA0`). **Not installed:** the bed is wired directly to Octopus BED-OUT (`PA1`) with a 93% power cap (user-confirmed 2026-11-20). The rest of the power plan still describes the build. |
 | [`bambumod_inspection/`](bambumod_inspection/) | CAD solid validation and bounding-box inspection of the installed BambuMod housing |
 | [`Custom_toolhead_reference_R1/`](Custom_toolhead_reference_R1/) | Nominal Bambu X1C nozzle tip (`Z=0`) to Eddy Duo sensing bottom (`Z=2.5 mm`) alignment reference (`Nozzle_Eddy_nominal_alignment.FCStd`) |
 | [`ebb42_mockup/`](ebb42_mockup/) | EBB42 V1.1 STEP reference (`EBB42_CAN_V1.1_reference.step`) and pre-tessellated `board.json` / `housing.json` used by `scripts/cad/` |
