@@ -35,7 +35,7 @@ Other current designs (not confirmed installed):
 | Directory | Contents |
 | --- | --- |
 | [`flashing_2026-11-03/`](flashing_2026-11-03/) | Confirmed Octopus Pro V1.1 (STM32H723ZET6) DFU flash verification, Klipper USB-to-CAN bridge build record, and Windows USB enumeration |
-| [`AD5M_HE0_wiring_R5/`](AD5M_HE0_wiring_R5/) | Current Octopus Pro + external ReliaBot MOSFET power/control wiring plan using `HE0` (`PA0`) |
+| [`AD5M_HE0_wiring_R5/`](AD5M_HE0_wiring_R5/) | Octopus Pro + external ReliaBot MOSFET power/control wiring **plan** using `HE0` (`PA0`). The live config drives the bed from BED-OUT (`PA1`) instead; which is physically wired is unconfirmed (see `CURRENT_TOOLHEAD_SPEC.md`). |
 | [`bambumod_inspection/`](bambumod_inspection/) | CAD solid validation and bounding-box inspection of the installed BambuMod housing |
 | [`Custom_toolhead_reference_R1/`](Custom_toolhead_reference_R1/) | Nominal Bambu X1C nozzle tip (`Z=0`) to Eddy Duo sensing bottom (`Z=2.5 mm`) alignment reference (`Nozzle_Eddy_nominal_alignment.FCStd`) |
 | [`ebb42_mockup/`](ebb42_mockup/) | EBB42 V1.1 STEP reference (`EBB42_CAN_V1.1_reference.step`) and pre-tessellated `board.json` / `housing.json` used by `scripts/cad/` |
