@@ -12,6 +12,8 @@ This page records **what is physically on the printer now**. When hardware chang
 | Part-cooling shroud | **Recovered Printables `1404902` shroud `R4`**: [`outputs/BambuMod_Orbiter25_R8_FanDuct_1404902_R4/`](outputs/BambuMod_Orbiter25_R8_FanDuct_1404902_R4/) (`Fan_Shroud_Recovered_PrintPose_R4.stl`); Z-height adjusted on the printer | User, 2026-11-19 and 2026-11-20 |
 | Extruder | **Orbiter v2.5 + LDO-36STH20-1004AHG** on the EBB42 driver: `rotation_distance: 4.69`, `run_current: 0.85`, 120 mm/s / 3000 mm/s² extrude-only limits | `config/extruder.cfg` |
 | Hotend | **TZ 2.0 clone** (Bambu X1C-style mount), 0.4 mm nozzle, `Generic 3950` thermistor, heater on EBB42 `PB13`, Kalico MPC control (`heater_power: 48`) | User, 2026-11-20; `config/extruder.cfg` |
+| Hotend position | **Nozzle sits 6.335 mm right of the toolhead centerline** so the Orbiter v2.5 motor can stay centered (`R8` datum `X_fil = -6.335`, `X_mot = 0`). Shifted on 2026-11-18. | User, 2026-11-20; `R2`–`R8` design notes |
+| Travel limits | X `-3.7 .. 219.7` (endstop `219.7`), both moved +6.3 mm from `-10 .. 213.4` to follow the nozzle shift; Y `5 .. 220` (user-measured front limit Y5). OrcaSlicer printable area matches: `0x5, 219.7x5, 219.7x220, 0x220`. | `config/motion-check.cfg`; `Moron_Tridont_Printer_04.json` |
 | Toolboard | **BTT EBB42 V1.2.1** (original family, not Gen2), STM32G0B1, CAN 1 Mbps, MCU name `head` | `config/printer.cfg` |
 | Mainboard | **BTT Octopus Pro V1.1** (STM32H723), Kalico USB-to-CAN bridge on `can0` at 1 Mbps | `config/printer.cfg`, `firmware-build-configs/README.md` |
 | Bed probe | **BTT Eddy Duo on CAN** (MCU name `eddy`), eddy-ng `[probe_eddy_ng btt_eddy]`, `x_offset: 28.7`, `y_offset: 0` (coil 28.7 mm right of the nozzle) | `config/eddy-duo.cfg` |
@@ -24,7 +26,7 @@ All `config/` paths above are inside [`klipper/2026-11-19-kalico/`](klipper/2026
 
 ## Not yet recorded
 
-- **Eddy Duo mount on `R8`:** the configured offset (28.7 mm right, 0 mm fore/aft) does not match any mount design in `outputs/`. The side mount `R4` was about 44 mm, the inline mount `R1` is 0 mm, and the dropped Dragon Burner pocket was 0 / 35 mm. Record which mount is installed.
+- **Which printed part holds the Eddy Duo:** the mounting itself has not moved since the 2026-11-11 remount (board rotated 180°, long end toward the nozzle, coil 35 mm right of the old nozzle). The current `x_offset: 28.7` is that same position measured from the shifted nozzle: 35 − 6.3 = 28.7. The config does not name the bracket, so it is not tied to a design in `outputs/`.
 - **EBB42 bracket on `R8`:** the `R8` CAD was checked against the EBB42 `R7` short-bridge reference, but which bracket is physically mounted is not recorded.
 - **Hotend geometry in CAD:** every clearance check from `R1` to `R8` used the original Bambu X1/P1 hotend STEP in [`reference/Bambu_X1_hotend_CAD/`](reference/Bambu_X1_hotend_CAD/). No TZ 2.0 clone model is in the repository, so treat hotend clearances as nominal.
 

@@ -1,6 +1,6 @@
 # The Moron Tridont Project — Working Instructions
 
-Read README.md and CURRENT_TOOLHEAD_SPEC.md before changing designs. The table in CURRENT_TOOLHEAD_SPEC.md is the record of what is physically installed. As of 2026-11-20 that is the `R8` BambuMod × Orbiter v2.5 housing with the `R4` fan shroud, Orbiter v2.5 + LDO extruder, a TZ 2.0 clone hotend (X1C-style mount), EBB42 V1.2.1 and Eddy Duo both on CAN, and Kalico + eddy-ng on an Intel host. EBB42 V1.2.1 is confirmed; do not revert to EBB36 or Gen2. The Dragon Burner path is dropped.
+Read README.md and CURRENT_TOOLHEAD_SPEC.md before changing designs. The table in CURRENT_TOOLHEAD_SPEC.md is the record of what is physically installed. As of 2026-11-20 that is the `R8` BambuMod × Orbiter v2.5 housing with the `R4` fan shroud, Orbiter v2.5 + LDO extruder, a TZ 2.0 clone hotend (X1C-style mount) whose nozzle sits 6.335 mm right of the toolhead centerline so the Orbiter motor stays centered (Klipper X limits already shifted +6.3 mm to match), EBB42 V1.2.1 and Eddy Duo both on CAN, and Kalico + eddy-ng on an Intel host. EBB42 V1.2.1 is confirmed; do not revert to EBB36 or Gen2. The Dragon Burner path is dropped.
 
 ## Current designs and physical feedback
 - **Installed on the printer (user-confirmed 2026-11-20):** `R8` housing (`outputs/BambuMod_Orbiter25_Remix_R8/`) with the recovered `1404902` fan shroud `R4` (`outputs/BambuMod_Orbiter25_R8_FanDuct_1404902_R4/`). Which Eddy Duo mount and which EBB42 bracket sit on `R8` is not recorded yet; see CURRENT_TOOLHEAD_SPEC.md.
