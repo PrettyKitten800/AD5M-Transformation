@@ -48,6 +48,21 @@ Large downloaded upstream archives/checkouts and machine-specific flash backups 
 
 Per-revision details for every part (including the BambuMod × Orbiter `R1`–`R8` line) are in [outputs/INDEX.md](outputs/INDEX.md) and each folder's `PRINT_AND_FIT.md`.
 
+## GitHub and Google Drive
+
+GitHub (this repository) is the source of truth for text, printer configs, scripts and CAD revisions. The private Google Drive folder **3D Printing → 1 - The Moron Tridont Project** holds what does not belong in a public repository or that NotebookLM reads:
+
+| Drive subfolder | Contents |
+| --- | --- |
+| `NotebookLM sources` | Master Spec Google Doc plus BTT, Eddy and AD5M frame PDFs: the files NotebookLM can read |
+| `Current printables` | The installed fan shroud STL (same file as `outputs/BambuMod_Orbiter25_R8_FanDuct_1404902_R4/Fan_Shroud_Recovered_PrintPose_R4.stl`) and the OrcaSlicer printer bundle |
+| `CAD references` | Large upstream STEP files (Orbiter v2.5, O2Flow, Bambu X1/P1 hotend); `Dropped - Dragon Burner/` holds the abandoned path |
+| `Klipper configuration snapshots` | Zipped copies of each `klipper/` snapshot with its README |
+| `Backups (PRIVATE)` | Full host and Kalico archives with databases, firmware images and unredacted paths. Never commit these or share the folder. |
+| `Photos` | Carriage measurement photos and test-print photos |
+
+Each Drive snapshot zip should also be committed here in sanitized form (AGENTS.md rule 5). Other printers' references are in **3D Printing → 2 - Voron Trident & Other Printers**.
+
 ## Attribution
 
 This repository contains mixed original and third-party content. Preserve each source's license and attribution. BambuMod-derived brackets retain the stated CC BY-NC-SA 4.0 attribution in their installation notes. The Jorge hotend is an unchanged reference with its own source/license. Do not apply a blanket license to upstream material.
