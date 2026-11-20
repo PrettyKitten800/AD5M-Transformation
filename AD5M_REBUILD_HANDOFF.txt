@@ -1,4 +1,4 @@
-> **Historical handoff notice — November 2026:** This November 2, 2026 handoff is retained as build history. Confirmed current hardware is **BTT Octopus Pro V1.1 (STM32H723ZET6, flashed with Klipper USB-to-CAN bridge on Nov 3)**, **BTT EBB42 V1.2.1** (replacing EBB36), **Bambu X1C hotend** in the installed **BambuMod** housing, and **Eddy Duo** over USB. Read `AGENTS.md` and `CURRENT_TOOLHEAD_SPEC.md` first.
+> **Historical handoff notice — November 2026:** This November 2, 2026 handoff is retained as build history. Confirmed current hardware is **BTT Octopus Pro V1.1 (STM32H723ZET6, flashed with Klipper USB-to-CAN bridge on Nov 3)**, **BTT EBB42 V1.2.1** (replacing EBB36), **TZ 2.0 clone hotend** and **Orbiter v2.5 + LDO** extruder in the installed **`R8` BambuMod × Orbiter** housing, **Eddy Duo** on CAN, and **Kalico + eddy-ng** on an Intel host (updated 2026-11-20). Read `AGENTS.md` and `CURRENT_TOOLHEAD_SPEC.md` first.
 
 CONSOLIDATED EDITION 2 — RESTART PACKAGE
 This full handoff is accompanied by START_HERE.txt, CURRENT_BUILD_STATE.json, and portable copies of the selected diagrams, CAD and photos in AD5M_HANDOFF_2026-11-02/.
