@@ -41,7 +41,7 @@ These are kept in the repository as history only. Do not design against them or 
 - **Eddy Duo over USB:** moved to CAN on 2026-11-15 (see the `eddy-duo.cfg.pre-can-20261115-225700` backup in `klipper/2026-11-17/config/`).
 - **Raspberry Pi 5 host:** replaced by the Intel host.
 - **Mainline Klipper:** replaced by Kalico + eddy-ng.
-- **EBB36, EBB42 Gen2 and Manta M8P V2:** never part of the current build. Their notes are planning history.
+- **EBB36 V1.2.1:** assembled and flashed in early November, then replaced by the EBB42 V1.2.1. **EBB42 Gen2 and Manta M8P V2:** considered, not used in this build. Their notes are history.
 
 ## Standing rules
 

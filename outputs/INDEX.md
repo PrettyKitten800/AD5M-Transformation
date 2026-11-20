@@ -26,7 +26,7 @@ Other current designs (not confirmed installed):
 | [`bambumod_inspection/`](bambumod_inspection/) | CAD solid validation and bounding-box inspection of the installed BambuMod housing |
 | [`Custom_toolhead_reference_R1/`](Custom_toolhead_reference_R1/) | Nominal Bambu X1C nozzle tip (`Z=0`) to Eddy Duo sensing bottom (`Z=2.5 mm`) alignment reference (`Nozzle_Eddy_nominal_alignment.FCStd`) |
 | [`ebb42_mockup/`](ebb42_mockup/) | EBB42 V1.1 STEP reference (`EBB42_CAN_V1.1_reference.step`) and pre-tessellated `board.json` / `housing.json` used by `scripts/cad/` |
-| [`eddy_reference/`](eddy_reference/) | Reference mesh and dimensions for Eddy Duo |
+| [`eddy_reference/`](eddy_reference/) | BTT reference images: Eddy manual page 10 (Eddy Coil to EBB36/EBB42 over I2C) and Eddy Duo / EBB42 connection images |
 | [`extruder_review_2026-11-06/`](extruder_review_2026-11-06/) | Extruder evaluation notes (baseline remains stock AD5M feeder + motor) |
 
 ## 3. Superseded / Historical Revisions (Retained for Provenance)
