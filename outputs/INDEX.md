@@ -10,16 +10,16 @@ Update this table whenever the user reports a print, fit or install result. A CA
 
 | Part | Folder | Physical status (as recorded) | Still to confirm |
 | --- | --- | --- | --- |
-| BambuMod × Orbiter v2.5 adapter `R8` | [`BambuMod_Orbiter25_Remix_R8/`](BambuMod_Orbiter25_Remix_R8/) | **Installed** (user, 2026-11-20) | Print material/settings; which EBB42 bracket is mounted on it |
+| BambuMod × Orbiter v2.5 adapter `R8` | [`BambuMod_Orbiter25_Remix_R8/`](BambuMod_Orbiter25_Remix_R8/) | **Installed** (user, 2026-11-20) | Print material/settings; an EBB42 bracket for it still needs designing |
 | Recovered 1404902 fan shroud `R4` | [`BambuMod_Orbiter25_R8_FanDuct_1404902_R4/`](BambuMod_Orbiter25_R8_FanDuct_1404902_R4/) | **Installed** on `R8`, Z height adjusted (user, 2026-11-19); printed in green ABS | Print settings |
-| EBB42 uniform-posts bracket `R7` | [`EBB42_uniform_posts_R7/`](EBB42_uniform_posts_R7/) | Not confirmed printed. Its predecessor `R5` was printed and judged usable. `R8` CAD was checked against this bracket. | Whether this is the bracket on the printer |
-| EBB42 simple wedge `R6` | [`EBB42_simple_wedge_R6/`](EBB42_simple_wedge_R6/) | User said it was printing; installation not confirmed | Whether it is installed (needs ~4 mm M3 spacers behind the PCB) |
+| EBB42 uniform-posts bracket `R7` | [`EBB42_uniform_posts_R7/`](EBB42_uniform_posts_R7/) | **Not installed.** The EBB42 currently hangs on a front carriage screw with no bracket (user, 2026-11-20). Its predecessor `R5` was printed and judged usable; `R8` CAD was checked against this bracket. | A bracket designed for `R8` |
+| EBB42 simple wedge `R6` | [`EBB42_simple_wedge_R6/`](EBB42_simple_wedge_R6/) | **Not installed** (user said it was printing; it is not on the printer as of 2026-11-20) | — |
 | Eddy Duo adjustable side mount `R4` | [`Eddy_Duo_adjustable_side_mount_R4/`](Eddy_Duo_adjustable_side_mount_R4/) | **Installed** (user, 2026-11-20). Board rotated 180° on 2026-11-11; coil 28.7 mm right of the current nozzle | Print material/settings |
 | Custom housing + inline Eddy mount `R1` | [`AD5M_custom_toolhead_inline_eddy_R1/`](AD5M_custom_toolhead_inline_eddy_R1/) | Untested; designed around the stock feeder/motor, which the Orbiter has since replaced | — |
 
 ## 1. Installed and Current Printable Designs
 
-**Installed on the printer (user-confirmed 2026-11-20):** [`BambuMod_Orbiter25_Remix_R8/`](BambuMod_Orbiter25_Remix_R8/) housing with the [`BambuMod_Orbiter25_R8_FanDuct_1404902_R4/`](BambuMod_Orbiter25_R8_FanDuct_1404902_R4/) shroud (details in section 4). The full installed-hardware table is in [`CURRENT_TOOLHEAD_SPEC.md`](../CURRENT_TOOLHEAD_SPEC.md). The Eddy Duo is held by the adjustable side mount [`Eddy_Duo_adjustable_side_mount_R4/`](Eddy_Duo_adjustable_side_mount_R4/). Which EBB42 bracket is mounted is not recorded yet.
+**Installed on the printer (user-confirmed 2026-11-20):** [`BambuMod_Orbiter25_Remix_R8/`](BambuMod_Orbiter25_Remix_R8/) housing with the [`BambuMod_Orbiter25_R8_FanDuct_1404902_R4/`](BambuMod_Orbiter25_R8_FanDuct_1404902_R4/) shroud (details in section 4). The full installed-hardware table is in [`CURRENT_TOOLHEAD_SPEC.md`](../CURRENT_TOOLHEAD_SPEC.md). The Eddy Duo is held by the adjustable side mount [`Eddy_Duo_adjustable_side_mount_R4/`](Eddy_Duo_adjustable_side_mount_R4/). The EBB42 has no bracket yet: it hangs on one of the front screws that hold the carriage to the toolhead (user, 2026-11-20).
 
 Other current designs (not confirmed installed):
 
