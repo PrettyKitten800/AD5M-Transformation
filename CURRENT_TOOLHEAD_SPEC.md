@@ -36,6 +36,8 @@ All `config/` paths above are inside [`klipper/2026-11-19-kalico/`](klipper/2026
 These are kept in the repository as history only. Do not design against them or restore them without a new user decision.
 
 - **Dragon Burner v8 path: dropped** (user, 2026-11-20). Kept for reference: `outputs/Dragon_Burner_AD5M_Eddy_Adapter_R1/`, `outputs/Dragon_Burner_AD5M_Slim_15mm_R1/`, `outputs/Dragon_Burner_AD5M_Slim_20mm_R1/`, `reference/Dragon_Burner_v8_STLs/`, `reference/AD5M_Dragon_Burner_Adapter_1406257/`, and the `scripts/cad/*dragon_burner*` builders.
+- **Inline Eddy toolhead `R1`: rejected** (user, 2026-11-11). It only works without the part-cooling fan. Rule: any probe or duct layout must keep the part-cooling blower and a working duct. The follow-up [`outputs/AD5M_toolhead_R2/`](outputs/AD5M_toolhead_R2/) was never printed.
+- **Eddy wraparound drilling locator (shipped with side mounts `R3`/`R4`): do not use.** It collides with the gantry rods/belts (user report). The mounting plate itself fits; [`outputs/Eddy_Duo_nonwrap_marking_guides_R5/`](outputs/Eddy_Duo_nonwrap_marking_guides_R5/) holds the replacement marking buttons.
 - **Original BambuMod housing (Printables 1574762):** replaced on the printer by the `R8` remix. [`reference/BambuMod/`](reference/BambuMod/) remains the source geometry and license record.
 - **Stock AD5M feeder and motor:** replaced by the Orbiter v2.5 + LDO.
 - **Bambu X1C hotend** named in earlier records: the installed hotend is a TZ 2.0 clone.

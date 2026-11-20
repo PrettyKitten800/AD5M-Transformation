@@ -1,3 +1,5 @@
+> **REJECTED — November 11, 2026:** User reports incompatibility with the stock part-cooling fan. Do not test-print this revision as a usable toolhead. See REJECTED_FAN_INTERFERENCE.md.
+
 # R1 — Custom AD5M Bambu X1C Toolhead Housing & Inline (`x_offset = 0`) Eddy Duo Mount
 
 ## Overview

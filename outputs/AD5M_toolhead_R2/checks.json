@@ -1,0 +1,60 @@
+{
+  "valid_housing_solids": 1,
+  "housing_valid": true,
+  "pilot_solid_envelope_fractions": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "anchor_z_mm": [
+    8.21775,
+    28.21775
+  ],
+  "pilot_diameter_mm": 2.5,
+  "nominal_pilot_depth_mm": 4.02,
+  "removed_material_mm3": 131.39,
+  "material_added_mm3": 0,
+  "housing_cradle_intersection_mm3": 0.0,
+  "housing_hotend_intersection_mm3": 0.0,
+  "housing_3010_frame_envelope_overlap_mm3": 2e-05,
+  "blower_envelope_cradle_overlap_mm3": 0.0,
+  "3010_envelope_cradle_overlap_mm3": 0.0,
+  "eddy_case_to_duct_y_gap_mm": 7.071,
+  "coil_case_midpoint_offset_magnitude_y_mm": 52.27,
+  "frontmost_case_relative_to_nozzle_y_mm": 61.42,
+  "duct_lowest_relative_to_nozzle_mm": -1.12,
+  "eddy_lowest_relative_to_nozzle_mm": 2.5,
+  "candidate_duct_sha256": "41e1e82248c0321d7e0ef2c616797836d5a5b04ae0e593ed0f725c3393d39055",
+  "note": "See front cradle / candidate duct triangle contact and section separation checks. Duct and blower are provisional. Stock feeder/carriage and frame travel are unmeasured.",
+  "front_cradle_vs_candidate_duct": {
+    "triangle_contacts": 0
+  },
+  "eddy_vs_candidate_duct": {
+    "triangle_contacts": 0
+  },
+  "hotend_vs_candidate_duct": {
+    "triangle_contacts": 0
+  },
+  "front_cradle_vs_blower_envelope": {
+    "triangle_contacts": 0
+  },
+  "minimum_cradle_duct_gap_bound_mm": 2.0,
+  "case_forward_of_shroud_mm": 25.37,
+  "mesh_checks": {
+    "Housing_R2.stl": {
+      "boundary_or_nonmanifold_edges": 0,
+      "components": 1,
+      "watertight": true,
+      "winding_consistent": true,
+      "positive_volume": true
+    },
+    "Front_cradle_R2.stl": {
+      "boundary_or_nonmanifold_edges": 0,
+      "components": 1,
+      "watertight": true,
+      "winding_consistent": true,
+      "positive_volume": true
+    }
+  }
+}
