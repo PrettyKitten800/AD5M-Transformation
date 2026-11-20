@@ -26,9 +26,9 @@ Mounting is by the two magnet pockets (Ø5.2 mm, at X = ±24.5 mm), as in the or
 - 0.0 mm³ overlap with the `R8` adapter, Orbiter, X1C hotend reference, 3010 fan and carriage mock-up. Minimum gap 4.60 mm to the hotend and 8.78 mm to the Orbiter.
 - CAD nozzle-to-bed clearance 2.03 mm, measured against the X1C reference nozzle. The real clearance is set by the installed TZ 2.0 clone and the Z-height adjustment made on the printer.
 
-## Not recorded yet
+## Print record
 
-- Print material and settings used.
+- Printed in **green ABS** (user, 2026-11-20). Print settings (layer height, walls, temperatures) are not recorded yet.
 
 ## License
 
