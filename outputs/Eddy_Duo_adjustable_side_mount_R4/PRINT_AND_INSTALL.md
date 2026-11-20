@@ -1,5 +1,7 @@
 # Eddy Duo adjustable side mount R4 — proposed fit prototype
 
+> **Status: installed on the printer** (user-confirmed 2026-11-20). The Eddy Duo board was rotated 180° (long end toward the nozzle) on 2026-11-11, putting the coil 35 mm right of the old nozzle; after the 2026-11-18 nozzle shift it is 28.7 mm (`x_offset: 28.7`, `y_offset: 0`). The text below is the original design note.
+
 This is a new printable proposal using the near-nozzle fore-aft location from the accepted R2 placement. It is separate from the EBB42 brackets at the top of the toolhead. It replaces the R1 forward sensor position. R2 was a placement-only study.
 
 ## Reinforced nut channels

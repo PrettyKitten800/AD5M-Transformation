@@ -4,7 +4,7 @@ Prepared November 3, 2026 for this AD5M build. Board identity and existing parts
 
 ## Start here
 
-The seven-page visual guide is [EBB36 toolhead wiring R1](../../output/pdf/EBB36_toolhead_wiring_R1.pdf). Individual numbered PNG pages in this folder are the same guide at full resolution.
+The seven-page visual guide is [EBB36 toolhead wiring R1](EBB36_toolhead_wiring_R1.pdf). Individual numbered PNG pages in this folder are the same guide at full resolution.
 
 Use BIGTREETECH as the primary source for connector positions, polarity, pin functions and jumper behavior. Use the saved build decisions for which device occupies each supported connector. Sedmenti remains secondary context for the AD5M-specific arrangement, especially the blower; its settings are not manufacturer specifications for the connected parts.
 

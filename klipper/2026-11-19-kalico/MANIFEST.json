@@ -1,0 +1,99 @@
+{
+  "snapshot_date": "2026-11-19-kalico",
+  "created_at": "2026-11-19T23:17:22-05:00",
+  "source_host": "http://192.168.4.31",
+  "software": {
+    "klipper_host": {
+      "project": "Kalico",
+      "repo": "https://github.com/KalicoCrew/kalico.git",
+      "branch": "bleeding-edge-v2",
+      "commit": "fb4e09bc750b5a638ea873cb5211f95bd92efdac",
+      "describe": "v2026.11.00-73-gfb4e09bc",
+      "python": "3.13.5"
+    },
+    "eddy_ng": {
+      "repo": "https://github.com/vvuk/eddy-ng.git",
+      "branch": "main",
+      "commit": "a09ec8e31b22b80ad31d634a0549a479402be42c",
+      "describe": "v0.1-188-ga09ec8e"
+    }
+  },
+  "active_config_files": [
+    "config/printer.cfg",
+    "config/mainsail.cfg",
+    "config/bed-heater-check.cfg",
+    "config/motion-check.cfg",
+    "config/extruder.cfg",
+    "config/calibration.cfg",
+    "config/eddy-duo.cfg",
+    "config/eddy-macros.cfg",
+    "config/tridont_macros.cfg",
+    "config/printer-behavior.cfg"
+  ],
+  "files": {
+    "README.md": {
+      "sha256": "319fcd0ec34dadfc18581e212a06917e30845d9451466ca0585906c372f887c0",
+      "bytes": 5837
+    },
+    "config/bed-heater-check.cfg": {
+      "sha256": "ba5d0165265827438b32189b9a330e8c04c58f9507e3dcf92ae706eae7c0eb2c",
+      "bytes": 326
+    },
+    "config/calibration.cfg": {
+      "sha256": "80906fdf2d162aa906469ecdd7c0f93633a5130601b49b8108344b1f20e9fb6e",
+      "bytes": 1376
+    },
+    "config/eddy-duo.cfg": {
+      "sha256": "7741ea7640c1ec1e29f658689c4481dc28213eb2db2672c591fed57aa4efe9ab",
+      "bytes": 535
+    },
+    "config/eddy-macros.cfg": {
+      "sha256": "8db2f0032429f64a14c53bf2dbcee2902183dfd5b9e4c89970ed18d825b4f9cd",
+      "bytes": 1998
+    },
+    "config/extruder.cfg": {
+      "sha256": "cb66569c8da882254ccb5cda97d8892389664068506ea62aa917ecf3cc96e346",
+      "bytes": 1233
+    },
+    "config/mainsail.cfg": {
+      "sha256": "29d4c97b099e481c25c0a875b3f0696850a6aafa67775aee8d05e8682352ffb4",
+      "bytes": 16493
+    },
+    "config/motion-check.cfg": {
+      "sha256": "5b563b6d29fcfce3960d69db5f7278efc15d3fab22c1f9880257297eb05c8c3f",
+      "bytes": 6669
+    },
+    "config/printer-behavior.cfg": {
+      "sha256": "668c0fada5741276c6618745bfef76b4801c4b7abf6746e8538995e1d78a249c",
+      "bytes": 8856
+    },
+    "config/printer.cfg": {
+      "sha256": "d8de5ed044b74768e9dc70bf80623b45ec8bac72d5de644059460b2926dbc9ec",
+      "bytes": 3453
+    },
+    "config/tridont_macros.cfg": {
+      "sha256": "5a5467f63fba0c86a24854e02eda72ee575fcea873524dc15849eaccb3b1ad00",
+      "bytes": 21894
+    },
+    "firmware-build-configs/README.md": {
+      "sha256": "4c3b8a613426330b552edd75c53352a6a1843dd1f15202d8ae8a2ca7045f1639",
+      "bytes": 2783
+    },
+    "host/can0.service": {
+      "sha256": "53b57579dae8fcb6910a350a75ebb95c5e69d753e331046dc5a28bd08ab48814",
+      "bytes": 400
+    },
+    "host/klipper.service": {
+      "sha256": "6b0f388031bfcdbd73c1b364e223271926a4f8f082ac861c450ccb8dc05bfdf0",
+      "bytes": 413
+    }
+  },
+  "sanitized": {
+    "note": "Home-folder paths replaced with /home/<user> for the public repository; hashes for these files were recomputed after the edit.",
+    "files": [
+      "README.md",
+      "firmware-build-configs/README.md",
+      "host/klipper.service"
+    ]
+  }
+}

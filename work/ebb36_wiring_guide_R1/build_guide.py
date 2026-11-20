@@ -16,7 +16,7 @@ from reportlab.lib.styles import ParagraphStyle
 ROOT = Path(__file__).resolve().parents[2]
 WORK = ROOT / 'work/ebb36_wiring_guide_R1'
 OUT = ROOT / 'outputs/EBB36_wiring_guide_R1'
-PDFDIR = ROOT / 'output/pdf'
+PDFDIR = OUT  # PDF moved from output/pdf/ on 2026-11-20
 REF = ROOT / 'reference/ebb36_btt'
 OUT.mkdir(parents=True, exist_ok=True)
 PDFDIR.mkdir(parents=True, exist_ok=True)
@@ -131,7 +131,7 @@ def source_link(x,y,label,url,size=9.5):
     C.linkURL(url,(x,H-y-size-1,x+width,H-y+2),relative=0,thickness=0)
 
 PHOTO = WORK / 'actual_board_front.png'
-orig = Image.open(ROOT/'AD5M_HANDOFF_2026-11-02/Photos/boards_and_carrier/5-Photo-5.jpg')
+orig = Image.open(ROOT/'docs/history/AD5M_HANDOFF_2026-11-02/Photos/boards_and_carrier/5-Photo-5.jpg')
 scale=orig.width/1368
 orig.crop(tuple(round(v*scale) for v in (380,695,1130,1225))).save(PHOTO)
 

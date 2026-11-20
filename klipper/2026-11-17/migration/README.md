@@ -1,5 +1,7 @@
 # AD5M Pi 5 → Intel Linux host migration — 2026-11-17
 
+> **Status (user-confirmed 2026-11-20):** the cutover is done. The printer runs on the Intel host; see [`../../2026-11-19-kalico/`](../../2026-11-19-kalico/) for its current services and configuration. This page is kept as the record of how the migration was prepared.
+
 This handoff supplements the complete configuration snapshot one directory above. It captures the working Pi setup without sending printer commands, changing its settings, or restarting services. Intel hardware has not been configured or tested. The separate private Drive archive contains the database, original config tree, G-code library, source archives, installed frontend assets and optional existing firmware recovery images.
 
 ## What is already preserved
