@@ -1,0 +1,46 @@
+{
+  "source_model": "Native parametric FreeCAD BREP/NURBS R7 (V3.1 \u2014 -3.65 mm drop, flush Y=-26.45, M2 button-head)",
+  "edits": [
+    "Shifted both left and right C2 B-spline cooling duct outlets smoothly down by NOZZLE_DZ_EXTRA = -3.650 mm (NOZZLE_TIP Z=-31.88 mm)",
+    "Kept upper body & plenum roots anchored at Y_REAR_WALL=-26.450 mm, Y_FRONT_WALL=-44.394 mm with M2x16 button-head seats",
+    "Verified 0.0000 mm^3 interference against updated R8 chassis, extended real-hotend lower heater/sock zone, and lowered Bare Eddy Duo PCB"
+  ],
+  "brep_solids": 1,
+  "brep_valid": true,
+  "brep_volume_mm3": 13992.84,
+  "bbox": {
+    "x": [
+      -19.5,
+      34.3231
+    ],
+    "y": [
+      -44.3939,
+      -10.9553
+    ],
+    "z": [
+      -29.7849,
+      65.802
+    ]
+  },
+  "nozzle_bed_clearance_mm": 2.095,
+  "volume_mm3": 13988.55,
+  "components": 1,
+  "stl_solid": true,
+  "stl_facets": 89074,
+  "stl_non_manifolds": false,
+  "stl_self_intersections": false,
+  "interferences": {
+    "shroud_vs_r8_adapter_mm3": 0.0,
+    "shroud_vs_orbiter_mm3": 0.0,
+    "shroud_vs_x1c_hotend_mm3": 0.0,
+    "shroud_vs_x1c_hotend_long_mm3": 0.0,
+    "shroud_vs_3010_fan_mm3": 0.0,
+    "shroud_vs_gray_carriage_mm3": 0.0,
+    "shroud_vs_eddy_main_pcb_mm3": 0.0,
+    "min_dist_to_hotend_mm": 3.62,
+    "min_dist_to_hotend_long_mm": 2.896,
+    "min_dist_to_orbiter_mm": 2.806,
+    "min_dist_to_eddy_pcb_mm": 10.548
+  },
+  "build_seconds": 19.057
+}

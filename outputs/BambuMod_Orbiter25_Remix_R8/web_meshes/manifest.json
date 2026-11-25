@@ -1,5 +1,5 @@
 {
-  "version": 1795038095.336859,
+  "version": 1795554442.5971246,
   "report": {
     "params": {
       "extruder_hotend_z_shift_mm": -14.65,
@@ -18,6 +18,19 @@
       "carriage_hex_nut_pockets": true,
       "carriage_hex_nut_af_mm": 5.6,
       "lower_rear_flush_extension": true,
+      "remove_front_magnet_holders_and_add_hex": true,
+      "orbiter_tunnel_hex_nut_pockets": true,
+      "fan3010_lower_front_heatset_boss": false,
+      "fan3010_z_shift_mm": -6.4,
+      "fan3010_remove_bottom_floor": true,
+      "airflow_ramp_6_to_7": true,
+      "lower_floor_airflow_ramp": true,
+      "top_backplate_trim_z_mm": 65.08,
+      "top_bridge_full_thickness": true,
+      "motor_portal_full_through_square": true,
+      "motor_portal_top_raise_mm": 1.0,
+      "hotend_top_profile_ceiling_match": true,
+      "round_outer_corners_3_to_7": true,
       "show_carriage_mockup": true,
       "show_reference_parts": true,
       "export_stl": false
@@ -30,6 +43,7 @@
       "z_mount_mm": 17.95,
       "z_hotend_screw_mm": 12.57,
       "nozzle_z_mm": -28.23,
+      "nozzle_z_real_mm": -31.88,
       "motor_portal_z_span_mm": [
         17.75,
         56.75
@@ -44,15 +58,15 @@
           30.0
         ],
         "y": [
-          -32.039,
-          11.117
+          -26.8,
+          13.117
         ],
         "z": [
-          -9.15,
-          80.002
+          -16.2,
+          65.08
         ]
       },
-      "adapter_volume_mm3": 38737.56,
+      "adapter_volume_mm3": 32747.78,
       "adapter_valid": true
     },
     "interferences": {
@@ -62,9 +76,11 @@
       "fan3010_vs_adapter_mm3": 0.0,
       "knubs_vs_adapter_mm3": 0.0,
       "belts_vs_adapter_mm3": 0.0,
-      "ebb42_vs_adapter_mm3": 0.0
+      "ebb42_vs_adapter_mm3": 0.0,
+      "eddy_main_pcb_vs_adapter_mm3": 0.0,
+      "eddy_bare_pcb_min_dist_mm": 0.0
     },
-    "build_seconds": 24.627
+    "build_seconds": 86.228
   },
   "parts": [
     {
@@ -105,7 +121,7 @@
     },
     {
       "id": "Ref_X1C_Hotend",
-      "label": "Bambu X1C Hotend",
+      "label": "Bambu X1C Hotend (47.95 mm)",
       "stl": "/meshes/Ref_X1C_Hotend.stl",
       "color": "#dc732d",
       "opacity": 1.0,
@@ -122,17 +138,17 @@
       "movable": true
     },
     {
-      "id": "Ref_EBB42_ShortBridge",
-      "label": "EBB42 Short Bridge",
-      "stl": "/meshes/Ref_EBB42_ShortBridge.stl",
-      "color": "#329b5f",
+      "id": "Ref_Eddy_Duo_BarePCB",
+      "label": "BTT Eddy Duo Bare PCB (Rear Sunken)",
+      "stl": "/meshes/Ref_Eddy_Duo_BarePCB.stl",
+      "color": "#1db954",
       "opacity": 1.0,
       "uses_dz": false,
       "movable": true
     },
     {
       "id": "Fan_Shroud_Recovered",
-      "label": "Fan Shroud Recovered (R4 \u2014 Simplified)",
+      "label": "Fan Shroud V3.1 (R7 \u2014 -3.65 mm Drop, Flush Y=-26.45, M2)",
       "stl": "/meshes/Fan_Shroud_Recovered.stl",
       "color": "#26a69a",
       "opacity": 0.95,

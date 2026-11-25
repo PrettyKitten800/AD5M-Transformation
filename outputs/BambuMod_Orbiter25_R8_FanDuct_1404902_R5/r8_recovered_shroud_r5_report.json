@@ -1,0 +1,48 @@
+{
+  "source_model": "Native parametric FreeCAD BREP/NURBS (matching R4/1404902 datums & nozzle exits)",
+  "edits": [
+    "100% pure analytical BREP upper body, chamfers, alignment tabs, M3 post, and gusset brace (zero upstream STL mesh)",
+    "Rear magnet pockets removed; rear face dead-flat at Y = -31.650 mm",
+    "Vertical alignment tabs (+/-30.180..+/-31.873 mm) and -X bridge extended to Z = 16.295 mm (+X tab bottom flush at Z = -2.788 mm)",
+    "+X outer wall brought flush to X = +31.873 mm",
+    "Upper honeycomb skirt removed flush with flat top deck Z = 16.295 mm",
+    "C1-tangent +X M3 mounting post at (30.624, 23.152) with \u00d83.40 mm bore, 2.00 mm radial ring (R = 3.70 mm), and 1.693 mm rear triangular brace",
+    "Single-face 45-deg front chamfers (-X x+y=-63.569 flush past duct root; +X x-y=76.310 with 44.1-deg M3 support flare Z=12.600..16.295)",
+    "Smooth C2 B-spline lofted dual cooling ducts C1-tangent to Y = -49.5939 mm front bed face (zero lip) aiming at NOZZLE_TIP"
+  ],
+  "brep_solids": 1,
+  "brep_valid": true,
+  "brep_volume_mm3": 14276.24,
+  "bbox": {
+    "x": [
+      -31.873,
+      34.3231
+    ],
+    "y": [
+      -49.5939,
+      -10.9553
+    ],
+    "z": [
+      -26.1349,
+      26.852
+    ]
+  },
+  "nozzle_bed_clearance_mm": 2.095,
+  "volume_mm3": 14272.7,
+  "components": 1,
+  "stl_solid": true,
+  "stl_facets": 89320,
+  "stl_non_manifolds": false,
+  "stl_non_uniform_faces": 0,
+  "stl_self_intersections": true,
+  "interferences": {
+    "shroud_vs_r8_adapter_mm3": 5.9052,
+    "shroud_vs_orbiter_mm3": 0.0,
+    "shroud_vs_x1c_hotend_mm3": 0.0,
+    "shroud_vs_3010_fan_mm3": 0.0,
+    "shroud_vs_gray_carriage_mm3": 0.0,
+    "min_dist_to_hotend_mm": 4.73,
+    "min_dist_to_orbiter_mm": 7.121
+  },
+  "build_seconds": 7.104
+}

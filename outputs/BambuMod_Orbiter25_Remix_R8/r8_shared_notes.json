@@ -1,24 +1,44 @@
 {
-  "updated_at": "2026-11-18T16:47:40",
+  "updated_at": "2026-11-24T16:11:35",
   "general_note": "",
   "annotations": [
     {
       "id": 1,
-      "part": "Fan_Shroud_Recovered",
+      "part": "R8_Adapter",
       "point": [
-        24.18,
-        -34.65,
-        3.3
+        -13.3,
+        -21.59,
+        12.04
       ],
       "text": ""
     },
     {
       "id": 2,
-      "part": "Fan_Shroud_Recovered",
+      "part": "R8_Adapter",
       "point": [
-        -24.81,
-        -34.66,
-        3.33
+        -13.3,
+        0.45,
+        12.45
+      ],
+      "text": ""
+    },
+    {
+      "id": 3,
+      "part": "R8_Adapter",
+      "point": [
+        -19.5,
+        -1.57,
+        -9.25
+      ],
+      "text": ""
+    },
+    {
+      "id": 4,
+      "part": "R8_Adapter",
+      "point": [
+        -19.5,
+        -22.23,
+        -10.07
       ],
       "text": ""
     }
@@ -27,14 +47,14 @@
   "clip": null,
   "camera": {
     "pos": [
-      37.58,
-      184.2,
-      35.34
+      -174.99,
+      -43.17,
+      22.25
     ],
     "target": [
-      0,
-      -8,
-      32
+      -10.24,
+      -12.01,
+      12.81
     ]
   }
 }

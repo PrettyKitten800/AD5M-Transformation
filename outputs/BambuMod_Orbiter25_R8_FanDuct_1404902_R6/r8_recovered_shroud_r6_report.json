@@ -1,0 +1,44 @@
+{
+  "source_model": "Native parametric FreeCAD BREP/NURBS R6 (V3.0 \u2014 flush Y=-26.40, countersunk M3 mounts)",
+  "edits": [
+    "Upper body shifted +5.250 mm back in Y: Y_REAR_WALL=-26.400 mm (flush w/ thinned chassis), Y_FRONT_WALL=-44.344 mm",
+    "Removed obsolete -X alignment wing & tab (#10/#11); +X tab trimmed to Y_rear=-23.00 mm (clear of honeycomb grille)",
+    "Added symmetrical countersunk M3 mounting holes (#6 at -14.80, +5.80 & #7 at +24.30, +5.80) w/ 90-deg \u00d86.50 mm countersinks",
+    "Sealed internal bolt sleeve around -X bolt (#6) inside plenum corner (zero 5015 air leak)",
+    "Smoothly blended dual cooling ducts from shifted plenum to exact proven R5 nozzle exits at NOZZLE_TIP"
+  ],
+  "brep_solids": 1,
+  "brep_valid": true,
+  "brep_volume_mm3": 12813.87,
+  "bbox": {
+    "x": [
+      -19.5,
+      34.3231
+    ],
+    "y": [
+      -44.3939,
+      -10.9553
+    ],
+    "z": [
+      -26.1349,
+      26.852
+    ]
+  },
+  "nozzle_bed_clearance_mm": 2.095,
+  "volume_mm3": 12810.07,
+  "components": 1,
+  "stl_solid": true,
+  "stl_facets": 84678,
+  "stl_non_manifolds": false,
+  "stl_self_intersections": false,
+  "interferences": {
+    "shroud_vs_r8_adapter_mm3": 0.0,
+    "shroud_vs_orbiter_mm3": 0.0,
+    "shroud_vs_x1c_hotend_mm3": 0.0,
+    "shroud_vs_3010_fan_mm3": 0.0,
+    "shroud_vs_gray_carriage_mm3": 0.0,
+    "min_dist_to_hotend_mm": 3.62,
+    "min_dist_to_orbiter_mm": 2.806
+  },
+  "build_seconds": 9.742
+}
