@@ -26,6 +26,7 @@ reference/Voron_Trident/Voron-Trident/
 reference/Voron_Trident/Voron-Stealthburner/
 reference/Voron_Trident/Voron-Documentation/
 reference/BootyCallJones_K1_Gantry/source/
+reference/Voron_BFI/source/
 # Large derived preview caches (original CAD remains available)
 **/*_preview_mesh.json
 **/node_modules/

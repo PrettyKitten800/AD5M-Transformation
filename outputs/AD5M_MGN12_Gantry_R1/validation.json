@@ -1,0 +1,467 @@
+{
+  "parts": [
+    {
+      "name": "Y_Rail_Spine_R",
+      "solids": 1,
+      "valid": true,
+      "volume_mm3": 47797.86,
+      "facets": 5722,
+      "bbox": {
+        "x": [
+          171.5,
+          178.5
+        ],
+        "y": [
+          -137.5,
+          159.0
+        ],
+        "z": [
+          381.0,
+          405.4
+        ]
+      },
+      "step": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\Y_Rail_Spine_R.step",
+      "stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\Y_Rail_Spine_R.stl",
+      "print_pose_stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts_print_pose\\Y_Rail_Spine_R_PrintPose.stl"
+    },
+    {
+      "name": "Y_Rail_Spine_L",
+      "solids": 1,
+      "valid": true,
+      "volume_mm3": 47797.86,
+      "facets": 5722,
+      "bbox": {
+        "x": [
+          -178.5,
+          -171.5
+        ],
+        "y": [
+          -137.5,
+          159.0
+        ],
+        "z": [
+          381.0,
+          405.4
+        ]
+      },
+      "step": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\Y_Rail_Spine_L.step",
+      "stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\Y_Rail_Spine_L.stl",
+      "print_pose_stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts_print_pose\\Y_Rail_Spine_L_PrintPose.stl"
+    },
+    {
+      "name": "Rear_Motor_Mount_R",
+      "solids": 1,
+      "valid": true,
+      "volume_mm3": 40603.61,
+      "facets": 6752,
+      "bbox": {
+        "x": [
+          101.0,
+          175.0
+        ],
+        "y": [
+          132.5,
+          175.0
+        ],
+        "z": [
+          367.5,
+          405.4
+        ]
+      },
+      "step": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\Rear_Motor_Mount_R.step",
+      "stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\Rear_Motor_Mount_R.stl",
+      "print_pose_stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts_print_pose\\Rear_Motor_Mount_R_PrintPose.stl"
+    },
+    {
+      "name": "Rear_Motor_Mount_L",
+      "solids": 1,
+      "valid": true,
+      "volume_mm3": 51310.87,
+      "facets": 6808,
+      "bbox": {
+        "x": [
+          -175.0,
+          -101.0
+        ],
+        "y": [
+          132.5,
+          175.0
+        ],
+        "z": [
+          356.5,
+          405.4
+        ]
+      },
+      "step": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\Rear_Motor_Mount_L.step",
+      "stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\Rear_Motor_Mount_L.stl",
+      "print_pose_stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts_print_pose\\Rear_Motor_Mount_L_PrintPose.stl"
+    },
+    {
+      "name": "Motor_DS_Cap_R",
+      "solids": 1,
+      "valid": true,
+      "volume_mm3": 4278.84,
+      "facets": 3784,
+      "bbox": {
+        "x": [
+          101.2,
+          166.2
+        ],
+        "y": [
+          145.6,
+          171.9
+        ],
+        "z": [
+          386.5,
+          392.0
+        ]
+      },
+      "step": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\Motor_DS_Cap_R.step",
+      "stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\Motor_DS_Cap_R.stl",
+      "print_pose_stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts_print_pose\\Motor_DS_Cap_R_PrintPose.stl"
+    },
+    {
+      "name": "Motor_DS_Cap_L",
+      "solids": 1,
+      "valid": true,
+      "volume_mm3": 4278.84,
+      "facets": 3784,
+      "bbox": {
+        "x": [
+          -166.2,
+          -101.2
+        ],
+        "y": [
+          145.6,
+          171.9
+        ],
+        "z": [
+          376.0,
+          381.5
+        ]
+      },
+      "step": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\Motor_DS_Cap_L.step",
+      "stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\Motor_DS_Cap_L.stl",
+      "print_pose_stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts_print_pose\\Motor_DS_Cap_L_PrintPose.stl"
+    },
+    {
+      "name": "Front_BFI_Housing_R",
+      "solids": 1,
+      "valid": true,
+      "volume_mm3": 41451.65,
+      "facets": 2014,
+      "bbox": {
+        "x": [
+          135.5,
+          174.0
+        ],
+        "y": [
+          -173.5,
+          -132.2
+        ],
+        "z": [
+          359.0,
+          405.4
+        ]
+      },
+      "step": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\Front_BFI_Housing_R.step",
+      "stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\Front_BFI_Housing_R.stl",
+      "print_pose_stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts_print_pose\\Front_BFI_Housing_R_PrintPose.stl"
+    },
+    {
+      "name": "Front_BFI_Carrier_R",
+      "solids": 1,
+      "valid": true,
+      "volume_mm3": 3670.29,
+      "facets": 3102,
+      "bbox": {
+        "x": [
+          140.7,
+          158.3
+        ],
+        "y": [
+          -162.5,
+          -143.5
+        ],
+        "z": [
+          370.0,
+          392.0
+        ]
+      },
+      "step": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\Front_BFI_Carrier_R.step",
+      "stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\Front_BFI_Carrier_R.stl",
+      "print_pose_stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts_print_pose\\Front_BFI_Carrier_R_PrintPose.stl"
+    },
+    {
+      "name": "Front_BFI_Housing_L",
+      "solids": 1,
+      "valid": true,
+      "volume_mm3": 41578.77,
+      "facets": 2018,
+      "bbox": {
+        "x": [
+          -174.0,
+          -135.5
+        ],
+        "y": [
+          -173.5,
+          -132.2
+        ],
+        "z": [
+          359.0,
+          405.4
+        ]
+      },
+      "step": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\Front_BFI_Housing_L.step",
+      "stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\Front_BFI_Housing_L.stl",
+      "print_pose_stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts_print_pose\\Front_BFI_Housing_L_PrintPose.stl"
+    },
+    {
+      "name": "Front_BFI_Carrier_L",
+      "solids": 1,
+      "valid": true,
+      "volume_mm3": 3670.29,
+      "facets": 3102,
+      "bbox": {
+        "x": [
+          -158.3,
+          -140.7
+        ],
+        "y": [
+          -162.5,
+          -143.5
+        ],
+        "z": [
+          359.0,
+          381.0
+        ]
+      },
+      "step": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\Front_BFI_Carrier_L.step",
+      "stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\Front_BFI_Carrier_L.stl",
+      "print_pose_stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts_print_pose\\Front_BFI_Carrier_L_PrintPose.stl"
+    },
+    {
+      "name": "XY_Joint_R_Upper",
+      "solids": 1,
+      "valid": true,
+      "volume_mm3": 24566.23,
+      "facets": 5626,
+      "bbox": {
+        "x": [
+          114.8,
+          158.5
+        ],
+        "y": [
+          -18.0,
+          35.5
+        ],
+        "z": [
+          375.52,
+          404.0
+        ]
+      },
+      "step": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\XY_Joint_R_Upper.step",
+      "stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\XY_Joint_R_Upper.stl",
+      "print_pose_stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts_print_pose\\XY_Joint_R_Upper_PrintPose.stl"
+    },
+    {
+      "name": "XY_Joint_R_Lower",
+      "solids": 1,
+      "valid": true,
+      "volume_mm3": 3954.27,
+      "facets": 4200,
+      "bbox": {
+        "x": [
+          114.8,
+          158.5
+        ],
+        "y": [
+          -18.0,
+          33.5
+        ],
+        "z": [
+          365.02,
+          375.48
+        ]
+      },
+      "step": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\XY_Joint_R_Lower.step",
+      "stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\XY_Joint_R_Lower.stl",
+      "print_pose_stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts_print_pose\\XY_Joint_R_Lower_PrintPose.stl"
+    },
+    {
+      "name": "XY_Joint_R_Bottom_Cap",
+      "solids": 1,
+      "valid": true,
+      "volume_mm3": 1102.57,
+      "facets": 2554,
+      "bbox": {
+        "x": [
+          139.0,
+          158.5
+        ],
+        "y": [
+          -4.0,
+          20.75
+        ],
+        "z": [
+          361.5,
+          364.98
+        ]
+      },
+      "step": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\XY_Joint_R_Bottom_Cap.step",
+      "stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\XY_Joint_R_Bottom_Cap.stl",
+      "print_pose_stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts_print_pose\\XY_Joint_R_Bottom_Cap_PrintPose.stl"
+    },
+    {
+      "name": "XY_Joint_L_Upper",
+      "solids": 1,
+      "valid": true,
+      "volume_mm3": 25326.41,
+      "facets": 6012,
+      "bbox": {
+        "x": [
+          -158.5,
+          -116.5
+        ],
+        "y": [
+          -18.0,
+          35.5
+        ],
+        "z": [
+          375.52,
+          404.0
+        ]
+      },
+      "step": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\XY_Joint_L_Upper.step",
+      "stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\XY_Joint_L_Upper.stl",
+      "print_pose_stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts_print_pose\\XY_Joint_L_Upper_PrintPose.stl"
+    },
+    {
+      "name": "XY_Joint_L_Lower",
+      "solids": 1,
+      "valid": true,
+      "volume_mm3": 8695.66,
+      "facets": 3792,
+      "bbox": {
+        "x": [
+          -158.5,
+          -114.8
+        ],
+        "y": [
+          -18.0,
+          35.5
+        ],
+        "z": [
+          361.5,
+          375.48
+        ]
+      },
+      "step": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\XY_Joint_L_Lower.step",
+      "stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\XY_Joint_L_Lower.stl",
+      "print_pose_stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts_print_pose\\XY_Joint_L_Lower_PrintPose.stl"
+    },
+    {
+      "name": "X_Carriage_MGN12_Base_R1",
+      "solids": 1,
+      "valid": true,
+      "volume_mm3": 15504.86,
+      "facets": 3060,
+      "bbox": {
+        "x": [
+          -22.0,
+          22.0
+        ],
+        "y": [
+          -6.0,
+          9.5
+        ],
+        "z": [
+          365.5,
+          408.0
+        ]
+      },
+      "step": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\X_Carriage_MGN12_Base_R1.step",
+      "stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts\\X_Carriage_MGN12_Base_R1.stl",
+      "print_pose_stl": "outputs\\AD5M_MGN12_Gantry_R1\\parts_print_pose\\X_Carriage_MGN12_Base_R1_PrintPose.stl"
+    }
+  ],
+  "interferences_mm3": {
+    "Y_Rail_Spine_R_vs_frame": 0.0,
+    "Y_Rail_Spine_R_vs_enc": 0.0,
+    "Y_Rail_Spine_R_vs_static_hw": 0.0,
+    "Y_Rail_Spine_R_vs_belts": 0.0,
+    "Y_Rail_Spine_L_vs_frame": 0.0,
+    "Y_Rail_Spine_L_vs_enc": 0.0,
+    "Y_Rail_Spine_L_vs_static_hw": 0.0,
+    "Y_Rail_Spine_L_vs_belts": 0.0,
+    "Rear_Motor_Mount_R_vs_frame": 0.0,
+    "Rear_Motor_Mount_R_vs_enc": 0.0,
+    "Rear_Motor_Mount_R_vs_static_hw": 0.0,
+    "Rear_Motor_Mount_R_vs_belts": 0.0,
+    "Rear_Motor_Mount_L_vs_frame": 0.0,
+    "Rear_Motor_Mount_L_vs_enc": 0.0,
+    "Rear_Motor_Mount_L_vs_static_hw": 0.0,
+    "Rear_Motor_Mount_L_vs_belts": 0.0,
+    "Motor_DS_Cap_R_vs_frame": 0.0,
+    "Motor_DS_Cap_R_vs_enc": 0.0,
+    "Motor_DS_Cap_R_vs_static_hw": 0.0,
+    "Motor_DS_Cap_R_vs_belts": 0.0,
+    "Motor_DS_Cap_L_vs_frame": 0.0,
+    "Motor_DS_Cap_L_vs_enc": 0.0,
+    "Motor_DS_Cap_L_vs_static_hw": 0.0,
+    "Motor_DS_Cap_L_vs_belts": 0.0,
+    "Front_BFI_Housing_R_vs_frame": 0.0,
+    "Front_BFI_Housing_R_vs_enc": 0.0,
+    "Front_BFI_Housing_R_vs_static_hw": 0.0,
+    "Front_BFI_Housing_R_vs_belts": 0.0,
+    "Front_BFI_Housing_L_vs_frame": 0.0,
+    "Front_BFI_Housing_L_vs_enc": 0.0,
+    "Front_BFI_Housing_L_vs_static_hw": 0.0,
+    "Front_BFI_Housing_L_vs_belts": 0.0,
+    "Front_BFI_Carrier_R_vs_frame": 0.0,
+    "Front_BFI_Carrier_R_vs_enc": 0.0,
+    "Front_BFI_Carrier_R_vs_static_hw": 0.0,
+    "Front_BFI_Carrier_R_vs_belts": 0.0,
+    "Front_BFI_Carrier_L_vs_frame": 0.0,
+    "Front_BFI_Carrier_L_vs_enc": 0.0,
+    "Front_BFI_Carrier_L_vs_static_hw": 0.0,
+    "Front_BFI_Carrier_L_vs_belts": 0.0,
+    "Motor_DS_Cap_R_vs_Mount_R": 0.0,
+    "Motor_DS_Cap_L_vs_Mount_L": 0.0,
+    "XY_Joint_R_Upper_vs_Lower": 0.0,
+    "XY_Joint_R_Lower_vs_BottomCap": 0.0,
+    "XY_Joint_R_Upper_vs_BottomCap": 0.0,
+    "XY_Joint_L_Upper_vs_Lower": 0.0,
+    "XY_Joint_R_vs_brgs_R": 0.0,
+    "XY_Joint_L_vs_brgs_L": 0.0,
+    "XY_Joint_R_vs_belt_A": 0.0,
+    "XY_Joint_R_vs_belt_B": 0.0,
+    "XY_Joint_L_vs_belt_A": 0.0,
+    "XY_Joint_L_vs_belt_B": 0.0,
+    "X_Carriage_vs_x_blk": 0.0,
+    "X_Carriage_vs_x_rail": 0.0,
+    "X_Carriage_vs_xy_joints_nom": 0.0,
+    "XY_Joints_nom_vs_y_blocks": 0.0,
+    "XY_Joints_nom_vs_x_rail": 0.0,
+    "sweep_FrontLeft_min_vs_static_all": 0.0,
+    "sweep_FrontLeft_min_xcar_vs_joints": 0.0,
+    "sweep_FrontLeft_min_xyR_vs_brgs_belts": 0.0,
+    "sweep_FrontLeft_min_xyL_vs_brgs_belts": 0.0,
+    "sweep_FrontRight_min_vs_static_all": 0.0,
+    "sweep_FrontRight_min_xcar_vs_joints": 0.0,
+    "sweep_FrontRight_min_xyR_vs_brgs_belts": 0.0,
+    "sweep_FrontRight_min_xyL_vs_brgs_belts": 0.0,
+    "sweep_RearLeft_max_vs_static_all": 0.0,
+    "sweep_RearLeft_max_xcar_vs_joints": 0.0,
+    "sweep_RearLeft_max_xyR_vs_brgs_belts": 0.0,
+    "sweep_RearLeft_max_xyL_vs_brgs_belts": 0.0,
+    "sweep_RearRight_max_vs_static_all": 0.0,
+    "sweep_RearRight_max_xcar_vs_joints": 0.0,
+    "sweep_RearRight_max_xyR_vs_brgs_belts": 0.0,
+    "sweep_RearRight_max_xyL_vs_brgs_belts": 0.0,
+    "bfi_slider_dy_-4.0_vs_housing_r": 0.0,
+    "bfi_slider_dy_+4.0_vs_housing_r": 0.0
+  },
+  "max_interference_mm3": 0.0,
+  "all_clear": true
+}

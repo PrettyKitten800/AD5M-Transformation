@@ -12,7 +12,7 @@
 | **Local workstation** | `C:\Users\PK800\Documents\3D Printing\1 - The Moron Tridont Project\` holding `AD5M-Transformation\` (this repo), `Google Drive mirror\` and `Archive\` |
 | **Printer host** | CurbyServer (Intel Linux PC), `http://192.168.4.31` (Mainsail :80, Fluidd :8080) |
 | **Log started** | 2026-11-20 (earlier entries reconstructed from repo history, handoffs, snapshots and the local working copy) |
-| **Last updated** | 2026-11-20 |
+| **Last updated** | 2026-11-25 |
 
 **Authoritative order:** [CURRENT_TOOLHEAD_SPEC.md](CURRENT_TOOLHEAD_SPEC.md) and [AGENTS.md](AGENTS.md) → newest `klipper/` snapshot → this log. Everything in [docs/history/](docs/history/) is superseded history.
 
@@ -172,7 +172,7 @@ Legend: ✅ done · 🔄 in progress · ⏳ planned
 | 3 | Toolhead (Orbiter v2.5, R8 housing, cooling, Eddy placement, EBB42 mount) | 🔄 | Installed toolhead documented and long-print qualified | [CURRENT_TOOLHEAD_SPEC.md](CURRENT_TOOLHEAD_SPEC.md), [outputs/INDEX.md](outputs/INDEX.md) |
 | 3b | Kalico + eddy-ng (MPC, smooth shapers, tap) | 🔄 | Snapshot in Git ✅; long print passes | [klipper/2026-11-19-kalico/](klipper/2026-11-19-kalico/) |
 | 4 | Host migration Pi 5 → Intel Linux PC | ✅ | Printer running on the Intel host | [migration](klipper/2026-11-17/migration/README.md) |
-| 5 | XY linear-rail gantry (MGN rails; BootyCallJones K1 as reference) | ⏳ | Rails installed, re-tuned shaper, dimensional test | [roadmap](docs/plans/UPGRADE_ROADMAP.md), `reference/AD5M_gantry_research/` |
+| 5 | XY linear-rail gantry (`3× MGN12H 300 mm` miniature Voron Trident R1) | 🔄 | CAD + `Z = 0` print-pose STLs verified ✅; sourcing motion BOM, printing & installing, re-tuning shaper | [GANTRY_SPEC](docs/plans/AD5M_MGN12_GANTRY_SPEC.md), [Gantry R1](outputs/AD5M_MGN12_Gantry_R1/) |
 | 6 | Independent triple Z + `Z_TILT_ADJUST` | ⏳ | 3 Z motors on 3 driver channels, tilt converges | [roadmap](docs/plans/UPGRADE_ROADMAP.md) |
 | 7 | Frame conversion to Voron Trident 300 × 300 × 300 (2020), AWD | ⏳ | Frame built, AC bed + SSR, enclosure | [frame plan](docs/plans/FRAME_CONVERSION.md) |
 | 8 | Toolchanger (2 tools, then 4) | ⏳ | Two-tool print, then four | [roadmap](docs/plans/UPGRADE_ROADMAP.md) |
@@ -267,7 +267,12 @@ Newest entries at the bottom. "Evidence" points to the repo file, Drive item or 
 - **Dragon Burner path dropped.**
 - Repo reorganized (history and plans moved to `docs/`); Kalico snapshot committed; Drive split into NotebookLM sources, Current printables, CAD references, Klipper snapshots, Backups (PRIVATE) and Photos.
 - This build log created and mirrored to Drive. Local work that had never been pushed (inline R1 rejection, locator warning, toolhead R2, marking buttons R5, nozzle brush and wiper) committed to GitHub.
-- Workstation reorganized to mirror Drive: `Documents\3D Printing\1 - The Moron Tridont Project\` (repo + Drive mirror + archive) and `2 - Voron Trident & Other Printers\`.
+- **Workstation reorganized to mirror Drive:** `Documents\3D Printing\1 - The Moron Tridont Project\` (repo + Drive mirror + archive) and `2 - Voron Trident & Other Printers\`.
+
+### 2026-11-25 — Phase 5 AD5M `3× MGN12H 300 mm` miniature Voron Trident gantry R1 & BOM locked (🔄)
+- **What changed:** Designed parametric 16-part support-free CoreXY gantry [`AD5M_MGN12_Gantry_R1`](outputs/AD5M_MGN12_Gantry_R1/) anchored to `AD5M_Frame.STEP` & `AD5M_Enclosure.STEP` (vertical inward `300 mm` MGN12H Y-rail spines, self-supporting `300 mm` X-rail above both belt planes, rigid double-shear `48 mm`-ready rear motor mounts with `F695` top shaft caps, door-accessible Voron BFI front compression tensioners, and 2/3-piece flat-bed-printable Trident split XY joints). Retuned all heat-set pockets to **`M3 × 4.6 × 5.7 mm`** (`Ø4.00 × 6.2–6.5 mm`), widened `XY_2_20T` bays to `Ø18.6 mm` (`X = ±146.8 mm`) and lowered motor faces `-0.5 mm` (`L: 356.5`, `R: 367.5`) for the selected FULARR kit, exported `Z = 0` [`parts_print_pose/`](outputs/AD5M_MGN12_Gantry_R1/parts_print_pose/), and logged the official Phase 5 BOM in §7.2.
+- **Physically tested?** CAD only (75 interference checks = `0.0000 mm³`, 16/16 single-solid valid BREPs & watertight single-component STLs; untested physically).
+- **Evidence:** [AD5M_MGN12_GANTRY_SPEC.md](docs/plans/AD5M_MGN12_GANTRY_SPEC.md), [PRINT_AND_FIT.md](outputs/AD5M_MGN12_Gantry_R1/PRINT_AND_FIT.md), [build_gantry_r1.py](scripts/cad/gantry_r1/build_gantry_r1.py), [validation.json](outputs/AD5M_MGN12_Gantry_R1/validation.json)
 
 ---
 
@@ -289,6 +294,8 @@ Newest entries at the bottom. "Evidence" points to the repo file, Drive item or 
 
 ## 7. Bill of materials
 
+> **Canonical single-document BOM (with product links, ASINs, and notes):** **[BOM.md](BOM.md)**
+
 Costs are left blank for you to fill in.
 
 ### 7.1 Installed or on hand
@@ -306,7 +313,7 @@ Costs are left blank for you to fill in.
 | BTT Eddy Duo | 1 | Installed | | CAN |
 | ReliaBot external bed MOSFET V1.3 | 1 | On hand, not installed | | Option if bed current is too close to 10 A |
 | Orbiter v2.5 + LDO-36STH20-1004AHG | 1 | Installed | | |
-| TZ 2.0 clone hotend (X1C-style), 0.4 mm | 1 | Installed | | |
+| TZ 2.0 clone hotend (X1C-style), 0.4 mm | 1 | Installed | | Upgrade ordered: AJOYIB `24 V 60 W` ceramic heater + `100K B3950` thermistor + clip (`MPC_CALIBRATE` after swap) |
 | Bambu X1C hotend | 1 | Removed | | Earlier records called the hotend X1C |
 | Peerless DF3010B24H 3010 fan | 1 | Installed | | Hotend fan |
 | Part-cooling blower (stock HXH HBB0524VD) | 1 | Installed? | | Confirm |
@@ -314,7 +321,22 @@ Costs are left blank for you to fill in.
 | 4-core CAN cable (≈18 AWG), 12/16 AWG copper, lugs, JST/Molex | — | Installed | | |
 | Printed: rear carrier R10, R8 housing, R4 shroud, Eddy mount R4, EBB42 bracket | — | Installed | | ABS / ASA |
 
-### 7.2 Planned: Phases 5–7 (Trident 300 × 300 × 300)
+### 7.2 Phase 5: AD5M `3× MGN12H 300 mm` Linear-Rail CoreXY Gantry (`AD5M_MGN12_Gantry_R1`)
+
+| Part / Kit | Qty | Status | Cost | Allocation & Notes |
+|---|---:|---|---:|---|
+| **`uxcell MGN12 300 mm` Linear Rail + `MGN12H` Block** | 1 | Ordered | | Self-supporting X-axis rail (`Z_mid = 394.5`); bearing steel w/ plastic mini guide & end limit blocks (remove end blocks before seating) |
+| **`IMETRX MGN12H 300 mm` Linear Rail Guides + Blocks** | 2 | Ordered | | Vertical inward Y rails on side spines (`\|X\| = 171.5`, `11` bolts/side); pre-oiled heavy-duty bearing steel |
+| **FULARR `5 m` GT2 Timing Belt & Pulley Kit** (ASIN `B07TFCPCJ2`) | 1 kit | Selected (Amazon) | | `5 m × 6 mm` open rubber GT2 belt (`~2.52 m` needed installed; planned future upgrade to genuine Gates `LL-2GT-6`), `5×` `20T` `5 mm`-bore `16 × 16 mm` drive pulleys (`2` used), `5×` `20T` `5 mm`-bore `Ø18 × 8 mm` toothed idlers (`2` used), springs/blocks/wrench |
+| **M METERXITY `F695-2RS` Flanged Ball Bearings** (ASIN `B0F4XNK1GM` / `mma250226ty002421jp`, `20`-pack) | 20 pcs | Selected (Amazon) | | Chrome steel double-rubber-seal `5 × 13 × 4 mm` (`Ø15 mm` flange); `14` used (`12×` in `6` back-to-back smooth idler stacks + `2×` rear double-shear motor caps); verify 20-pack variant at checkout |
+| **`Ø5 mm` 304 Stainless Steel Dowel Pin Assortment** (`10/16/20/25/30/35/40 mm`) | 1 set | Selected (Amazon) | | `8` pins used total (`7×` `5 × 20 mm` for BFI + `5×` XY pins + `1×` `5 × 30 mm` for Left `XY_2_20T`); verify `>= 7× 5×20` and `>= 1× 5×30` inside pack |
+| **`5 × 8 × 0.5 mm` 304 Stainless Steel Bearing Shims** (`100`-pack) | 100 pcs | Selected (Amazon) | | RC `5 mm` inner-race bearing shims (`~28` used: `2× 0.5 mm` above/below each `F695` pair, `1 + 2` shims on `8 mm` FULARR `20T` toothed idlers) |
+| **`M3 × 4.6 mm OD × 5.7 mm` Brass Heat-Set Inserts** | ~39 used | On hand | | CAD tuned to `Ø4.00 mm × 6.2–6.5 mm` pockets across Y-spines (`11×`/side), rear motor mounts (`3×`/side), and split XY joints |
+| **`M3 / M4 / M5` SHCS & Nuts** (`M3×8/12/16/20/35`, `M4×12/16`, `M5×12`) | ~100 pcs | Standard fasteners | | `48×` `M3×8` rail/block bolts, `4× M3×35` + `4×` M3 hex nuts for Front BFI, `M3×12/16/20` XY-joint & DS cap bolts, `M4`/`M5` frame mounts |
+| **AJOYIB `24 V 60 W` Ceramic Heater + `100K B25/50=3950K ±1%` Thermistor + Clip** (Bambu X1/X1C compatible) | 1 set | Ordered | | Hotend upgrade (`350 °C` max heater, `-30..300 °C` thermistor); keep `Generic 3950`, set `heater_power: 60`, re-run `MPC_CALIBRATE` |
+| **Future `48 mm` XY Stepper Upgrade (`LDO-42STH48-2004MAH` / `2504MAH`)** | 2 | Future (optional) | | `0.9°`, `48 mm` body, `24 mm` shaft; stock `40 mm` AD5M steppers fit initially once press-fit pulleys are swapped for `20T` set-screw pulleys |
+
+### 7.3 Planned: Phases 6–7 (Trident 300 × 300 × 300)
 
 | Part | Qty | Notes |
 |---|---:|---|
